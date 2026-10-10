@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef } from 'react'
 import type { OrbitControls as OrbitControlsImpl } from 'three-stdlib'
-import { Canvas, useThree } from '@react-three/fiber'
+import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { Edges, OrbitControls } from '@react-three/drei'
 import * as THREE from 'three'
 import type { Route, Vehicle } from '../protocol/contract'
@@ -133,8 +133,29 @@ function BoxMesh({
 }) {
   const unloaded = state === 'unloaded'
   const emphasised = state === 'current' || state === 'selected'
+  const meshRef = useRef<THREE.Mesh>(null)
+  const matRef = useRef<THREE.MeshStandardMaterial>(null)
+  // 卸货动画：已卸箱件沿 −x 从后门滑出车厢并淡出；尊重系统「减少动态效果」设置
+  const reduced = typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
+  const target = useMemo<[number, number, number]>(
+    () => (unloaded ? [-(sb.size[0] / 2) - 0.45, sb.center[1], sb.center[2]] : sb.center),
+    [unloaded, sb],
+  )
+  const targetOpacity = unloaded ? 0.12 : 1
+  useFrame((_, dt) => {
+    const m = meshRef.current
+    const mat = matRef.current
+    if (!m || !mat) return
+    const k = reduced ? 1 : Math.min(1, dt * 7)
+    m.position.x += (target[0] - m.position.x) * k
+    m.position.y += (target[1] - m.position.y) * k
+    m.position.z += (target[2] - m.position.z) * k
+    mat.opacity += (targetOpacity - mat.opacity) * k
+    mat.depthWrite = mat.opacity > 0.5
+  })
   return (
     <mesh
+      ref={meshRef}
       position={sb.center}
       onClick={(e) => {
         e.stopPropagation()
@@ -150,14 +171,14 @@ function BoxMesh({
     >
       <boxGeometry args={sb.size} />
       <meshStandardMaterial
+        ref={matRef}
         color={color}
-        transparent={unloaded}
-        opacity={unloaded ? 0.12 : 1}
+        transparent
+        opacity={1}
         roughness={0.85}
         metalness={0}
         emissive={emphasised ? '#ffffff' : '#000000'}
         emissiveIntensity={emphasised ? 0.25 : 0}
-        depthWrite={!unloaded}
       />
       {sb.box.fragile ? (
         <Edges color="#d03b3b" lineWidth={2} />
@@ -182,10 +203,10 @@ export function CargoView({ vehicle, route, derived, unloadedIds, currentBoxId, 
   const stopCount = route?.store_ids.length ?? 0
 
   return (
-    <div className="stage-canvas">
+    <div className="stage-canvas" data-cargo-canvas>
       <Canvas
         dpr={[1, 2]}
-        gl={{ antialias: true, alpha: true }}
+        gl={{ antialias: true, alpha: true, preserveDrawingBuffer: true }}
         camera={{ fov: 42 }}
         onPointerMissed={() => onSelectBox(null)}
       >

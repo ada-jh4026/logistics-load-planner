@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import type { JobResponse, SolveRequest } from './protocol/contract'
 import { derive } from './lib/derive'
 import { ARCHIVE_OPTIONS, loadCase, loadServiceCases, SAMPLE_OPTIONS, type CaseOption } from './lib/cases'
@@ -10,7 +10,8 @@ import { useAssistant, type RunPair } from './lib/useAssistant'
 import { AssistantPanel } from './components/AssistantPanel'
 import { TopBar } from './components/TopBar'
 import { VehicleRail } from './components/VehicleRail'
-import { CargoView } from './components/CargoView'
+// Three.js 与 3D 视图单独分包：首屏不下载 WebGL 代码，首次切到车厢视图时再加载
+const CargoView = lazy(() => import('./components/CargoView').then((m) => ({ default: m.CargoView })))
 import { RouteMap } from './components/RouteMap'
 import { UnloadStrip } from './components/UnloadStrip'
 import { SidePanel } from './components/SidePanel'
@@ -383,17 +384,27 @@ export default function App() {
               </div>
             ) : view === '3d' && vehicle ? (
               <>
-                <CargoView
-                  vehicle={vehicle}
-                  route={route}
-                  derived={derived}
-                  unloadedIds={unloadedIds}
-                  currentBoxId={currentBoxId}
-                  selectedBoxId={selectedBoxId}
-                  onSelectBox={setSelectedBoxId}
-                  resetKey={resetKey}
-                  highlightIds={highlightBoxIds}
-                />
+                <Suspense
+                  fallback={
+                    <div className="stage-message">
+                      <div>
+                        <div className="big">正在加载 3D 视图</div>
+                      </div>
+                    </div>
+                  }
+                >
+                  <CargoView
+                    vehicle={vehicle}
+                    route={route}
+                    derived={derived}
+                    unloadedIds={unloadedIds}
+                    currentBoxId={currentBoxId}
+                    selectedBoxId={selectedBoxId}
+                    onSelectBox={setSelectedBoxId}
+                    resetKey={resetKey}
+                    highlightIds={highlightBoxIds}
+                  />
+                </Suspense>
                 {snapshotLabel && (
                   <div className="snapshot-banner">
                     正在查看{snapshotLabel}（后端随事件保存的已验证方案；指标、车辆、未配送均为该快照）

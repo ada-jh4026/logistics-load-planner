@@ -1194,6 +1194,57 @@ h3 {
   margin-top: 2px;
 }
 
+/* ---------- 1366 × 768 等窄屏：收紧三栏与顶栏，保证按钮不换行、KPI 补充说明完整 ---------- */
+@media (max-width: 1400px) {
+  :root {
+    --rail-w: 236px;
+    --side-w: 312px;
+  }
+
+  .topbar {
+    gap: 12px;
+  }
+
+  .brand {
+    padding-right: 12px;
+  }
+
+  .brand small {
+    display: none;
+  }
+
+  .topbar-controls {
+    gap: 8px;
+    white-space: nowrap;
+  }
+
+  .topbar .select {
+    min-width: 180px;
+    max-width: 260px;
+  }
+
+  .topbar-status .tag {
+    padding: 2px 6px;
+  }
+
+  .kpi {
+    padding: 6px 10px 7px;
+  }
+
+  .kpi-value {
+    font-size: 20px;
+  }
+
+  .kpi-sub {
+    white-space: normal;
+    line-height: 1.25;
+  }
+
+  .section {
+    padding: 10px 12px;
+  }
+}
+
 @media (max-width: 1100px) {
   .kpi-row {
     grid-template-columns: repeat(3, minmax(0, 1fr));

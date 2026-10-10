@@ -215,9 +215,9 @@
         "B12"
       ],
       "estimate_minutes": 45,
-      "status": "pending",
-      "owner": null,
-      "evidence": [],
+      "status": "done",
+      "owner": "主线",
+      "evidence": ["artifacts/evidence/B15.md"],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/B15.md"
     },

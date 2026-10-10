@@ -1,7 +1,9 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import type { JobResponse, SolveRequest } from './protocol/contract'
 import { derive } from './lib/derive'
-import { loadCase, loadServiceCases, SAMPLE_OPTIONS, type CaseOption } from './lib/cases'
+import { ARCHIVE_OPTIONS, loadCase, loadServiceCases, SAMPLE_OPTIONS, type CaseOption } from './lib/cases'
+import { eventVehicles, snapshotRoutes } from './lib/repair'
+import { RepairPanel, type RepairFocus } from './components/RepairPanel'
 import { ERROR_HINT } from './lib/api'
 import { useSolver } from './lib/useSolver'
 import { useAssistant, type RunPair } from './lib/useAssistant'
@@ -16,7 +18,7 @@ import { SidePanel } from './components/SidePanel'
 type View = '3d' | 'map'
 
 export default function App() {
-  const [options, setOptions] = useState<CaseOption[]>(SAMPLE_OPTIONS)
+  const [options, setOptions] = useState<CaseOption[]>([...ARCHIVE_OPTIONS, ...SAMPLE_OPTIONS])
   const [serviceOnline, setServiceOnline] = useState<boolean | null>(null)
   const [selectedKey, setSelectedKey] = useState(SAMPLE_OPTIONS[0].key)
   const [importedName, setImportedName] = useState<string | null>(null)
@@ -28,6 +30,7 @@ export default function App() {
   const [selectedBoxId, setSelectedBoxId] = useState<string | null>(null)
   const [unloadDone, setUnloadDone] = useState(0)
   const [resetKey, setResetKey] = useState(0)
+  const [repairFocus, setRepairFocus] = useState<RepairFocus | null>(null)
 
   // 探测求解服务：可达则把服务案例放在前面并默认选中第一个服务案例
   useEffect(() => {
@@ -35,7 +38,7 @@ export default function App() {
     loadServiceCases().then((svc) => {
       if (!alive) return
       if (svc) {
-        setOptions([...svc, ...SAMPLE_OPTIONS])
+        setOptions([...svc, ...ARCHIVE_OPTIONS, ...SAMPLE_OPTIONS])
         setServiceOnline(true)
         if (svc.length > 0) setSelectedKey(svc[0].key)
       } else {
@@ -61,6 +64,7 @@ export default function App() {
         setResponse(response)
         setSelectedBoxId(null)
         setUnloadDone(0)
+        setRepairFocus(null)
       })
       .catch((e) => {
         if (!alive) return
@@ -82,6 +86,7 @@ export default function App() {
       setResponse(r)
       setSelectedBoxId(null)
       setUnloadDone(0)
+      setRepairFocus(null)
       const pend = pendingRef.current
       if (pend) {
         setPendingCompare(null)
@@ -134,7 +139,19 @@ export default function App() {
     solver.run(request)
   }
 
-  const derived = useMemo(() => (request ? derive(request, response) : null), [request, response])
+  // 修复事件快照：选中 accepted 事件时，3D/路线图改读后端随事件保存的 routes_before / routes_after
+  const focusedEvent = useMemo(() => {
+    if (!repairFocus || !response?.result?.repair_trace) return null
+    return response.result.repair_trace.events.find((e) => e.event_id === repairFocus.eventId) ?? null
+  }, [repairFocus, response])
+  const snapshot = useMemo(() => (focusedEvent && repairFocus ? snapshotRoutes(focusedEvent, repairFocus.side) : null), [focusedEvent, repairFocus])
+  const displayResponse = useMemo<JobResponse | null>(() => {
+    if (!response?.result || !snapshot) return response
+    return { ...response, result: { ...response.result, routes: snapshot } }
+  }, [response, snapshot])
+  const derived = useMemo(() => (request ? derive(request, displayResponse) : null), [request, displayResponse])
+  const highlightStoreIds = useMemo(() => new Set(focusedEvent?.store_ids ?? []), [focusedEvent])
+  const highlightBoxIds = useMemo(() => new Set(focusedEvent?.box_ids ?? []), [focusedEvent])
 
   // 默认选中第一辆启用的车；没有方案时选第一辆车。
   useEffect(() => {
@@ -144,6 +161,15 @@ export default function App() {
     setUnloadDone(0)
     setSelectedBoxId(null)
   }, [request, derived])
+
+  useEffect(() => {
+    if (!focusedEvent) return
+    const vids = eventVehicles(focusedEvent)
+    const prefer = repairFocus?.side === 'before' ? vids[0] : vids[vids.length - 1]
+    if (prefer) setSelectedVehicleId(prefer)
+    setUnloadDone(0)
+    setSelectedBoxId(null)
+  }, [focusedEvent, repairFocus?.side])
 
   const vehicle = derived && selectedVehicleId ? derived.vehiclesById.get(selectedVehicleId) ?? null : null
   const route = derived && selectedVehicleId ? derived.routesByVehicle.get(selectedVehicleId) ?? null : null
@@ -294,7 +320,13 @@ export default function App() {
                   selectedBoxId={selectedBoxId}
                   onSelectBox={setSelectedBoxId}
                   resetKey={resetKey}
+                  highlightIds={highlightBoxIds}
                 />
+                {snapshot && focusedEvent && (
+                  <div className="snapshot-banner">
+                    正在查看修复事件 {focusedEvent.event_id} 的{repairFocus?.side === 'before' ? '修复前' : '修复后'}快照（后端已验证布局）
+                  </div>
+                )}
                 <div className="stage-legend" aria-label="图例">
                   <span className="legend-item">
                     <span className="legend-door" /> 后门（x=0），卸货方向
@@ -318,7 +350,13 @@ export default function App() {
                     setSelectedVehicleId(id)
                     setUnloadDone(0)
                   }}
+                  highlightStoreIds={highlightStoreIds}
                 />
+                {snapshot && focusedEvent && (
+                  <div className="snapshot-banner">
+                    正在查看修复事件 {focusedEvent.event_id} 的{repairFocus?.side === 'before' ? '修复前' : '修复后'}快照
+                  </div>
+                )}
                 <div className="stage-note">平面坐标与直线连线，仅示意配送顺序，不是道路导航</div>
               </>
             )}
@@ -336,6 +374,7 @@ export default function App() {
             derived={derived}
             selectedVehicleId={selectedVehicleId}
             selectedBoxId={selectedBoxId}
+            repair={<RepairPanel response={busy ? null : response} focus={repairFocus} onFocus={setRepairFocus} />}
             assistant={
               <AssistantPanel
                 request={request}

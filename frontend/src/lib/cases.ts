@@ -2,8 +2,9 @@
 import type { JobResponse, SolveRequest } from '../protocol/contract'
 import { fetchExample, fetchExamples, fetchHealth } from './api'
 import { SCENARIOS } from './mock'
+import { ARCHIVE_ENTRIES, loadArchive } from './archive'
 
-export type CaseSource = 'service' | 'sample' | 'imported'
+export type CaseSource = 'service' | 'sample' | 'archive' | 'imported'
 
 export interface CaseOption {
   key: string
@@ -19,6 +20,14 @@ export const SAMPLE_OPTIONS: CaseOption[] = SCENARIOS.map((s) => ({
   label: s.label,
   description: s.description,
   caseId: s.id,
+}))
+
+export const ARCHIVE_OPTIONS: CaseOption[] = ARCHIVE_ENTRIES.map((a) => ({
+  key: `archive:${a.id}`,
+  source: 'archive',
+  label: a.label,
+  description: a.description,
+  caseId: a.id,
 }))
 
 const SERVICE_LABEL: Record<string, string> = {
@@ -59,6 +68,10 @@ export async function loadCase(opt: CaseOption): Promise<{ request: SolveRequest
   if (opt.source === 'sample') {
     const s = SCENARIOS.find((x) => x.id === opt.caseId)!
     return { request: s.request, response: s.response }
+  }
+  if (opt.source === 'archive') {
+    const a = ARCHIVE_ENTRIES.find((x) => x.id === opt.caseId)!
+    return loadArchive(a)
   }
   return { request: await fetchExample(opt.caseId), response: null }
 }

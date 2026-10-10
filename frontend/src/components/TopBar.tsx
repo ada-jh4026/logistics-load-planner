@@ -67,6 +67,17 @@ export function TopBar({ options, selectedKey, onSelect, onImport, importedName,
                 ))}
             </optgroup>
           )}
+          {options.some((o) => o.source === 'archive') && (
+            <optgroup label="历史实验记录（真实求解输出，离线）">
+              {options
+                .filter((o) => o.source === 'archive')
+                .map((o) => (
+                  <option key={o.key} value={o.key}>
+                    {o.label}
+                  </option>
+                ))}
+            </optgroup>
+          )}
           <optgroup label="本地样例（手工界面样例）">
             {options
               .filter((o) => o.source === 'sample')
@@ -101,9 +112,14 @@ export function TopBar({ options, selectedKey, onSelect, onImport, importedName,
             演示数据
           </span>
         )}
-        {response && !response.is_mock && (
+        {response && !response.is_mock && !response.run_id.startsWith('archive-') && (
           <span className="tag good" title="由求解服务实际计算得到">
             真实求解
+          </span>
+        )}
+        {response && response.run_id.startsWith('archive-') && (
+          <span className="tag" title="主线离线实验保存的真实求解输出（可能来自旧代码版本），不是当前服务实时计算">
+            历史记录
           </span>
         )}
         {response && response.data_source === 'synthetic' && (

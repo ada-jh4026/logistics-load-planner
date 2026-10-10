@@ -12,9 +12,10 @@ interface Props {
   selectedVehicleId: string | null
   selectedBoxId: string | null
   assistant?: ReactNode
+  repair?: ReactNode
 }
 
-export function SidePanel({ response, derived, selectedVehicleId, selectedBoxId, assistant }: Props) {
+export function SidePanel({ response, derived, selectedVehicleId, selectedBoxId, assistant, repair }: Props) {
   const result = response?.result ?? null
   const m = result?.metrics ?? null
   const route = selectedVehicleId ? derived.routesByVehicle.get(selectedVehicleId) ?? null : null
@@ -90,6 +91,8 @@ export function SidePanel({ response, derived, selectedVehicleId, selectedBoxId,
           )}
         </section>
       )}
+
+      {repair}
 
       {route && vehicle && (
         <section className="section">

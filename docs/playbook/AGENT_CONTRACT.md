@@ -51,6 +51,12 @@ stops:[{vehicle_id, store_id, arrival_min, service_start_min, departure_min, win
 unassigned:[{store_id, box_count, reason_code, message}]
 unload:[{vehicle_id, steps:[{step, store_id, box_id, fragile}]}]
 diagnostics_count:int
+repair: null | {provided:true, status, status_word, attempted_count, accepted_count, detected_count, rejected_count_recorded,
+                truncated, omitted_count, initial_served_stores, final_served_stores, total_stores,
+                initial_total_cost, final_total_cost, initial_used_vehicles, final_used_vehicles,
+                same_served_set, cost_comparable, newly_served:[store_id],
+                detected:[{vehicle_id, store_ids, reason_code}], accepted:[{event_id, store_ids, source_vehicle_id, target_vehicle_id, served_before, served_after}]}
+        （2026-10-10 O04 增补：从 Result.repair_trace 确定性推导；旧响应无 trace 时为 null，与 not_needed 区分。模型不得把 rejected 说成 accepted，not_needed 不得称收益，same_served_set=false 不得给费用百分比。）
 ```
 单车利用率由服务端按 request 独立重算，不信任响应里的任何合计。
 

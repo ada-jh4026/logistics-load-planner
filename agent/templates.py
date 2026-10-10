@@ -70,9 +70,43 @@ def _overview(f: dict[str, Any]) -> str:
     if f["unassigned"]:
         lines.append("")
         lines.append(_unassigned(f))
+    rep = repair_block(f)
+    if rep:
+        lines.append("")
+        lines.append(rep)
     lines.append("")
     lines.append("里程与时刻按平面直线距离和固定车速换算，不是真实道路测算。")
     return "\n".join(lines)
+
+
+def repair_block(f: dict[str, Any]) -> str:
+    """协同修复的确定性说明。只说记录里真实发生的事；旧响应无记录则说明未提供。"""
+    rep = f.get("repair")
+    if f["run"].get("method") != "coupled":
+        return ""
+    if rep is None:
+        return "协同修复：此记录未提供修复过程。"
+    if rep["status"] == "not_needed":
+        return "协同修复：初始方案已全部可执行，未触发修复。"
+    head = (
+        f"协同修复：{rep['status_word']}。初始可执行 {rep['initial_served_stores']} / {rep['total_stores']} 店，"
+        f"最终 {rep['final_served_stores']} / {rep['total_stores']} 店；检查了 {rep['attempted_count']} 个候选，采用 {rep['accepted_count']} 次。"
+    )
+    parts = [head]
+    for d in rep["detected"][:3]:
+        parts.append(f"- 发现冲突：车辆 {d['vehicle_id']} 装载失败（{'、'.join(d['store_ids'])}），原因 {REASON_LABEL.get(d['reason_code'], d['reason_code'])}。")
+    for a in rep["accepted"][:3]:
+        src = f"从 {a['source_vehicle_id']} " if a["source_vehicle_id"] else "从未分配 "
+        parts.append(f"- 采用：{'、'.join(a['store_ids'])} {src}移到 {a['target_vehicle_id']}，可执行门店 {a['served_before']} → {a['served_after']}。")
+    if len(rep["accepted"]) > 3:
+        parts.append(f"- 另有 {len(rep['accepted']) - 3} 次采用未逐条列出。")
+    if rep["same_served_set"] and rep["cost_comparable"]:
+        parts.append(f"- 修复前后服务门店集合相同，费用 {n1(rep['initial_total_cost'])} → {n1(rep['final_total_cost'])} 元。")
+    else:
+        parts.append("- 修复改变了服务门店集合，费用不可直接比较；收益体现在覆盖率，不是降本。")
+    if rep["truncated"]:
+        parts.append(f"- 日志已截断，省略 {rep['omitted_count']} 条被拒记录；计数不受影响。")
+    return "\n".join(parts)
 
 
 def _unassigned(f: dict[str, Any]) -> str:

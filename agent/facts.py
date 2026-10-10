@@ -42,6 +42,7 @@ def build_facts(req: SolveRequest, resp: JobResponse) -> dict[str, Any]:
         "unassigned": [],
         "unload": [],
         "diagnostics_count": len(result.diagnostics) if result else 0,
+        "repair": _repair_facts(result) if result else None,
     }
     if result is None:
         return facts
@@ -112,3 +113,63 @@ def build_facts(req: SolveRequest, resp: JobResponse) -> dict[str, Any]:
             }
         )
     return facts
+
+
+REPAIR_STATUS_WORD = {
+    "not_needed": "无需修复",
+    "repaired": "修复成功",
+    "partially_repaired": "部分修复",
+    "unresolved": "未解决",
+    "budget_exhausted": "预算退出",
+}
+
+
+def _repair_facts(result) -> dict[str, Any] | None:
+    """协同修复事实：只转述 repair_trace 里真实发生的动作，不做推断。
+    旧响应没有记录 -> None（与 not_needed 区分）。"""
+    rt = result.repair_trace
+    if rt is None:
+        return None
+    initial_served = sorted({sid for r in rt.initial_routes for sid in r.store_ids})
+    final_served = sorted({sid for r in result.routes for sid in r.store_ids})
+    accepted = [e for e in rt.events if e.outcome == "accepted"]
+    detected = [e for e in rt.events if e.outcome == "detected"]
+    rejected = [e for e in rt.events if e.outcome == "rejected"]
+    same = initial_served == final_served
+    return {
+        "provided": True,
+        "status": rt.status,
+        "status_word": REPAIR_STATUS_WORD.get(rt.status, rt.status),
+        "attempted_count": rt.attempted_count,
+        "accepted_count": rt.accepted_count,
+        "detected_count": len(detected),
+        "rejected_count_recorded": len(rejected),
+        "truncated": rt.truncated,
+        "omitted_count": rt.omitted_count,
+        "initial_served_stores": rt.initial_metrics.served_stores,
+        "final_served_stores": rt.final_metrics.served_stores,
+        "total_stores": rt.final_metrics.total_stores,
+        "initial_total_cost": _r(rt.initial_metrics.total_cost),
+        "final_total_cost": _r(rt.final_metrics.total_cost),
+        "initial_used_vehicles": rt.initial_metrics.used_vehicles,
+        "final_used_vehicles": rt.final_metrics.used_vehicles,
+        "same_served_set": same,
+        "cost_comparable": same and rt.initial_metrics.total_cost > 0,
+        "newly_served": sorted(set(final_served) - set(initial_served)),
+        "detected": [
+            {"vehicle_id": e.source_vehicle_id, "store_ids": list(e.store_ids), "reason_code": e.reason_code}
+            for e in detected[:12]
+        ],
+        "accepted": [
+            {
+                "event_id": e.event_id,
+                "store_ids": list(e.store_ids),
+                "source_vehicle_id": e.source_vehicle_id,
+                "target_vehicle_id": e.target_vehicle_id,
+                "served_before": e.metrics_before.served_stores if e.metrics_before else None,
+                "served_after": e.metrics_after.served_stores if e.metrics_after else None,
+            }
+            for e in accepted[:40]
+        ],
+    }
+

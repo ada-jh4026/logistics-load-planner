@@ -18,6 +18,8 @@ interface Props {
   selectedBoxId: string | null
   onSelectBox: (id: string | null) => void
   resetKey: number
+  /** 额外高亮的箱件（修复事件联动） */
+  highlightIds?: Set<string>
 }
 
 /** 码头黄黑斜纹贴图，只用于后门标记。 */
@@ -166,7 +168,7 @@ function BoxMesh({
   )
 }
 
-export function CargoView({ vehicle, route, derived, unloadedIds, currentBoxId, selectedBoxId, onSelectBox, resetKey }: Props) {
+export function CargoView({ vehicle, route, derived, unloadedIds, currentBoxId, selectedBoxId, onSelectBox, resetKey, highlightIds }: Props) {
   const sceneBoxes = useMemo(() => {
     if (!route) return [] as SceneBox[]
     return route.placements
@@ -200,7 +202,7 @@ export function CargoView({ vehicle, route, derived, unloadedIds, currentBoxId, 
               ? 'unloaded'
               : sb.box.id === currentBoxId
                 ? 'current'
-                : sb.box.id === selectedBoxId
+                : sb.box.id === selectedBoxId || highlightIds?.has(sb.box.id)
                   ? 'selected'
                   : 'normal'
             return (

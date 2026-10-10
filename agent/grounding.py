@@ -13,7 +13,7 @@ from typing import Any
 _TIME = re.compile(r"(?<![\d:])(\d{1,2}):(\d{2})(?![\d:])")
 _PCT = re.compile(r"(\d+(?:\.\d+)?)\s*%")
 _NUM = re.compile(
-    r"(?<![\w.:])(\d+(?:,\d{3})*(?:\.\d+)?)(?![\d:%])\s*(元|km|公里|kg|千克|公斤|分钟|箱|件|辆|站|家|处)?"
+    r"(?<![\w.:])(\d+(?:,\d{3})*(?:\.\d+)?)(?![\d:%])\s*(元|km|公里|kg|千克|公斤|分钟|箱|件|辆|站|家|处|次|个)?"
 )
 # 序数/编号类上下文不算「事实数字」：第 N 站、步骤 N、列表序号、ID 里的数字
 _ORDINAL = re.compile(r"(第\s*\d+\s*站|第\s*\d+\s*步|步骤\s*\d+|^\s*\d+\.\s|\n\s*\d+\.\s|[A-Za-z]+\d+)")
@@ -32,7 +32,9 @@ UNIT_PATHS: dict[str, tuple[str, ...]] = {
     "辆": ("vehicle",),
     "站": ("stop", "store"),
     "家": ("store",),
-    "处": ("unload_block",),
+    "处": ("unload_block", "_count"),
+    "次": ("_count",),
+    "个": ("_count", "box", "stop", "store", "vehicle"),
 }
 
 

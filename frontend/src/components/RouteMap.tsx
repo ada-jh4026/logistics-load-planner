@@ -10,10 +10,11 @@ interface Props {
   derived: Derived
   selectedVehicleId: string | null
   onSelectVehicle: (id: string) => void
+  highlightStoreIds?: Set<string>
 }
 
 /** 平面坐标路线示意：欧氏直线连线，不是真实道路路径。 */
-export function RouteMap({ request, response, derived, selectedVehicleId, onSelectVehicle }: Props) {
+export function RouteMap({ request, response, derived, selectedVehicleId, onSelectVehicle, highlightStoreIds }: Props) {
   const { toX, toY, gridLines, viewBox, viewH } = useMemo(() => {
     const pts = [request.depot, ...request.stores]
     const xs = pts.map((p) => p.x_km)
@@ -92,7 +93,8 @@ export function RouteMap({ request, response, derived, selectedVehicleId, onSele
           const onSelected = idx >= 0
           const unassigned = derived.unassignedStoreIds.has(s.id)
           const stop = selectedRoute?.stops.find((st) => st.store_id === s.id)
-          const cls = `node store ${unassigned ? 'unassigned' : ''} ${!onSelected && !unassigned ? 'dim' : ''}`
+          const hl = highlightStoreIds?.has(s.id)
+          const cls = `node store ${unassigned ? 'unassigned' : ''} ${!onSelected && !unassigned && !hl ? 'dim' : ''} ${hl ? 'highlight' : ''}`
           return (
             <g key={s.id} className={cls} transform={`translate(${toX(s.x_km)} ${toY(s.y_km)})`}>
               <title>

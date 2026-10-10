@@ -96,3 +96,19 @@ CONTRACT.md 的 SolveRequest / JobResponse / Result / 错误码；ALGORITHMS.md 
 - 独立 geometry/unloading/validation 规则保持不变，仍不允许跨箱共同承托；失败不声明物理不可行。接口无新增字段；修复 accepted 事件必须确实服务被移门店。
 - 范围：backend、tests、scripts、data、主线文档和真实验收证据；不覆盖 Claude 的 frontend、agent、README、architecture。已有 repair_trace 消费端问题仍须 Claude 联调。
 - 验收区分手工可行见证、开发复现集、未参与调试的种子；保留旧实现、原始请求/响应和代码快照。结果见 `docs/heterogeneous-results.md`、`artifacts/evidence/H01.md`。
+
+---
+
+## 2026-10-10 O04 消费端：repair_trace 兼容、修复面板、修复事实
+
+改动者：前端/智能体线（Claude Code）。
+
+| 文件 | 改动 |
+|---|---|
+| `agent/schemas.py`、`frontend/src/protocol/contract.ts` | 镜像 CONTRACT 的 RepairTrace / RepairEvent；缺字段与 null 均为「未提供记录」。 |
+| `AGENT_CONTRACT.md` | FactSheet 增加 `repair` 字段（见上）。接口与端点不变。 |
+| `agent/facts.py`、`agent/templates.py`、`agent/explain.py` | 修复事实的确定性推导与模板段落；模型提示增加第 6 条规则。 |
+| `frontend/src/components/RepairPanel.tsx`、`lib/repair.ts`、`lib/archive.ts` | 协同修复面板（状态、计数、时间线、接受事件前后快照只读回放、实体高亮）；案例选择器新增「历史实验记录」组，直接引用 `artifacts/benchmarks/hetero-*` 的真实输出，覆盖 repaired / partially_repaired+截断 / budget_exhausted / unresolved / not_needed。 |
+
+不变：求解器协议、`backend/`、主线实验记录。
+

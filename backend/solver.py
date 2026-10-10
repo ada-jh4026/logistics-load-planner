@@ -29,6 +29,7 @@ from backend.routing import build_insertion_routes
 from backend.validation import validate_solution
 
 MAX_REJECT_EVENTS = 64
+MAX_RELOCATION_CANDIDATES = 8
 
 
 class _TraceRecorder:
@@ -216,7 +217,75 @@ def _try_relocate(request: SolveRequest, sid: str,
     return None
 
 
-def solve_coupled(request: SolveRequest, budget: Budget | None = None) -> Result:
+def _ranked_relocations(request: SolveRequest, sid: str,
+                        routes_by_vehicle: dict[str, list[str]]):
+    """Rank structural moves by estimated route-cost delta, then stable IDs."""
+    current = [(vid, list(sids)) for vid, sids in routes_by_vehicle.items() if sids]
+    source_vid = next((vid for vid, sids in current if sid in sids), None)
+    vehicles = {v.id: v for v in request.vehicles}
+
+    def route_cost(vid: str, ids: list[str]) -> float:
+        if not ids:
+            return 0.0
+        v = vehicles[vid]
+        return v.fixed_cost + v.cost_per_km * schedule_route(request, vid, ids).distance_km
+
+    old_source = routes_by_vehicle.get(source_vid, []) if source_vid else []
+    source_after = [s for s in old_source if s != sid]
+    source_delta = (route_cost(source_vid, source_after) - route_cost(source_vid, old_source)
+                    if source_vid else 0.0)
+    ranked = []
+    for target_vid, new_ids in relocation_candidates(request, sid, current):
+        if target_vid == source_vid:
+            continue
+        old_target = routes_by_vehicle.get(target_vid, [])
+        delta = source_delta + route_cost(target_vid, new_ids) - route_cost(target_vid, old_target)
+        ranked.append((delta, target_vid, tuple(new_ids), source_vid))
+    return sorted(ranked)
+
+
+def _best_relocate(request: SolveRequest, sid: str,
+                   routes_by_vehicle: dict[str, list[str]],
+                   unassigned_stores: set[str], budget: Budget,
+                   trace: _TraceRecorder, best_score: tuple):
+    """Compare at most eight independently validated moves; preserve best snapshot."""
+    winner = None
+    for _, target_vid, target_ids, source_vid in _ranked_relocations(
+            request, sid, routes_by_vehicle)[:MAX_RELOCATION_CANDIDATES]:
+        if budget.expired():
+            break
+        budget.tick()
+        trace.attempted_count += 1
+        routes = {vid: list(ids) for vid, ids in routes_by_vehicle.items()}
+        if source_vid:
+            routes[source_vid] = [s for s in routes[source_vid] if s != sid]
+        routes[target_vid] = list(target_ids)
+        routes = {vid: ids for vid, ids in routes.items() if ids}
+        # _evaluate packs every route and runs the independent solution validator.
+        result, score = _evaluate(request, routes, unassigned_stores - {sid}, budget)
+        if result.validation.valid and score < best_score:
+            tie_key = (score, target_vid, target_ids)
+            if winner is None or tie_key < winner[0]:
+                winner = (tie_key, routes, unassigned_stores - {sid},
+                          source_vid, target_vid, result, score)
+            continue
+        reason = (result.validation.violations[0].code
+                  if not result.validation.valid else "NO_IMPROVEMENT")
+        trace.add(
+            iteration=budget.iterations, action="relocate", outcome="rejected",
+            store_ids=[sid], box_ids=[b.id for b in request.boxes if b.store_id == sid],
+            source_vehicle_id=source_vid, target_vehicle_id=target_vid,
+            reason_code=reason,
+            message=(f"独立校验未通过：{reason}" if not result.validation.valid
+                     else "已验证方案的目标分数未改善"),
+        )
+    return winner
+
+
+def solve_coupled(request: SolveRequest, budget: Budget | None = None,
+                  *, selection: str = "best") -> Result:
+    if selection not in {"best", "first"}:
+        raise ValueError(f"unknown relocation selection: {selection}")
     if budget is None:
         budget = Budget(request.options.time_limit_ms,
                         request.options.max_iterations)
@@ -254,13 +323,20 @@ def solve_coupled(request: SolveRequest, budget: Budget | None = None) -> Result
 
         improved = False
         for sid in sorted(current_unassigned):
-            moved = _try_relocate(request, sid, routes_by_vehicle,
-                                  unassigned_stores, budget, trace)
-            if moved is None:
-                continue
-            new_routes, new_unassigned, source_vid, target_vid = moved
-            new_result, new_score = _evaluate(request, new_routes,
-                                              new_unassigned, budget)
+            if selection == "best":
+                chosen = _best_relocate(request, sid, routes_by_vehicle,
+                                        unassigned_stores, budget, trace, best_score)
+                if chosen is None:
+                    continue
+                _, new_routes, new_unassigned, source_vid, target_vid, new_result, new_score = chosen
+            else:
+                moved = _try_relocate(request, sid, routes_by_vehicle,
+                                      unassigned_stores, budget, trace)
+                if moved is None:
+                    continue
+                new_routes, new_unassigned, source_vid, target_vid = moved
+                new_result, new_score = _evaluate(request, new_routes,
+                                                  new_unassigned, budget)
             if new_result.validation.valid and new_score < best_score:
                 trace.add(
                     iteration=budget.iterations, action="relocate", outcome="accepted",

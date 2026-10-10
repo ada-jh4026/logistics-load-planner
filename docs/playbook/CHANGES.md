@@ -83,3 +83,7 @@ CONTRACT.md 的 SolveRequest / JobResponse / Result / 错误码；ALGORITHMS.md 
 - `scripts/sequential_reinsert.py`、`scripts/conflict_benchmark.py`、`scripts/audit_conflict_benchmark.py`：第四对照、原始文件与复审。
 - O02 全部 76 次独立校验通过；全量后端测试 176 passed。修复与简单 reinsert 在 10 个冲突案的覆盖和费用相同，卸货类没有端到端修复触发。详见 `artifacts/evidence/O02.md`。
 - 无消费者协议新增；Claude 仍需按 O01 同步 agent/frontend 的 repair_trace 模型并完成真实联调。现有 I02 原始记录保留。
+
+## 2026-10-10 O03 择优搬移与消融
+
+改动者：主线（Codex）。原因：O02 发现首个可行搬移与简单重新插入打平，需要检验预算内候选择优的实际增益。新增 `tasks/O03.md`，`board.json` 标记 O03 完成，`STATE.md` 更新接力状态。公开请求/响应协议、O02 原始记录和前端/智能体目录保持不变。重新验收范围：后端 177 项测试、O03 60 次持久化输出独立复审；结论和局限见 `artifacts/evidence/O03.md`。

@@ -1,5 +1,7 @@
 # O02 冲突案例对照结果
 
+> O03 后续消融见 `artifacts/evidence/O03.md` 与 `artifacts/benchmarks/o03-ranked-20261010/`：新增预算内择优搬移在开发回归案比旧首可行策略便宜 41.10%，但与简单重新插入仍持平；原 O02 表格和数据不被覆盖。
+
 运行日期：2026-10-10。实验输入：`data/conflict_cases/manifest.json` 中预先登记的 19 案；原始输出：`artifacts/benchmarks/o02-conflict-20261010/`。运行时工作区有本轮未提交代码，基础 HEAD 为 `b84a592`；精确实现文件 SHA-256 见实验 `manifest.json`。案例均为**合成场景**，不是企业订单或经济收益。
 
 ## 最关键的结论

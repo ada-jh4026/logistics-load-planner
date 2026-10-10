@@ -1,0 +1,326 @@
+{
+  "runs": 60,
+  "valid": 60,
+  "comparisons": [
+    {
+      "case_id": "geometry-22",
+      "category": "combination_geometry",
+      "baseline": "first",
+      "candidate": "best",
+      "cost_improvement": 0.0,
+      "reason": null
+    },
+    {
+      "case_id": "geometry-22",
+      "category": "combination_geometry",
+      "baseline": "sequential_reinsert",
+      "candidate": "best",
+      "cost_improvement": 0.0,
+      "reason": null
+    },
+    {
+      "case_id": "geometry-33",
+      "category": "combination_geometry",
+      "baseline": "first",
+      "candidate": "best",
+      "cost_improvement": 0.0,
+      "reason": null
+    },
+    {
+      "case_id": "geometry-33",
+      "category": "combination_geometry",
+      "baseline": "sequential_reinsert",
+      "candidate": "best",
+      "cost_improvement": 0.0,
+      "reason": null
+    },
+    {
+      "case_id": "geometry-44",
+      "category": "combination_geometry",
+      "baseline": "first",
+      "candidate": "best",
+      "cost_improvement": 0.0,
+      "reason": null
+    },
+    {
+      "case_id": "geometry-44",
+      "category": "combination_geometry",
+      "baseline": "sequential_reinsert",
+      "candidate": "best",
+      "cost_improvement": 0.0,
+      "reason": null
+    },
+    {
+      "case_id": "geometry-55",
+      "category": "combination_geometry",
+      "baseline": "first",
+      "candidate": "best",
+      "cost_improvement": 0.0,
+      "reason": null
+    },
+    {
+      "case_id": "geometry-55",
+      "category": "combination_geometry",
+      "baseline": "sequential_reinsert",
+      "candidate": "best",
+      "cost_improvement": 0.0,
+      "reason": null
+    },
+    {
+      "case_id": "geometry-66",
+      "category": "combination_geometry",
+      "baseline": "first",
+      "candidate": "best",
+      "cost_improvement": 0.0,
+      "reason": null
+    },
+    {
+      "case_id": "geometry-66",
+      "category": "combination_geometry",
+      "baseline": "sequential_reinsert",
+      "candidate": "best",
+      "cost_improvement": 0.0,
+      "reason": null
+    },
+    {
+      "case_id": "time-geometry-22",
+      "category": "time_geometry",
+      "baseline": "first",
+      "candidate": "best",
+      "cost_improvement": 0.0,
+      "reason": null
+    },
+    {
+      "case_id": "time-geometry-22",
+      "category": "time_geometry",
+      "baseline": "sequential_reinsert",
+      "candidate": "best",
+      "cost_improvement": 0.0,
+      "reason": null
+    },
+    {
+      "case_id": "time-geometry-33",
+      "category": "time_geometry",
+      "baseline": "first",
+      "candidate": "best",
+      "cost_improvement": 0.0,
+      "reason": null
+    },
+    {
+      "case_id": "time-geometry-33",
+      "category": "time_geometry",
+      "baseline": "sequential_reinsert",
+      "candidate": "best",
+      "cost_improvement": 0.0,
+      "reason": null
+    },
+    {
+      "case_id": "time-geometry-44",
+      "category": "time_geometry",
+      "baseline": "first",
+      "candidate": "best",
+      "cost_improvement": 0.0,
+      "reason": null
+    },
+    {
+      "case_id": "time-geometry-44",
+      "category": "time_geometry",
+      "baseline": "sequential_reinsert",
+      "candidate": "best",
+      "cost_improvement": 0.0,
+      "reason": null
+    },
+    {
+      "case_id": "time-geometry-55",
+      "category": "time_geometry",
+      "baseline": "first",
+      "candidate": "best",
+      "cost_improvement": 0.0,
+      "reason": null
+    },
+    {
+      "case_id": "time-geometry-55",
+      "category": "time_geometry",
+      "baseline": "sequential_reinsert",
+      "candidate": "best",
+      "cost_improvement": 0.0,
+      "reason": null
+    },
+    {
+      "case_id": "time-geometry-66",
+      "category": "time_geometry",
+      "baseline": "first",
+      "candidate": "best",
+      "cost_improvement": 0.0,
+      "reason": null
+    },
+    {
+      "case_id": "time-geometry-66",
+      "category": "time_geometry",
+      "baseline": "sequential_reinsert",
+      "candidate": "best",
+      "cost_improvement": 0.0,
+      "reason": null
+    },
+    {
+      "case_id": "unload-mechanism-22",
+      "category": "unload_mechanism_control",
+      "baseline": "first",
+      "candidate": "best",
+      "cost_improvement": 0.0,
+      "reason": null
+    },
+    {
+      "case_id": "unload-mechanism-22",
+      "category": "unload_mechanism_control",
+      "baseline": "sequential_reinsert",
+      "candidate": "best",
+      "cost_improvement": 0.0,
+      "reason": null
+    },
+    {
+      "case_id": "unload-mechanism-33",
+      "category": "unload_mechanism_control",
+      "baseline": "first",
+      "candidate": "best",
+      "cost_improvement": 0.0,
+      "reason": null
+    },
+    {
+      "case_id": "unload-mechanism-33",
+      "category": "unload_mechanism_control",
+      "baseline": "sequential_reinsert",
+      "candidate": "best",
+      "cost_improvement": 0.0,
+      "reason": null
+    },
+    {
+      "case_id": "unload-mechanism-44",
+      "category": "unload_mechanism_control",
+      "baseline": "first",
+      "candidate": "best",
+      "cost_improvement": 0.0,
+      "reason": null
+    },
+    {
+      "case_id": "unload-mechanism-44",
+      "category": "unload_mechanism_control",
+      "baseline": "sequential_reinsert",
+      "candidate": "best",
+      "cost_improvement": 0.0,
+      "reason": null
+    },
+    {
+      "case_id": "unload-mechanism-55",
+      "category": "unload_mechanism_control",
+      "baseline": "first",
+      "candidate": "best",
+      "cost_improvement": 0.0,
+      "reason": null
+    },
+    {
+      "case_id": "unload-mechanism-55",
+      "category": "unload_mechanism_control",
+      "baseline": "sequential_reinsert",
+      "candidate": "best",
+      "cost_improvement": 0.0,
+      "reason": null
+    },
+    {
+      "case_id": "unload-mechanism-66",
+      "category": "unload_mechanism_control",
+      "baseline": "first",
+      "candidate": "best",
+      "cost_improvement": 0.0,
+      "reason": null
+    },
+    {
+      "case_id": "unload-mechanism-66",
+      "category": "unload_mechanism_control",
+      "baseline": "sequential_reinsert",
+      "candidate": "best",
+      "cost_improvement": 0.0,
+      "reason": null
+    },
+    {
+      "case_id": "small-11",
+      "category": "no_repair_control",
+      "baseline": "first",
+      "candidate": "best",
+      "cost_improvement": 0.0,
+      "reason": null
+    },
+    {
+      "case_id": "small-11",
+      "category": "no_repair_control",
+      "baseline": "sequential_reinsert",
+      "candidate": "best",
+      "cost_improvement": 0.0,
+      "reason": null
+    },
+    {
+      "case_id": "standard-11",
+      "category": "no_repair_control",
+      "baseline": "first",
+      "candidate": "best",
+      "cost_improvement": 0.0,
+      "reason": null
+    },
+    {
+      "case_id": "standard-11",
+      "category": "no_repair_control",
+      "baseline": "sequential_reinsert",
+      "candidate": "best",
+      "cost_improvement": 0.0,
+      "reason": null
+    },
+    {
+      "case_id": "impossible-size-77",
+      "category": "known_infeasible_control",
+      "baseline": "first",
+      "candidate": "best",
+      "cost_improvement": null,
+      "reason": "基线成本为 0"
+    },
+    {
+      "case_id": "impossible-size-77",
+      "category": "known_infeasible_control",
+      "baseline": "sequential_reinsert",
+      "candidate": "best",
+      "cost_improvement": null,
+      "reason": "基线成本为 0"
+    },
+    {
+      "case_id": "impossible-size-88",
+      "category": "known_infeasible_control",
+      "baseline": "first",
+      "candidate": "best",
+      "cost_improvement": null,
+      "reason": "基线成本为 0"
+    },
+    {
+      "case_id": "impossible-size-88",
+      "category": "known_infeasible_control",
+      "baseline": "sequential_reinsert",
+      "candidate": "best",
+      "cost_improvement": null,
+      "reason": "基线成本为 0"
+    },
+    {
+      "case_id": "ranked-geometry-22",
+      "category": "development_regression",
+      "baseline": "first",
+      "candidate": "best",
+      "cost_improvement": 0.410958904109589,
+      "reason": null
+    },
+    {
+      "case_id": "ranked-geometry-22",
+      "category": "development_regression",
+      "baseline": "sequential_reinsert",
+      "candidate": "best",
+      "cost_improvement": 0.0,
+      "reason": null
+    }
+  ]
+}

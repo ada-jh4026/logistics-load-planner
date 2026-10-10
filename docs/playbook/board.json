@@ -551,6 +551,18 @@
       "evidence": ["artifacts/evidence/O02.md", "docs/conflict-results.md"],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/O02.md"
+    },
+    {
+      "id": "O03",
+      "title": "预算内择优搬移与消融验证",
+      "lane": "backend",
+      "depends_on": ["O02"],
+      "estimate_minutes": 90,
+      "status": "done",
+      "owner": "主线（Codex）",
+      "evidence": ["artifacts/evidence/O03.md"],
+      "blocked_reason": null,
+      "card": "docs/playbook/tasks/O03.md"
     }
   ],
   "lanes": {

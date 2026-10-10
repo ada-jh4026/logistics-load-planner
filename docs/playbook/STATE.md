@@ -1,6 +1,6 @@
 # 当前事实与接力状态
 更新时间：2026-10-10（下一轮优化交接）
-阶段：原有后端、前端、智能体及 I01–I03 已有完成记录；I02 提交 `b84a592` 已推送。下一轮 O01/O02 已在本地实施并验收，尚未推送；Claude O04 消费端、可选 O03 和 I04 最终验收待办。方案见 `docs/optimization-plan.md`，结果见 `docs/conflict-results.md`。
+阶段：原有后端、前端、智能体及 I01–I03 已有完成记录；O01/O02 已在提交 `df6fa93` 推送。O03 已实施并验收；Claude O04 消费端和 I04 最终验收待办。方案见 `docs/optimization-plan.md`，结果见 `docs/conflict-results.md` 与 `artifacts/evidence/O03.md`。
 
 ## 已确定的事实
 - 比赛窗口：英国时间 2026-10-10 11:00 开始，**2026-10-12 11:00 截止**（北京时间 10-12 18:00）。内部冻结 10-12 07:30，提交 09:30。提交渠道以赛事通知为准。
@@ -16,7 +16,7 @@
 - 历史规划材料本身不是运行证据；现有实现、实验与联调以 board 和下方接力记录中的证据为准。尚未据此完成官方提交。
 
 ## 下一步
-- 主线：O01/O02 已完成；根据 `docs/conflict-results.md` 的证据决定是否实施 O03，不为制造收益扩大范围。待 Claude 交接后做 O05/O06 和 I04。
+- 主线：O01–O03 已完成；O03 仅胜过旧首可行策略的开发回归案，与简单重新插入仍持平。待 Claude 交接后做 O05/O06 和 I04。
 - 前端/智能体线：最新协议与真实案例已在本地工作区，交接提示词见 `docs/handoffs/claude-optimization.md`；同步严格模型、完成 O04 真实联调并更新材料。
 - 任何一方改 docs/playbook 规格先写 CHANGES.md。
 
@@ -54,3 +54,4 @@
 - 2026-10-10 / I02 / 主线（Codex）/ artifacts/benchmarks/i02-20261010-{small,standard,stress}/、docs/results.md、artifacts/evidence/I02.md、board.json / 21 次正式重跑全部 completed、独立校验通过、180/180 门店；同案哈希与服务集合一致；C01 手算 10 km/¥120 无违规；coupled 较 greedy 降本 4.73%–19.61%，较 sequential 为 0%，协同修复未触发 / artifacts/evidence/I02.md / 下一步 I04 / 无阻塞，团队信息及外部提交仍待用户。
 - 2026-10-10 / O01 / 主线（Codex）/ CONTRACT、DECISIONS、CHANGES、backend/models.py solver.py、tests/test_repair_trace.py、data/conflict_cases/trace-c10.json、scripts/capture_repair_trace.py、真实 JSON / C10 修复 0→1 店、small-11 无需修复、两者独立校验通过；相关 52 测试通过；当前沙箱全量测试停滞后中断 / artifacts/evidence/O01.md / 下一步 O02，Claude 消费端按协议更新 / 前端与智能体尚未联调新增字段。
 - 2026-10-10 / O02 / 主线（Codex）/ data/conflict_cases、data/cases 代表案例、scripts/generate_conflict_cases.py sequential_reinsert.py conflict_benchmark.py audit_conflict_benchmark.py、docs/conflict-results.md、tests/ / 19 案四法共 76 次有效；独立复审 76/76，coupled 接受修复 10 次；全量后端测试在沙箱外 176 passed；新增简单重新插入基线在 10 个修复案与 coupled 覆盖和费用相同 / artifacts/evidence/O02.md、artifacts/benchmarks/o02-conflict-20261010/ / 下一步有条件 O03、Claude O04 联调、I04 / 未证明 coupled 超过简单补救，卸货端到端修复未触发。
+- 2026-10-10 / O03 / 主线（Codex）/ backend/solver.py、tests/test_coupled.py、scripts/o03_benchmark.py audit_o03_benchmark.py、data/conflict_cases/ranked-geometry-22.json、docs/playbook O03 卡 / 20 案三变体 60/60 独立有效，复审 60/60，全量后端 177 passed；开发回归案 best 86 元、旧 first 146 元、reinsert 86 元 / artifacts/evidence/O03.md、artifacts/benchmarks/o03-ranked-20261010/ / 下一步 Claude O04、I04 / 尚未证明超过简单 reinsert。

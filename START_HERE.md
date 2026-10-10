@@ -1,5 +1,5 @@
 # 从这里继续：两天物流赛题执行路线
-本仓库已有可运行系统及实验/联调证据。下一轮 O01、O02 已在本地实施并验收；Claude 消费端联调和 I04 最终验收待办。方案见 `docs/optimization-plan.md`，实际结果见 `docs/conflict-results.md` 与 board。不要把尚未执行的后续建议或接口样例当作已完成能力。
+本仓库已有可运行系统及实验/联调证据。O01–O03 已实施并验收；Claude 消费端联调和 I04 最终验收待办。方案见 `docs/optimization-plan.md`，实际结果见 `docs/conflict-results.md`、`artifacts/evidence/O03.md` 与 board。不要把尚未执行的后续建议或接口样例当作已完成能力。
 
 ## 新模型首次进入
 1. 读 AGENTS.md。

@@ -85,3 +85,20 @@ def test_coupled_respects_budget():
     state[0] = 10.0
     result = solve_coupled(req, budget=b)
     assert result is not None
+
+
+def test_ranked_relocation_beats_first_feasible_on_cost():
+    data = json.loads(Path("data/conflict_cases/ranked-geometry-22.json").read_text(encoding="utf-8"))
+    req = SolveRequest.model_validate(data)
+    first = solve_coupled(req, selection="first")
+    best = solve_coupled(req, selection="best")
+    from backend.validation import validate_solution
+    assert validate_solution(req, first) == []
+    assert validate_solution(req, best) == []
+    assert first.metrics.served_stores == best.metrics.served_stores == 2
+    assert best.metrics.total_cost < first.metrics.total_cost
+    assert any(route.vehicle_id == "V03" for route in best.routes)
+    from scripts.sequential_reinsert import solve_sequential_reinsert
+    reinsert = solve_sequential_reinsert(req)
+    assert validate_solution(req, reinsert) == []
+    assert best.metrics.total_cost == reinsert.metrics.total_cost

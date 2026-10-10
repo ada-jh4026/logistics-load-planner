@@ -1,0 +1,422 @@
+{
+  "routes": [
+    {
+      "vehicle_id": "V01",
+      "store_ids": [
+        "S02"
+      ],
+      "stops": [
+        {
+          "store_id": "S02",
+          "arrival_min": 502.0,
+          "service_start_min": 502.0,
+          "departure_min": 502.0
+        }
+      ],
+      "return_min": 524.0,
+      "distance_km": 22.0,
+      "cost": 54.0,
+      "box_ids": [
+        "B02"
+      ],
+      "placements": [
+        {
+          "box_id": "B02",
+          "x_mm": 1180,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        }
+      ],
+      "unload_steps": [
+        {
+          "step": 1,
+          "store_id": "S02",
+          "box_id": "B02"
+        }
+      ]
+    },
+    {
+      "vehicle_id": "V02",
+      "store_ids": [
+        "S03"
+      ],
+      "stops": [
+        {
+          "store_id": "S03",
+          "arrival_min": 502.0,
+          "service_start_min": 502.0,
+          "departure_min": 502.0
+        }
+      ],
+      "return_min": 524.0,
+      "distance_km": 22.0,
+      "cost": 144.0,
+      "box_ids": [
+        "B03"
+      ],
+      "placements": [
+        {
+          "box_id": "B03",
+          "x_mm": 1900,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        }
+      ],
+      "unload_steps": [
+        {
+          "step": 1,
+          "store_id": "S03",
+          "box_id": "B03"
+        }
+      ]
+    },
+    {
+      "vehicle_id": "V03",
+      "store_ids": [
+        "S01"
+      ],
+      "stops": [
+        {
+          "store_id": "S01",
+          "arrival_min": 502.0,
+          "service_start_min": 502.0,
+          "departure_min": 502.0
+        }
+      ],
+      "return_min": 524.0,
+      "distance_km": 22.0,
+      "cost": 194.0,
+      "box_ids": [
+        "B01"
+      ],
+      "placements": [
+        {
+          "box_id": "B01",
+          "x_mm": 3280,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        }
+      ],
+      "unload_steps": [
+        {
+          "step": 1,
+          "store_id": "S01",
+          "box_id": "B01"
+        }
+      ]
+    }
+  ],
+  "unassigned": [],
+  "validation": {
+    "valid": true,
+    "violations": []
+  },
+  "metrics": {
+    "total_stores": 3,
+    "served_stores": 3,
+    "total_boxes": 3,
+    "served_boxes": 3,
+    "completion_rate": 1.0,
+    "used_vehicles": 3,
+    "total_distance_km": 66.0,
+    "total_cost": 392.0,
+    "on_time_rate": 1.0,
+    "volume_utilization": 0.3416969696969697,
+    "weight_utilization": 0.1,
+    "unload_block_count": 0
+  },
+  "diagnostics": [],
+  "repair_trace": {
+    "version": 1,
+    "status": "repaired",
+    "initial_metrics": {
+      "total_stores": 3,
+      "served_stores": 1,
+      "total_boxes": 3,
+      "served_boxes": 1,
+      "completion_rate": 0.3333333333333333,
+      "used_vehicles": 1,
+      "total_distance_km": 22.0,
+      "total_cost": 144.0,
+      "on_time_rate": 1.0,
+      "volume_utilization": 0.6274509803921569,
+      "weight_utilization": 0.1,
+      "unload_block_count": 0
+    },
+    "final_metrics": {
+      "total_stores": 3,
+      "served_stores": 3,
+      "total_boxes": 3,
+      "served_boxes": 3,
+      "completion_rate": 1.0,
+      "used_vehicles": 3,
+      "total_distance_km": 66.0,
+      "total_cost": 392.0,
+      "on_time_rate": 1.0,
+      "volume_utilization": 0.3416969696969697,
+      "weight_utilization": 0.1,
+      "unload_block_count": 0
+    },
+    "initial_routes": [
+      {
+        "vehicle_id": "V02",
+        "store_ids": [
+          "S03"
+        ],
+        "stops": [
+          {
+            "store_id": "S03",
+            "arrival_min": 502.0,
+            "service_start_min": 502.0,
+            "departure_min": 502.0
+          }
+        ],
+        "return_min": 524.0,
+        "distance_km": 22.0,
+        "cost": 144.0,
+        "box_ids": [
+          "B03"
+        ],
+        "placements": [
+          {
+            "box_id": "B03",
+            "x_mm": 1900,
+            "y_mm": 0,
+            "z_mm": 0,
+            "rotation_xy": 0
+          }
+        ],
+        "unload_steps": [
+          {
+            "step": 1,
+            "store_id": "S03",
+            "box_id": "B03"
+          }
+        ]
+      }
+    ],
+    "attempted_count": 3,
+    "accepted_count": 1,
+    "events": [
+      {
+        "event_id": 1,
+        "iteration": 6,
+        "action": "pack_failed",
+        "outcome": "detected",
+        "store_ids": [
+          "S02",
+          "S01"
+        ],
+        "box_ids": [
+          "B01",
+          "B02"
+        ],
+        "source_vehicle_id": "V01",
+        "target_vehicle_id": null,
+        "reason_code": "SEARCH_EXHAUSTED",
+        "message": "车辆 V01 装箱失败：箱 B02 在当前排序下未找到可行位置",
+        "metrics_before": null,
+        "metrics_after": null,
+        "routes_before": null,
+        "routes_after": null
+      },
+      {
+        "event_id": 2,
+        "iteration": 21,
+        "action": "relocate",
+        "outcome": "accepted",
+        "store_ids": [
+          "S01"
+        ],
+        "box_ids": [
+          "B01"
+        ],
+        "source_vehicle_id": "V01",
+        "target_vehicle_id": "V03",
+        "reason_code": null,
+        "message": "门店 S01 调整至车辆 V03 并通过独立校验",
+        "metrics_before": {
+          "total_stores": 3,
+          "served_stores": 1,
+          "total_boxes": 3,
+          "served_boxes": 1,
+          "completion_rate": 0.3333333333333333,
+          "used_vehicles": 1,
+          "total_distance_km": 22.0,
+          "total_cost": 144.0,
+          "on_time_rate": 1.0,
+          "volume_utilization": 0.6274509803921569,
+          "weight_utilization": 0.1,
+          "unload_block_count": 0
+        },
+        "metrics_after": {
+          "total_stores": 3,
+          "served_stores": 3,
+          "total_boxes": 3,
+          "served_boxes": 3,
+          "completion_rate": 1.0,
+          "used_vehicles": 3,
+          "total_distance_km": 66.0,
+          "total_cost": 392.0,
+          "on_time_rate": 1.0,
+          "volume_utilization": 0.3416969696969697,
+          "weight_utilization": 0.1,
+          "unload_block_count": 0
+        },
+        "routes_before": [
+          {
+            "vehicle_id": "V02",
+            "store_ids": [
+              "S03"
+            ],
+            "stops": [
+              {
+                "store_id": "S03",
+                "arrival_min": 502.0,
+                "service_start_min": 502.0,
+                "departure_min": 502.0
+              }
+            ],
+            "return_min": 524.0,
+            "distance_km": 22.0,
+            "cost": 144.0,
+            "box_ids": [
+              "B03"
+            ],
+            "placements": [
+              {
+                "box_id": "B03",
+                "x_mm": 1900,
+                "y_mm": 0,
+                "z_mm": 0,
+                "rotation_xy": 0
+              }
+            ],
+            "unload_steps": [
+              {
+                "step": 1,
+                "store_id": "S03",
+                "box_id": "B03"
+              }
+            ]
+          }
+        ],
+        "routes_after": [
+          {
+            "vehicle_id": "V01",
+            "store_ids": [
+              "S02"
+            ],
+            "stops": [
+              {
+                "store_id": "S02",
+                "arrival_min": 502.0,
+                "service_start_min": 502.0,
+                "departure_min": 502.0
+              }
+            ],
+            "return_min": 524.0,
+            "distance_km": 22.0,
+            "cost": 54.0,
+            "box_ids": [
+              "B02"
+            ],
+            "placements": [
+              {
+                "box_id": "B02",
+                "x_mm": 1180,
+                "y_mm": 0,
+                "z_mm": 0,
+                "rotation_xy": 0
+              }
+            ],
+            "unload_steps": [
+              {
+                "step": 1,
+                "store_id": "S02",
+                "box_id": "B02"
+              }
+            ]
+          },
+          {
+            "vehicle_id": "V02",
+            "store_ids": [
+              "S03"
+            ],
+            "stops": [
+              {
+                "store_id": "S03",
+                "arrival_min": 502.0,
+                "service_start_min": 502.0,
+                "departure_min": 502.0
+              }
+            ],
+            "return_min": 524.0,
+            "distance_km": 22.0,
+            "cost": 144.0,
+            "box_ids": [
+              "B03"
+            ],
+            "placements": [
+              {
+                "box_id": "B03",
+                "x_mm": 1900,
+                "y_mm": 0,
+                "z_mm": 0,
+                "rotation_xy": 0
+              }
+            ],
+            "unload_steps": [
+              {
+                "step": 1,
+                "store_id": "S03",
+                "box_id": "B03"
+              }
+            ]
+          },
+          {
+            "vehicle_id": "V03",
+            "store_ids": [
+              "S01"
+            ],
+            "stops": [
+              {
+                "store_id": "S01",
+                "arrival_min": 502.0,
+                "service_start_min": 502.0,
+                "departure_min": 502.0
+              }
+            ],
+            "return_min": 524.0,
+            "distance_km": 22.0,
+            "cost": 194.0,
+            "box_ids": [
+              "B01"
+            ],
+            "placements": [
+              {
+                "box_id": "B01",
+                "x_mm": 3280,
+                "y_mm": 0,
+                "z_mm": 0,
+                "rotation_xy": 0
+              }
+            ],
+            "unload_steps": [
+              {
+                "step": 1,
+                "store_id": "S01",
+                "box_id": "B01"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "truncated": false,
+    "omitted_count": 0
+  }
+}

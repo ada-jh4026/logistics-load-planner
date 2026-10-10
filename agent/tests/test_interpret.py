@@ -111,3 +111,33 @@ def test_llm_empty_ops_means_not_understood():
     llm = FakeLLM([json.dumps({"intent_ops": [], "summary": "请说明要改哪家门店"})])
     r = interpret(InterpretRequest(schema_version="0.1", request=original, instruction="今天天气不错"), llm)
     assert r.mode == "llm" and not r.understood and r.patch == [] and "请说明" in r.summary
+
+
+# ---- 2026-10-10 审查 I3：多子句指令不得静默遗漏越权或未识别的子句 ----
+def test_rule_mode_rejects_store_coordinate_clause_instead_of_dropping_it():
+    original = SolveRequest(**load_request("partial2v"))
+    req = InterpretRequest(schema_version="0.1", request=original, instruction="把 S01 的坐标改成 999，同时 V01 今天不出车")
+    r = interpret(req, NullLLM())
+    assert [p.path for p in r.patch] == ["/vehicles/0"]
+    assert len(r.rejected_ops) == 1 and r.rejected_ops[0].intent.id == "S01" and r.rejected_ops[0].intent.field == "x_km"
+    assert r.rejected_ops[0].intent.value == 999
+    assert "x_km" in r.summary and "未采纳" in r.summary
+
+
+def test_rule_mode_reports_unrecognized_clause():
+    original = SolveRequest(**load_request("partial"))
+    req = InterpretRequest(schema_version="0.1", request=original, instruction="S01 最早 9 点半收货，另外 S02 也一样")
+    r = interpret(req, NullLLM())
+    assert r.understood and [p.path for p in r.patch] == ["/stores/0/window_start_min"]
+    assert any("未识别子句" in w and "S02" in w for w in r.warnings)
+    assert "未识别子句" in r.summary
+
+
+def test_llm_mode_flags_mentioned_entity_without_operation():
+    """模型只翻译了后半句：覆盖检查必须把被遗漏的 S01 指出来。"""
+    original = SolveRequest(**load_request("partial"))
+    llm = FakeLLM(['{"intent_ops":[{"action":"remove_vehicle","target":"vehicle","id":"V01"}],"summary":"移除 V01"}'])
+    req = InterpretRequest(schema_version="0.1", request=original, instruction="把 S01 的坐标改成 999，同时 V01 今天不出车")
+    r = interpret(req, llm)
+    assert r.mode == "llm"
+    assert any("S01" in w and "没有生成" in w for w in r.warnings)

@@ -8,6 +8,7 @@ from __future__ import annotations
 import copy
 import json
 import logging
+import re
 from typing import Any
 
 from .llm import LLM, NullLLM
@@ -46,9 +47,10 @@ SYSTEM_PROMPT = """你是城市配送调度系统的指令解析器。把调度�
 规则：
 1. 实体一律用 id 指代（如 S07、V02、B03），不要写数组下标，不要输出完整请求。
 2. 时刻一律换算为当天零点起的分钟数（14:00 → 840，上午 9 点半 → 570）。时间预算单位毫秒（20 秒 → 20000）。
-3. 调度员要求修改不在白名单里的字段（如箱件尺寸、车辆载重），也要如实输出该 set 操作，由系统拒绝并说明；不要替换成别的字段。
+3. 调度员要求修改不在白名单里的字段（如箱件尺寸、车辆载重、门店坐标 x_km / y_km），也要如实输出该 set 操作（field 写原字段名），由系统拒绝并说明；不要替换成别的字段，也不要只在 summary 里带过。
 4. 指令里提到的 id 在实体清单里找不到，就不要为它生成操作，并在 summary 里说明。
 5. 与调度无关或无法映射的内容：intent_ops 为空数组，summary 说明需要澄清。
+6. 指令含多个子句时逐句处理：每个子句要么对应一个操作，要么在 summary 里明确写出「某子句未处理」；不得只处理一部分却不提另一部分。
 输出格式：{"intent_ops":[{"action":"set","target":"store","id":"S07","field":"window_start_min","value":840}, ...], "summary":"一句话概述"}"""
 
 
@@ -78,7 +80,15 @@ def interpret(req: InterpretRequest, llm: LLM) -> InterpretResponse:
 
     patch, patched, rejected, accepted = apply_ops(req.request, ops)
     understood = bool(ops) and not _all_unknown_entities(ops, req.request)
+    uncovered = _uncovered_ids(req.instruction, ops, req.request)
+    uncovered = [u for u in uncovered if not any(u in w for w in warnings if w.startswith("未识别子句"))]  # 已在未识别子句里点名的不重复提示
+    if uncovered:
+        warnings.append("指令提到 " + "、".join(uncovered) + "，但没有生成针对它们的修改；请检查这部分是否被遗漏，必要时换种说法或拆成两条指令。")
     summary = _summary(accepted, rejected, understood, summary_hint, req.request)
+    if mode == "template":
+        unrecognized = [w for w in warnings if w.startswith("未识别子句")]
+        if unrecognized and understood:
+            summary += " " + " ".join(unrecognized)
     return InterpretResponse(
         mode=mode,
         model=model,
@@ -253,6 +263,26 @@ def _parse_llm(raw: str) -> tuple[list[IntentOp], str]:
         raise ValueError("模型输出缺少 intent_ops 数组")
     ops = [IntentOp(**o) for o in data["intent_ops"]]
     return ops, str(data.get("summary") or "")
+
+
+# ---------- 覆盖检查 ----------
+_ID_IN_TEXT = re.compile(r"(?<![A-Za-z0-9])([A-Za-z]{1,3}\d{1,4})(?![A-Za-z0-9])")
+
+
+def _uncovered_ids(instruction: str, ops: list[IntentOp], r: SolveRequest) -> list[str]:
+    """指令里出现、且确实存在于案例中、但没有任何操作指向它的实体 ID（两种模式通用的确定性检查）。"""
+    known = {s.id.upper(): s.id for s in r.stores} | {v.id.upper(): v.id for v in r.vehicles} | {b.id.upper(): b.id for b in r.boxes}
+    mentioned = [known[t.upper()] for t in _ID_IN_TEXT.findall(instruction) if t.upper() in known]
+    covered = {op.id for op in ops if op.id} | {op.value.get("id") for op in ops if op.action == "add_vehicle" and isinstance(op.value, dict)}
+    # add_vehicle「和 V01 一样的车」：V01 是模板不是目标，也算覆盖
+    for op in ops:
+        if op.action == "add_vehicle" and isinstance(op.value, dict):
+            covered |= {v.id for v in r.vehicles if v.model_dump() | {"id": op.value.get("id")} == op.value}
+    out: list[str] = []
+    for m in mentioned:
+        if m not in covered and m not in out:
+            out.append(m)
+    return out
 
 
 # ---------- 摘要 ----------

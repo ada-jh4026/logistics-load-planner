@@ -82,6 +82,7 @@ repair: null | {provided:true, status, status_word, attempted_count, accepted_co
   - `add_vehicle`：`value` 为完整车辆对象，id 不得重复。
 - 时刻可用 "14:00"、"下午两点"、"840" 表达，服务端统一为分钟。
 - 校验失败（如时间窗颠倒）→ 该操作进入 `rejected_ops`，其余继续；`patched_request` 始终是通过校验的请求或 null。
+- 多子句指令：规则模式对没生成操作的子句写入 `warnings`（「未识别子句「…」，未生成修改」）并附在 `summary` 末尾；两种模式都做覆盖检查——指令里提到、案例中存在、但没有任何操作指向的实体 ID 写入 `warnings`。门店坐标 / 位置类子句在规则模式下生成 `set store.x_km`，由白名单拒绝并进入 `rejected_ops`。部分理解不会被呈现为完整理解。
 - `understood=false`：无法映射到任何实体/字段，`patch=[]`，`summary` 说明需要澄清。
 - 模板模式：规则解析器覆盖常见句式（改时间窗、改服务时长、车辆不可用、改时间预算、改车速）；覆盖不到的返回 `understood=false`。
 

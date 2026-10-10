@@ -19,7 +19,9 @@ _METHOD_WORDS = {
     "sequential": ("先路线后装载", "顺序", "sequential", "不反馈"),
     "coupled": ("协同", "coupled", "反馈"),
 }
-_DIM_WORDS = {"长度": "length_mm", "长": "length_mm", "宽度": "width_mm", "宽": "width_mm", "高度": "height_mm", "高": "height_mm", "重量": "weight_kg", "重": "weight_kg", "载重": "max_weight_kg"}
+_DIM_WORDS = {"载重": "max_weight_kg", "长度": "length_mm", "长": "length_mm", "宽度": "width_mm", "宽": "width_mm", "高度": "height_mm", "高": "height_mm", "重量": "weight_kg", "重": "weight_kg"}
+# 门店的坐标 / 位置类修改不在白名单；仍生成一个会被拒绝的 set，让用户看到「x_km 不在允许修改范围」而不是被静默忽略
+_STORE_FORBIDDEN = re.compile(r"坐标|位置|地址|x_km|y_km|经纬|地方")
 
 
 def parse_rules(instruction: str, r: SolveRequest) -> tuple[list[IntentOp], list[str]]:
@@ -63,8 +65,11 @@ def parse_rules(instruction: str, r: SolveRequest) -> tuple[list[IntentOp], list
             ops.extend(new_ops)
             if ent:
                 last = ent
-        elif ent:
-            last = ent
+        else:
+            if ent:
+                last = ent
+            # 没生成任何操作的子句必须显式告知，不能让「部分理解」看起来像「完整理解」
+            notes.append(f"未识别子句「{clause}」，未生成修改。")
     return ops, notes
 
 
@@ -147,6 +152,10 @@ def _clause_ops(c: str, ent: tuple[str, str] | None, r: SolveRequest) -> list[In
 
     # --- 门店 ---
     if target == "store":
+        if _STORE_FORBIDDEN.search(c):
+            m = _INT.search(_ID_TOKEN.sub(" ", c))  # 先去掉 S01 这类 ID，免得把 01 当成数值
+            ops.append(IntentOp(action="set", target="store", id=id_, field="x_km", value=int(m.group(1)) if m else None))
+            return ops
         if re.search(r"服务时长|卸货时间|服务时间|卸货要|停留", c):
             m = _MINUTES.search(c)
             if m:

@@ -86,7 +86,7 @@ export function AssistantPanel(p: Props) {
           <div className="assist-output">
             <div className="assist-meta">
               <span className={`tag ${s.explanation.result.mode === 'llm' ? 'good' : ''}`}>{s.explanation.result.mode === 'llm' ? `模型 ${s.explanation.result.model}` : '模板'}</span>
-              <span className="tag" title="解释中的每个数字都在服务端事实表中核对过">
+              <span className="tag" title="解释中可识别的数字（含中文数字、百分数、时刻）已按单位与所属实体在服务端事实表中核对；无法识别的表达不计入，核对不证明语义正确">
                 已核对 {s.explanation.result.grounding.checked_numbers} 个数字
               </span>
               <span className="empty">{focusWord(s.explanation.focus)}{s.explanation.vehicleId ? ` ${s.explanation.vehicleId}` : ''}</span>
@@ -252,7 +252,7 @@ function ComparisonView({ baseline, candidate, result }: { baseline: RunPair; ca
     <div className="assist-output">
       <div className="assist-meta">
         <span className={`tag ${result.mode === 'llm' ? 'good' : ''}`}>{result.mode === 'llm' ? `模型 ${result.model}` : '模板'}</span>
-        <span className="tag">已核对 {result.grounding.checked_numbers} 个数字</span>
+        <span className="tag" title="对比文本中可识别的数字已在服务端事实表中核对；核对不证明语义正确">已核对 {result.grounding.checked_numbers} 个数字</span>
         <span className={`tag ${result.comparable_cost ? 'good' : 'mock'}`} title={result.comparable_cost ? '服务门店集合相同且均通过校验' : '服务门店集合不同或未通过校验，费用不可直接比较'}>
           {result.comparable_cost ? '费用可比' : '费用不可比'}
         </span>

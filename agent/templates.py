@@ -99,7 +99,7 @@ def repair_block(f: dict[str, Any]) -> str:
         src = f"从 {a['source_vehicle_id']} " if a["source_vehicle_id"] else "从未分配 "
         parts.append(f"- 采用：{'、'.join(a['store_ids'])} {src}移到 {a['target_vehicle_id']}，可执行门店 {a['served_before']} → {a['served_after']}。")
     if len(rep["accepted"]) > 3:
-        parts.append(f"- 另有 {len(rep['accepted']) - 3} 次采用未逐条列出。")
+        parts.append(f"- 其余采用记录未逐条列出（共采用 {rep['accepted_count']} 次）。")
     if rep["same_served_set"] and rep["cost_comparable"]:
         parts.append(f"- 修复前后服务门店集合相同，费用 {n1(rep['initial_total_cost'])} → {n1(rep['final_total_cost'])} 元。")
     else:

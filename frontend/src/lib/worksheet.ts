@@ -1,7 +1,7 @@
 // 现场装卸作业单：按车生成可打印 HTML。只用响应里的 unload_steps / placements 与请求里的箱件信息，不做任何推算。
 import type { Route, SolveRequest } from '../protocol/contract'
 import type { Derived } from './derive'
-import { hhmm } from './format'
+import { hhmm, windowText } from './format'
 
 function esc(s: string): string {
   return s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!)
@@ -49,7 +49,7 @@ export function buildWorksheetHtml({ request, route, derived, snapshot, runId, i
     .map((s, i) => {
       const store = derived.storesById.get(s.store_id)
       const n = route.unload_steps.filter((st) => st.store_id === s.store_id).length
-      return `<tr><td class="n">${i + 1}</td><td>${esc(s.store_id)}</td><td>${hhmm(s.arrival_min)}</td><td>${store ? `${hhmm(store.window_start_min)}–${hhmm(store.window_end_min)}` : '—'}</td><td class="n">${n}</td></tr>`
+      return `<tr><td class="n">${i + 1}</td><td>${esc(s.store_id)}</td><td>${hhmm(s.arrival_min)}</td><td>${store ? windowText(store.window_start_min, store.window_end_min) : '—'}</td><td class="n">${n}</td></tr>`
     })
     .join('')
   const weight = route.box_ids.reduce((s, id) => s + (derived.boxesById.get(id)?.weight_kg ?? 0), 0)

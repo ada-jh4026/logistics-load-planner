@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import type { JobResponse, SolveRequest } from '../protocol/contract'
 import type { Derived } from '../lib/derive'
-import { hhmm } from '../lib/format'
+import { hhmm, windowText } from '../lib/format'
 import { stopColor, VEHICLE_LINE } from '../lib/palette'
 
 interface Props {
@@ -98,7 +98,7 @@ export function RouteMap({ request, response, derived, selectedVehicleId, onSele
           return (
             <g key={s.id} className={cls} transform={`translate(${toX(s.x_km)} ${toY(s.y_km)})`}>
               <title>
-                {s.id} · 时间窗 {hhmm(s.window_start_min)}–{hhmm(s.window_end_min)} · 服务 {s.service_min} 分钟
+                {s.id} · 时间窗 {windowText(s.window_start_min, s.window_end_min)} · 服务 {s.service_min} 分钟
                 {stop ? ` · 到达 ${hhmm(stop.arrival_min)}，开始 ${hhmm(stop.service_start_min)}` : ''}
                 {unassigned ? ' · 未配送' : ''}
               </title>

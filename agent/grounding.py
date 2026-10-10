@@ -162,7 +162,7 @@ class FactIndex:
         return any(self._close(p, abs(v) * 100, decimals) for _, v in self.scope(entity, "%") if -1 <= v <= 1)
 
     def has_time(self, h: int, m: int, entity: str | None = None) -> bool:
-        target = h * 60 + m
+        target = (h * 60 + m) % 1440  # 「24:00」与事实 1440 同样视为匹配
         return any(round(v) % 1440 == target for p, v in self.scope(entity, "time") if p.endswith("_min"))
 
 

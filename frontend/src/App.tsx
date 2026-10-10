@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import type { JobResponse, SolveRequest } from './protocol/contract'
 import { derive } from './lib/derive'
 import { ARCHIVE_OPTIONS, loadCase, loadServiceCases, SAMPLE_OPTIONS, type CaseOption } from './lib/cases'
-import { eventVehicles, snapshotRoutes } from './lib/repair'
+import { eventVehicles, snapshotMetrics, snapshotRoutes } from './lib/repair'
 import { RepairPanel, type RepairFocus } from './components/RepairPanel'
 import { ERROR_HINT } from './lib/api'
 import { useSolver } from './lib/useSolver'
@@ -188,17 +188,26 @@ export default function App() {
     solver.run(request)
   }
 
-  // 修复事件快照：选中 accepted 事件时，3D/路线图改读后端随事件保存的 routes_before / routes_after
+  // 修复事件快照：选中 accepted 事件时，整个工作台（KPI、车辆栏、未配送、3D、路线图、行程表）改读后端随事件保存的
+  // routes_before / routes_after 与 metrics_before / metrics_after；只有二者齐全才进入快照模式，避免把最终指标和中间路线混在一起。
   const focusedEvent = useMemo(() => {
     if (!repairFocus || !response?.result?.repair_trace) return null
     return response.result.repair_trace.events.find((e) => e.event_id === repairFocus.eventId) ?? null
   }, [repairFocus, response])
-  const snapshot = useMemo(() => (focusedEvent && repairFocus ? snapshotRoutes(focusedEvent, repairFocus.side) : null), [focusedEvent, repairFocus])
+  const snapshot = useMemo(() => {
+    if (!focusedEvent || !repairFocus) return null
+    const routes = snapshotRoutes(focusedEvent, repairFocus.side)
+    const metrics = snapshotMetrics(focusedEvent, repairFocus.side)
+    return routes && metrics ? { routes, metrics } : null
+  }, [focusedEvent, repairFocus])
   const displayResponse = useMemo<JobResponse | null>(() => {
     if (!response?.result || !snapshot) return response
-    return { ...response, result: { ...response.result, routes: snapshot } }
+    const status: JobResponse['status'] = snapshot.metrics.served_stores >= snapshot.metrics.total_stores ? 'succeeded' : 'partial'
+    // 快照没有 unassigned 明细（原因码只对最终方案给出），这里清空，由 derive 按路线推导未配送集合
+    return { ...response, status, result: { ...response.result, routes: snapshot.routes, metrics: snapshot.metrics, unassigned: [] } }
   }, [response, snapshot])
-  const derived = useMemo(() => (request ? derive(request, displayResponse) : null), [request, displayResponse])
+  const derived = useMemo(() => (request ? derive(request, displayResponse, !!snapshot) : null), [request, displayResponse, snapshot])
+  const snapshotLabel = snapshot && focusedEvent ? `修复事件 ${focusedEvent.event_id} 的${repairFocus?.side === 'before' ? '修复前' : '修复后'}快照` : null
   const highlightStoreIds = useMemo(() => new Set(focusedEvent?.store_ids ?? []), [focusedEvent])
   const highlightBoxIds = useMemo(() => new Set(focusedEvent?.box_ids ?? []), [focusedEvent])
 
@@ -259,8 +268,9 @@ export default function App() {
         {request && derived ? (
           <VehicleRail
             request={request}
-            response={response}
+            response={displayResponse}
             derived={derived}
+            snapshot={!!snapshot}
             selectedVehicleId={selectedVehicleId}
             onSelectVehicle={(id) => {
               setSelectedVehicleId(id)
@@ -273,7 +283,7 @@ export default function App() {
         )}
 
         <main className="center">
-          <KpiRow response={busy || failed ? null : response} />
+          <KpiRow response={busy || failed ? null : displayResponse} snapshotLabel={snapshotLabel} />
           <div className="stage">
             <div className="stage-tabs" role="tablist" aria-label="视图">
               <button role="tab" aria-selected={view === '3d'} onClick={() => setView('3d')}>
@@ -384,9 +394,12 @@ export default function App() {
                   resetKey={resetKey}
                   highlightIds={highlightBoxIds}
                 />
-                {snapshot && focusedEvent && (
+                {snapshotLabel && (
                   <div className="snapshot-banner">
-                    正在查看修复事件 {focusedEvent.event_id} 的{repairFocus?.side === 'before' ? '修复前' : '修复后'}快照（后端已验证布局）
+                    正在查看{snapshotLabel}（后端随事件保存的已验证方案；指标、车辆、未配送均为该快照）
+                    <button className="btn quiet" onClick={() => setRepairFocus(null)}>
+                      关闭快照
+                    </button>
                   </div>
                 )}
                 <div className="stage-legend" aria-label="图例">
@@ -405,7 +418,7 @@ export default function App() {
               <>
                 <RouteMap
                   request={request}
-                  response={response}
+                  response={displayResponse}
                   derived={derived}
                   selectedVehicleId={selectedVehicleId}
                   onSelectVehicle={(id) => {
@@ -414,9 +427,12 @@ export default function App() {
                   }}
                   highlightStoreIds={highlightStoreIds}
                 />
-                {snapshot && focusedEvent && (
+                {snapshotLabel && (
                   <div className="snapshot-banner">
-                    正在查看修复事件 {focusedEvent.event_id} 的{repairFocus?.side === 'before' ? '修复前' : '修复后'}快照
+                    正在查看{snapshotLabel}（全部车辆路线均为该快照）
+                    <button className="btn quiet" onClick={() => setRepairFocus(null)}>
+                      关闭快照
+                    </button>
                   </div>
                 )}
                 <div className="stage-note">平面坐标与直线连线，仅示意配送顺序，不是道路导航</div>
@@ -439,8 +455,9 @@ export default function App() {
         {request && derived ? (
           <SidePanel
             request={request}
-            response={busy ? null : response}
+            response={busy ? null : displayResponse}
             derived={derived}
+            snapshotLabel={snapshotLabel}
             selectedVehicleId={selectedVehicleId}
             selectedBoxId={selectedBoxId}
             repair={

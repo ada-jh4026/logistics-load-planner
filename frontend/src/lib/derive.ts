@@ -10,14 +10,20 @@ export interface Derived {
   unassignedStoreIds: Set<string>
 }
 
-export function derive(request: SolveRequest, response: JobResponse | null): Derived {
+/**
+ * @param snapshot 为 true 时 response.result.routes 是修复事件的中间快照（没有 unassigned 列表），
+ *                 未配送门店按「不在任何快照路线里」推导。
+ */
+export function derive(request: SolveRequest, response: JobResponse | null, snapshot = false): Derived {
   const storesById = new Map(request.stores.map((s) => [s.id, s]))
   const boxesById = new Map(request.boxes.map((b) => [b.id, b]))
   const vehiclesById = new Map(request.vehicles.map((v) => [v.id, v]))
   const routes = response?.result?.routes ?? []
   const routesByVehicle = new Map(routes.map((r) => [r.vehicle_id, r]))
   const unusedVehicles = request.vehicles.filter((v) => !routesByVehicle.has(v.id))
-  const unassignedStoreIds = new Set((response?.result?.unassigned ?? []).map((u) => u.store_id))
+  const served = new Set(routes.flatMap((r) => r.store_ids))
+  const unassignedStoreIds =
+    snapshot && response?.result ? new Set(request.stores.filter((s) => !served.has(s.id)).map((s) => s.id)) : new Set((response?.result?.unassigned ?? []).map((u) => u.store_id))
   return { storesById, boxesById, vehiclesById, routesByVehicle, unusedVehicles, unassignedStoreIds }
 }
 

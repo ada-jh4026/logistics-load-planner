@@ -11,10 +11,13 @@ interface Props {
   derived: Derived
   selectedVehicleId: string | null
   onSelectVehicle: (id: string) => void
+  /** 为 true 时 response 是修复事件快照：未配送门店按路线推导，没有原因码 */
+  snapshot?: boolean
 }
 
-export function VehicleRail({ request, response, derived, selectedVehicleId, onSelectVehicle }: Props) {
+export function VehicleRail({ request, response, derived, selectedVehicleId, onSelectVehicle, snapshot }: Props) {
   const unassigned = response?.result?.unassigned ?? []
+  const snapshotUnserved = snapshot ? request.stores.filter((s) => derived.unassignedStoreIds.has(s.id)) : []
   const used = request.vehicles.filter((v) => derived.routesByVehicle.has(v.id))
 
   return (
@@ -75,10 +78,25 @@ export function VehicleRail({ request, response, derived, selectedVehicleId, onS
         <h2>
           未配送门店
           <span className="count">
-            {unassigned.length} / {request.stores.length}
+            {snapshot ? snapshotUnserved.length : unassigned.length} / {request.stores.length}
           </span>
         </h2>
-        {unassigned.length === 0 ? (
+        {snapshot ? (
+          snapshotUnserved.length === 0 ? (
+            <p className="empty">快照中所有门店都已安排配送。</p>
+          ) : (
+            <div className="unassigned">
+              <p className="empty">快照中尚未安排配送的门店（修复过程中的中间状态，不含原因码）：</p>
+              <div className="stop-chips">
+                {snapshotUnserved.map((s) => (
+                  <span className="chip" key={s.id}>
+                    {s.id}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )
+        ) : unassigned.length === 0 ? (
           <p className="empty">{response?.result ? '所有门店都已安排配送。' : '尚无方案。'}</p>
         ) : (
           <div className="unassigned">

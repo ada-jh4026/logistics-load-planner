@@ -1072,12 +1072,24 @@ h3 {
   top: 52px;
   left: 14px;
   z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   padding: 4px 10px;
   border: 1px solid var(--steel);
   border-radius: 4px;
   background: var(--steel-soft);
   color: var(--steel);
   font-size: 12px;
+}
+
+.snapshot-banner .btn {
+  padding: 2px 8px;
+  font-size: 12px;
+}
+
+.kpi-status.snap .kpi-value {
+  color: var(--steel);
 }
 
 .route-map .node.highlight circle {

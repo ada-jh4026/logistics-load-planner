@@ -2,7 +2,7 @@ import type { ReactNode } from 'react'
 import type { JobResponse, SolveRequest } from '../protocol/contract'
 import type { Derived } from '../lib/derive'
 import { METHOD_WORD, routeWeightKg, STATUS_WORD, TERMINATION_WORD } from '../lib/derive'
-import { hhmm, num, pct } from '../lib/format'
+import { hhmm, num, pct, windowText } from '../lib/format'
 import { boxVolumeMm3 } from '../lib/geometry'
 
 interface Props {
@@ -13,9 +13,11 @@ interface Props {
   selectedBoxId: string | null
   assistant?: ReactNode
   repair?: ReactNode
+  /** 非空：response 是修复事件快照（routes / metrics 来自事件），校验段改为说明文字 */
+  snapshotLabel?: string | null
 }
 
-export function SidePanel({ response, derived, selectedVehicleId, selectedBoxId, assistant, repair }: Props) {
+export function SidePanel({ response, derived, selectedVehicleId, selectedBoxId, assistant, repair, snapshotLabel }: Props) {
   const result = response?.result ?? null
   const m = result?.metrics ?? null
   const route = selectedVehicleId ? derived.routesByVehicle.get(selectedVehicleId) ?? null : null
@@ -30,6 +32,7 @@ export function SidePanel({ response, derived, selectedVehicleId, selectedBoxId,
       <section className="section">
         <div className="headline">
           <span className={`word ${statusClass}`}>{response ? STATUS_WORD[response.status] : '尚无方案'}</span>
+          {response && snapshotLabel && <span className="tag">{snapshotLabel}</span>}
           {response && (
             <span className="meta">
               {METHOD_WORD[response.method]}
@@ -71,7 +74,14 @@ export function SidePanel({ response, derived, selectedVehicleId, selectedBoxId,
         </section>
       )}
 
-      {result && (
+      {result && snapshotLabel && (
+        <section className="section">
+          <h2>独立校验</h2>
+          <p className="empty">正在查看{snapshotLabel}：这是后端随修复事件保存的已验证中间方案；违规明细只对最终方案给出，关闭快照后可见。</p>
+        </section>
+      )}
+
+      {result && !snapshotLabel && (
         <section className="section">
           <h2>独立校验</h2>
           <div className="validation">
@@ -123,7 +133,7 @@ export function SidePanel({ response, derived, selectedVehicleId, selectedBoxId,
                     </th>
                     <td>{hhmm(s.arrival_min)}</td>
                     <td>{hhmm(s.service_start_min)}</td>
-                    <td>{store ? `${hhmm(store.window_start_min)}–${hhmm(store.window_end_min)}` : '—'}</td>
+                    <td>{store ? windowText(store.window_start_min, store.window_end_min) : '—'}</td>
                   </tr>
                 )
               })}

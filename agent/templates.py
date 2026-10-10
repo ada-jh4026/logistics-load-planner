@@ -21,7 +21,15 @@ def hhmm(m: float | None) -> str:
     if m is None:
         return "—"
     t = int(round(m))
+    if t == 1440:
+        return "24:00"  # 当天结束，不写成 00:00
     return f"{(t // 60) % 24:02d}:{t % 60:02d}"
+
+
+def window_text(start: float | None, end: float | None) -> str:
+    if start is not None and end is not None and start <= 0 and end >= 1440:
+        return "全天"
+    return f"{hhmm(start)}–{hhmm(end)}"
 
 
 def pct(v: float | None) -> str:
@@ -132,7 +140,7 @@ def _vehicle(f: dict[str, Any], vehicle_id: str | None) -> str:
     for i, s in enumerate([s for s in f["stops"] if s["vehicle_id"] == v["vehicle_id"]], 1):
         wait = f"，等待 {n1(s['wait_min'])} 分钟" if (s["wait_min"] or 0) > 0.5 else ""
         lines.append(
-            f"- 第 {i} 站 {s['store_id']}：{hhmm(s['arrival_min'])} 到达，{hhmm(s['service_start_min'])} 开始，时间窗 {hhmm(s['window_start_min'])}–{hhmm(s['window_end_min'])}{wait}。"
+            f"- 第 {i} 站 {s['store_id']}：{hhmm(s['arrival_min'])} 到达，{hhmm(s['service_start_min'])} 开始，时间窗 {window_text(s['window_start_min'], s['window_end_min'])}{wait}。"
         )
     return "\n".join(lines)
 

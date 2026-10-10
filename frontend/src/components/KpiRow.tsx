@@ -3,13 +3,15 @@ import { num, pct } from '../lib/format'
 
 interface Props {
   response: JobResponse | null
+  /** 非空表示当前显示的是修复事件快照：指标来自事件的 metrics_before / metrics_after，校验格改为说明快照 */
+  snapshotLabel?: string | null
 }
 
 /**
  * 方案的五个头条数字，位于中央视图上方。只读响应指标，不计算任何新值。
  * 状态色只用于「独立校验」这一格；其余数字用文字色，颜色不承担含义。
  */
-export function KpiRow({ response }: Props) {
+export function KpiRow({ response, snapshotLabel }: Props) {
   const r = response?.result ?? null
   if (!r) return null
   const m = r.metrics
@@ -45,11 +47,19 @@ export function KpiRow({ response }: Props) {
         <span className="kpi-value">{pct(m.on_time_rate)}</span>
         <span className="kpi-sub">卸货阻挡 {m.unload_block_count} 处</span>
       </div>
-      <div className={`kpi kpi-status ${r.validation.valid ? 'ok' : 'bad'}`}>
-        <span className="kpi-label">独立校验</span>
-        <span className="kpi-value">{r.validation.valid ? '通过' : '未通过'}</span>
-        <span className="kpi-sub">{r.validation.valid ? '边界、碰撞、承托、时间窗、卸货均重算' : `${r.validation.violations.length} 项违规`}</span>
-      </div>
+      {snapshotLabel ? (
+        <div className="kpi kpi-status snap" title={snapshotLabel}>
+          <span className="kpi-label">独立校验</span>
+          <span className="kpi-value">快照</span>
+          <span className="kpi-sub">修复事件保存的已验证中间方案</span>
+        </div>
+      ) : (
+        <div className={`kpi kpi-status ${r.validation.valid ? 'ok' : 'bad'}`}>
+          <span className="kpi-label">独立校验</span>
+          <span className="kpi-value">{r.validation.valid ? '通过' : '未通过'}</span>
+          <span className="kpi-sub">{r.validation.valid ? '边界、碰撞、承托、时间窗、卸货均重算' : `${r.validation.violations.length} 项违规`}</span>
+        </div>
+      )}
     </div>
   )
 }

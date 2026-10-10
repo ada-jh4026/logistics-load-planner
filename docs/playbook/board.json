@@ -1,0 +1,384 @@
+{
+  "schema_version": "0.1",
+  "project": "城市配送智能配载",
+  "updated": "2026-10-10",
+  "implementation_started": false,
+  "task_status_values": [
+    "pending",
+    "in_progress",
+    "blocked",
+    "done"
+  ],
+  "tasks": [
+    {
+      "id": "B01",
+      "title": "建立可复现的后端骨架",
+      "lane": "backend",
+      "depends_on": [],
+      "estimate_minutes": 30,
+      "status": "pending",
+      "owner": null,
+      "evidence": [],
+      "blocked_reason": null,
+      "card": "docs/playbook/tasks/B01.md"
+    },
+    {
+      "id": "B02",
+      "title": "实现输入输出模型与非法数据处理",
+      "lane": "backend",
+      "depends_on": [
+        "B01"
+      ],
+      "estimate_minutes": 40,
+      "status": "pending",
+      "owner": null,
+      "evidence": [],
+      "blocked_reason": null,
+      "card": "docs/playbook/tasks/B02.md"
+    },
+    {
+      "id": "B03",
+      "title": "生成固定案例及可行构造数据",
+      "lane": "backend",
+      "depends_on": [
+        "B02"
+      ],
+      "estimate_minutes": 45,
+      "status": "pending",
+      "owner": null,
+      "evidence": [],
+      "blocked_reason": null,
+      "card": "docs/playbook/tasks/B03.md"
+    },
+    {
+      "id": "B04",
+      "title": "实现距离、时效和指标纯函数",
+      "lane": "backend",
+      "depends_on": [
+        "B02"
+      ],
+      "estimate_minutes": 35,
+      "status": "pending",
+      "owner": null,
+      "evidence": [],
+      "blocked_reason": null,
+      "card": "docs/playbook/tasks/B04.md"
+    },
+    {
+      "id": "B05",
+      "title": "实现两种路线构造策略",
+      "lane": "backend",
+      "depends_on": [
+        "B04"
+      ],
+      "estimate_minutes": 45,
+      "status": "pending",
+      "owner": null,
+      "evidence": [],
+      "blocked_reason": null,
+      "card": "docs/playbook/tasks/B05.md"
+    },
+    {
+      "id": "B06",
+      "title": "实现箱体边界碰撞及承托校验",
+      "lane": "backend",
+      "depends_on": [
+        "B02"
+      ],
+      "estimate_minutes": 45,
+      "status": "pending",
+      "owner": null,
+      "evidence": [],
+      "blocked_reason": null,
+      "card": "docs/playbook/tasks/B06.md"
+    },
+    {
+      "id": "B07",
+      "title": "实现卸货序列及装货逆序检查",
+      "lane": "backend",
+      "depends_on": [
+        "B06"
+      ],
+      "estimate_minutes": 45,
+      "status": "pending",
+      "owner": null,
+      "evidence": [],
+      "blocked_reason": null,
+      "card": "docs/playbook/tasks/B07.md"
+    },
+    {
+      "id": "B08",
+      "title": "组合独立方案校验器",
+      "lane": "backend",
+      "depends_on": [
+        "B04",
+        "B07"
+      ],
+      "estimate_minutes": 45,
+      "status": "pending",
+      "owner": null,
+      "evidence": [],
+      "blocked_reason": null,
+      "card": "docs/playbook/tasks/B08.md"
+    },
+    {
+      "id": "B09",
+      "title": "实现确定性3D配载启发式",
+      "lane": "backend",
+      "depends_on": [
+        "B08"
+      ],
+      "estimate_minutes": 60,
+      "status": "pending",
+      "owner": null,
+      "evidence": [],
+      "blocked_reason": null,
+      "card": "docs/playbook/tasks/B09.md"
+    },
+    {
+      "id": "B10",
+      "title": "连通两种完整基线",
+      "lane": "backend",
+      "depends_on": [
+        "B05",
+        "B09"
+      ],
+      "estimate_minutes": 35,
+      "status": "pending",
+      "owner": null,
+      "evidence": [],
+      "blocked_reason": null,
+      "card": "docs/playbook/tasks/B10.md"
+    },
+    {
+      "id": "B11",
+      "title": "加入统一预算与确定性控制",
+      "lane": "backend",
+      "depends_on": [
+        "B10"
+      ],
+      "estimate_minutes": 30,
+      "status": "pending",
+      "owner": null,
+      "evidence": [],
+      "blocked_reason": null,
+      "card": "docs/playbook/tasks/B11.md"
+    },
+    {
+      "id": "B12",
+      "title": "实现有限协同修复与求解入口",
+      "lane": "backend",
+      "depends_on": [
+        "B11"
+      ],
+      "estimate_minutes": 60,
+      "status": "pending",
+      "owner": null,
+      "evidence": [],
+      "blocked_reason": null,
+      "card": "docs/playbook/tasks/B12.md"
+    },
+    {
+      "id": "B13",
+      "title": "提供异步任务HTTP接口",
+      "lane": "backend",
+      "depends_on": [
+        "B12"
+      ],
+      "estimate_minutes": 45,
+      "status": "pending",
+      "owner": null,
+      "evidence": [],
+      "blocked_reason": null,
+      "card": "docs/playbook/tasks/B13.md"
+    },
+    {
+      "id": "B14",
+      "title": "生成基于结果的解释与执行指引",
+      "lane": "backend",
+      "depends_on": [
+        "B13"
+      ],
+      "estimate_minutes": 25,
+      "status": "pending",
+      "owner": null,
+      "evidence": [],
+      "blocked_reason": null,
+      "card": "docs/playbook/tasks/B14.md"
+    },
+    {
+      "id": "B15",
+      "title": "实现可复现实验和对比汇总",
+      "lane": "backend",
+      "depends_on": [
+        "B03",
+        "B12"
+      ],
+      "estimate_minutes": 45,
+      "status": "pending",
+      "owner": null,
+      "evidence": [],
+      "blocked_reason": null,
+      "card": "docs/playbook/tasks/B15.md"
+    },
+    {
+      "id": "B16",
+      "title": "完成后端回归与生成数据复核",
+      "lane": "backend",
+      "depends_on": [
+        "B13",
+        "B14",
+        "B15"
+      ],
+      "estimate_minutes": 40,
+      "status": "pending",
+      "owner": null,
+      "evidence": [],
+      "blocked_reason": null,
+      "card": "docs/playbook/tasks/B16.md"
+    },
+    {
+      "id": "F01",
+      "title": "搭建前端及协议类型",
+      "lane": "frontend",
+      "depends_on": [],
+      "estimate_minutes": 30,
+      "status": "pending",
+      "owner": null,
+      "evidence": [],
+      "blocked_reason": null,
+      "card": "docs/playbook/tasks/F01.md"
+    },
+    {
+      "id": "F02",
+      "title": "完成导入、车辆列表及路线示意",
+      "lane": "frontend",
+      "depends_on": [
+        "F01"
+      ],
+      "estimate_minutes": 40,
+      "status": "pending",
+      "owner": null,
+      "evidence": [],
+      "blocked_reason": null,
+      "card": "docs/playbook/tasks/F02.md"
+    },
+    {
+      "id": "F03",
+      "title": "按真实坐标渲染车厢和箱体",
+      "lane": "frontend",
+      "depends_on": [
+        "F02"
+      ],
+      "estimate_minutes": 50,
+      "status": "pending",
+      "owner": null,
+      "evidence": [],
+      "blocked_reason": null,
+      "card": "docs/playbook/tasks/F03.md"
+    },
+    {
+      "id": "F04",
+      "title": "实现装卸步骤与状态反馈",
+      "lane": "frontend",
+      "depends_on": [
+        "F03"
+      ],
+      "estimate_minutes": 40,
+      "status": "pending",
+      "owner": null,
+      "evidence": [],
+      "blocked_reason": null,
+      "card": "docs/playbook/tasks/F04.md"
+    },
+    {
+      "id": "F05",
+      "title": "切换真实服务并联调",
+      "lane": "frontend",
+      "depends_on": [
+        "F04",
+        "B13"
+      ],
+      "estimate_minutes": 45,
+      "status": "pending",
+      "owner": null,
+      "evidence": [],
+      "blocked_reason": null,
+      "card": "docs/playbook/tasks/F05.md"
+    },
+    {
+      "id": "F06",
+      "title": "制作演示素材并完成可用性收尾",
+      "lane": "frontend",
+      "depends_on": [
+        "F05",
+        "I01"
+      ],
+      "estimate_minutes": 40,
+      "status": "pending",
+      "owner": null,
+      "evidence": [],
+      "blocked_reason": null,
+      "card": "docs/playbook/tasks/F06.md"
+    },
+    {
+      "id": "I01",
+      "title": "完成一条端到端真实业务验收",
+      "lane": "integration",
+      "depends_on": [
+        "B13",
+        "F05"
+      ],
+      "estimate_minutes": 35,
+      "status": "pending",
+      "owner": null,
+      "evidence": [],
+      "blocked_reason": null,
+      "card": "docs/playbook/tasks/I01.md"
+    },
+    {
+      "id": "I02",
+      "title": "运行正式对比实验并审查结论",
+      "lane": "integration",
+      "depends_on": [
+        "B16",
+        "I01"
+      ],
+      "estimate_minutes": 45,
+      "status": "pending",
+      "owner": null,
+      "evidence": [],
+      "blocked_reason": null,
+      "card": "docs/playbook/tasks/I02.md"
+    },
+    {
+      "id": "I03",
+      "title": "整理运行文档和参赛材料",
+      "lane": "integration",
+      "depends_on": [
+        "I02",
+        "F06"
+      ],
+      "estimate_minutes": 40,
+      "status": "pending",
+      "owner": null,
+      "evidence": [],
+      "blocked_reason": null,
+      "card": "docs/playbook/tasks/I03.md"
+    },
+    {
+      "id": "I04",
+      "title": "冻结版本与最终交付验收",
+      "lane": "integration",
+      "depends_on": [
+        "I03"
+      ],
+      "estimate_minutes": 60,
+      "status": "pending",
+      "owner": null,
+      "evidence": [],
+      "blocked_reason": null,
+      "card": "docs/playbook/tasks/I04.md"
+    }
+  ]
+}

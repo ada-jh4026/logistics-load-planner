@@ -1,0 +1,61 @@
+{
+  "schema_version": "0.1",
+  "case_id": "ui-success",
+  "data_source": "synthetic",
+  "depot": {
+    "id": "DEPOT",
+    "x_km": 0,
+    "y_km": 0,
+    "departure_min": 480
+  },
+  "stores": [
+    {
+      "id": "S01",
+      "x_km": 3,
+      "y_km": 4,
+      "window_start_min": 500,
+      "window_end_min": 600,
+      "service_min": 5
+    }
+  ],
+  "vehicles": [
+    {
+      "id": "V01",
+      "length_mm": 2000,
+      "width_mm": 1000,
+      "height_mm": 2000,
+      "max_weight_kg": 500,
+      "fixed_cost": 100,
+      "cost_per_km": 2
+    }
+  ],
+  "boxes": [
+    {
+      "id": "B01",
+      "store_id": "S01",
+      "length_mm": 1000,
+      "width_mm": 1000,
+      "height_mm": 1000,
+      "weight_kg": 100,
+      "fragile": false,
+      "allow_rotate_xy": true
+    },
+    {
+      "id": "B02",
+      "store_id": "S01",
+      "length_mm": 1000,
+      "width_mm": 1000,
+      "height_mm": 1000,
+      "weight_kg": 50,
+      "fragile": true,
+      "allow_rotate_xy": true
+    }
+  ],
+  "options": {
+    "method": "coupled",
+    "seed": 42,
+    "time_limit_ms": 10000,
+    "max_iterations": 200,
+    "speed_kmph": 30
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1",
+  "run_id": "mock-success",
+  "case_id": "ui-success",
+  "status": "succeeded",
+  "data_source": "synthetic",
+  "is_mock": true,
+  "method": "coupled",
+  "termination_reason": "completed",
+  "elapsed_ms": 0,
+  "result": {
+    "routes": [
+      {
+        "vehicle_id": "V01",
+        "store_ids": [
+          "S01"
+        ],
+        "stops": [
+          {
+            "store_id": "S01",
+            "arrival_min": 490,
+            "service_start_min": 500,
+            "departure_min": 505
+          }
+        ],
+        "return_min": 515,
+        "distance_km": 10,
+        "cost": 120,
+        "box_ids": [
+          "B01",
+          "B02"
+        ],
+        "placements": [
+          {
+            "box_id": "B01",
+            "x_mm": 1000,
+            "y_mm": 0,
+            "z_mm": 0,
+            "rotation_xy": 0
+          },
+          {
+            "box_id": "B02",
+            "x_mm": 1000,
+            "y_mm": 0,
+            "z_mm": 1000,
+            "rotation_xy": 0
+          }
+        ],
+        "unload_steps": [
+          {
+            "step": 1,
+            "store_id": "S01",
+            "box_id": "B02"
+          },
+          {
+            "step": 2,
+            "store_id": "S01",
+            "box_id": "B01"
+          }
+        ]
+      }
+    ],
+    "unassigned": [],
+    "validation": {
+      "valid": true,
+      "violations": []
+    },
+    "metrics": {
+      "total_stores": 1,
+      "served_stores": 1,
+      "total_boxes": 2,
+      "served_boxes": 2,
+      "completion_rate": 1,
+      "used_vehicles": 1,
+      "total_distance_km": 10,
+      "total_cost": 120,
+      "on_time_rate": 1,
+      "volume_utilization": 0.5,
+      "weight_utilization": 0.3,
+      "unload_block_count": 0
+    },
+    "diagnostics": []
+  },
+  "error": null
+}

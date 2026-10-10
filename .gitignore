@@ -1,0 +1,30 @@
+# Local environments and credentials
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+.aws/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Frontend
+node_modules/
+dist/
+.vite/
+
+# Local logs and operating-system files
+*.log
+Thumbs.db
+.DS_Store
+
+# Large recordings; keep lightweight evidence and benchmark results tracked
+artifacts/demo/*.mp4
+artifacts/demo/*.mov

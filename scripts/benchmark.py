@@ -11,13 +11,17 @@
 from __future__ import annotations
 
 import argparse
+import csv
 import hashlib
+import importlib.metadata
 import json
 import platform
 import sys
 import time
+import traceback
 from pathlib import Path
 
+from backend.budget import Budget
 from backend.models import SolveRequest
 from backend.solver import solve
 from backend.validation import validate_solution
@@ -38,39 +42,76 @@ def _data_hash(request: SolveRequest) -> str:
 
 
 def _env_info() -> dict:
+    dependencies = {}
+    for name in ("fastapi", "pydantic"):
+        try:
+            dependencies[name] = importlib.metadata.version(name)
+        except importlib.metadata.PackageNotFoundError:
+            dependencies[name] = None
     return {
         "python": platform.python_version(),
         "platform": platform.platform(),
+        "dependencies": dependencies,
     }
 
 
-def _run_one(request: SolveRequest, method: str) -> dict:
+def _write_json(path: Path, value) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(value, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def _run_one(request: SolveRequest, method: str, run_dir: Path) -> dict:
     req = request.model_copy(deep=True)
     req.options.method = method
+    _write_json(run_dir / "request.json", req.model_dump())
+    budget = Budget(req.options.time_limit_ms, req.options.max_iterations)
     start = time.monotonic()
-    result = solve(req)
-    elapsed_ms = (time.monotonic() - start) * 1000.0
-    violations = validate_solution(req, result)
-    return {
+    record = {
         "case_id": req.case_id,
         "method": method,
-        "data_hash": _data_hash(req),
-        "valid": len(violations) == 0,
-        "violations": [v.code for v in violations],
-        "elapsed_ms": elapsed_ms,
-        "termination_reason": "completed",
-        "metrics": result.metrics.model_dump(),
+        "data_hash": _data_hash(request),
+        "valid": False,
+        "violations": [],
+        "served_store_ids": [],
+        "metrics": None,
     }
+    try:
+        result = solve(req, budget)
+        violations = validate_solution(req, result)
+        record["valid"] = not violations
+        record["violations"] = [v.code for v in violations]
+        record["served_store_ids"] = sorted(sid for route in result.routes for sid in route.store_ids)
+        record["metrics"] = result.metrics.model_dump()
+        _write_json(run_dir / "response.json", result.model_dump())
+        _write_json(run_dir / "validation.json", {
+            "valid": not violations,
+            "violations": [v.model_dump() for v in violations],
+        })
+    except Exception as exc:
+        record["violations"] = ["SOLVER_EXCEPTION"]
+        record["error"] = {"type": type(exc).__name__, "message": str(exc)}
+        _write_json(run_dir / "error.json", {
+            **record["error"], "traceback": traceback.format_exc(),
+        })
+    record["elapsed_ms"] = (time.monotonic() - start) * 1000.0
+    record["termination_reason"] = (
+        "exception" if "error" in record else budget.termination_reason()
+    )
+    return record
 
 
 def cost_improvement(baseline: dict, candidate: dict):
     """费用改善率 (基线-本方案)/基线；不可比时返回 (None, reason)。"""
-    b = baseline["metrics"]
-    c = candidate["metrics"]
     if baseline["valid"] is not True or candidate["valid"] is not True:
         return None, "方案未通过独立验证"
-    if b["served_stores"] != c["served_stores"]:
+    b_ids = baseline.get("served_store_ids")
+    c_ids = candidate.get("served_store_ids")
+    if b_ids is None or c_ids is None:
+        return None, "缺少服务门店集合"
+    if set(b_ids) != set(c_ids):
         return None, "服务门店集合不同"
+    b = baseline["metrics"]
+    c = candidate["metrics"]
     if b["total_cost"] <= 0:
         return None, "基线成本为 0"
     return (b["total_cost"] - c["total_cost"]) / b["total_cost"], None
@@ -81,6 +122,7 @@ def run_benchmark(suite: str, output_dir: Path) -> dict:
     seeds = SUITE_SEEDS[suite]
     runs: list[dict] = []
 
+    output_dir.mkdir(parents=True, exist_ok=True)
     for seed in seeds:
         case_path = Path(f"data/cases/{suite}-{seed}.json")
         data = json.loads(case_path.read_text(encoding="utf-8"))
@@ -89,17 +131,27 @@ def run_benchmark(suite: str, output_dir: Path) -> dict:
         request = SolveRequest.model_validate(data)
 
         for method in METHODS:
-            run = _run_one(request, method)
+            run = _run_one(request, method,
+                           output_dir / "runs" / f"{suite}-{seed}" / method)
             runs.append(run)
+            _write_json(output_dir / "runs.json", runs)
 
     # 按 case 分组计算对比
     summary = _summarize(runs)
 
-    output_dir.mkdir(parents=True, exist_ok=True)
-    (output_dir / "runs.json").write_text(
-        json.dumps(runs, ensure_ascii=False, indent=2), encoding="utf-8")
-    (output_dir / "summary.json").write_text(
-        json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
+    _write_json(output_dir / "summary.json", summary)
+    _write_json(output_dir / "manifest.json", {
+        "suite": suite, "seeds": seeds, "methods": METHODS,
+        "environment": _env_info(), "total_runs": len(runs),
+    })
+    with (output_dir / "runs.csv").open("w", encoding="utf-8-sig", newline="") as fh:
+        fields = ["case_id", "method", "data_hash", "valid", "elapsed_ms",
+                  "termination_reason", "served_stores", "total_cost", "used_vehicles"]
+        writer = csv.DictWriter(fh, fieldnames=fields)
+        writer.writeheader()
+        for run in runs:
+            metrics = run["metrics"] or {}
+            writer.writerow({key: run.get(key, metrics.get(key)) for key in fields})
 
     return summary
 

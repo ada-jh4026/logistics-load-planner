@@ -135,3 +135,24 @@ def test_budget_none_accepted():
     routes2, unassigned2 = build_insertion_routes(req, budget=None)
     _check_partition(req, routes, unassigned)
     _check_partition(req, routes2, unassigned2)
+
+
+@pytest.mark.parametrize("builder", [build_greedy_routes, build_insertion_routes])
+def test_candidate_selection_uses_incremental_cost(builder):
+    req = _load_case("c01")
+    req.stores.append(req.stores[0].model_copy(update={
+        "id": "S02", "x_km": 6, "y_km": 8,
+        "window_start_min": 0, "window_end_min": 1440,
+    }))
+    req.boxes.append(req.boxes[0].model_copy(update={"id": "B03", "store_id": "S02"}))
+    req.vehicles[0].fixed_cost = 80
+    req.vehicles.append(req.vehicles[0].model_copy(update={
+        "id": "V02", "fixed_cost": 95, "cost_per_km": 1,
+    }))
+
+    # 第二店开 V02 的完整路线更便宜，但追加到 V01 的增量仅为 20。
+    routes, unassigned = builder(req)
+    assert unassigned == []
+    assert len(routes) == 1
+    assert routes[0].vehicle_id == "V01"
+    assert set(routes[0].store_ids) == {"S01", "S02"}

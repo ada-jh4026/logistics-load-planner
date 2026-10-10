@@ -1,0 +1,4 @@
+﻿case_id,method,data_hash,valid,elapsed_ms,termination_reason,served_stores,total_cost,used_vehicles
+stress-44,greedy,165b3f5c0fa9ee90,True,203.00000003771856,completed,60,3829.2456271633287,9
+stress-44,sequential,165b3f5c0fa9ee90,True,327.9999999795109,completed,60,3263.8875715448116,8
+stress-44,coupled,165b3f5c0fa9ee90,True,295.99999997299165,completed,60,3263.8875715448116,8

@@ -132,7 +132,7 @@ def build_greedy_routes(request: SolveRequest, budget=None):
                                   route.store_ids + [sid],
                                   route.box_ids + agg[sid].box_ids)
             if _feasible(request, cand, agg):
-                cost = _candidate_cost(request, cand)
+                cost = _candidate_cost(request, cand) - _candidate_cost(request, route)
                 if _better(cost, cand, best_cost, best):
                     best, best_cost = cand, cost
 
@@ -192,6 +192,8 @@ def build_insertion_routes(request: SolveRequest, budget=None):
                 cand = RouteCandidate(v.id, new_ids, new_boxes)
                 if _feasible(request, cand, agg):
                     cost = _candidate_cost(request, cand)
+                    if existing is not None:
+                        cost -= _candidate_cost(request, existing)
                     if _better(cost, cand, best_cost, best):
                         best, best_cost = cand, cost
 

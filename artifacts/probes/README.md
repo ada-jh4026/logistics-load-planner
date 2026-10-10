@@ -1,6 +1,8 @@
 # 探针：路线构造的费用比较口径
 
-日期：2026-10-10（英国时间 19:10）。提出方：前端/智能体线。本目录不改 `backend/`，只放可复现的探针脚本与一份可选补丁，由主线决定是否采纳。
+> **结果：主线已在提交 31e9a54 独立做出同一修正**（`backend/routing.py` 改为增量费用），并重跑三套基准到 `artifacts/benchmarks/corrected-{small,standard,stress}/`，见 `artifacts/evidence/B15-correction.md`。本目录的补丁因此不再需要应用，保留作为问题定位与交叉验证的记录。
+
+日期：2026-10-10（英国时间 19:10）。提出方：前端/智能体线。本目录不改 `backend/`，只放可复现的探针脚本与一份可选补丁。
 
 ## 现象（来自主线 B15 的正式实验，`artifacts/benchmarks/`）
 | 案例 | greedy | sequential | coupled |

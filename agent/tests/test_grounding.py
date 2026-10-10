@@ -38,3 +38,20 @@ def test_rounding_tolerance(req_partial, resp_partial):
     f["metrics"]["total_distance_km"] = 10.04
     _, unmatched = check_grounding("总里程 10 km，或 10.0 km。", f)
     assert unmatched == []
+
+
+def test_half_up_rounding_is_accepted(req_partial, resp_partial):
+    """0.5625 → 模型写 56.3%（四舍五入）必须通过；Python round(56.25,1)=56.2 不能成为误判来源。"""
+    f = _facts(req_partial, resp_partial)
+    f["metrics"]["volume_utilization"] = 0.5625
+    f["metrics"]["total_cost"] = 919.25
+    _, unmatched = check_grounding("体积利用率 56.3%，也可写 56.2% 或 56%；总费用 919.3 元或 919.2 元或 919 元。", f)
+    assert unmatched == []
+
+
+def test_tolerance_does_not_accept_wrong_digit(req_partial, resp_partial):
+    f = _facts(req_partial, resp_partial)
+    f["metrics"]["volume_utilization"] = 0.5625
+    _, unmatched = check_grounding("体积利用率 56.4%，总费用 121 元。", f)
+    assert set(unmatched) == {"56.4%", "121 元"}
+

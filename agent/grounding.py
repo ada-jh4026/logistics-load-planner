@@ -56,11 +56,13 @@ class FactIndex:
             self.entries.append((path.lower(), float(node)))
 
     @staticmethod
-    def _close(text_val: float, fact: float) -> bool:
+    def _close(text_val: float, fact: float, decimals: int = 0) -> bool:
+        """文本值按其小数位数视为对事实的四舍五入：|fact − text| ≤ 半个最后一位。
+        用容差而不是 round()，避免 Python 银行家舍入把 56.25 舍成 56.2 而误判模型写的 56.3。"""
         if abs(text_val - fact) <= 1e-6:
             return True
-        # 允许文本把事实四舍五入到 0 或 1 位小数
-        return abs(round(fact, 1) - text_val) <= 1e-6 or abs(round(fact) - text_val) <= 1e-6
+        tol = 0.5 * 10 ** (-decimals) + 1e-9
+        return abs(text_val - fact) <= tol
 
     def _candidates(self, unit: str | None) -> list[float]:
         if not unit:
@@ -68,16 +70,20 @@ class FactIndex:
         keys = UNIT_PATHS.get(unit, ())
         return [v for p, v in self.entries if any(k in p for k in keys)]
 
-    def has_number(self, x: float, unit: str | None) -> bool:
-        return any(self._close(x, v) for v in self._candidates(unit))
+    def has_number(self, x: float, unit: str | None, decimals: int = 0) -> bool:
+        return any(self._close(x, v, decimals) for v in self._candidates(unit))
 
-    def has_percent(self, p: float) -> bool:
+    def has_percent(self, p: float, decimals: int = 0) -> bool:
         # 比率类事实（利用率、完成率、费用变化率）在 [-1, 1]；文本里的百分数不带符号，所以按绝对值匹配
-        return any(abs(round(abs(v) * 100) - p) <= 1e-6 or abs(round(abs(v) * 100, 1) - p) <= 1e-6 for _, v in self.entries if -1 <= v <= 1)
+        return any(self._close(p, abs(v) * 100, decimals) for _, v in self.entries if -1 <= v <= 1)
 
     def has_time(self, h: int, m: int) -> bool:
         target = h * 60 + m
         return any(round(v) % 1440 == target for p, v in self.entries if p.endswith("_min"))
+
+
+def _decimals(token: str) -> int:
+    return len(token.split(".", 1)[1]) if "." in token else 0
 
 
 def check_grounding(text: str, facts: dict[str, Any]) -> tuple[int, list[str]]:
@@ -96,15 +102,16 @@ def check_grounding(text: str, facts: dict[str, Any]) -> tuple[int, list[str]]:
 
     for mp in _PCT.finditer(scrubbed):
         checked += 1
-        if not index.has_percent(float(mp.group(1))):
+        if not index.has_percent(float(mp.group(1)), _decimals(mp.group(1))):
             unmatched.append(mp.group(0))
     scrubbed = _PCT.sub(" ", scrubbed)
 
     for mn in _NUM.finditer(scrubbed):
-        val = float(mn.group(1).replace(",", ""))
+        raw = mn.group(1).replace(",", "")
+        val = float(raw)
         unit = mn.group(2)
         checked += 1
-        if not index.has_number(val, unit):
+        if not index.has_number(val, unit, _decimals(raw)):
             unmatched.append(mn.group(1) + (f" {unit}" if unit else ""))
 
     return checked, unmatched

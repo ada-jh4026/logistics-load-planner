@@ -16,7 +16,7 @@
 - 不代表已创建应用、跑通算法、取得优化收益或完成线上提交。
 
 ## 下一步
-- 主线：B10，连通两种完整基线（B10 依赖 B05、B09 已满足）。
+- 主线：B11，加入统一预算与确定性控制（B11 依赖 B10 已满足）。
 - 本方：F01 → A01，之后按 SCHEDULE。
 - 任何一方改 docs/playbook 规格先写 CHANGES.md。
 
@@ -37,3 +37,4 @@
 - 2026-10-10 / B07 / 主线（AI 助手）/ backend/unloading.py、tests/test_unloading.py、artifacts/evidence/B07.md / generate/validate_unload_steps + loading 逆序；C05 阻挡与交换通过、C06 抽底拒绝、生成与验证分离；pytest 9 passed；全量 83 passed / 证据 artifacts/evidence/B07.md / 下一步 B08 / 阻塞：无。
 - 2026-10-10 / B08 / 主线（AI 助手）/ backend/validation.py、tests/test_validation.py、artifacts/evidence/B08.md / validate_solution + validate_vehicle_candidate；分配完整性→车辆唯一→时间/载重→布局→卸货→指标全链校验；C09 篡改全检出、成功样例通过；pytest 9 passed；全量 92 passed / 证据 artifacts/evidence/B08.md / 下一步 B09 / 阻塞：无。
 - 2026-10-10 / B09 / 主线（AI 助手）/ backend/packing.py、tests/test_packing.py、artifacts/evidence/B09.md / pack_route 确定性3D配载启发式（逆配送序+候选边界生成+评分+3排序）；C02 尺寸不合/旋转可放/堆叠/独立校验；pytest 7 passed；全量 99 passed / 证据 artifacts/evidence/B09.md / 下一步 B10 / 阻塞：无。
+- 2026-10-10 / B10 / 主线（AI 助手）/ backend/baselines.py、tests/test_baselines.py、artifacts/evidence/B10.md / solve_greedy + solve_sequential 连通路线构造与 packer，整车失败退回 unassigned、validate_solution 复核；c01 全分配、c07 部分、c02/c03 未分配、small-11 无违规；pytest 12 passed；全量 111 passed / 证据 artifacts/evidence/B10.md / 下一步 B11 / 阻塞：无。

@@ -26,7 +26,7 @@
 决策层  backend/    路线构造 → 3D 配载 → 卸货可行性 → 协同修复 → 独立校验
 智能体  agent/      事实表 → 证据绑定解释 / 一句话 → 受控补丁 / 方案对比
 ```
-三个进程只通过两份 JSON 协议相连（`docs/playbook/CONTRACT.md`、`AGENT_CONTRACT.md`）。详细架构见 [docs/architecture.md](docs/architecture.md)。
+三个进程只通过两份 JSON 协议相连（`docs/playbook/CONTRACT.md`、`docs/playbook/AGENT_CONTRACT.md`）。详细架构见 [docs/architecture.md](docs/architecture.md)。
 
 **求解器**：门店按最晚收货时间排序后做路线构造（简单贪心尾插、全位置插入 + 2-opt 两种策略，按增量费用比较）；每辆车做确定性 3D 配载：同规格箱件按卸货逆序填充；**混合规格箱件按到站逆序分区构造**，末站靠车头、先送靠后门，每次放置都检查从后门进入的扫掠路径，允许水平旋转，承托须由单个非易碎箱完整托住；再逐站逐件模拟沿后门方向抽出，检查是否被挡、是否抽走了承托中的底箱。装不下或卸不出时，**协同修复**在预算内对最多 8 个搬移候选做完整重装载与独立校验、择优采用，再用剩余预算对未配送门店逐店恢复；每次检测、拒绝、采用都记入 `repair_trace`，采用事件带修复前后的已验证路线快照。最终方案由独立校验器重算全部约束，不信任求解器自报的结果。
 
@@ -39,38 +39,47 @@
 
 ## 3. 运行方式
 
-环境：Python 3.12（3.13 亦可）、Node 22+。Windows 命令如下，macOS / Linux 把 `.venv\Scripts\python.exe` 换成 `.venv/bin/python`。
+环境：Python 3.12（3.13 亦可；实测 3.12.14）、Node 20.19+ 或 22.12+（Vite 8 的要求；实测 22.14）。三个服务都在仓库根目录启动，前端在 `frontend/` 目录。依赖版本钉在 `requirements*.txt`、`agent/requirements.txt` 与 `frontend/package-lock.json`；2026-10-11 02:20 干净克隆按下列命令复现通过（当时 248 项测试；审查修复后为 257 项），`npm ci && npm run build` 通过。
 
+**Windows（PowerShell 或 cmd）**
+```powershell
+git clone https://github.com/ada-c38f0bb79f/logistics-load-planner.git
+cd logistics-load-planner
+python -m venv .venv
+.venv\Scripts\python.exe -m pip install -r requirements-dev.txt -r agent/requirements.txt
+copy agent\.env.example agent\.env      # 可选：填入 DEEPSEEK_API_KEY；不填则智能体为模板模式
+# 以下三条各开一个终端，前两条在仓库根目录
+.venv\Scripts\python.exe -m uvicorn backend.app:app --host 127.0.0.1 --port 8000
+.venv\Scripts\python.exe -m uvicorn agent.app:app --host 127.0.0.1 --port 8001
+cd frontend; npm ci; npm run dev          # http://127.0.0.1:5173
+```
+
+**macOS / Linux / Git Bash**
 ```bash
 git clone https://github.com/ada-c38f0bb79f/logistics-load-planner.git
 cd logistics-load-planner
-
-# 后端 + 智能体共用一个虚拟环境
-python -m venv .venv
-.venv\Scripts\python.exe -m pip install -r requirements-dev.txt -r agent/requirements.txt
-
-# 可选：模型密钥（不填则智能体为模板模式）
-copy agent\.env.example agent\.env    # 填入 DEEPSEEK_API_KEY
-
-# 三个服务，各开一个终端
-.venv\Scripts\python.exe -m uvicorn backend.app:app --host 127.0.0.1 --port 8000
-.venv\Scripts\python.exe -m uvicorn agent.app:app   --host 127.0.0.1 --port 8001
-cd frontend && npm install && npm run dev            # http://127.0.0.1:5173
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements-dev.txt -r agent/requirements.txt   # Git Bash 用 .venv/Scripts/python.exe
+cp agent/.env.example agent/.env          # 可选：填入 DEEPSEEK_API_KEY
+# 以下三条各开一个终端，前两条在仓库根目录
+.venv/bin/python -m uvicorn backend.app:app --host 127.0.0.1 --port 8000
+.venv/bin/python -m uvicorn agent.app:app --host 127.0.0.1 --port 8001
+cd frontend && npm ci && npm run dev      # http://127.0.0.1:5173
 ```
 打开页面，案例下拉里选「服务案例 standard-11」，点「运行求解」。
 
-测试：
+测试（Windows 把 `.venv/bin/python` 换成 `.venv\Scripts\python.exe`）：
 ```bash
-.venv\Scripts\python.exe -m pytest -q tests          # 后端 162 项
-.venv\Scripts\python.exe -m pytest -q agent/tests    # 智能体 49 项，不依赖网络
-cd frontend && npm run build                          # 类型检查 + 构建
+.venv/bin/python -m pytest -q tests            # 后端 185 项（其中 1 项会写入 artifacts/benchmarks/test_tmp）
+.venv/bin/python -m pytest -q agent/tests      # 智能体 72 项，不依赖网络
+cd frontend && npm run build                   # 类型检查 + 构建
 ```
-实验：
+实验（会写入 `artifacts/benchmarks/`；仓库里的正式记录在 `corrected-*`、`o02-*`、`o03-*`、`hetero-*` 目录）：
 ```bash
-.venv\Scripts\python.exe -m scripts.benchmark --suite small    --output artifacts/benchmarks/small
-.venv\Scripts\python.exe -m scripts.benchmark --suite standard --output artifacts/benchmarks/latest
-.venv\Scripts\python.exe -m scripts.benchmark --suite stress   --output artifacts/benchmarks/stress
-.venv\Scripts\python.exe -m agent.scripts.eval_interpret        # 需密钥；模型模式指令解析准确率
+.venv/bin/python -m scripts.benchmark --suite small    --output artifacts/benchmarks/small
+.venv/bin/python -m scripts.benchmark --suite standard --output artifacts/benchmarks/latest
+.venv/bin/python -m scripts.benchmark --suite stress   --output artifacts/benchmarks/stress
+.venv/bin/python -m agent.scripts.eval_interpret        # 需密钥；模型模式指令解析准确率
 ```
 
 ## 4. 数据来源
@@ -124,19 +133,19 @@ cd frontend && npm run build                          # 类型检查 + 构建
 | stress-44-mixed-1 / -2（60 店） | 0/60 | 0/60 | 32/60，2,976 元 / 36/60，3,208 元 | **60/60（repaired）**，6,895 / 6,758 元 |
 | 留出集 6 案（未参与调试） | | | | 全部 100%，repaired |
 
-如实结论：**收益是覆盖率，不是费用。** 服务集合相同时协同与补救基线费用打平（small）或更高（standard 约 +9%）；stress 上协同以更多车辆换来全覆盖，服务集合不同，费用不可比。修复后 stress 用 19–22 辆车、体积利用率约 20%，仍偏保守。同规格基准（5.1）在修复后表现不变。
+如实结论：**收益是覆盖率，不是费用。** 服务集合相同时协同与补救基线费用打平（small）或更高（standard-11-mixed-1 为 +9.9%，约 10%）；stress 上协同以更多车辆换来全覆盖（60/60 对 32–36/60），服务集合不同，费用不可比。修复后 stress 用 19–22 辆车、体积利用率约 20%，仍偏保守。留出集 6 案与开发集来自同一生成机制、只换种子，全部通过只说明修复不依赖特定开发种子，不能推断到真实 SKU 分布。同规格基准（5.1）在修复后表现不变。
 
 ### 5.4 智能体（`artifacts/evidence/A0*.md`、`O04.md`，真实 DeepSeek `deepseek-chat`，temperature 0）
 | 项目 | 结果 |
 |---|---|
 | 指令解析准确率（20 条测试集，模型模式） | 20 / 20，中位耗时 1.0 s，最大 1.9 s（`A03_eval.json`） |
 | 规则模式（无模型）覆盖 | 测试集中 16 条句式逐条断言通过 |
-| 解释数字核对 | 实测 overview 首轮出现 2 个未匹配时刻，重试后 19 个数字全部匹配（`A02_live.json`） |
+| 解释数字核对 | 实测 overview 首轮出现 2 个未匹配时刻，重试后 19 个数字全部匹配（`A02_live.json`）；2026-10-10 审查发现的五类绕过（紧邻中文的数字、中文数字、万 / 亿倍率、推算合计、借用全局数字描述单车）已补拦截并有回归测试（`artifacts/evidence/review-fixes.md`） |
 | 修复事实转述 | geometry-22 真实响应：总览解释核对 24 个数字，末尾转述「检测到 1 处冲突、采用 1 次、可执行门店 0 → 2」 |
-| 单元测试 | 63 项，FakeLLM 注入，含编造数字拦截、不可比时拦截降本百分比、异常回退、旧响应无记录 / not_needed 区分 |
+| 单元测试 | 72 项，FakeLLM 注入，含编造数字拦截、不可比时拦截降本百分比、异常回退、旧响应无记录 / not_needed 区分、多子句指令不静默遗漏 |
 
 ### 5.5 端到端
-三服务同机，浏览器自动化（修正后的求解器）：small-11 真实求解（2 车 869.2 元）→ 模型解释（核对 23 个数字）→ 指令「V02 今天不出车」→ 字段级 diff「车辆 V02：可用 → 移除」→ 确认重算 → 自动对比：10 → 10 店，2 → 2 车，869.2 → 919.2 元，服务集合相同、费用可比，**上升 5.8%**。少一辆可选车让方案变贵，系统如实报告上升，不做任何美化。截图与日志见 `artifacts/evidence/F05.md`、`F07.md`、`I01.md`。协同修复面板在五种状态（无需修复 / 修复成功 / 部分修复 + 截断 / 未解决 / 预算退出）上用主线真实输出验收，可切换采用事件的修复前后布局快照（`O04.md`、`artifacts/demo/repair/`）。页面还提供「对比三种方法」（同一请求串行求解三法并排，费用只在可比时给百分比）与按车的可打印现场装卸作业单（`UI-polish.md`、`artifacts/demo/ui/`）。
+三服务同机，浏览器自动化（修正后的求解器）：small-11 真实求解（2 车 869.2 元）→ 模型解释（核对 23 个数字）→ 指令「V02 今天不出车」→ 字段级 diff「车辆 V02：可用 → 移除」→ 确认重算 → 自动对比：10 → 10 店，2 → 2 车，869.2 → 919.2 元，服务集合相同、费用可比，**上升 5.8%**。少一辆可选车让方案变贵，系统如实报告上升，不做任何美化。截图与日志见 `artifacts/evidence/F05.md`、`F07.md`、`I01.md`。协同修复面板在五种状态（无需修复 / 修复成功 / 部分修复 + 截断 / 未解决 / 预算退出）上用主线真实输出验收，可切换采用事件的修复前后布局快照（`O04.md`、`artifacts/demo/repair/`）。页面还提供「对比三种方法」（同一请求串行求解三法并排，费用只在可比时给百分比）与按车的可打印现场装卸作业单（`UI-polish.md`、`artifacts/demo/ui/`）。演示脚本当前使用 standard-11：5 车 2,003.2 元 → 「V02 和 V04 今天都不出车」→ 5 车 2,053.2 元，费用可比 **+2.5%**（`artifacts/demo/flow-standard-11/`）。
 
 ## 6. 技术架构与外部依赖
 
@@ -154,18 +163,28 @@ cd frontend && npm run build                          # 类型检查 + 构建
 - 单仓、单日、每车一趟；箱形货物；固定时间窗；不建模实时路况、多仓、异形物体、材质承重、重心。
 - 3D 配载是保守启发式：「未找到布局」不等于数学上不可行；体积利用率不代表空间最优。
 - 距离为平面直线，不是道路网络。
-- 协同修复在同规格基准上未被触发（5.1）；在冲突与混合箱件实验上与简单补救基线覆盖相同、费用持平或更高（5.2、5.3），其价值是可执行性与可追溯，不是降本。
+- 协同修复在同规格基准上未被触发（5.1）。合成冲突实验上与简单补救基线覆盖、费用完全相同（5.2）；混合箱件实验上 small 持平、standard 多覆盖 1 店或费用高约 10%、stress 覆盖 60/60 对 32–36/60 但车辆更多（5.3）。其价值是可执行性、覆盖率与可追溯，不是降本。
 - 混合箱件下仍不允许跨箱共同承托，修复后 stress 规模车辆数偏多。
 - 智能体不做多轮对话；指令白名单之外的修改需要在页面或 JSON 中手工完成。
 - 单进程串行求解，队列上限 8；未做并发与持久化。
 
 ## 8. 工程化与落地路径
 
-**规模**：求解耗时随门店数近似线性（上表），当前规模远未触及时间预算；瓶颈会首先出现在协同修复的候选枚举。扩展思路：按地理分区并行、候选位置索引、任务队列换为外部队列横向扩展求解进程（接口不变）。
+**规模**（记录机器：Windows 11，Intel Core Ultra 9 185H，32 GB，Python 3.12；预算 `time_limit_ms=10000`）：
+
+| 数据 | 方法 | small（10 店） | standard（30 店） | stress（60 店） | 终止原因 |
+|---|---|---|---|---|---|
+| 同规格箱件（5.1） | coupled | 31–47 ms | 78–125 ms | 296 ms | 全部 completed |
+| 混合箱件（5.3，基准记录） | coupled | 2.0–2.9 s | 6.5–6.7 s | 13.6–18.2 s | 全部 completed |
+| 混合箱件（5.3，基准记录） | sequential_reinsert | 1.2–2.3 s | 8.4–9.0 s | 14.5–15.9 s | 出现 time_limit / iteration_limit |
+
+同规格数据上耗时随门店数增长大致成比例，但只有 3 个规模点、且混合箱件下耗时增长更快，「近似线性」只能算待验证假设。混合箱件的 stress 记录超过名义预算，因为预算只在修复循环入口检查，不约束单次完整重装载；今日同机通过服务接口重跑 stress-44-mixed-1 为 5.6 s。瓶颈在协同修复的候选枚举（每个冲突门店 × 每辆车 × 每个插入位 × 一次重新装载）。扩展思路：按地理分区并行、候选位置索引、任务队列换为外部队列横向扩展求解进程（接口不变）。
+
+**资源与成本（实测 + 估算，分开标注）**：实测——求解服务常驻约 40 MB，混合箱件 stress 求解峰值约 100 MB；智能体服务约 80 MB；前端静态产物主包 394 kB（gzip 120 kB），3D 视图 950 kB 单独分包按需加载；一次解释或指令调用向模型发送 7–36 千字符（small → stress，含事实表），实测单次 1–3 s。估算——按 DeepSeek 公开价格，一次调用在分币级；若指向企业内网模型则无按量费用。维护责任：求解器与校验器（Python 纯计算，无外部依赖）、智能体提示与白名单（随业务字段变化需同步）、前端（随协议版本变化需同步），三者通过两份 JSON 协议解耦，可分别由不同人维护。
 
 **对接**：输入侧 OMS 订单 → `stores` / `boxes`，TMS 车辆主数据 → `vehicles`；输出侧路线与装载坐标回写 TMS，装卸作业单下发现场 PDA。本仓库只定义 JSON 协议，不含企业系统适配代码。
 
-**模型与数据安全**：智能体只向模型发送事实表与实体摘要（ID、时间窗、尺寸、费用），不含坐标、不含凭据；接口为 OpenAI 兼容协议，可直接指向企业内网私有化部署的模型（传化已有本地化部署的 DeepSeek）；模型不可用时系统降级为模板模式，调度结果的正确性不依赖模型。
+**模型与数据安全**：智能体的结构化输入只含事实表与实体摘要（ID、时间窗、尺寸、费用），不含坐标、不含凭据；但调度员在页面输入的自由提问与指令会**原样**进入模型提示，用户若自己写入坐标或其他业务信息，这些内容同样会发出。因此真实业务数据阶段应把模型接口指向企业内网私有化部署（接口为 OpenAI 兼容协议，传化已有本地化部署的 DeepSeek），并在网关层控制出网；未经书面许可不得把真实数据发往外部平台，去掉坐标不等于其他字段可以外发。模型不可用时系统降级为模板模式，调度结果的正确性不依赖模型。
 
 **实施路径**：① 历史订单离线回放，用独立校验器与人工方案对照；② 调度员影子试用，系统方案与人工方案并行、只看不用；③ 人工确认后执行，逐步扩大自动化范围。每一步的指标口径与本仓库实验一致（完成率、车辆数、费用、利用率、准时率、卸货阻挡）。
 

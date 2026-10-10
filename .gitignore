@@ -25,6 +25,9 @@ dist/
 Thumbs.db
 .DS_Store
 
+# Local diagnostic/temp scratch dir
+.dsh-tmp/
+
 # Large recordings; keep lightweight evidence and benchmark results tracked
 artifacts/demo/*.mp4
 artifacts/demo/*.mov

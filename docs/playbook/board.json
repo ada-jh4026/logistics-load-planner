@@ -2,7 +2,7 @@
   "schema_version": "0.1",
   "project": "城市配送智能配载",
   "updated": "2026-10-10",
-  "implementation_started": false,
+  "implementation_started": true,
   "task_status_values": [
     "pending",
     "in_progress",
@@ -16,9 +16,9 @@
       "lane": "backend",
       "depends_on": [],
       "estimate_minutes": 30,
-      "status": "pending",
-      "owner": null,
-      "evidence": [],
+      "status": "done",
+      "owner": "主线",
+      "evidence": ["artifacts/evidence/B01.md"],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/B01.md"
     },

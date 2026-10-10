@@ -10,9 +10,9 @@
 - 不代表已创建应用、跑通算法、取得优化收益或完成线上提交。
 
 ## 下一步
-- 主线：B01，检查环境并创建最小后端工程。
+- 主线：B02，实现输入输出模型与非法数据处理（依赖 B01 已完成）。
 - 同学：F01，用示例JSON开始前端。
-- 主线维护board.json；所有开发任务初始为pending。不能因本次文档完成将B/F/I任务标为done。
+- 主线维护board.json；B01 已 done，其余开发任务仍为 pending。
 
 ## 尚待用户提供，但不阻塞本地原型
 - 精确截止日期、时间、时区和提交入口。
@@ -28,5 +28,5 @@
 - 尚无业务依赖安装、服务端口或前端框架运行证据。
 
 ## 接力记录（完成任务后追加）
-日期/任务ID/完成者/变更文件/实际命令与结果/证据路径/下一步/阻塞项。
+2026-10-10 / B01 / 主线（AI 助手）/ backend/__init__.py、backend/app.py、requirements.txt、requirements-dev.txt、tests/test_health.py、docs/environment.md、artifacts/evidence/B01.md / 环境 Python 3.14.8、Node v24.21.0；建 .venv 并装 fastapi 0.143.0、uvicorn 0.54.0、pytest 9.1.1、httpx 0.28.1；pytest 1 passed；uvicorn 8000 启动后 GET /api/health 返回 HTTP 200 `{"status":"ok","schema_version":"0.1"}` / 证据 artifacts/evidence/B01.md / 下一步 B02 / 阻塞：无（DSH 沙箱 + Python 3.14 os.mkdir(mode) 问题已用 sitecustomize.py 规避，详见 docs/environment.md）。
 

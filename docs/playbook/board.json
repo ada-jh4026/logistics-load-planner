@@ -200,9 +200,9 @@
         "B13"
       ],
       "estimate_minutes": 25,
-      "status": "pending",
-      "owner": null,
-      "evidence": [],
+      "status": "done",
+      "owner": "主线",
+      "evidence": ["artifacts/evidence/B14.md"],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/B14.md"
     },

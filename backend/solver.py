@@ -90,6 +90,7 @@ def _evaluate(request: SolveRequest, routes_by_vehicle: dict[str, list[str]],
     box_store = {b.id: b.store_id for b in request.boxes}
     routes: list[Route] = []
     remaining = set(unassigned_stores)
+    reasons: dict[str, str] = {}
     diagnostics: list[Diagnostic] = []
 
     for vid in sorted(routes_by_vehicle.keys()):
@@ -100,18 +101,20 @@ def _evaluate(request: SolveRequest, routes_by_vehicle: dict[str, list[str]],
         if pack.success:
             routes.append(_build_route(request, vid, store_ids, pack))
         else:
+            reason = pack.reason_code or "SEARCH_EXHAUSTED"
             for sid in store_ids:
                 remaining.add(sid)
+                reasons[sid] = reason
             diagnostics.append(Diagnostic(
                 iteration=0, action="pack_failed",
-                reason_code=pack.reason_code or "SEARCH_EXHAUSTED",
+                reason_code=reason,
                 message=f"车辆 {vid} 装箱失败：{pack.message}"))
 
     unassigned = []
     for sid in sorted(remaining):
         box_ids = [bid for bid, s in box_store.items() if s == sid]
         unassigned.append(Unassigned(store_id=sid, box_ids=box_ids,
-                                     reason_code="SEARCH_EXHAUSTED",
+                                     reason_code=reasons.get(sid, "SEARCH_EXHAUSTED"),
                                      message="协同修复后仍未找到可行分配"))
 
     result = _assemble(request, routes, unassigned, diagnostics)

@@ -141,12 +141,50 @@ export const DiagnosticSchema = z.object({
   message: z.string(),
 })
 
+export const RepairActionSchema = z.enum(['pack_failed', 'relocate'])
+export const RepairOutcomeSchema = z.enum(['detected', 'rejected', 'accepted'])
+export const RepairStatusSchema = z.enum(['not_needed', 'repaired', 'partially_repaired', 'unresolved', 'budget_exhausted'])
+
+/** CONTRACT v0.1 RepairEvent：只有 accepted 事件带 before/after 已验证快照。 */
+export const RepairEventSchema = z.object({
+  event_id: z.number().int().min(1),
+  iteration: z.number().int().min(0),
+  action: RepairActionSchema,
+  outcome: RepairOutcomeSchema,
+  store_ids: z.array(z.string()),
+  box_ids: z.array(z.string()),
+  source_vehicle_id: z.string().nullable(),
+  target_vehicle_id: z.string().nullable(),
+  reason_code: z.string().nullable(),
+  message: z.string(),
+  metrics_before: MetricsSchema.nullable().default(null),
+  metrics_after: MetricsSchema.nullable().default(null),
+  routes_before: z.array(RouteSchema).nullable().default(null),
+  routes_after: z.array(RouteSchema).nullable().default(null),
+})
+
+/** CONTRACT v0.1 RepairTrace v1。缺失（旧响应）与 null 都表示「未提供记录」，与 not_needed 不同。 */
+export const RepairTraceSchema = z.object({
+  version: z.literal(1),
+  status: RepairStatusSchema,
+  initial_metrics: MetricsSchema,
+  final_metrics: MetricsSchema,
+  initial_routes: z.array(RouteSchema),
+  attempted_count: z.number().int().min(0),
+  accepted_count: z.number().int().min(0),
+  events: z.array(RepairEventSchema),
+  truncated: z.boolean(),
+  omitted_count: z.number().int().min(0),
+})
+
 export const ResultSchema = z.object({
   routes: z.array(RouteSchema),
   unassigned: z.array(UnassignedSchema),
   validation: z.object({ valid: z.boolean(), violations: z.array(ViolationSchema) }),
   metrics: MetricsSchema,
   diagnostics: z.array(DiagnosticSchema),
+  // 旧响应可缺字段：解析为 null（「未提供记录」）
+  repair_trace: RepairTraceSchema.nullable().default(null),
 })
 
 export const JobStatusSchema = z.enum(['queued', 'running', 'succeeded', 'partial', 'failed'])
@@ -191,6 +229,9 @@ export type Unassigned = z.infer<typeof UnassignedSchema>
 export type ReasonCode = z.infer<typeof ReasonCodeSchema>
 export type Metrics = z.infer<typeof MetricsSchema>
 export type Result = z.infer<typeof ResultSchema>
+export type RepairTrace = z.infer<typeof RepairTraceSchema>
+export type RepairEvent = z.infer<typeof RepairEventSchema>
+export type RepairStatus = z.infer<typeof RepairStatusSchema>
 export type JobStatus = z.infer<typeof JobStatusSchema>
 export type JobResponse = z.infer<typeof JobResponseSchema>
 export type ApiError = z.infer<typeof ApiErrorSchema>

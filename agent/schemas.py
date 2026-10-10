@@ -156,12 +156,52 @@ class Diagnostic(BaseModel):
     message: str
 
 
+RepairAction = Literal["pack_failed", "relocate"]
+RepairOutcome = Literal["detected", "rejected", "accepted"]
+RepairStatus = Literal["not_needed", "repaired", "partially_repaired", "unresolved", "budget_exhausted"]
+
+
+class RepairEvent(_Model):
+    """CONTRACT v0.1 RepairEvent：只有 accepted 事件带 before/after 已验证快照。"""
+
+    event_id: int = Field(ge=1)
+    iteration: int = Field(ge=0)
+    action: RepairAction
+    outcome: RepairOutcome
+    store_ids: list[str]
+    box_ids: list[str]
+    source_vehicle_id: str | None
+    target_vehicle_id: str | None
+    reason_code: str | None
+    message: str
+    metrics_before: Metrics | None = None
+    metrics_after: Metrics | None = None
+    routes_before: list[Route] | None = None
+    routes_after: list[Route] | None = None
+
+
+class RepairTrace(_Model):
+    """CONTRACT v0.1 RepairTrace v1。缺失（旧响应）与 null 都表示「未提供记录」，与 not_needed 不同。"""
+
+    version: Literal[1] = 1
+    status: RepairStatus
+    initial_metrics: Metrics
+    final_metrics: Metrics
+    initial_routes: list[Route]
+    attempted_count: int = Field(ge=0)
+    accepted_count: int = Field(ge=0)
+    events: list[RepairEvent]
+    truncated: bool
+    omitted_count: int = Field(ge=0)
+
+
 class Result(_Model):
     routes: list[Route]
     unassigned: list[Unassigned]
     validation: Validation
     metrics: Metrics
     diagnostics: list[Diagnostic]
+    repair_trace: RepairTrace | None = None
 
 
 JobStatus = Literal["queued", "running", "succeeded", "partial", "failed"]

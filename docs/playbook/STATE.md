@@ -16,7 +16,7 @@
 - 不代表已创建应用、跑通算法、取得优化收益或完成线上提交。
 
 ## 下一步
-- 主线：B04，实现距离、时效和指标纯函数（B01/B02/B03 已完成）。
+- 主线：B05，实现两种路线构造策略（B04 已完成，B05 依赖 B04）。
 - 本方：F01 → A01，之后按 SCHEDULE。
 - 任何一方改 docs/playbook 规格先写 CHANGES.md。
 
@@ -31,3 +31,4 @@
 - 2026-10-10 / B01 / 主线（AI 助手）/ backend/__init__.py、backend/app.py、requirements.txt、requirements-dev.txt、tests/test_health.py、docs/environment.md、artifacts/evidence/B01.md / 环境 Python 3.14.8、Node v24.21.0；建 .venv 并装 fastapi 0.143.0、uvicorn 0.54.0、pytest 9.1.1、httpx 0.28.1；pytest 1 passed；uvicorn 8000 启动后 GET /api/health 返回 HTTP 200 `{"status":"ok","schema_version":"0.1"}` / 证据 artifacts/evidence/B01.md / 下一步 B02 / 阻塞：无（DSH 沙箱 + Python 3.14 os.mkdir(mode) 问题已用 sitecustomize.py 规避，详见 docs/environment.md）。
 - 2026-10-10 / B02 / 主线（AI 助手）/ backend/models.py、tests/test_models.py、artifacts/evidence/B02.md / pydantic v2 定义 SolveRequest/JobResponse/Result 等模型 + 字段/跨字段校验；pytest 24 passed（含样例解析、重复ID、未知门店、负/零尺寸、NaN/Infinity、反向时间窗、非法 options）；全量 25 passed 无回归 / 证据 artifacts/evidence/B02.md / 下一步 B03 / 阻塞：无。
 - 2026-10-10 / B03 / 主线（AI 助手）/ scripts/__init__.py、scripts/generate_cases.py、tests/test_data.py、data/cases/、data/witnesses/、artifacts/evidence/B03.md / 生成固定案例 c01/c02/c03/c07 + small/standard/stress 各 seed（10店36箱、30店112箱、60店236箱）；等规格箱地板布局见证；pytest 12 passed；全量 37 passed / 证据 artifacts/evidence/B03.md / 下一步 B04 / 阻塞：无。
+- 2026-10-10 / B04 / 主线（AI 助手）/ backend/network.py、backend/metrics.py、tests/test_routing.py、tests/test_metrics.py、artifacts/evidence/B04.md / distance_km/travel_min/schedule_route/compute_metrics；C01 手算 10km/120元/服务500/回仓515/利用率0.5·0.3 断言通过；pytest 11 passed；全量 48 passed / 证据 artifacts/evidence/B04.md / 下一步 B05 / 阻塞：无。

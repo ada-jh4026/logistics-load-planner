@@ -243,9 +243,11 @@
       "lane": "frontend",
       "depends_on": [],
       "estimate_minutes": 30,
-      "status": "pending",
-      "owner": null,
-      "evidence": [],
+      "status": "done",
+      "owner": "frontend-line (Claude Code)",
+      "evidence": [
+        "artifacts/evidence/F01.md"
+      ],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/F01.md"
     },
@@ -257,9 +259,12 @@
         "F01"
       ],
       "estimate_minutes": 40,
-      "status": "pending",
-      "owner": null,
-      "evidence": [],
+      "status": "done",
+      "owner": "frontend-line (Claude Code)",
+      "evidence": [
+        "artifacts/evidence/F02.md",
+        "artifacts/evidence/screenshots/F02_partial_route_map.png"
+      ],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/F02.md"
     },
@@ -271,9 +276,12 @@
         "F02"
       ],
       "estimate_minutes": 50,
-      "status": "pending",
-      "owner": null,
-      "evidence": [],
+      "status": "done",
+      "owner": "frontend-line (Claude Code)",
+      "evidence": [
+        "artifacts/evidence/F03.md",
+        "artifacts/evidence/screenshots/F03_success_3d.png"
+      ],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/F03.md"
     },
@@ -285,9 +293,13 @@
         "F03"
       ],
       "estimate_minutes": 40,
-      "status": "pending",
-      "owner": null,
-      "evidence": [],
+      "status": "done",
+      "owner": "frontend-line (Claude Code)",
+      "evidence": [
+        "artifacts/evidence/F04.md",
+        "artifacts/evidence/screenshots/F04_partial_unload_step1.png",
+        "artifacts/evidence/screenshots/F04_failed_state.png"
+      ],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/F04.md"
     },
@@ -388,9 +400,11 @@
       "lane": "agent",
       "depends_on": [],
       "estimate_minutes": 45,
-      "status": "pending",
-      "owner": null,
-      "evidence": [],
+      "status": "done",
+      "owner": "agent-line (Claude Code)",
+      "evidence": [
+        "artifacts/evidence/A01.md"
+      ],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/A01.md"
     },
@@ -402,9 +416,11 @@
         "A01"
       ],
       "estimate_minutes": 50,
-      "status": "pending",
-      "owner": null,
-      "evidence": [],
+      "status": "done",
+      "owner": "agent-line (Claude Code)",
+      "evidence": [
+        "artifacts/evidence/A02.md"
+      ],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/A02.md"
     },

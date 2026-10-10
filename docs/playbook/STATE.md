@@ -1,6 +1,6 @@
 # 当前事实与接力状态
-更新时间：2026-10-10 13:30（英国时间）
-阶段：执行规格已准备并完成智能体层增补；业务实现未开始。
+更新时间：2026-10-10 15:45（英国时间）
+阶段：后端 B01–B16、前端 F01–F04、智能体 A01–A02 均完成；真实模型调用待密钥。
 
 ## 已确定的事实
 - 比赛窗口：英国时间 2026-10-10 11:00 开始，**2026-10-12 11:00 截止**（北京时间 10-12 18:00）。内部冻结 10-12 07:30，提交 09:30。提交渠道以赛事通知为准。
@@ -16,8 +16,8 @@
 - 不代表已创建应用、跑通算法、取得优化收益或完成线上提交。
 
 ## 下一步
-- 主线：后端 B01–B16 全部完成。下一步 I01 端到端真实业务验收（依赖 B13、F05，F05 待前端联调）。
-- 本方：F01 → A01，之后按 SCHEDULE。
+- 主线：后端 B01–B16 全部完成；下一步 I01 端到端验收（B13 已就绪，可配合本方 F05 联调）。
+- 本方：A03 → A04；F05/F07 可用真实接口联调（B13 已就绪）。
 - 任何一方改 docs/playbook 规格先写 CHANGES.md。
 
 ## 尚待用户提供
@@ -44,3 +44,5 @@
 - 2026-10-10 / B14 / 主线（AI 助手）/ backend/explanations.py、tests/test_explanations.py、docs/explanations.md、backend/solver.py、artifacts/evidence/B14.md / generate_explanation + loading_guide 从真实结果生成确定性解释；修复 coupled unassigned reason_code 丢失；无编造收益/修复；pytest 6 passed；全量 149 passed / 证据 artifacts/evidence/B14.md / 下一步 B15 / 阻塞：无。
 - 2026-10-10 / B15 / 主线（AI 助手）/ scripts/benchmark.py、tests/test_benchmark.py、artifacts/benchmarks/smoke/、artifacts/evidence/B15.md / run_benchmark + cost_improvement 可比性保护；small 冒烟 9 runs 6 comparisons、改善率如实含负值；不可比输出 null+原因；pytest 5 passed；全量 154 passed / 证据 artifacts/evidence/B15.md / 下一步 B16 / 阻塞：无。
 - 2026-10-10 / B16 / 主线（AI 助手）/ tests/test_regression.py、scripts/generate_cases.py、backend/solver.py、data/、artifacts/evidence/B16.md / 见证改用 pack_route 构造修复抽底 bug、coupled reason_code 修复；7 份见证全过独立校验；C01–C11 回归映射齐全；全量 162 passed / 证据 artifacts/evidence/B16.md / 下一步 I01（待 F05 前端联调）/ 阻塞：无。
+- 2026-10-10 / F01–F04 / 本方 / frontend/ 全部、artifacts/evidence/F0{1..4}.md 与截图 / `npm run build` 退出 0，`npm run dev` 于 127.0.0.1:5173 / artifacts/evidence/ / 下一步 A01 / 无阻塞；F05 等 B13。
+- 2026-10-10 / A01–A02 / 本方 / agent/ 全部、artifacts/evidence/A01.md A02.md / `.venv\Scripts\python.exe -m pytest -q agent/tests` 18 passed；uvicorn 8001 health 与 explain 实测 / artifacts/evidence/ / 下一步 A03 / 真实模型调用待密钥。

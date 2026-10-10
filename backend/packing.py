@@ -154,6 +154,8 @@ def pack_route(request: SolveRequest, vehicle_id: str, store_ids: list[str],
                 return PackResult(success=False, reason_code="TIME_LIMIT",
                                   message="时间预算耗尽", candidate_attempts=attempts_total)
 
+            if budget is not None:
+                budget.tick()
             placed = None
             for rot in ([0, 90] if box.allow_rotate_xy else [0]):
                 cands = _candidate_positions(box, rot, placements, boxes, vehicle)

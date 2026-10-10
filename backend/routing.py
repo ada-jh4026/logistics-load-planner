@@ -123,6 +123,8 @@ def build_greedy_routes(request: SolveRequest, budget=None):
         best: RouteCandidate | None = None
         best_cost = float("inf")
         sid = store.id
+        if budget is not None:
+            budget.tick()
 
         # 已有车尾部追加
         for route in routes:
@@ -169,6 +171,8 @@ def build_insertion_routes(request: SolveRequest, budget=None):
         best: RouteCandidate | None = None
         best_cost = float("inf")
         sid = store.id
+        if budget is not None:
+            budget.tick()
 
         for v in sorted(request.vehicles, key=lambda v: v.id):
             existing = next((r for r in routes if r.vehicle_id == v.id), None)

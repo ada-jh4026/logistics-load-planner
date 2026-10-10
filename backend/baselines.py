@@ -20,6 +20,7 @@ from backend.models import (
     Unassigned,
     Validation,
 )
+from backend.budget import Budget
 from backend.network import schedule_route
 from backend.packing import pack_route
 from backend.routing import build_greedy_routes, build_insertion_routes
@@ -61,6 +62,9 @@ def _assemble_result(request: SolveRequest, routes: list[Route],
 
 
 def _solve(request: SolveRequest, build_routes, budget=None) -> Result:
+    if budget is None:
+        budget = Budget(request.options.time_limit_ms,
+                        request.options.max_iterations)
     candidates, unassigned = build_routes(request, budget)
     unassigned = list(unassigned)
     box_store = {b.id: b.store_id for b in request.boxes}

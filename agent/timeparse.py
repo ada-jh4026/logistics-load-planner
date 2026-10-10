@@ -86,4 +86,6 @@ def to_minutes(value) -> float | None:
 
 def hhmm(minutes: float) -> str:
     t = int(round(minutes))
+    if t == 1440:
+        return "24:00"  # 当天结束，与页面和模板一致
     return f"{(t // 60) % 24:02d}:{t % 60:02d}"

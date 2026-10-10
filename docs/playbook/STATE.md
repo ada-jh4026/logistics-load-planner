@@ -16,7 +16,7 @@
 - 不代表已创建应用、跑通算法、取得优化收益或完成线上提交。
 
 ## 下一步
-- 主线：B12，实现有限协同修复与求解入口（B12 依赖 B11 已满足）。
+- 主线：B13，提供异步任务HTTP接口（B13 依赖 B12 已满足）。
 - 本方：F01 → A01，之后按 SCHEDULE。
 - 任何一方改 docs/playbook 规格先写 CHANGES.md。
 
@@ -39,3 +39,4 @@
 - 2026-10-10 / B09 / 主线（AI 助手）/ backend/packing.py、tests/test_packing.py、artifacts/evidence/B09.md / pack_route 确定性3D配载启发式（逆配送序+候选边界生成+评分+3排序）；C02 尺寸不合/旋转可放/堆叠/独立校验；pytest 7 passed；全量 99 passed / 证据 artifacts/evidence/B09.md / 下一步 B10 / 阻塞：无。
 - 2026-10-10 / B10 / 主线（AI 助手）/ backend/baselines.py、tests/test_baselines.py、artifacts/evidence/B10.md / solve_greedy + solve_sequential 连通路线构造与 packer，整车失败退回 unassigned、validate_solution 复核；c01 全分配、c07 部分、c02/c03 未分配、small-11 无违规；pytest 12 passed；全量 111 passed / 证据 artifacts/evidence/B10.md / 下一步 B11 / 阻塞：无。
 - 2026-10-10 / B11 / 主线（AI 助手）/ backend/budget.py、backend/routing.py、backend/packing.py、backend/baselines.py、tests/test_budget.py、artifacts/evidence/B11.md / Budget 单调时钟+迭代上限+预留10%校验时间；routing/packing 接入 tick；baselines 默认创建 Budget；假时钟超时终止、time/iteration 区分；pytest 8 passed；全量 119 passed / 证据 artifacts/evidence/B11.md / 下一步 B12 / 阻塞：无。
+- 2026-10-10 / B12 / 主线（AI 助手）/ backend/solver.py、backend/repair.py、tests/test_coupled.py、tests/test_pipeline.py、artifacts/evidence/B12.md / solve 路由 + coupled 协同修复（移单到大车）；C10 单箱 2500 小车放不下→移到大车可执行、全箱有去向、超时不丢最佳；pytest 14 passed；全量 133 passed / 证据 artifacts/evidence/B12.md / 下一步 B13 / 阻塞：无。

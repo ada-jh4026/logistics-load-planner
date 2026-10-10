@@ -1,9 +1,11 @@
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import type { JobResponse, SolveRequest } from './protocol/contract'
 import { derive } from './lib/derive'
 import { loadCase, loadServiceCases, SAMPLE_OPTIONS, type CaseOption } from './lib/cases'
 import { ERROR_HINT } from './lib/api'
 import { useSolver } from './lib/useSolver'
+import { useAssistant, type RunPair } from './lib/useAssistant'
+import { AssistantPanel } from './components/AssistantPanel'
 import { TopBar } from './components/TopBar'
 import { VehicleRail } from './components/VehicleRail'
 import { CargoView } from './components/CargoView'
@@ -69,22 +71,54 @@ export default function App() {
     }
   }, [selectedKey, options, importedName])
 
-  const onResult = useCallback((r: JobResponse) => {
-    setResponse(r)
-    setSelectedBoxId(null)
-    setUnloadDone(0)
-  }, [])
+  const assistant = useAssistant()
+  // 「指令 → 确认 → 重算 → 对比」：确认时记下基线，新结果到达后自动对比
+  const [pendingCompare, setPendingCompare] = useState<{ baseline: RunPair; patched: SolveRequest; instruction: string } | null>(null)
+  const pendingRef = useRef(pendingCompare)
+  pendingRef.current = pendingCompare
+
+  const onResult = useCallback(
+    (r: JobResponse) => {
+      setResponse(r)
+      setSelectedBoxId(null)
+      setUnloadDone(0)
+      const pend = pendingRef.current
+      if (pend) {
+        setPendingCompare(null)
+        if (r.result && (r.status === 'succeeded' || r.status === 'partial')) {
+          assistant.runCompare(pend.baseline, { request: pend.patched, response: r }, pend.instruction)
+        }
+      }
+    },
+    [assistant.runCompare],
+  )
   const solver = useSolver(onResult)
 
   function handleSelect(key: string) {
     if (key === '__imported__') return
     solver.cancel()
+    setPendingCompare(null)
+    assistant.clearAll()
     setImportedName(null)
     setSelectedKey(key)
   }
 
+  function handleConfirmPatch(patched: SolveRequest, instruction: string) {
+    if (!request) return
+    const baseline: RunPair | null = response?.result && (response.status === 'succeeded' || response.status === 'partial') ? { request, response } : null
+    assistant.clearInterpretation()
+    assistant.clearExplanation()
+    setImportedName(importedName ?? `调整后：${request.case_id}`)
+    setRequest(patched)
+    setResponse(null)
+    if (baseline) setPendingCompare({ baseline, patched, instruction })
+    solver.run(patched)
+  }
+
   function handleImport(req: SolveRequest, name: string) {
     solver.cancel()
+    setPendingCompare(null)
+    assistant.clearAll()
     setImportedName(name)
     setRequest(req)
     setResponse(null)
@@ -94,6 +128,8 @@ export default function App() {
 
   function handleRun() {
     if (!request) return
+    setPendingCompare(null)
+    assistant.clearExplanation()
     setResponse(null) // 新任务开始即清空旧方案
     solver.run(request)
   }
@@ -294,7 +330,28 @@ export default function App() {
         </main>
 
         {request && derived ? (
-          <SidePanel request={request} response={busy ? null : response} derived={derived} selectedVehicleId={selectedVehicleId} selectedBoxId={selectedBoxId} />
+          <SidePanel
+            request={request}
+            response={busy ? null : response}
+            derived={derived}
+            selectedVehicleId={selectedVehicleId}
+            selectedBoxId={selectedBoxId}
+            assistant={
+              <AssistantPanel
+                request={request}
+                response={busy ? null : response}
+                selectedVehicleId={selectedVehicleId}
+                state={assistant.s}
+                onExplain={(focus, vid, q) => response && assistant.runExplain(request, response, focus, vid, q)}
+                onInterpret={(ins) => assistant.runInterpret(request, ins)}
+                onConfirmPatch={handleConfirmPatch}
+                onDiscardPatch={assistant.clearInterpretation}
+                onClearError={assistant.clearError}
+                resolving={busy && pendingCompare !== null}
+                solverOnline={serviceOnline === true}
+              />
+            }
+          />
         ) : (
           <aside className="side" />
         )}

@@ -809,3 +809,151 @@ h3 {
   display: inline-flex;
   align-items: center;
 }
+
+/* ---------- 调度助手 ---------- */
+.assist-block {
+  padding: 10px 0;
+  border-top: 1px solid var(--rule);
+}
+
+.assist-block:first-of-type {
+  border-top: 0;
+  padding-top: 4px;
+}
+
+.assist-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+
+.assist-label {
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.assist-buttons {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.assist-input {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid var(--rule-strong);
+  border-radius: 4px;
+  background: var(--panel);
+  margin-bottom: 6px;
+}
+
+.assist-input:disabled {
+  background: var(--panel-2);
+  color: var(--ink-3);
+}
+
+.assist-form {
+  display: flex;
+  gap: 6px;
+}
+
+.assist-form .assist-input {
+  margin-bottom: 0;
+}
+
+.assist-examples {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin: 6px 0;
+}
+
+.chip-btn {
+  padding: 2px 8px;
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  background: var(--panel-2);
+  color: var(--ink-2);
+  font-size: 12px;
+}
+
+.chip-btn:hover:not(:disabled) {
+  border-color: var(--steel);
+  color: var(--steel);
+}
+
+.assist-output {
+  margin-top: 8px;
+  padding: 10px 12px;
+  border-left: 3px solid var(--steel);
+  background: var(--steel-soft);
+  border-radius: 0 4px 4px 0;
+}
+
+.assist-meta {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.assist-summary {
+  margin: 4px 0 8px;
+  font-weight: 500;
+}
+
+.assist-warnings {
+  margin: 6px 0 0;
+  padding-left: 18px;
+  font-size: 12px;
+  color: #6a4a00;
+}
+
+.md p {
+  margin: 4px 0;
+}
+
+.md h4 {
+  margin: 8px 0 4px;
+  font-size: 13px;
+}
+
+.md ul,
+.md ol {
+  margin: 4px 0;
+  padding-left: 18px;
+}
+
+.md li {
+  margin: 2px 0;
+}
+
+.patch-table td {
+  text-align: left;
+}
+
+.patch-table .before {
+  color: var(--ink-3);
+  text-decoration: line-through;
+}
+
+.patch-table .arrow {
+  color: var(--ink-3);
+}
+
+.patch-table .after {
+  font-weight: 600;
+  color: var(--steel);
+}
+
+.delta-up {
+  color: #a66300;
+}
+
+.delta-down {
+  color: #0a7a0a;
+}

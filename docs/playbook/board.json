@@ -380,9 +380,12 @@
         "F05"
       ],
       "estimate_minutes": 35,
-      "status": "pending",
-      "owner": null,
-      "evidence": [],
+      "status": "done",
+      "owner": "frontend-line (Claude Code)",
+      "evidence": [
+        "artifacts/evidence/I01.md",
+        "artifacts/evidence/F05_backend_log_excerpt.txt"
+      ],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/I01.md"
     },
@@ -505,9 +508,14 @@
         "A03"
       ],
       "estimate_minutes": 60,
-      "status": "pending",
-      "owner": null,
-      "evidence": [],
+      "status": "done",
+      "owner": "frontend-line (Claude Code)",
+      "evidence": [
+        "artifacts/evidence/F07.md",
+        "artifacts/evidence/screenshots/F07_2-explained.png",
+        "artifacts/evidence/screenshots/F07_3-interpreted_panel.png",
+        "artifacts/evidence/screenshots/F07_4-compared.png"
+      ],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/F07.md"
     }

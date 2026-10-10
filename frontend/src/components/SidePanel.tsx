@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import type { JobResponse, SolveRequest } from '../protocol/contract'
 import type { Derived } from '../lib/derive'
 import { METHOD_WORD, routeWeightKg, STATUS_WORD, TERMINATION_WORD } from '../lib/derive'
@@ -10,9 +11,10 @@ interface Props {
   derived: Derived
   selectedVehicleId: string | null
   selectedBoxId: string | null
+  assistant?: ReactNode
 }
 
-export function SidePanel({ response, derived, selectedVehicleId, selectedBoxId }: Props) {
+export function SidePanel({ response, derived, selectedVehicleId, selectedBoxId, assistant }: Props) {
   const result = response?.result ?? null
   const m = result?.metrics ?? null
   const route = selectedVehicleId ? derived.routesByVehicle.get(selectedVehicleId) ?? null : null
@@ -175,14 +177,7 @@ export function SidePanel({ response, derived, selectedVehicleId, selectedBoxId 
         </section>
       )}
 
-      <section className="section assistant">
-        <h2>调度助手</h2>
-        <div className="placeholder">
-          用自然语言调整门店时间窗、车辆可用性等约束，确认后重新求解；并对当前方案给出有据可查的解释。
-          <br />
-          待智能体服务接入后启用。
-        </div>
-      </section>
+      {assistant}
     </aside>
   )
 }

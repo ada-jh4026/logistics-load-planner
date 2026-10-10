@@ -1,0 +1,78 @@
+{
+  "runs": 12,
+  "valid": 12,
+  "served": [
+    {
+      "case_id": "hetero-floor-2",
+      "method": "greedy",
+      "served_stores": 2,
+      "total_stores": 2
+    },
+    {
+      "case_id": "hetero-floor-2",
+      "method": "sequential",
+      "served_stores": 2,
+      "total_stores": 2
+    },
+    {
+      "case_id": "hetero-floor-2",
+      "method": "sequential_reinsert",
+      "served_stores": 2,
+      "total_stores": 2
+    },
+    {
+      "case_id": "hetero-floor-2",
+      "method": "coupled",
+      "served_stores": 2,
+      "total_stores": 2
+    },
+    {
+      "case_id": "hetero-floor-3",
+      "method": "greedy",
+      "served_stores": 3,
+      "total_stores": 3
+    },
+    {
+      "case_id": "hetero-floor-3",
+      "method": "sequential",
+      "served_stores": 3,
+      "total_stores": 3
+    },
+    {
+      "case_id": "hetero-floor-3",
+      "method": "sequential_reinsert",
+      "served_stores": 3,
+      "total_stores": 3
+    },
+    {
+      "case_id": "hetero-floor-3",
+      "method": "coupled",
+      "served_stores": 3,
+      "total_stores": 3
+    },
+    {
+      "case_id": "hetero-long-2",
+      "method": "greedy",
+      "served_stores": 2,
+      "total_stores": 2
+    },
+    {
+      "case_id": "hetero-long-2",
+      "method": "sequential",
+      "served_stores": 2,
+      "total_stores": 2
+    },
+    {
+      "case_id": "hetero-long-2",
+      "method": "sequential_reinsert",
+      "served_stores": 2,
+      "total_stores": 2
+    },
+    {
+      "case_id": "hetero-long-2",
+      "method": "coupled",
+      "served_stores": 2,
+      "total_stores": 2
+    }
+  ]
+}

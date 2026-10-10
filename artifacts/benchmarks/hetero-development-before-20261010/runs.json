@@ -1,0 +1,113 @@
+[
+  {
+    "case_id": "hetero-dev-6",
+    "method": "greedy",
+    "data_hash": "8813a88798bf275e",
+    "valid": true,
+    "served_store_ids": [],
+    "metrics": {
+      "total_stores": 3,
+      "served_stores": 0,
+      "total_boxes": 12,
+      "served_boxes": 0,
+      "completion_rate": 0.0,
+      "used_vehicles": 0,
+      "total_distance_km": 0.0,
+      "total_cost": 0.0,
+      "on_time_rate": null,
+      "volume_utilization": null,
+      "weight_utilization": null,
+      "unload_block_count": 0
+    },
+    "violations": [],
+    "repair_status": null,
+    "repair_attempted": null,
+    "repair_accepted": null,
+    "elapsed_ms": 46.999999962281436,
+    "termination_reason": "completed"
+  },
+  {
+    "case_id": "hetero-dev-6",
+    "method": "sequential",
+    "data_hash": "8813a88798bf275e",
+    "valid": true,
+    "served_store_ids": [],
+    "metrics": {
+      "total_stores": 3,
+      "served_stores": 0,
+      "total_boxes": 12,
+      "served_boxes": 0,
+      "completion_rate": 0.0,
+      "used_vehicles": 0,
+      "total_distance_km": 0.0,
+      "total_cost": 0.0,
+      "on_time_rate": null,
+      "volume_utilization": null,
+      "weight_utilization": null,
+      "unload_block_count": 0
+    },
+    "violations": [],
+    "repair_status": null,
+    "repair_attempted": null,
+    "repair_accepted": null,
+    "elapsed_ms": 47.0000000204891,
+    "termination_reason": "completed"
+  },
+  {
+    "case_id": "hetero-dev-6",
+    "method": "sequential_reinsert",
+    "data_hash": "8813a88798bf275e",
+    "valid": true,
+    "served_store_ids": [
+      "S01",
+      "S02"
+    ],
+    "metrics": {
+      "total_stores": 3,
+      "served_stores": 2,
+      "total_boxes": 12,
+      "served_boxes": 8,
+      "completion_rate": 0.6666666666666666,
+      "used_vehicles": 1,
+      "total_distance_km": 4.0,
+      "total_cost": 104.0,
+      "on_time_rate": 1.0,
+      "volume_utilization": 0.14938888888888888,
+      "weight_utilization": 0.08,
+      "unload_block_count": 0
+    },
+    "violations": [],
+    "repair_status": null,
+    "repair_attempted": null,
+    "repair_accepted": null,
+    "elapsed_ms": 61.999999976251274,
+    "termination_reason": "completed"
+  },
+  {
+    "case_id": "hetero-dev-6",
+    "method": "coupled",
+    "data_hash": "8813a88798bf275e",
+    "valid": true,
+    "served_store_ids": [],
+    "metrics": {
+      "total_stores": 3,
+      "served_stores": 0,
+      "total_boxes": 12,
+      "served_boxes": 0,
+      "completion_rate": 0.0,
+      "used_vehicles": 0,
+      "total_distance_km": 0.0,
+      "total_cost": 0.0,
+      "on_time_rate": null,
+      "volume_utilization": null,
+      "weight_utilization": null,
+      "unload_block_count": 0
+    },
+    "violations": [],
+    "repair_status": "unresolved",
+    "repair_attempted": 0,
+    "repair_accepted": 0,
+    "elapsed_ms": 47.0000000204891,
+    "termination_reason": "completed"
+  }
+]

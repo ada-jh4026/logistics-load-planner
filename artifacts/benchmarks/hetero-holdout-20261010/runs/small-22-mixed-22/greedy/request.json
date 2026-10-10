@@ -1,0 +1,540 @@
+{
+  "schema_version": "0.1",
+  "case_id": "small-22-mixed-22",
+  "data_source": "synthetic",
+  "depot": {
+    "id": "DEPOT",
+    "x_km": 0.0,
+    "y_km": 0.0,
+    "departure_min": 480.0
+  },
+  "stores": [
+    {
+      "id": "S03",
+      "x_km": 12.687,
+      "y_km": 8.994,
+      "window_start_min": 451.103,
+      "window_end_min": 631.103,
+      "service_min": 5.0
+    },
+    {
+      "id": "S01",
+      "x_km": 57.576,
+      "y_km": 10.141,
+      "window_start_min": 545.911,
+      "window_end_min": 725.911,
+      "service_min": 5.0
+    },
+    {
+      "id": "S02",
+      "x_km": 3.37,
+      "y_km": 59.921,
+      "window_start_min": 698.102,
+      "window_end_min": 878.102,
+      "service_min": 5.0
+    },
+    {
+      "id": "S04",
+      "x_km": 39.782,
+      "y_km": 22.047,
+      "window_start_min": 510.967,
+      "window_end_min": 690.967,
+      "service_min": 5.0
+    },
+    {
+      "id": "S05",
+      "x_km": 53.594,
+      "y_km": 15.441,
+      "window_start_min": 546.587,
+      "window_end_min": 726.587,
+      "service_min": 5.0
+    },
+    {
+      "id": "S06",
+      "x_km": 57.65,
+      "y_km": 20.528,
+      "window_start_min": 542.392,
+      "window_end_min": 722.392,
+      "service_min": 5.0
+    },
+    {
+      "id": "S07",
+      "x_km": 36.866,
+      "y_km": 56.061,
+      "window_start_min": 629.722,
+      "window_end_min": 809.722,
+      "service_min": 5.0
+    },
+    {
+      "id": "S08",
+      "x_km": 41.745,
+      "y_km": 55.583,
+      "window_start_min": 644.526,
+      "window_end_min": 824.526,
+      "service_min": 5.0
+    },
+    {
+      "id": "S09",
+      "x_km": 43.071,
+      "y_km": 4.81,
+      "window_start_min": 506.677,
+      "window_end_min": 686.677,
+      "service_min": 5.0
+    },
+    {
+      "id": "S10",
+      "x_km": 53.119,
+      "y_km": 36.194,
+      "window_start_min": 577.585,
+      "window_end_min": 757.585,
+      "service_min": 5.0
+    }
+  ],
+  "vehicles": [
+    {
+      "id": "V01",
+      "length_mm": 3000,
+      "width_mm": 1500,
+      "height_mm": 1500,
+      "max_weight_kg": 1000.0,
+      "fixed_cost": 150.0,
+      "cost_per_km": 2.0
+    },
+    {
+      "id": "V02",
+      "length_mm": 2000,
+      "width_mm": 1000,
+      "height_mm": 2000,
+      "max_weight_kg": 500.0,
+      "fixed_cost": 100.0,
+      "cost_per_km": 2.0
+    },
+    {
+      "id": "V03",
+      "length_mm": 3000,
+      "width_mm": 1500,
+      "height_mm": 1500,
+      "max_weight_kg": 1000.0,
+      "fixed_cost": 150.0,
+      "cost_per_km": 2.0
+    },
+    {
+      "id": "V04",
+      "length_mm": 2000,
+      "width_mm": 1000,
+      "height_mm": 2000,
+      "max_weight_kg": 500.0,
+      "fixed_cost": 100.0,
+      "cost_per_km": 2.0
+    }
+  ],
+  "boxes": [
+    {
+      "id": "B001",
+      "store_id": "S03",
+      "length_mm": 900,
+      "width_mm": 600,
+      "height_mm": 500,
+      "weight_kg": 25.0,
+      "fragile": true,
+      "allow_rotate_xy": true
+    },
+    {
+      "id": "B002",
+      "store_id": "S03",
+      "length_mm": 400,
+      "width_mm": 300,
+      "height_mm": 300,
+      "weight_kg": 6.0,
+      "fragile": false,
+      "allow_rotate_xy": true
+    },
+    {
+      "id": "B003",
+      "store_id": "S03",
+      "length_mm": 400,
+      "width_mm": 300,
+      "height_mm": 300,
+      "weight_kg": 6.0,
+      "fragile": true,
+      "allow_rotate_xy": true
+    },
+    {
+      "id": "B004",
+      "store_id": "S01",
+      "length_mm": 450,
+      "width_mm": 350,
+      "height_mm": 250,
+      "weight_kg": 5.0,
+      "fragile": false,
+      "allow_rotate_xy": true
+    },
+    {
+      "id": "B005",
+      "store_id": "S01",
+      "length_mm": 1200,
+      "width_mm": 400,
+      "height_mm": 300,
+      "weight_kg": 14.0,
+      "fragile": false,
+      "allow_rotate_xy": true
+    },
+    {
+      "id": "B006",
+      "store_id": "S01",
+      "length_mm": 900,
+      "width_mm": 600,
+      "height_mm": 500,
+      "weight_kg": 25.0,
+      "fragile": false,
+      "allow_rotate_xy": true
+    },
+    {
+      "id": "B007",
+      "store_id": "S01",
+      "length_mm": 600,
+      "width_mm": 400,
+      "height_mm": 400,
+      "weight_kg": 12.0,
+      "fragile": false,
+      "allow_rotate_xy": true
+    },
+    {
+      "id": "B008",
+      "store_id": "S02",
+      "length_mm": 450,
+      "width_mm": 350,
+      "height_mm": 250,
+      "weight_kg": 5.0,
+      "fragile": false,
+      "allow_rotate_xy": true
+    },
+    {
+      "id": "B009",
+      "store_id": "S02",
+      "length_mm": 450,
+      "width_mm": 350,
+      "height_mm": 250,
+      "weight_kg": 5.0,
+      "fragile": true,
+      "allow_rotate_xy": true
+    },
+    {
+      "id": "B010",
+      "store_id": "S02",
+      "length_mm": 1200,
+      "width_mm": 400,
+      "height_mm": 300,
+      "weight_kg": 14.0,
+      "fragile": false,
+      "allow_rotate_xy": true
+    },
+    {
+      "id": "B011",
+      "store_id": "S02",
+      "length_mm": 500,
+      "width_mm": 400,
+      "height_mm": 300,
+      "weight_kg": 9.0,
+      "fragile": false,
+      "allow_rotate_xy": true
+    },
+    {
+      "id": "B012",
+      "store_id": "S04",
+      "length_mm": 800,
+      "width_mm": 400,
+      "height_mm": 300,
+      "weight_kg": 10.0,
+      "fragile": false,
+      "allow_rotate_xy": true
+    },
+    {
+      "id": "B013",
+      "store_id": "S04",
+      "length_mm": 900,
+      "width_mm": 600,
+      "height_mm": 500,
+      "weight_kg": 25.0,
+      "fragile": false,
+      "allow_rotate_xy": true
+    },
+    {
+      "id": "B014",
+      "store_id": "S04",
+      "length_mm": 900,
+      "width_mm": 600,
+      "height_mm": 500,
+      "weight_kg": 25.0,
+      "fragile": false,
+      "allow_rotate_xy": true
+    },
+    {
+      "id": "B015",
+      "store_id": "S05",
+      "length_mm": 450,
+      "width_mm": 350,
+      "height_mm": 250,
+      "weight_kg": 5.0,
+      "fragile": false,
+      "allow_rotate_xy": true
+    },
+    {
+      "id": "B016",
+      "store_id": "S05",
+      "length_mm": 500,
+      "width_mm": 400,
+      "height_mm": 300,
+      "weight_kg": 9.0,
+      "fragile": false,
+      "allow_rotate_xy": true
+    },
+    {
+      "id": "B017",
+      "store_id": "S05",
+      "length_mm": 500,
+      "width_mm": 400,
+      "height_mm": 300,
+      "weight_kg": 9.0,
+      "fragile": false,
+      "allow_rotate_xy": true
+    },
+    {
+      "id": "B018",
+      "store_id": "S06",
+      "length_mm": 900,
+      "width_mm": 600,
+      "height_mm": 500,
+      "weight_kg": 25.0,
+      "fragile": false,
+      "allow_rotate_xy": true
+    },
+    {
+      "id": "B019",
+      "store_id": "S06",
+      "length_mm": 400,
+      "width_mm": 300,
+      "height_mm": 300,
+      "weight_kg": 6.0,
+      "fragile": false,
+      "allow_rotate_xy": true
+    },
+    {
+      "id": "B020",
+      "store_id": "S06",
+      "length_mm": 450,
+      "width_mm": 350,
+      "height_mm": 250,
+      "weight_kg": 5.0,
+      "fragile": false,
+      "allow_rotate_xy": true
+    },
+    {
+      "id": "B021",
+      "store_id": "S06",
+      "length_mm": 400,
+      "width_mm": 300,
+      "height_mm": 300,
+      "weight_kg": 6.0,
+      "fragile": false,
+      "allow_rotate_xy": true
+    },
+    {
+      "id": "B022",
+      "store_id": "S06",
+      "length_mm": 400,
+      "width_mm": 300,
+      "height_mm": 300,
+      "weight_kg": 6.0,
+      "fragile": false,
+      "allow_rotate_xy": true
+    },
+    {
+      "id": "B023",
+      "store_id": "S07",
+      "length_mm": 600,
+      "width_mm": 400,
+      "height_mm": 400,
+      "weight_kg": 12.0,
+      "fragile": false,
+      "allow_rotate_xy": true
+    },
+    {
+      "id": "B024",
+      "store_id": "S07",
+      "length_mm": 500,
+      "width_mm": 400,
+      "height_mm": 300,
+      "weight_kg": 9.0,
+      "fragile": false,
+      "allow_rotate_xy": true
+    },
+    {
+      "id": "B025",
+      "store_id": "S07",
+      "length_mm": 1200,
+      "width_mm": 400,
+      "height_mm": 300,
+      "weight_kg": 14.0,
+      "fragile": false,
+      "allow_rotate_xy": true
+    },
+    {
+      "id": "B026",
+      "store_id": "S07",
+      "length_mm": 500,
+      "width_mm": 400,
+      "height_mm": 300,
+      "weight_kg": 9.0,
+      "fragile": false,
+      "allow_rotate_xy": true
+    },
+    {
+      "id": "B027",
+      "store_id": "S07",
+      "length_mm": 500,
+      "width_mm": 400,
+      "height_mm": 300,
+      "weight_kg": 9.0,
+      "fragile": false,
+      "allow_rotate_xy": true
+    },
+    {
+      "id": "B028",
+      "store_id": "S08",
+      "length_mm": 600,
+      "width_mm": 400,
+      "height_mm": 400,
+      "weight_kg": 12.0,
+      "fragile": false,
+      "allow_rotate_xy": true
+    },
+    {
+      "id": "B029",
+      "store_id": "S08",
+      "length_mm": 450,
+      "width_mm": 350,
+      "height_mm": 250,
+      "weight_kg": 5.0,
+      "fragile": false,
+      "allow_rotate_xy": true
+    },
+    {
+      "id": "B030",
+      "store_id": "S08",
+      "length_mm": 400,
+      "width_mm": 300,
+      "height_mm": 300,
+      "weight_kg": 6.0,
+      "fragile": false,
+      "allow_rotate_xy": true
+    },
+    {
+      "id": "B031",
+      "store_id": "S08",
+      "length_mm": 500,
+      "width_mm": 400,
+      "height_mm": 300,
+      "weight_kg": 9.0,
+      "fragile": false,
+      "allow_rotate_xy": true
+    },
+    {
+      "id": "B032",
+      "store_id": "S08",
+      "length_mm": 500,
+      "width_mm": 400,
+      "height_mm": 300,
+      "weight_kg": 9.0,
+      "fragile": false,
+      "allow_rotate_xy": true
+    },
+    {
+      "id": "B033",
+      "store_id": "S09",
+      "length_mm": 900,
+      "width_mm": 600,
+      "height_mm": 500,
+      "weight_kg": 25.0,
+      "fragile": false,
+      "allow_rotate_xy": true
+    },
+    {
+      "id": "B034",
+      "store_id": "S09",
+      "length_mm": 500,
+      "width_mm": 400,
+      "height_mm": 300,
+      "weight_kg": 9.0,
+      "fragile": true,
+      "allow_rotate_xy": true
+    },
+    {
+      "id": "B035",
+      "store_id": "S09",
+      "length_mm": 1200,
+      "width_mm": 400,
+      "height_mm": 300,
+      "weight_kg": 14.0,
+      "fragile": false,
+      "allow_rotate_xy": true
+    },
+    {
+      "id": "B036",
+      "store_id": "S09",
+      "length_mm": 600,
+      "width_mm": 400,
+      "height_mm": 400,
+      "weight_kg": 12.0,
+      "fragile": false,
+      "allow_rotate_xy": true
+    },
+    {
+      "id": "B037",
+      "store_id": "S09",
+      "length_mm": 500,
+      "width_mm": 400,
+      "height_mm": 300,
+      "weight_kg": 9.0,
+      "fragile": false,
+      "allow_rotate_xy": true
+    },
+    {
+      "id": "B038",
+      "store_id": "S10",
+      "length_mm": 400,
+      "width_mm": 300,
+      "height_mm": 300,
+      "weight_kg": 6.0,
+      "fragile": true,
+      "allow_rotate_xy": true
+    },
+    {
+      "id": "B039",
+      "store_id": "S10",
+      "length_mm": 600,
+      "width_mm": 400,
+      "height_mm": 400,
+      "weight_kg": 12.0,
+      "fragile": false,
+      "allow_rotate_xy": true
+    },
+    {
+      "id": "B040",
+      "store_id": "S10",
+      "length_mm": 450,
+      "width_mm": 350,
+      "height_mm": 250,
+      "weight_kg": 5.0,
+      "fragile": false,
+      "allow_rotate_xy": true
+    }
+  ],
+  "options": {
+    "method": "greedy",
+    "seed": 42,
+    "time_limit_ms": 10000,
+    "max_iterations": 10000,
+    "speed_kmph": 30.0
+  }
+}

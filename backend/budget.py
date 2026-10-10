@@ -68,3 +68,24 @@ class Budget:
         if self.iteration_expired():
             return "iteration_limit"
         return "completed"
+
+
+class BudgetSlice:
+    """Bound a search phase while charging all work to its parent budget."""
+
+    def __init__(self, parent: Budget, max_elapsed_ms: float, max_iterations: int):
+        self.parent = parent
+        self._deadline_elapsed = parent.elapsed_ms + max_elapsed_ms
+        self._iteration_end = parent.iterations + max_iterations
+
+    @property
+    def iterations(self) -> int:
+        return self.parent.iterations
+
+    def tick(self) -> None:
+        self.parent.tick()
+
+    def expired(self) -> bool:
+        return (self.parent.expired()
+                or self.parent.elapsed_ms >= self._deadline_elapsed
+                or self.parent.iterations >= self._iteration_end)

@@ -10,7 +10,7 @@
 from __future__ import annotations
 
 from backend.baselines import solve_greedy, solve_sequential
-from backend.budget import Budget
+from backend.budget import Budget, BudgetSlice
 from backend.metrics import compute_metrics
 from backend.models import (
     Diagnostic,
@@ -25,11 +25,12 @@ from backend.models import (
 from backend.network import schedule_route
 from backend.packing import pack_route
 from backend.repair import relocation_candidates
-from backend.routing import build_insertion_routes
+from backend.routing import build_insertion_routes, RouteCandidate, _feasible, _store_aggregates
 from backend.validation import validate_solution
 
 MAX_REJECT_EVENTS = 64
 MAX_RELOCATION_CANDIDATES = 8
+RECOVERY_OCCUPIED_PROBES = 2
 
 
 class _TraceRecorder:
@@ -263,21 +264,24 @@ def _best_relocate(request: SolveRequest, sid: str,
         routes = {vid: ids for vid, ids in routes.items() if ids}
         # _evaluate packs every route and runs the independent solution validator.
         result, score = _evaluate(request, routes, unassigned_stores - {sid}, budget)
-        if result.validation.valid and score < best_score:
+        target_served = any(r.vehicle_id == target_vid and sid in r.store_ids
+                            for r in result.routes)
+        if result.validation.valid and target_served and score < best_score:
             tie_key = (score, target_vid, target_ids)
             if winner is None or tie_key < winner[0]:
                 winner = (tie_key, routes, unassigned_stores - {sid},
                           source_vid, target_vid, result, score)
             continue
-        reason = (result.validation.violations[0].code
-                  if not result.validation.valid else "NO_IMPROVEMENT")
+        reason = (result.validation.violations[0].code if not result.validation.valid else
+                  "SEARCH_EXHAUSTED" if not target_served else "NO_IMPROVEMENT")
         trace.add(
             iteration=budget.iterations, action="relocate", outcome="rejected",
             store_ids=[sid], box_ids=[b.id for b in request.boxes if b.store_id == sid],
             source_vehicle_id=source_vid, target_vehicle_id=target_vid,
             reason_code=reason,
-            message=(f"独立校验未通过：{reason}" if not result.validation.valid
-                     else "已验证方案的目标分数未改善"),
+            message=(f"独立校验未通过：{reason}" if not result.validation.valid else
+                     "目标车辆未能服务该门店" if not target_served else
+                     "已验证方案的目标分数未改善"),
         )
     return winner
 
@@ -314,9 +318,13 @@ def solve_coupled(request: SolveRequest, budget: Budget | None = None,
             reason_code=diagnostic.reason_code, message=diagnostic.message,
         )
 
-    # 修复循环
-    while not budget.expired():
-        budget.tick()
+    # Bound whole-route relocation so that failed bulky routes cannot consume
+    # the entire solve budget before incremental recovery gets a chance.
+    repair_budget = (BudgetSlice(budget, min(1000.0, budget.time_limit_ms * .15),
+                                 max(1, (budget.max_iterations - budget.iterations) // 5))
+                     if selection == "best" else budget)
+    while not repair_budget.expired():
+        repair_budget.tick()
         current_unassigned = {u.store_id for u in best_result.unassigned}
         if not current_unassigned:
             break
@@ -325,18 +333,18 @@ def solve_coupled(request: SolveRequest, budget: Budget | None = None,
         for sid in sorted(current_unassigned):
             if selection == "best":
                 chosen = _best_relocate(request, sid, routes_by_vehicle,
-                                        unassigned_stores, budget, trace, best_score)
+                                        unassigned_stores, repair_budget, trace, best_score)
                 if chosen is None:
                     continue
                 _, new_routes, new_unassigned, source_vid, target_vid, new_result, new_score = chosen
             else:
                 moved = _try_relocate(request, sid, routes_by_vehicle,
-                                      unassigned_stores, budget, trace)
+                                      unassigned_stores, repair_budget, trace)
                 if moved is None:
                     continue
                 new_routes, new_unassigned, source_vid, target_vid = moved
                 new_result, new_score = _evaluate(request, new_routes,
-                                                  new_unassigned, budget)
+                                                  new_unassigned, repair_budget)
             if new_result.validation.valid and new_score < best_score:
                 trace.add(
                     iteration=budget.iterations, action="relocate", outcome="accepted",
@@ -366,6 +374,9 @@ def solve_coupled(request: SolveRequest, budget: Budget | None = None,
         if not improved:
             break
 
+    if selection == "best" and best_result.unassigned and not budget.expired():
+        best_result = _recover_unassigned(request, best_result, budget, trace)
+
     if best_result.metrics.served_stores == best_result.metrics.total_stores:
         status = "repaired" if trace.accepted_count else "not_needed"
     elif budget.expired():
@@ -386,3 +397,88 @@ def solve_coupled(request: SolveRequest, budget: Budget | None = None,
         omitted_count=trace.omitted_count,
     )
     return best_result
+
+
+def _recover_unassigned(request: SolveRequest, current: Result,
+                        budget: Budget, trace: _TraceRecorder) -> Result:
+    """Rebuild only missing stores, retaining every already validated route.
+
+    Try the cheapest position on each vehicle before revisiting other positions
+    of the same vehicle. This avoids spending the budget on a single full truck.
+    """
+    aggregates = _store_aggregates(request)
+    stores = {s.id: s for s in request.stores}
+    vehicles = {v.id: v for v in request.vehicles}
+    progress = True
+    while progress and current.unassigned and not budget.expired():
+        progress = False
+        pending = sorted((u.store_id for u in current.unassigned),
+                         key=lambda sid: (stores[sid].window_end_min, sid))
+        for sid in pending:
+            if budget.expired():
+                break
+            active = {r.vehicle_id: r for r in current.routes}
+            options = []
+            for vid, vehicle in sorted(vehicles.items()):
+                if budget.expired():
+                    break
+                old = active.get(vid)
+                old_ids = old.store_ids if old else []
+                for position in range(len(old_ids) + 1):
+                    if budget.expired():
+                        break
+                    ids = old_ids[:position] + [sid] + old_ids[position:]
+                    candidate = RouteCandidate(vid, ids)
+                    if not _feasible(request, candidate, aggregates):
+                        continue
+                    schedule = schedule_route(request, vid, ids)
+                    cost = vehicle.fixed_cost + vehicle.cost_per_km * schedule.distance_km
+                    options.append((cost - (old.cost if old else 0), vid, position, ids))
+            ranks = {}
+            diverse = []
+            for delta, vid, position, ids in sorted(options):
+                rank = ranks.get(vid, 0)
+                ranks[vid] = rank + 1
+                diverse.append((rank, delta, vid, position, ids))
+            diverse.sort()
+            # Probe two cheap occupied vehicles, then available fleet capacity.
+            # Otherwise dozens of near-identical failures can starve new stores.
+            occupied = [item for item in diverse if item[0] == 0 and item[2] in active]
+            empty = [item for item in diverse if item[0] == 0 and item[2] not in active]
+            rest = [item for item in diverse if item[0] > 0]
+            ordered_options = (occupied[:RECOVERY_OCCUPIED_PROBES] + empty
+                               + occupied[RECOVERY_OCCUPIED_PROBES:] + rest)
+            for _, _, vid, _, ids in ordered_options:
+                if budget.expired():
+                    break
+                budget.tick()
+                trace.attempted_count += 1
+                packed = pack_route(request, vid, ids, budget)
+                trial = None
+                if packed.success:
+                    route = _build_route(request, vid, ids, packed)
+                    routes = sorted([r for r in current.routes if r.vehicle_id != vid] + [route],
+                                    key=lambda r: r.vehicle_id)
+                    trial = _assemble(request, routes,
+                                      [u for u in current.unassigned if u.store_id != sid],
+                                      list(current.diagnostics))
+                if (trial is not None and trial.validation.valid
+                        and trial.metrics.served_stores == current.metrics.served_stores + 1):
+                    trace.add(
+                        iteration=budget.iterations, action="relocate", outcome="accepted",
+                        store_ids=[sid], box_ids=aggregates[sid].box_ids,
+                        source_vehicle_id=None, target_vehicle_id=vid, reason_code=None,
+                        message=f"未配送门店 {sid} 重新插入车辆 {vid}，保留已配送门店并通过独立校验",
+                        before=current, after=trial)
+                    current = trial
+                    progress = True
+                    break
+                reason = (packed.reason_code if not packed.success else
+                          trial.validation.violations[0].code if not trial.validation.valid else
+                          "NO_IMPROVEMENT")
+                trace.add(
+                    iteration=budget.iterations, action="relocate", outcome="rejected",
+                    store_ids=[sid], box_ids=aggregates[sid].box_ids,
+                    source_vehicle_id=None, target_vehicle_id=vid, reason_code=reason,
+                    message=packed.message or f"重新插入未通过完整校验：{reason}")
+    return current

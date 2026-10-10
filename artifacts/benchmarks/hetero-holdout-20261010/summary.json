@@ -1,0 +1,150 @@
+{
+  "runs": 24,
+  "valid": 24,
+  "served": [
+    {
+      "case_id": "small-22-mixed-11",
+      "method": "greedy",
+      "served_stores": 1,
+      "total_stores": 10
+    },
+    {
+      "case_id": "small-22-mixed-11",
+      "method": "sequential",
+      "served_stores": 0,
+      "total_stores": 10
+    },
+    {
+      "case_id": "small-22-mixed-11",
+      "method": "sequential_reinsert",
+      "served_stores": 10,
+      "total_stores": 10
+    },
+    {
+      "case_id": "small-22-mixed-11",
+      "method": "coupled",
+      "served_stores": 10,
+      "total_stores": 10
+    },
+    {
+      "case_id": "small-22-mixed-22",
+      "method": "greedy",
+      "served_stores": 1,
+      "total_stores": 10
+    },
+    {
+      "case_id": "small-22-mixed-22",
+      "method": "sequential",
+      "served_stores": 4,
+      "total_stores": 10
+    },
+    {
+      "case_id": "small-22-mixed-22",
+      "method": "sequential_reinsert",
+      "served_stores": 10,
+      "total_stores": 10
+    },
+    {
+      "case_id": "small-22-mixed-22",
+      "method": "coupled",
+      "served_stores": 10,
+      "total_stores": 10
+    },
+    {
+      "case_id": "standard-22-mixed-11",
+      "method": "greedy",
+      "served_stores": 0,
+      "total_stores": 30
+    },
+    {
+      "case_id": "standard-22-mixed-11",
+      "method": "sequential",
+      "served_stores": 4,
+      "total_stores": 30
+    },
+    {
+      "case_id": "standard-22-mixed-11",
+      "method": "sequential_reinsert",
+      "served_stores": 30,
+      "total_stores": 30
+    },
+    {
+      "case_id": "standard-22-mixed-11",
+      "method": "coupled",
+      "served_stores": 30,
+      "total_stores": 30
+    },
+    {
+      "case_id": "standard-22-mixed-22",
+      "method": "greedy",
+      "served_stores": 0,
+      "total_stores": 30
+    },
+    {
+      "case_id": "standard-22-mixed-22",
+      "method": "sequential",
+      "served_stores": 0,
+      "total_stores": 30
+    },
+    {
+      "case_id": "standard-22-mixed-22",
+      "method": "sequential_reinsert",
+      "served_stores": 29,
+      "total_stores": 30
+    },
+    {
+      "case_id": "standard-22-mixed-22",
+      "method": "coupled",
+      "served_stores": 30,
+      "total_stores": 30
+    },
+    {
+      "case_id": "stress-44-mixed-11",
+      "method": "greedy",
+      "served_stores": 0,
+      "total_stores": 60
+    },
+    {
+      "case_id": "stress-44-mixed-11",
+      "method": "sequential",
+      "served_stores": 0,
+      "total_stores": 60
+    },
+    {
+      "case_id": "stress-44-mixed-11",
+      "method": "sequential_reinsert",
+      "served_stores": 34,
+      "total_stores": 60
+    },
+    {
+      "case_id": "stress-44-mixed-11",
+      "method": "coupled",
+      "served_stores": 60,
+      "total_stores": 60
+    },
+    {
+      "case_id": "stress-44-mixed-22",
+      "method": "greedy",
+      "served_stores": 3,
+      "total_stores": 60
+    },
+    {
+      "case_id": "stress-44-mixed-22",
+      "method": "sequential",
+      "served_stores": 0,
+      "total_stores": 60
+    },
+    {
+      "case_id": "stress-44-mixed-22",
+      "method": "sequential_reinsert",
+      "served_stores": 35,
+      "total_stores": 60
+    },
+    {
+      "case_id": "stress-44-mixed-22",
+      "method": "coupled",
+      "served_stores": 60,
+      "total_stores": 60
+    }
+  ]
+}

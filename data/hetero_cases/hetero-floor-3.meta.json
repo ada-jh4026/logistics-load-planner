@@ -1,0 +1,124 @@
+{
+  "feasible_witness": [
+    {
+      "vehicle_id": "V01",
+      "store_ids": [
+        "S01",
+        "S02",
+        "S03"
+      ],
+      "placements": [
+        {
+          "box_id": "B001",
+          "x_mm": 0,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B002",
+          "x_mm": 0,
+          "y_mm": 400,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B003",
+          "x_mm": 0,
+          "y_mm": 800,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B004",
+          "x_mm": 1000,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B005",
+          "x_mm": 1000,
+          "y_mm": 400,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B006",
+          "x_mm": 1000,
+          "y_mm": 800,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B007",
+          "x_mm": 2000,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B008",
+          "x_mm": 2000,
+          "y_mm": 450,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B009",
+          "x_mm": 2000,
+          "y_mm": 800,
+          "z_mm": 0,
+          "rotation_xy": 0
+        }
+      ],
+      "unload_steps": [
+        {
+          "step": 1,
+          "store_id": "S01",
+          "box_id": "B001"
+        },
+        {
+          "step": 2,
+          "store_id": "S01",
+          "box_id": "B002"
+        },
+        {
+          "step": 3,
+          "store_id": "S01",
+          "box_id": "B003"
+        },
+        {
+          "step": 4,
+          "store_id": "S02",
+          "box_id": "B004"
+        },
+        {
+          "step": 5,
+          "store_id": "S02",
+          "box_id": "B005"
+        },
+        {
+          "step": 6,
+          "store_id": "S02",
+          "box_id": "B006"
+        },
+        {
+          "step": 7,
+          "store_id": "S03",
+          "box_id": "B007"
+        },
+        {
+          "step": 8,
+          "store_id": "S03",
+          "box_id": "B008"
+        },
+        {
+          "step": 9,
+          "store_id": "S03",
+          "box_id": "B009"
+        }
+      ]
+    }
+  ]
+}

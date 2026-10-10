@@ -1,0 +1,581 @@
+{
+  "routes": [
+    {
+      "vehicle_id": "V04",
+      "store_ids": [
+        "S29",
+        "S04",
+        "S21",
+        "S18",
+        "S08"
+      ],
+      "stops": [
+        {
+          "store_id": "S29",
+          "arrival_min": 558.019324785594,
+          "service_start_min": 558.019324785594,
+          "departure_min": 563.019324785594
+        },
+        {
+          "store_id": "S04",
+          "arrival_min": 581.8218953545348,
+          "service_start_min": 581.8218953545348,
+          "departure_min": 586.8218953545348
+        },
+        {
+          "store_id": "S21",
+          "arrival_min": 622.8980745313822,
+          "service_start_min": 622.8980745313822,
+          "departure_min": 627.8980745313822
+        },
+        {
+          "store_id": "S18",
+          "arrival_min": 645.3093886690342,
+          "service_start_min": 645.3093886690342,
+          "departure_min": 650.3093886690342
+        },
+        {
+          "store_id": "S08",
+          "arrival_min": 689.0560144318023,
+          "service_start_min": 689.0560144318023,
+          "departure_min": 694.0560144318023
+        }
+      ],
+      "return_min": 778.9573690028573,
+      "distance_km": 136.97868450142863,
+      "cost": 373.95736900285726,
+      "box_ids": [
+        "B080",
+        "B081",
+        "B082",
+        "B053",
+        "B054",
+        "B055",
+        "B012",
+        "B013",
+        "B014",
+        "B106",
+        "B107",
+        "B108",
+        "B109",
+        "B022",
+        "B023",
+        "B024"
+      ],
+      "placements": [
+        {
+          "box_id": "B023",
+          "x_mm": 1400,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 90
+        },
+        {
+          "box_id": "B022",
+          "x_mm": 1600,
+          "y_mm": 0,
+          "z_mm": 500,
+          "rotation_xy": 90
+        },
+        {
+          "box_id": "B024",
+          "x_mm": 1550,
+          "y_mm": 500,
+          "z_mm": 500,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B053",
+          "x_mm": 1600,
+          "y_mm": 500,
+          "z_mm": 750,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B054",
+          "x_mm": 1700,
+          "y_mm": 0,
+          "z_mm": 800,
+          "rotation_xy": 90
+        },
+        {
+          "box_id": "B055",
+          "x_mm": 1600,
+          "y_mm": 500,
+          "z_mm": 1050,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B080",
+          "x_mm": 800,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 90
+        },
+        {
+          "box_id": "B081",
+          "x_mm": 1000,
+          "y_mm": 0,
+          "z_mm": 500,
+          "rotation_xy": 90
+        },
+        {
+          "box_id": "B082",
+          "x_mm": 900,
+          "y_mm": 500,
+          "z_mm": 500,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B012",
+          "x_mm": 400,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 90
+        },
+        {
+          "box_id": "B014",
+          "x_mm": 400,
+          "y_mm": 0,
+          "z_mm": 400,
+          "rotation_xy": 90
+        },
+        {
+          "box_id": "B013",
+          "x_mm": 1000,
+          "y_mm": 0,
+          "z_mm": 800,
+          "rotation_xy": 90
+        },
+        {
+          "box_id": "B107",
+          "x_mm": 400,
+          "y_mm": 0,
+          "z_mm": 800,
+          "rotation_xy": 90
+        },
+        {
+          "box_id": "B106",
+          "x_mm": 500,
+          "y_mm": 600,
+          "z_mm": 0,
+          "rotation_xy": 90
+        },
+        {
+          "box_id": "B108",
+          "x_mm": 500,
+          "y_mm": 600,
+          "z_mm": 300,
+          "rotation_xy": 90
+        },
+        {
+          "box_id": "B109",
+          "x_mm": 500,
+          "y_mm": 600,
+          "z_mm": 600,
+          "rotation_xy": 90
+        }
+      ],
+      "unload_steps": [
+        {
+          "step": 1,
+          "store_id": "S29",
+          "box_id": "B107"
+        },
+        {
+          "step": 2,
+          "store_id": "S29",
+          "box_id": "B109"
+        },
+        {
+          "step": 3,
+          "store_id": "S29",
+          "box_id": "B108"
+        },
+        {
+          "step": 4,
+          "store_id": "S29",
+          "box_id": "B106"
+        },
+        {
+          "step": 5,
+          "store_id": "S04",
+          "box_id": "B013"
+        },
+        {
+          "step": 6,
+          "store_id": "S04",
+          "box_id": "B014"
+        },
+        {
+          "step": 7,
+          "store_id": "S04",
+          "box_id": "B012"
+        },
+        {
+          "step": 8,
+          "store_id": "S21",
+          "box_id": "B082"
+        },
+        {
+          "step": 9,
+          "store_id": "S21",
+          "box_id": "B081"
+        },
+        {
+          "step": 10,
+          "store_id": "S21",
+          "box_id": "B080"
+        },
+        {
+          "step": 11,
+          "store_id": "S18",
+          "box_id": "B055"
+        },
+        {
+          "step": 12,
+          "store_id": "S18",
+          "box_id": "B054"
+        },
+        {
+          "step": 13,
+          "store_id": "S18",
+          "box_id": "B053"
+        },
+        {
+          "step": 14,
+          "store_id": "S08",
+          "box_id": "B024"
+        },
+        {
+          "step": 15,
+          "store_id": "S08",
+          "box_id": "B022"
+        },
+        {
+          "step": 16,
+          "store_id": "S08",
+          "box_id": "B023"
+        }
+      ]
+    }
+  ],
+  "unassigned": [
+    {
+      "store_id": "S01",
+      "box_ids": [
+        "B001",
+        "B002",
+        "B003"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "箱 B059 在当前排序下未找到可行位置"
+    },
+    {
+      "store_id": "S02",
+      "box_ids": [
+        "B008",
+        "B009",
+        "B010",
+        "B011"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "箱 B066 在当前排序下未找到可行位置"
+    },
+    {
+      "store_id": "S03",
+      "box_ids": [
+        "B004",
+        "B005",
+        "B006",
+        "B007"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "箱 B059 在当前排序下未找到可行位置"
+    },
+    {
+      "store_id": "S05",
+      "box_ids": [
+        "B015",
+        "B016",
+        "B017",
+        "B018"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "箱 B066 在当前排序下未找到可行位置"
+    },
+    {
+      "store_id": "S06",
+      "box_ids": [
+        "B019",
+        "B020",
+        "B021"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "箱 B042 在当前排序下未找到可行位置"
+    },
+    {
+      "store_id": "S07",
+      "box_ids": [
+        "B025",
+        "B026",
+        "B027"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "箱 B034 在当前排序下未找到可行位置"
+    },
+    {
+      "store_id": "S09",
+      "box_ids": [
+        "B031",
+        "B032",
+        "B033",
+        "B034",
+        "B035"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "箱 B034 在当前排序下未找到可行位置"
+    },
+    {
+      "store_id": "S10",
+      "box_ids": [
+        "B028",
+        "B029",
+        "B030"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "箱 B059 在当前排序下未找到可行位置"
+    },
+    {
+      "store_id": "S11",
+      "box_ids": [
+        "B036",
+        "B037",
+        "B038"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "箱 B042 在当前排序下未找到可行位置"
+    },
+    {
+      "store_id": "S12",
+      "box_ids": [
+        "B043",
+        "B044",
+        "B045"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "箱 B059 在当前排序下未找到可行位置"
+    },
+    {
+      "store_id": "S13",
+      "box_ids": [
+        "B039",
+        "B040",
+        "B041",
+        "B042"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "箱 B042 在当前排序下未找到可行位置"
+    },
+    {
+      "store_id": "S14",
+      "box_ids": [
+        "B046",
+        "B047",
+        "B048",
+        "B049"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "箱 B042 在当前排序下未找到可行位置"
+    },
+    {
+      "store_id": "S15",
+      "box_ids": [
+        "B050",
+        "B051",
+        "B052"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "箱 B066 在当前排序下未找到可行位置"
+    },
+    {
+      "store_id": "S16",
+      "box_ids": [
+        "B056",
+        "B057",
+        "B058",
+        "B059",
+        "B060"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "箱 B059 在当前排序下未找到可行位置"
+    },
+    {
+      "store_id": "S17",
+      "box_ids": [
+        "B061",
+        "B062",
+        "B063",
+        "B064",
+        "B065"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "箱 B059 在当前排序下未找到可行位置"
+    },
+    {
+      "store_id": "S19",
+      "box_ids": [
+        "B071",
+        "B072",
+        "B073",
+        "B074"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "箱 B034 在当前排序下未找到可行位置"
+    },
+    {
+      "store_id": "S20",
+      "box_ids": [
+        "B066",
+        "B067",
+        "B068",
+        "B069",
+        "B070"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "箱 B066 在当前排序下未找到可行位置"
+    },
+    {
+      "store_id": "S22",
+      "box_ids": [
+        "B075",
+        "B076",
+        "B077",
+        "B078",
+        "B079"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "箱 B042 在当前排序下未找到可行位置"
+    },
+    {
+      "store_id": "S23",
+      "box_ids": [
+        "B083",
+        "B084",
+        "B085"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "箱 B066 在当前排序下未找到可行位置"
+    },
+    {
+      "store_id": "S24",
+      "box_ids": [
+        "B086",
+        "B087",
+        "B088",
+        "B089"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "箱 B059 在当前排序下未找到可行位置"
+    },
+    {
+      "store_id": "S25",
+      "box_ids": [
+        "B090",
+        "B091",
+        "B092",
+        "B093",
+        "B094"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "箱 B034 在当前排序下未找到可行位置"
+    },
+    {
+      "store_id": "S26",
+      "box_ids": [
+        "B095",
+        "B096",
+        "B097",
+        "B098"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "箱 B042 在当前排序下未找到可行位置"
+    },
+    {
+      "store_id": "S27",
+      "box_ids": [
+        "B099",
+        "B100",
+        "B101"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "箱 B066 在当前排序下未找到可行位置"
+    },
+    {
+      "store_id": "S28",
+      "box_ids": [
+        "B102",
+        "B103",
+        "B104",
+        "B105"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "箱 B066 在当前排序下未找到可行位置"
+    },
+    {
+      "store_id": "S30",
+      "box_ids": [
+        "B110",
+        "B111",
+        "B112"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "箱 B034 在当前排序下未找到可行位置"
+    }
+  ],
+  "validation": {
+    "valid": true,
+    "violations": []
+  },
+  "metrics": {
+    "total_stores": 30,
+    "served_stores": 5,
+    "total_boxes": 112,
+    "served_boxes": 16,
+    "completion_rate": 0.16666666666666666,
+    "used_vehicles": 1,
+    "total_distance_km": 136.97868450142863,
+    "total_cost": 373.95736900285726,
+    "on_time_rate": 1.0,
+    "volume_utilization": 0.32184375,
+    "weight_utilization": 0.32,
+    "unload_block_count": 0
+  },
+  "diagnostics": [
+    {
+      "iteration": 0,
+      "action": "pack_failed",
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "车辆 V02 装箱失败：箱 B042 在当前排序下未找到可行位置"
+    },
+    {
+      "iteration": 0,
+      "action": "pack_failed",
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "车辆 V06 装箱失败：箱 B059 在当前排序下未找到可行位置"
+    },
+    {
+      "iteration": 0,
+      "action": "pack_failed",
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "车辆 V08 装箱失败：箱 B066 在当前排序下未找到可行位置"
+    },
+    {
+      "iteration": 0,
+      "action": "pack_failed",
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "车辆 V10 装箱失败：箱 B034 在当前排序下未找到可行位置"
+    }
+  ],
+  "repair_trace": null
+}

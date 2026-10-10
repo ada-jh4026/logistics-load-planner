@@ -1,0 +1,65 @@
+{
+  "routes": [],
+  "unassigned": [
+    {
+      "store_id": "S01",
+      "box_ids": [
+        "B001",
+        "B002",
+        "B003",
+        "B004"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "卸货序列生成失败：UNLOAD_BLOCKED"
+    },
+    {
+      "store_id": "S02",
+      "box_ids": [
+        "B005",
+        "B006",
+        "B007",
+        "B008"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "卸货序列生成失败：UNLOAD_BLOCKED"
+    },
+    {
+      "store_id": "S03",
+      "box_ids": [
+        "B009",
+        "B010",
+        "B011",
+        "B012"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "卸货序列生成失败：UNLOAD_BLOCKED"
+    }
+  ],
+  "validation": {
+    "valid": true,
+    "violations": []
+  },
+  "metrics": {
+    "total_stores": 3,
+    "served_stores": 0,
+    "total_boxes": 12,
+    "served_boxes": 0,
+    "completion_rate": 0.0,
+    "used_vehicles": 0,
+    "total_distance_km": 0.0,
+    "total_cost": 0.0,
+    "on_time_rate": null,
+    "volume_utilization": null,
+    "weight_utilization": null,
+    "unload_block_count": 0
+  },
+  "diagnostics": [
+    {
+      "iteration": 0,
+      "action": "pack_failed",
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "车辆 V01 装箱失败：卸货序列生成失败：UNLOAD_BLOCKED"
+    }
+  ],
+  "repair_trace": null
+}

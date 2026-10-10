@@ -99,3 +99,27 @@ def test_truncated_rejections_keep_counts_and_accepted_steps(monkeypatch):
     assert any(e.outcome == "accepted" for e in trace.events)
     assert not any(e.outcome == "rejected" for e in trace.events)
     assert validate_solution(request, result) == []
+
+
+def test_failed_destination_is_not_reported_as_accepted_relocation():
+    request = _make_c10_request()
+    small = request.vehicles[0].model_copy(deep=True)
+    small.id = "V02"
+    small.fixed_cost = 100
+    request.vehicles = [request.vehicles[0], small]
+    store = request.stores[0].model_copy(deep=True)
+    store.id = "S02"
+    request.stores.append(store)
+    box = request.boxes[0].model_copy(deep=True)
+    box.id = "B02"
+    box.store_id = "S02"
+    box.length_mm = box.width_mm = box.height_mm = 500
+    request.boxes.append(box)
+    result = solve_coupled(request)
+    assert validate_solution(request, result) == []
+    assert result.metrics.served_stores == 1
+    for event in result.repair_trace.events:
+        if event.outcome == "accepted":
+            assert event.store_ids == ["S02"]
+            assert any(r.vehicle_id == event.target_vehicle_id and "S02" in r.store_ids
+                       for r in event.routes_after)

@@ -1,0 +1,165 @@
+{
+  "kind": "synthetic_mixed_cartons_claude_distribution",
+  "cases": [
+    {
+      "case_id": "small-11-mixed-1",
+      "path": "data/hetero_cases/small-11-mixed-1.json",
+      "base_case": "small-11",
+      "carton_seed": 1,
+      "feasibility": "not_certified_before_run"
+    },
+    {
+      "case_id": "small-11-mixed-2",
+      "path": "data/hetero_cases/small-11-mixed-2.json",
+      "base_case": "small-11",
+      "carton_seed": 2,
+      "feasibility": "not_certified_before_run"
+    },
+    {
+      "case_id": "standard-11-mixed-1",
+      "path": "data/hetero_cases/standard-11-mixed-1.json",
+      "base_case": "standard-11",
+      "carton_seed": 1,
+      "feasibility": "not_certified_before_run"
+    },
+    {
+      "case_id": "standard-11-mixed-2",
+      "path": "data/hetero_cases/standard-11-mixed-2.json",
+      "base_case": "standard-11",
+      "carton_seed": 2,
+      "feasibility": "not_certified_before_run"
+    },
+    {
+      "case_id": "stress-44-mixed-1",
+      "path": "data/hetero_cases/stress-44-mixed-1.json",
+      "base_case": "stress-44",
+      "carton_seed": 1,
+      "feasibility": "not_certified_before_run"
+    },
+    {
+      "case_id": "stress-44-mixed-2",
+      "path": "data/hetero_cases/stress-44-mixed-2.json",
+      "base_case": "stress-44",
+      "carton_seed": 2,
+      "feasibility": "not_certified_before_run"
+    }
+  ],
+  "cartons": [
+    [
+      [
+        400,
+        300,
+        300
+      ],
+      6
+    ],
+    [
+      [
+        500,
+        400,
+        300
+      ],
+      9
+    ],
+    [
+      [
+        600,
+        400,
+        400
+      ],
+      12
+    ],
+    [
+      [
+        450,
+        350,
+        250
+      ],
+      5
+    ],
+    [
+      [
+        800,
+        400,
+        300
+      ],
+      10
+    ],
+    [
+      [
+        1200,
+        400,
+        300
+      ],
+      14
+    ],
+    [
+      [
+        900,
+        600,
+        500
+      ],
+      25
+    ],
+    [
+      [
+        1100,
+        600,
+        1000
+      ],
+      40
+    ]
+  ],
+  "weights": [
+    22,
+    22,
+    18,
+    14,
+    10,
+    6,
+    5,
+    3
+  ],
+  "fragile_rate": 0.15,
+  "selection": "all small-11/standard-11/stress-44 crossed with seeds 1,2; no filtering",
+  "methods": [
+    "greedy",
+    "sequential",
+    "sequential_reinsert",
+    "coupled"
+  ],
+  "head": "1c5054e7ffb7e0540c581fdb7f067e67bfa43ba9",
+  "environment": {
+    "python": "3.12.15",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "dependencies": {
+      "fastapi": "0.143.0",
+      "pydantic": "2.14.0"
+    }
+  },
+  "legacy_packer": false,
+  "legacy_solver_commit": null,
+  "implementation_sha256": {
+    "backend/__init__.py": "519bf8148a8d5defb31572ee7c450c88a60add173fa822e64f5803af56a5d25a",
+    "backend/app.py": "ee9de819052d2ebcb4a723b77926e7614e9701d19792985c628ba3380b208dd5",
+    "backend/baselines.py": "fb0fabd485c8e6c018e4c4e105d057c7c2bd30227d9005d399d6246df2fdf7c1",
+    "backend/budget.py": "08e9b141f83426342cc246e51a02cf965677622e69593d84b1b5c773cea81554",
+    "backend/explanations.py": "f9fa96c8a9573c77c8d29e09143c0d594242c702a9f7e3a1cbe40e836e7ee3a7",
+    "backend/geometry.py": "362d4a422dd46f0525dbf24d951531f629ecf176d98cbe521394e332ded127fd",
+    "backend/jobs.py": "e9a6a135115b4163d09b8bca771f76ba7d59138088443537fa1e9811ce37f2c8",
+    "backend/metrics.py": "ea83e51eeaaa5a545dce78aed0a5cd561d9278054c3cb31182c0beb9787b0101",
+    "backend/models.py": "4fdede7b91a6ca8fdba753c79375931d3080f1a4e4e0e2050e163e7bd793e140",
+    "backend/network.py": "c17e77889fe83343d211ce66d70877817428c7fab9cf412dab56dd7876110d0c",
+    "backend/packing.py": "1288315e630e7570e10a386891ca41d62c7b4599d0c5f19bf156ec9053a0a463",
+    "backend/repair.py": "7aa795794ca0e505990c7e0d7649f6578c28288f0824428e26dcdf77b942b27c",
+    "backend/routing.py": "f1c26ae526de91cee4a52fa9c69e2ae78a5c1aed2b6dbea9d40edad00d8eb6bd",
+    "backend/solver.py": "9117466a5695e2b8c21691bc47cd7adc8b3f864f77433d9f84def18187bbc5f5",
+    "backend/unloading.py": "2f1b56f1e1b59572f8e6847d8bc12d414e881150c0a547232d05f8bd42c5b3aa",
+    "backend/validation.py": "5a686dc926e9e5f835a597649f23d125d7b0e341a26adf2d02df35a2a8c99af7",
+    "scripts/hetero_benchmark.py": "1746cd829bd8126b63ce5a96abbef65512e67f3d494f61378412ca16ff472b10",
+    "scripts/conflict_benchmark.py": "ec5984bb5ddcf285f68accb59136cf3efd8ce0f08df2bf2b68a466ba83817dc0",
+    "scripts/sequential_reinsert.py": "e287af2790f39ca2ca0d11c2d1a6adedf06e1db6452884f33d483d78d29aab1d",
+    "scripts/benchmark.py": "6bdc847d6bc19b8e78fb1f2543ffb2e30b5e8fb12d84dd979701315437fbfd64"
+  },
+  "note": "Synthetic cases; mixed inputs are not certified in advance. Explicit witnesses exist only where supplied."
+}

@@ -5,6 +5,7 @@ from pathlib import Path
 
 from backend.baselines import solve_greedy
 from backend.budget import Budget
+from backend.budget import BudgetSlice
 from backend.models import SolveRequest
 
 
@@ -86,3 +87,18 @@ def test_same_seed_enough_budget_stable():
     r2 = solve_greedy(req)
     assert r1.metrics.total_cost == r2.metrics.total_cost
     assert r1.metrics.served_stores == r2.metrics.served_stores
+
+
+def test_search_slice_charges_parent_and_leaves_recovery_budget():
+    clock = [0.0]
+    parent = Budget(10000, 100, clock=lambda: clock[0])
+    phase = BudgetSlice(parent, 1000, 2)
+    phase.tick()
+    phase.tick()
+    assert phase.expired()
+    assert parent.iterations == 2
+    assert not parent.expired()
+    timed = BudgetSlice(parent, 1000, 50)
+    clock[0] = 1.1
+    assert timed.expired()
+    assert not parent.expired()

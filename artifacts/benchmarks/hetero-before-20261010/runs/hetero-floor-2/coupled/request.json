@@ -1,0 +1,118 @@
+{
+  "schema_version": "0.1",
+  "case_id": "hetero-floor-2",
+  "data_source": "synthetic",
+  "depot": {
+    "id": "DEPOT",
+    "x_km": 0.0,
+    "y_km": 0.0,
+    "departure_min": 480.0
+  },
+  "stores": [
+    {
+      "id": "S01",
+      "x_km": 1.0,
+      "y_km": 0.0,
+      "window_start_min": 0.0,
+      "window_end_min": 1440.0,
+      "service_min": 0.0
+    },
+    {
+      "id": "S02",
+      "x_km": 2.0,
+      "y_km": 0.0,
+      "window_start_min": 0.0,
+      "window_end_min": 1440.0,
+      "service_min": 0.0
+    }
+  ],
+  "vehicles": [
+    {
+      "id": "V01",
+      "length_mm": 3000,
+      "width_mm": 1500,
+      "height_mm": 1500,
+      "max_weight_kg": 1000.0,
+      "fixed_cost": 100.0,
+      "cost_per_km": 1.0
+    },
+    {
+      "id": "V02",
+      "length_mm": 3000,
+      "width_mm": 1500,
+      "height_mm": 1500,
+      "max_weight_kg": 1000.0,
+      "fixed_cost": 150.0,
+      "cost_per_km": 1.0
+    }
+  ],
+  "boxes": [
+    {
+      "id": "B001",
+      "store_id": "S01",
+      "length_mm": 1200,
+      "width_mm": 400,
+      "height_mm": 300,
+      "weight_kg": 10.0,
+      "fragile": false,
+      "allow_rotate_xy": false
+    },
+    {
+      "id": "B002",
+      "store_id": "S01",
+      "length_mm": 900,
+      "width_mm": 500,
+      "height_mm": 400,
+      "weight_kg": 10.0,
+      "fragile": false,
+      "allow_rotate_xy": false
+    },
+    {
+      "id": "B003",
+      "store_id": "S01",
+      "length_mm": 600,
+      "width_mm": 400,
+      "height_mm": 500,
+      "weight_kg": 10.0,
+      "fragile": false,
+      "allow_rotate_xy": false
+    },
+    {
+      "id": "B004",
+      "store_id": "S02",
+      "length_mm": 1100,
+      "width_mm": 450,
+      "height_mm": 350,
+      "weight_kg": 10.0,
+      "fragile": false,
+      "allow_rotate_xy": false
+    },
+    {
+      "id": "B005",
+      "store_id": "S02",
+      "length_mm": 700,
+      "width_mm": 500,
+      "height_mm": 600,
+      "weight_kg": 10.0,
+      "fragile": false,
+      "allow_rotate_xy": false
+    },
+    {
+      "id": "B006",
+      "store_id": "S02",
+      "length_mm": 500,
+      "width_mm": 400,
+      "height_mm": 300,
+      "weight_kg": 10.0,
+      "fragile": false,
+      "allow_rotate_xy": false
+    }
+  ],
+  "options": {
+    "method": "coupled",
+    "seed": 0,
+    "time_limit_ms": 10000,
+    "max_iterations": 2000,
+    "speed_kmph": 30.0
+  }
+}

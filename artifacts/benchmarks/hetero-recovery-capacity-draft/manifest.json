@@ -1,0 +1,148 @@
+{
+  "kind": "synthetic_mixed_cartons_claude_distribution",
+  "cases": [
+    {
+      "case_id": "small-11-mixed-1",
+      "path": "data/hetero_cases/small-11-mixed-1.json",
+      "base_case": "small-11",
+      "carton_seed": 1,
+      "feasibility": "not_certified_before_run"
+    },
+    {
+      "case_id": "small-11-mixed-2",
+      "path": "data/hetero_cases/small-11-mixed-2.json",
+      "base_case": "small-11",
+      "carton_seed": 2,
+      "feasibility": "not_certified_before_run"
+    },
+    {
+      "case_id": "standard-11-mixed-1",
+      "path": "data/hetero_cases/standard-11-mixed-1.json",
+      "base_case": "standard-11",
+      "carton_seed": 1,
+      "feasibility": "not_certified_before_run"
+    },
+    {
+      "case_id": "standard-11-mixed-2",
+      "path": "data/hetero_cases/standard-11-mixed-2.json",
+      "base_case": "standard-11",
+      "carton_seed": 2,
+      "feasibility": "not_certified_before_run"
+    },
+    {
+      "case_id": "stress-44-mixed-1",
+      "path": "data/hetero_cases/stress-44-mixed-1.json",
+      "base_case": "stress-44",
+      "carton_seed": 1,
+      "feasibility": "not_certified_before_run"
+    },
+    {
+      "case_id": "stress-44-mixed-2",
+      "path": "data/hetero_cases/stress-44-mixed-2.json",
+      "base_case": "stress-44",
+      "carton_seed": 2,
+      "feasibility": "not_certified_before_run"
+    }
+  ],
+  "cartons": [
+    [
+      [
+        400,
+        300,
+        300
+      ],
+      6
+    ],
+    [
+      [
+        500,
+        400,
+        300
+      ],
+      9
+    ],
+    [
+      [
+        600,
+        400,
+        400
+      ],
+      12
+    ],
+    [
+      [
+        450,
+        350,
+        250
+      ],
+      5
+    ],
+    [
+      [
+        800,
+        400,
+        300
+      ],
+      10
+    ],
+    [
+      [
+        1200,
+        400,
+        300
+      ],
+      14
+    ],
+    [
+      [
+        900,
+        600,
+        500
+      ],
+      25
+    ],
+    [
+      [
+        1100,
+        600,
+        1000
+      ],
+      40
+    ]
+  ],
+  "weights": [
+    22,
+    22,
+    18,
+    14,
+    10,
+    6,
+    5,
+    3
+  ],
+  "fragile_rate": 0.15,
+  "selection": "all small-11/standard-11/stress-44 crossed with seeds 1,2; no filtering",
+  "methods": [
+    "coupled"
+  ],
+  "head": "1c5054e7ffb7e0540c581fdb7f067e67bfa43ba9",
+  "environment": {
+    "python": "3.12.15",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "dependencies": {
+      "fastapi": "0.143.0",
+      "pydantic": "2.14.0"
+    }
+  },
+  "legacy_packer": false,
+  "implementation_sha256": {
+    "backend/packing.py": "8a19587ed54270aaddae210319c8a7d94ca5e76b31c53956364729a3e87ab73a",
+    "backend/solver.py": "3658d78feadb1bc01e969ce5ff60cffee38108e431a1542e0b21c481e9e6d25b",
+    "backend/geometry.py": "362d4a422dd46f0525dbf24d951531f629ecf176d98cbe521394e332ded127fd",
+    "backend/unloading.py": "2f1b56f1e1b59572f8e6847d8bc12d414e881150c0a547232d05f8bd42c5b3aa",
+    "backend/validation.py": "5a686dc926e9e5f835a597649f23d125d7b0e341a26adf2d02df35a2a8c99af7",
+    "scripts/hetero_benchmark.py": "6271dc23aaaaa8460d4807bb2af44368fa0e9bbc2edaa353b2e5917c638e3f0b",
+    "scripts/sequential_reinsert.py": "e287af2790f39ca2ca0d11c2d1a6adedf06e1db6452884f33d483d78d29aab1d"
+  },
+  "note": "fixed known-feasible synthetic cases; not enterprise data"
+}

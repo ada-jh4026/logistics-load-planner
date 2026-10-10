@@ -1,0 +1,125 @@
+{
+  "kind": "synthetic_mixed_cartons_claude_distribution",
+  "cases": [
+    {
+      "case_id": "small-11-mixed-1",
+      "path": "data/hetero_cases/small-11-mixed-1.json",
+      "base_case": "small-11",
+      "carton_seed": 1,
+      "feasibility": "not_certified_before_run"
+    },
+    {
+      "case_id": "small-11-mixed-2",
+      "path": "data/hetero_cases/small-11-mixed-2.json",
+      "base_case": "small-11",
+      "carton_seed": 2,
+      "feasibility": "not_certified_before_run"
+    },
+    {
+      "case_id": "standard-11-mixed-1",
+      "path": "data/hetero_cases/standard-11-mixed-1.json",
+      "base_case": "standard-11",
+      "carton_seed": 1,
+      "feasibility": "not_certified_before_run"
+    },
+    {
+      "case_id": "standard-11-mixed-2",
+      "path": "data/hetero_cases/standard-11-mixed-2.json",
+      "base_case": "standard-11",
+      "carton_seed": 2,
+      "feasibility": "not_certified_before_run"
+    },
+    {
+      "case_id": "stress-44-mixed-1",
+      "path": "data/hetero_cases/stress-44-mixed-1.json",
+      "base_case": "stress-44",
+      "carton_seed": 1,
+      "feasibility": "not_certified_before_run"
+    },
+    {
+      "case_id": "stress-44-mixed-2",
+      "path": "data/hetero_cases/stress-44-mixed-2.json",
+      "base_case": "stress-44",
+      "carton_seed": 2,
+      "feasibility": "not_certified_before_run"
+    }
+  ],
+  "cartons": [
+    [
+      [
+        400,
+        300,
+        300
+      ],
+      6
+    ],
+    [
+      [
+        500,
+        400,
+        300
+      ],
+      9
+    ],
+    [
+      [
+        600,
+        400,
+        400
+      ],
+      12
+    ],
+    [
+      [
+        450,
+        350,
+        250
+      ],
+      5
+    ],
+    [
+      [
+        800,
+        400,
+        300
+      ],
+      10
+    ],
+    [
+      [
+        1200,
+        400,
+        300
+      ],
+      14
+    ],
+    [
+      [
+        900,
+        600,
+        500
+      ],
+      25
+    ],
+    [
+      [
+        1100,
+        600,
+        1000
+      ],
+      40
+    ]
+  ],
+  "weights": [
+    22,
+    22,
+    18,
+    14,
+    10,
+    6,
+    5,
+    3
+  ],
+  "fragile_rate": 0.15,
+  "selection": "all small-11/standard-11/stress-44 crossed with seeds 1,2; no filtering"
+}

@@ -1,0 +1,144 @@
+{
+  "routes": [],
+  "unassigned": [
+    {
+      "store_id": "S01",
+      "box_ids": [
+        "B001",
+        "B002",
+        "B003"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "箱 B012 在当前排序下未找到可行位置"
+    },
+    {
+      "store_id": "S02",
+      "box_ids": [
+        "B007",
+        "B008",
+        "B009",
+        "B010",
+        "B011"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "箱 B007 在当前排序下未找到可行位置"
+    },
+    {
+      "store_id": "S03",
+      "box_ids": [
+        "B004",
+        "B005",
+        "B006"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "箱 B012 在当前排序下未找到可行位置"
+    },
+    {
+      "store_id": "S04",
+      "box_ids": [
+        "B012",
+        "B013",
+        "B014",
+        "B015",
+        "B016"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "箱 B012 在当前排序下未找到可行位置"
+    },
+    {
+      "store_id": "S05",
+      "box_ids": [
+        "B017",
+        "B018",
+        "B019"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "箱 B007 在当前排序下未找到可行位置"
+    },
+    {
+      "store_id": "S06",
+      "box_ids": [
+        "B020",
+        "B021",
+        "B022"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "箱 B012 在当前排序下未找到可行位置"
+    },
+    {
+      "store_id": "S07",
+      "box_ids": [
+        "B026",
+        "B027",
+        "B028"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "箱 B012 在当前排序下未找到可行位置"
+    },
+    {
+      "store_id": "S08",
+      "box_ids": [
+        "B023",
+        "B024",
+        "B025"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "箱 B007 在当前排序下未找到可行位置"
+    },
+    {
+      "store_id": "S09",
+      "box_ids": [
+        "B034",
+        "B035",
+        "B036"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "箱 B007 在当前排序下未找到可行位置"
+    },
+    {
+      "store_id": "S10",
+      "box_ids": [
+        "B029",
+        "B030",
+        "B031",
+        "B032",
+        "B033"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "箱 B007 在当前排序下未找到可行位置"
+    }
+  ],
+  "validation": {
+    "valid": true,
+    "violations": []
+  },
+  "metrics": {
+    "total_stores": 10,
+    "served_stores": 0,
+    "total_boxes": 36,
+    "served_boxes": 0,
+    "completion_rate": 0.0,
+    "used_vehicles": 0,
+    "total_distance_km": 0.0,
+    "total_cost": 0.0,
+    "on_time_rate": null,
+    "volume_utilization": null,
+    "weight_utilization": null,
+    "unload_block_count": 0
+  },
+  "diagnostics": [
+    {
+      "iteration": 0,
+      "action": "pack_failed",
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "车辆 V02 装箱失败：箱 B012 在当前排序下未找到可行位置"
+    },
+    {
+      "iteration": 0,
+      "action": "pack_failed",
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "车辆 V04 装箱失败：箱 B007 在当前排序下未找到可行位置"
+    }
+  ],
+  "repair_trace": null
+}

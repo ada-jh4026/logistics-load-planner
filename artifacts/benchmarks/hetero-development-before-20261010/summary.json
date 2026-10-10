@@ -1,0 +1,30 @@
+{
+  "runs": 4,
+  "valid": 4,
+  "served": [
+    {
+      "case_id": "hetero-dev-6",
+      "method": "greedy",
+      "served_stores": 0,
+      "total_stores": 3
+    },
+    {
+      "case_id": "hetero-dev-6",
+      "method": "sequential",
+      "served_stores": 0,
+      "total_stores": 3
+    },
+    {
+      "case_id": "hetero-dev-6",
+      "method": "sequential_reinsert",
+      "served_stores": 2,
+      "total_stores": 3
+    },
+    {
+      "case_id": "hetero-dev-6",
+      "method": "coupled",
+      "served_stores": 0,
+      "total_stores": 3
+    }
+  ]
+}

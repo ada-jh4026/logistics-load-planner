@@ -1,0 +1,17 @@
+{
+  "kind": "synthetic_known_feasible_heterogeneous_floor_layouts",
+  "cases": [
+    {
+      "case_id": "hetero-floor-2",
+      "path": "data/hetero_cases/hetero-floor-2.json"
+    },
+    {
+      "case_id": "hetero-floor-3",
+      "path": "data/hetero_cases/hetero-floor-3.json"
+    },
+    {
+      "case_id": "hetero-long-2",
+      "path": "data/hetero_cases/hetero-long-2.json"
+    }
+  ]
+}

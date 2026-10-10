@@ -1,0 +1,1860 @@
+{
+  "routes": [],
+  "unassigned": [
+    {
+      "store_id": "S01",
+      "box_ids": [
+        "B005",
+        "B006",
+        "B007"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S02",
+      "box_ids": [
+        "B008",
+        "B009",
+        "B010",
+        "B011"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S03",
+      "box_ids": [
+        "B001",
+        "B002",
+        "B003",
+        "B004"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S04",
+      "box_ids": [
+        "B012",
+        "B013",
+        "B014"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S05",
+      "box_ids": [
+        "B015",
+        "B016",
+        "B017"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S06",
+      "box_ids": [
+        "B027",
+        "B028",
+        "B029",
+        "B030",
+        "B031"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S07",
+      "box_ids": [
+        "B018",
+        "B019",
+        "B020",
+        "B021"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S08",
+      "box_ids": [
+        "B022",
+        "B023",
+        "B024",
+        "B025",
+        "B026"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S09",
+      "box_ids": [
+        "B036",
+        "B037",
+        "B038"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S10",
+      "box_ids": [
+        "B032",
+        "B033",
+        "B034",
+        "B035"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S11",
+      "box_ids": [
+        "B039",
+        "B040",
+        "B041",
+        "B042"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S12",
+      "box_ids": [
+        "B043",
+        "B044",
+        "B045",
+        "B046"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S13",
+      "box_ids": [
+        "B047",
+        "B048",
+        "B049"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S14",
+      "box_ids": [
+        "B050",
+        "B051",
+        "B052"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S15",
+      "box_ids": [
+        "B053",
+        "B054",
+        "B055"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S16",
+      "box_ids": [
+        "B061",
+        "B062",
+        "B063",
+        "B064"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S17",
+      "box_ids": [
+        "B056",
+        "B057",
+        "B058",
+        "B059",
+        "B060"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S18",
+      "box_ids": [
+        "B065",
+        "B066",
+        "B067",
+        "B068",
+        "B069"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S19",
+      "box_ids": [
+        "B070",
+        "B071",
+        "B072",
+        "B073",
+        "B074"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S20",
+      "box_ids": [
+        "B075",
+        "B076",
+        "B077",
+        "B078"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S21",
+      "box_ids": [
+        "B079",
+        "B080",
+        "B081",
+        "B082"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S22",
+      "box_ids": [
+        "B088",
+        "B089",
+        "B090",
+        "B091",
+        "B092"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S23",
+      "box_ids": [
+        "B083",
+        "B084",
+        "B085",
+        "B086",
+        "B087"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S24",
+      "box_ids": [
+        "B093",
+        "B094",
+        "B095",
+        "B096",
+        "B097"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S25",
+      "box_ids": [
+        "B098",
+        "B099",
+        "B100",
+        "B101",
+        "B102"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S26",
+      "box_ids": [
+        "B110",
+        "B111",
+        "B112",
+        "B113",
+        "B114"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S27",
+      "box_ids": [
+        "B106",
+        "B107",
+        "B108",
+        "B109"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S28",
+      "box_ids": [
+        "B103",
+        "B104",
+        "B105"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S29",
+      "box_ids": [
+        "B115",
+        "B116",
+        "B117"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S30",
+      "box_ids": [
+        "B118",
+        "B119",
+        "B120"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S31",
+      "box_ids": [
+        "B129",
+        "B130",
+        "B131",
+        "B132",
+        "B133"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S32",
+      "box_ids": [
+        "B121",
+        "B122",
+        "B123"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S33",
+      "box_ids": [
+        "B124",
+        "B125",
+        "B126",
+        "B127",
+        "B128"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S34",
+      "box_ids": [
+        "B138",
+        "B139",
+        "B140"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S35",
+      "box_ids": [
+        "B134",
+        "B135",
+        "B136",
+        "B137"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S36",
+      "box_ids": [
+        "B141",
+        "B142",
+        "B143",
+        "B144"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S37",
+      "box_ids": [
+        "B145",
+        "B146",
+        "B147"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S38",
+      "box_ids": [
+        "B148",
+        "B149",
+        "B150",
+        "B151",
+        "B152"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S39",
+      "box_ids": [
+        "B156",
+        "B157",
+        "B158",
+        "B159",
+        "B160"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S40",
+      "box_ids": [
+        "B153",
+        "B154",
+        "B155"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S41",
+      "box_ids": [
+        "B164",
+        "B165",
+        "B166",
+        "B167",
+        "B168"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S42",
+      "box_ids": [
+        "B161",
+        "B162",
+        "B163"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S43",
+      "box_ids": [
+        "B169",
+        "B170",
+        "B171"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S44",
+      "box_ids": [
+        "B177",
+        "B178",
+        "B179"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S45",
+      "box_ids": [
+        "B172",
+        "B173",
+        "B174",
+        "B175",
+        "B176"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S46",
+      "box_ids": [
+        "B186",
+        "B187",
+        "B188"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S47",
+      "box_ids": [
+        "B183",
+        "B184",
+        "B185"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S48",
+      "box_ids": [
+        "B180",
+        "B181",
+        "B182"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S49",
+      "box_ids": [
+        "B189",
+        "B190",
+        "B191"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S50",
+      "box_ids": [
+        "B192",
+        "B193",
+        "B194",
+        "B195"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S51",
+      "box_ids": [
+        "B196",
+        "B197",
+        "B198",
+        "B199",
+        "B200"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S52",
+      "box_ids": [
+        "B204",
+        "B205",
+        "B206",
+        "B207",
+        "B208"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S53",
+      "box_ids": [
+        "B201",
+        "B202",
+        "B203"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S54",
+      "box_ids": [
+        "B213",
+        "B214",
+        "B215",
+        "B216",
+        "B217"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S55",
+      "box_ids": [
+        "B209",
+        "B210",
+        "B211",
+        "B212"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S56",
+      "box_ids": [
+        "B222",
+        "B223",
+        "B224",
+        "B225"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S57",
+      "box_ids": [
+        "B226",
+        "B227",
+        "B228"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S58",
+      "box_ids": [
+        "B218",
+        "B219",
+        "B220",
+        "B221"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S59",
+      "box_ids": [
+        "B232",
+        "B233",
+        "B234",
+        "B235",
+        "B236"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    },
+    {
+      "store_id": "S60",
+      "box_ids": [
+        "B229",
+        "B230",
+        "B231"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "协同修复后仍未找到可行分配"
+    }
+  ],
+  "validation": {
+    "valid": true,
+    "violations": []
+  },
+  "metrics": {
+    "total_stores": 60,
+    "served_stores": 0,
+    "total_boxes": 236,
+    "served_boxes": 0,
+    "completion_rate": 0.0,
+    "used_vehicles": 0,
+    "total_distance_km": 0.0,
+    "total_cost": 0.0,
+    "on_time_rate": null,
+    "volume_utilization": null,
+    "weight_utilization": null,
+    "unload_block_count": 0
+  },
+  "diagnostics": [
+    {
+      "iteration": 0,
+      "action": "pack_failed",
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "车辆 V02 装箱失败：箱 B064 在当前排序下未找到可行位置"
+    },
+    {
+      "iteration": 0,
+      "action": "pack_failed",
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "车辆 V04 装箱失败：箱 B145 在当前排序下未找到可行位置"
+    },
+    {
+      "iteration": 0,
+      "action": "pack_failed",
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "车辆 V06 装箱失败：箱 B164 在当前排序下未找到可行位置"
+    },
+    {
+      "iteration": 0,
+      "action": "pack_failed",
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "车辆 V08 装箱失败：箱 B080 在当前排序下未找到可行位置"
+    },
+    {
+      "iteration": 0,
+      "action": "pack_failed",
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "车辆 V10 装箱失败：箱 B208 在当前排序下未找到可行位置"
+    },
+    {
+      "iteration": 0,
+      "action": "pack_failed",
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "车辆 V12 装箱失败：箱 B192 在当前排序下未找到可行位置"
+    },
+    {
+      "iteration": 0,
+      "action": "pack_failed",
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "车辆 V14 装箱失败：箱 B029 在当前排序下未找到可行位置"
+    }
+  ],
+  "repair_trace": {
+    "version": 1,
+    "status": "budget_exhausted",
+    "initial_metrics": {
+      "total_stores": 60,
+      "served_stores": 0,
+      "total_boxes": 236,
+      "served_boxes": 0,
+      "completion_rate": 0.0,
+      "used_vehicles": 0,
+      "total_distance_km": 0.0,
+      "total_cost": 0.0,
+      "on_time_rate": null,
+      "volume_utilization": null,
+      "weight_utilization": null,
+      "unload_block_count": 0
+    },
+    "final_metrics": {
+      "total_stores": 60,
+      "served_stores": 0,
+      "total_boxes": 236,
+      "served_boxes": 0,
+      "completion_rate": 0.0,
+      "used_vehicles": 0,
+      "total_distance_km": 0.0,
+      "total_cost": 0.0,
+      "on_time_rate": null,
+      "volume_utilization": null,
+      "weight_utilization": null,
+      "unload_block_count": 0
+    },
+    "initial_routes": [],
+    "attempted_count": 30,
+    "accepted_count": 0,
+    "events": [
+      {
+        "event_id": 1,
+        "iteration": 333,
+        "action": "pack_failed",
+        "outcome": "detected",
+        "store_ids": [
+          "S11",
+          "S04",
+          "S03",
+          "S40",
+          "S17",
+          "S45",
+          "S32",
+          "S28",
+          "S16",
+          "S51"
+        ],
+        "box_ids": [
+          "B001",
+          "B002",
+          "B003",
+          "B004",
+          "B012",
+          "B013",
+          "B014",
+          "B039",
+          "B040",
+          "B041",
+          "B042",
+          "B056",
+          "B057",
+          "B058",
+          "B059",
+          "B060",
+          "B061",
+          "B062",
+          "B063",
+          "B064",
+          "B103",
+          "B104",
+          "B105",
+          "B121",
+          "B122",
+          "B123",
+          "B153",
+          "B154",
+          "B155",
+          "B172",
+          "B173",
+          "B174",
+          "B175",
+          "B176",
+          "B196",
+          "B197",
+          "B198",
+          "B199",
+          "B200"
+        ],
+        "source_vehicle_id": "V02",
+        "target_vehicle_id": null,
+        "reason_code": "SEARCH_EXHAUSTED",
+        "message": "车辆 V02 装箱失败：箱 B064 在当前排序下未找到可行位置",
+        "metrics_before": null,
+        "metrics_after": null,
+        "routes_before": null,
+        "routes_after": null
+      },
+      {
+        "event_id": 2,
+        "iteration": 333,
+        "action": "pack_failed",
+        "outcome": "detected",
+        "store_ids": [
+          "S19",
+          "S35",
+          "S49",
+          "S60",
+          "S24",
+          "S14",
+          "S53",
+          "S37",
+          "S18"
+        ],
+        "box_ids": [
+          "B050",
+          "B051",
+          "B052",
+          "B065",
+          "B066",
+          "B067",
+          "B068",
+          "B069",
+          "B070",
+          "B071",
+          "B072",
+          "B073",
+          "B074",
+          "B093",
+          "B094",
+          "B095",
+          "B096",
+          "B097",
+          "B134",
+          "B135",
+          "B136",
+          "B137",
+          "B145",
+          "B146",
+          "B147",
+          "B189",
+          "B190",
+          "B191",
+          "B201",
+          "B202",
+          "B203",
+          "B229",
+          "B230",
+          "B231"
+        ],
+        "source_vehicle_id": "V04",
+        "target_vehicle_id": null,
+        "reason_code": "SEARCH_EXHAUSTED",
+        "message": "车辆 V04 装箱失败：箱 B145 在当前排序下未找到可行位置",
+        "metrics_before": null,
+        "metrics_after": null,
+        "routes_before": null,
+        "routes_after": null
+      },
+      {
+        "event_id": 3,
+        "iteration": 333,
+        "action": "pack_failed",
+        "outcome": "detected",
+        "store_ids": [
+          "S59",
+          "S34",
+          "S10",
+          "S36",
+          "S42",
+          "S48",
+          "S07",
+          "S05",
+          "S41",
+          "S44",
+          "S09"
+        ],
+        "box_ids": [
+          "B015",
+          "B016",
+          "B017",
+          "B018",
+          "B019",
+          "B020",
+          "B021",
+          "B032",
+          "B033",
+          "B034",
+          "B035",
+          "B036",
+          "B037",
+          "B038",
+          "B138",
+          "B139",
+          "B140",
+          "B141",
+          "B142",
+          "B143",
+          "B144",
+          "B161",
+          "B162",
+          "B163",
+          "B164",
+          "B165",
+          "B166",
+          "B167",
+          "B168",
+          "B177",
+          "B178",
+          "B179",
+          "B180",
+          "B181",
+          "B182",
+          "B232",
+          "B233",
+          "B234",
+          "B235",
+          "B236"
+        ],
+        "source_vehicle_id": "V06",
+        "target_vehicle_id": null,
+        "reason_code": "SEARCH_EXHAUSTED",
+        "message": "车辆 V06 装箱失败：箱 B164 在当前排序下未找到可行位置",
+        "metrics_before": null,
+        "metrics_after": null,
+        "routes_before": null,
+        "routes_after": null
+      },
+      {
+        "event_id": 4,
+        "iteration": 333,
+        "action": "pack_failed",
+        "outcome": "detected",
+        "store_ids": [
+          "S29",
+          "S58",
+          "S39",
+          "S01",
+          "S21",
+          "S08",
+          "S20",
+          "S57"
+        ],
+        "box_ids": [
+          "B005",
+          "B006",
+          "B007",
+          "B022",
+          "B023",
+          "B024",
+          "B025",
+          "B026",
+          "B075",
+          "B076",
+          "B077",
+          "B078",
+          "B079",
+          "B080",
+          "B081",
+          "B082",
+          "B115",
+          "B116",
+          "B117",
+          "B156",
+          "B157",
+          "B158",
+          "B159",
+          "B160",
+          "B218",
+          "B219",
+          "B220",
+          "B221",
+          "B226",
+          "B227",
+          "B228"
+        ],
+        "source_vehicle_id": "V08",
+        "target_vehicle_id": null,
+        "reason_code": "SEARCH_EXHAUSTED",
+        "message": "车辆 V08 装箱失败：箱 B080 在当前排序下未找到可行位置",
+        "metrics_before": null,
+        "metrics_after": null,
+        "routes_before": null,
+        "routes_after": null
+      },
+      {
+        "event_id": 5,
+        "iteration": 333,
+        "action": "pack_failed",
+        "outcome": "detected",
+        "store_ids": [
+          "S55",
+          "S33",
+          "S15",
+          "S23",
+          "S47",
+          "S25",
+          "S22",
+          "S52",
+          "S43"
+        ],
+        "box_ids": [
+          "B053",
+          "B054",
+          "B055",
+          "B083",
+          "B084",
+          "B085",
+          "B086",
+          "B087",
+          "B088",
+          "B089",
+          "B090",
+          "B091",
+          "B092",
+          "B098",
+          "B099",
+          "B100",
+          "B101",
+          "B102",
+          "B124",
+          "B125",
+          "B126",
+          "B127",
+          "B128",
+          "B169",
+          "B170",
+          "B171",
+          "B183",
+          "B184",
+          "B185",
+          "B204",
+          "B205",
+          "B206",
+          "B207",
+          "B208",
+          "B209",
+          "B210",
+          "B211",
+          "B212"
+        ],
+        "source_vehicle_id": "V10",
+        "target_vehicle_id": null,
+        "reason_code": "SEARCH_EXHAUSTED",
+        "message": "车辆 V10 装箱失败：箱 B208 在当前排序下未找到可行位置",
+        "metrics_before": null,
+        "metrics_after": null,
+        "routes_before": null,
+        "routes_after": null
+      },
+      {
+        "event_id": 6,
+        "iteration": 333,
+        "action": "pack_failed",
+        "outcome": "detected",
+        "store_ids": [
+          "S27",
+          "S12",
+          "S30",
+          "S46",
+          "S50",
+          "S54",
+          "S13",
+          "S26"
+        ],
+        "box_ids": [
+          "B043",
+          "B044",
+          "B045",
+          "B046",
+          "B047",
+          "B048",
+          "B049",
+          "B106",
+          "B107",
+          "B108",
+          "B109",
+          "B110",
+          "B111",
+          "B112",
+          "B113",
+          "B114",
+          "B118",
+          "B119",
+          "B120",
+          "B186",
+          "B187",
+          "B188",
+          "B192",
+          "B193",
+          "B194",
+          "B195",
+          "B213",
+          "B214",
+          "B215",
+          "B216",
+          "B217"
+        ],
+        "source_vehicle_id": "V12",
+        "target_vehicle_id": null,
+        "reason_code": "SEARCH_EXHAUSTED",
+        "message": "车辆 V12 装箱失败：箱 B192 在当前排序下未找到可行位置",
+        "metrics_before": null,
+        "metrics_after": null,
+        "routes_before": null,
+        "routes_after": null
+      },
+      {
+        "event_id": 7,
+        "iteration": 333,
+        "action": "pack_failed",
+        "outcome": "detected",
+        "store_ids": [
+          "S02",
+          "S31",
+          "S38",
+          "S06",
+          "S56"
+        ],
+        "box_ids": [
+          "B008",
+          "B009",
+          "B010",
+          "B011",
+          "B027",
+          "B028",
+          "B029",
+          "B030",
+          "B031",
+          "B129",
+          "B130",
+          "B131",
+          "B132",
+          "B133",
+          "B148",
+          "B149",
+          "B150",
+          "B151",
+          "B152",
+          "B222",
+          "B223",
+          "B224",
+          "B225"
+        ],
+        "source_vehicle_id": "V14",
+        "target_vehicle_id": null,
+        "reason_code": "SEARCH_EXHAUSTED",
+        "message": "车辆 V14 装箱失败：箱 B029 在当前排序下未找到可行位置",
+        "metrics_before": null,
+        "metrics_after": null,
+        "routes_before": null,
+        "routes_after": null
+      },
+      {
+        "event_id": 8,
+        "iteration": 614,
+        "action": "relocate",
+        "outcome": "rejected",
+        "store_ids": [
+          "S01"
+        ],
+        "box_ids": [
+          "B005",
+          "B006",
+          "B007"
+        ],
+        "source_vehicle_id": "V08",
+        "target_vehicle_id": "V04",
+        "reason_code": "NO_IMPROVEMENT",
+        "message": "已验证方案的目标分数未改善",
+        "metrics_before": null,
+        "metrics_after": null,
+        "routes_before": null,
+        "routes_after": null
+      },
+      {
+        "event_id": 9,
+        "iteration": 884,
+        "action": "relocate",
+        "outcome": "rejected",
+        "store_ids": [
+          "S01"
+        ],
+        "box_ids": [
+          "B005",
+          "B006",
+          "B007"
+        ],
+        "source_vehicle_id": "V08",
+        "target_vehicle_id": "V10",
+        "reason_code": "NO_IMPROVEMENT",
+        "message": "已验证方案的目标分数未改善",
+        "metrics_before": null,
+        "metrics_after": null,
+        "routes_before": null,
+        "routes_after": null
+      },
+      {
+        "event_id": 10,
+        "iteration": 1147,
+        "action": "relocate",
+        "outcome": "rejected",
+        "store_ids": [
+          "S01"
+        ],
+        "box_ids": [
+          "B005",
+          "B006",
+          "B007"
+        ],
+        "source_vehicle_id": "V08",
+        "target_vehicle_id": "V12",
+        "reason_code": "NO_IMPROVEMENT",
+        "message": "已验证方案的目标分数未改善",
+        "metrics_before": null,
+        "metrics_after": null,
+        "routes_before": null,
+        "routes_after": null
+      },
+      {
+        "event_id": 11,
+        "iteration": 1427,
+        "action": "relocate",
+        "outcome": "rejected",
+        "store_ids": [
+          "S01"
+        ],
+        "box_ids": [
+          "B005",
+          "B006",
+          "B007"
+        ],
+        "source_vehicle_id": "V08",
+        "target_vehicle_id": "V04",
+        "reason_code": "NO_IMPROVEMENT",
+        "message": "已验证方案的目标分数未改善",
+        "metrics_before": null,
+        "metrics_after": null,
+        "routes_before": null,
+        "routes_after": null
+      },
+      {
+        "event_id": 12,
+        "iteration": 1695,
+        "action": "relocate",
+        "outcome": "rejected",
+        "store_ids": [
+          "S01"
+        ],
+        "box_ids": [
+          "B005",
+          "B006",
+          "B007"
+        ],
+        "source_vehicle_id": "V08",
+        "target_vehicle_id": "V06",
+        "reason_code": "NO_IMPROVEMENT",
+        "message": "已验证方案的目标分数未改善",
+        "metrics_before": null,
+        "metrics_after": null,
+        "routes_before": null,
+        "routes_after": null
+      },
+      {
+        "event_id": 13,
+        "iteration": 1969,
+        "action": "relocate",
+        "outcome": "rejected",
+        "store_ids": [
+          "S01"
+        ],
+        "box_ids": [
+          "B005",
+          "B006",
+          "B007"
+        ],
+        "source_vehicle_id": "V08",
+        "target_vehicle_id": "V10",
+        "reason_code": "NO_IMPROVEMENT",
+        "message": "已验证方案的目标分数未改善",
+        "metrics_before": null,
+        "metrics_after": null,
+        "routes_before": null,
+        "routes_after": null
+      },
+      {
+        "event_id": 14,
+        "iteration": 2247,
+        "action": "relocate",
+        "outcome": "rejected",
+        "store_ids": [
+          "S01"
+        ],
+        "box_ids": [
+          "B005",
+          "B006",
+          "B007"
+        ],
+        "source_vehicle_id": "V08",
+        "target_vehicle_id": "V12",
+        "reason_code": "NO_IMPROVEMENT",
+        "message": "已验证方案的目标分数未改善",
+        "metrics_before": null,
+        "metrics_after": null,
+        "routes_before": null,
+        "routes_after": null
+      },
+      {
+        "event_id": 15,
+        "iteration": 2515,
+        "action": "relocate",
+        "outcome": "rejected",
+        "store_ids": [
+          "S01"
+        ],
+        "box_ids": [
+          "B005",
+          "B006",
+          "B007"
+        ],
+        "source_vehicle_id": "V08",
+        "target_vehicle_id": "V06",
+        "reason_code": "NO_IMPROVEMENT",
+        "message": "已验证方案的目标分数未改善",
+        "metrics_before": null,
+        "metrics_after": null,
+        "routes_before": null,
+        "routes_after": null
+      },
+      {
+        "event_id": 16,
+        "iteration": 2785,
+        "action": "relocate",
+        "outcome": "rejected",
+        "store_ids": [
+          "S02"
+        ],
+        "box_ids": [
+          "B008",
+          "B009",
+          "B010",
+          "B011"
+        ],
+        "source_vehicle_id": "V14",
+        "target_vehicle_id": "V12",
+        "reason_code": "NO_IMPROVEMENT",
+        "message": "已验证方案的目标分数未改善",
+        "metrics_before": null,
+        "metrics_after": null,
+        "routes_before": null,
+        "routes_after": null
+      },
+      {
+        "event_id": 17,
+        "iteration": 3055,
+        "action": "relocate",
+        "outcome": "rejected",
+        "store_ids": [
+          "S02"
+        ],
+        "box_ids": [
+          "B008",
+          "B009",
+          "B010",
+          "B011"
+        ],
+        "source_vehicle_id": "V14",
+        "target_vehicle_id": "V12",
+        "reason_code": "NO_IMPROVEMENT",
+        "message": "已验证方案的目标分数未改善",
+        "metrics_before": null,
+        "metrics_after": null,
+        "routes_before": null,
+        "routes_after": null
+      },
+      {
+        "event_id": 18,
+        "iteration": 3325,
+        "action": "relocate",
+        "outcome": "rejected",
+        "store_ids": [
+          "S02"
+        ],
+        "box_ids": [
+          "B008",
+          "B009",
+          "B010",
+          "B011"
+        ],
+        "source_vehicle_id": "V14",
+        "target_vehicle_id": "V12",
+        "reason_code": "NO_IMPROVEMENT",
+        "message": "已验证方案的目标分数未改善",
+        "metrics_before": null,
+        "metrics_after": null,
+        "routes_before": null,
+        "routes_after": null
+      },
+      {
+        "event_id": 19,
+        "iteration": 3594,
+        "action": "relocate",
+        "outcome": "rejected",
+        "store_ids": [
+          "S02"
+        ],
+        "box_ids": [
+          "B008",
+          "B009",
+          "B010",
+          "B011"
+        ],
+        "source_vehicle_id": "V14",
+        "target_vehicle_id": "V10",
+        "reason_code": "NO_IMPROVEMENT",
+        "message": "已验证方案的目标分数未改善",
+        "metrics_before": null,
+        "metrics_after": null,
+        "routes_before": null,
+        "routes_after": null
+      },
+      {
+        "event_id": 20,
+        "iteration": 3866,
+        "action": "relocate",
+        "outcome": "rejected",
+        "store_ids": [
+          "S02"
+        ],
+        "box_ids": [
+          "B008",
+          "B009",
+          "B010",
+          "B011"
+        ],
+        "source_vehicle_id": "V14",
+        "target_vehicle_id": "V08",
+        "reason_code": "NO_IMPROVEMENT",
+        "message": "已验证方案的目标分数未改善",
+        "metrics_before": null,
+        "metrics_after": null,
+        "routes_before": null,
+        "routes_after": null
+      },
+      {
+        "event_id": 21,
+        "iteration": 4135,
+        "action": "relocate",
+        "outcome": "rejected",
+        "store_ids": [
+          "S02"
+        ],
+        "box_ids": [
+          "B008",
+          "B009",
+          "B010",
+          "B011"
+        ],
+        "source_vehicle_id": "V14",
+        "target_vehicle_id": "V06",
+        "reason_code": "NO_IMPROVEMENT",
+        "message": "已验证方案的目标分数未改善",
+        "metrics_before": null,
+        "metrics_after": null,
+        "routes_before": null,
+        "routes_after": null
+      },
+      {
+        "event_id": 22,
+        "iteration": 4411,
+        "action": "relocate",
+        "outcome": "rejected",
+        "store_ids": [
+          "S02"
+        ],
+        "box_ids": [
+          "B008",
+          "B009",
+          "B010",
+          "B011"
+        ],
+        "source_vehicle_id": "V14",
+        "target_vehicle_id": "V08",
+        "reason_code": "NO_IMPROVEMENT",
+        "message": "已验证方案的目标分数未改善",
+        "metrics_before": null,
+        "metrics_after": null,
+        "routes_before": null,
+        "routes_after": null
+      },
+      {
+        "event_id": 23,
+        "iteration": 4680,
+        "action": "relocate",
+        "outcome": "rejected",
+        "store_ids": [
+          "S02"
+        ],
+        "box_ids": [
+          "B008",
+          "B009",
+          "B010",
+          "B011"
+        ],
+        "source_vehicle_id": "V14",
+        "target_vehicle_id": "V06",
+        "reason_code": "NO_IMPROVEMENT",
+        "message": "已验证方案的目标分数未改善",
+        "metrics_before": null,
+        "metrics_after": null,
+        "routes_before": null,
+        "routes_after": null
+      },
+      {
+        "event_id": 24,
+        "iteration": 4960,
+        "action": "relocate",
+        "outcome": "rejected",
+        "store_ids": [
+          "S03"
+        ],
+        "box_ids": [
+          "B001",
+          "B002",
+          "B003",
+          "B004"
+        ],
+        "source_vehicle_id": "V02",
+        "target_vehicle_id": "V14",
+        "reason_code": "NO_IMPROVEMENT",
+        "message": "已验证方案的目标分数未改善",
+        "metrics_before": null,
+        "metrics_after": null,
+        "routes_before": null,
+        "routes_after": null
+      },
+      {
+        "event_id": 25,
+        "iteration": 5242,
+        "action": "relocate",
+        "outcome": "rejected",
+        "store_ids": [
+          "S03"
+        ],
+        "box_ids": [
+          "B001",
+          "B002",
+          "B003",
+          "B004"
+        ],
+        "source_vehicle_id": "V02",
+        "target_vehicle_id": "V06",
+        "reason_code": "NO_IMPROVEMENT",
+        "message": "已验证方案的目标分数未改善",
+        "metrics_before": null,
+        "metrics_after": null,
+        "routes_before": null,
+        "routes_after": null
+      },
+      {
+        "event_id": 26,
+        "iteration": 5525,
+        "action": "relocate",
+        "outcome": "rejected",
+        "store_ids": [
+          "S03"
+        ],
+        "box_ids": [
+          "B001",
+          "B002",
+          "B003",
+          "B004"
+        ],
+        "source_vehicle_id": "V02",
+        "target_vehicle_id": "V04",
+        "reason_code": "NO_IMPROVEMENT",
+        "message": "已验证方案的目标分数未改善",
+        "metrics_before": null,
+        "metrics_after": null,
+        "routes_before": null,
+        "routes_after": null
+      },
+      {
+        "event_id": 27,
+        "iteration": 5813,
+        "action": "relocate",
+        "outcome": "rejected",
+        "store_ids": [
+          "S03"
+        ],
+        "box_ids": [
+          "B001",
+          "B002",
+          "B003",
+          "B004"
+        ],
+        "source_vehicle_id": "V02",
+        "target_vehicle_id": "V14",
+        "reason_code": "NO_IMPROVEMENT",
+        "message": "已验证方案的目标分数未改善",
+        "metrics_before": null,
+        "metrics_after": null,
+        "routes_before": null,
+        "routes_after": null
+      },
+      {
+        "event_id": 28,
+        "iteration": 6095,
+        "action": "relocate",
+        "outcome": "rejected",
+        "store_ids": [
+          "S03"
+        ],
+        "box_ids": [
+          "B001",
+          "B002",
+          "B003",
+          "B004"
+        ],
+        "source_vehicle_id": "V02",
+        "target_vehicle_id": "V12",
+        "reason_code": "NO_IMPROVEMENT",
+        "message": "已验证方案的目标分数未改善",
+        "metrics_before": null,
+        "metrics_after": null,
+        "routes_before": null,
+        "routes_after": null
+      },
+      {
+        "event_id": 29,
+        "iteration": 6376,
+        "action": "relocate",
+        "outcome": "rejected",
+        "store_ids": [
+          "S03"
+        ],
+        "box_ids": [
+          "B001",
+          "B002",
+          "B003",
+          "B004"
+        ],
+        "source_vehicle_id": "V02",
+        "target_vehicle_id": "V10",
+        "reason_code": "NO_IMPROVEMENT",
+        "message": "已验证方案的目标分数未改善",
+        "metrics_before": null,
+        "metrics_after": null,
+        "routes_before": null,
+        "routes_after": null
+      },
+      {
+        "event_id": 30,
+        "iteration": 6657,
+        "action": "relocate",
+        "outcome": "rejected",
+        "store_ids": [
+          "S03"
+        ],
+        "box_ids": [
+          "B001",
+          "B002",
+          "B003",
+          "B004"
+        ],
+        "source_vehicle_id": "V02",
+        "target_vehicle_id": "V04",
+        "reason_code": "NO_IMPROVEMENT",
+        "message": "已验证方案的目标分数未改善",
+        "metrics_before": null,
+        "metrics_after": null,
+        "routes_before": null,
+        "routes_after": null
+      },
+      {
+        "event_id": 31,
+        "iteration": 6940,
+        "action": "relocate",
+        "outcome": "rejected",
+        "store_ids": [
+          "S03"
+        ],
+        "box_ids": [
+          "B001",
+          "B002",
+          "B003",
+          "B004"
+        ],
+        "source_vehicle_id": "V02",
+        "target_vehicle_id": "V08",
+        "reason_code": "NO_IMPROVEMENT",
+        "message": "已验证方案的目标分数未改善",
+        "metrics_before": null,
+        "metrics_after": null,
+        "routes_before": null,
+        "routes_after": null
+      },
+      {
+        "event_id": 32,
+        "iteration": 7223,
+        "action": "relocate",
+        "outcome": "rejected",
+        "store_ids": [
+          "S04"
+        ],
+        "box_ids": [
+          "B012",
+          "B013",
+          "B014"
+        ],
+        "source_vehicle_id": "V02",
+        "target_vehicle_id": "V14",
+        "reason_code": "NO_IMPROVEMENT",
+        "message": "已验证方案的目标分数未改善",
+        "metrics_before": null,
+        "metrics_after": null,
+        "routes_before": null,
+        "routes_after": null
+      },
+      {
+        "event_id": 33,
+        "iteration": 7512,
+        "action": "relocate",
+        "outcome": "rejected",
+        "store_ids": [
+          "S04"
+        ],
+        "box_ids": [
+          "B012",
+          "B013",
+          "B014"
+        ],
+        "source_vehicle_id": "V02",
+        "target_vehicle_id": "V14",
+        "reason_code": "NO_IMPROVEMENT",
+        "message": "已验证方案的目标分数未改善",
+        "metrics_before": null,
+        "metrics_after": null,
+        "routes_before": null,
+        "routes_after": null
+      },
+      {
+        "event_id": 34,
+        "iteration": 7786,
+        "action": "relocate",
+        "outcome": "rejected",
+        "store_ids": [
+          "S04"
+        ],
+        "box_ids": [
+          "B012",
+          "B013",
+          "B014"
+        ],
+        "source_vehicle_id": "V02",
+        "target_vehicle_id": "V06",
+        "reason_code": "NO_IMPROVEMENT",
+        "message": "已验证方案的目标分数未改善",
+        "metrics_before": null,
+        "metrics_after": null,
+        "routes_before": null,
+        "routes_after": null
+      },
+      {
+        "event_id": 35,
+        "iteration": 8066,
+        "action": "relocate",
+        "outcome": "rejected",
+        "store_ids": [
+          "S04"
+        ],
+        "box_ids": [
+          "B012",
+          "B013",
+          "B014"
+        ],
+        "source_vehicle_id": "V02",
+        "target_vehicle_id": "V04",
+        "reason_code": "NO_IMPROVEMENT",
+        "message": "已验证方案的目标分数未改善",
+        "metrics_before": null,
+        "metrics_after": null,
+        "routes_before": null,
+        "routes_after": null
+      },
+      {
+        "event_id": 36,
+        "iteration": 8350,
+        "action": "relocate",
+        "outcome": "rejected",
+        "store_ids": [
+          "S04"
+        ],
+        "box_ids": [
+          "B012",
+          "B013",
+          "B014"
+        ],
+        "source_vehicle_id": "V02",
+        "target_vehicle_id": "V12",
+        "reason_code": "NO_IMPROVEMENT",
+        "message": "已验证方案的目标分数未改善",
+        "metrics_before": null,
+        "metrics_after": null,
+        "routes_before": null,
+        "routes_after": null
+      },
+      {
+        "event_id": 37,
+        "iteration": 8444,
+        "action": "relocate",
+        "outcome": "rejected",
+        "store_ids": [
+          "S04"
+        ],
+        "box_ids": [
+          "B012",
+          "B013",
+          "B014"
+        ],
+        "source_vehicle_id": "V02",
+        "target_vehicle_id": "V10",
+        "reason_code": "NO_IMPROVEMENT",
+        "message": "已验证方案的目标分数未改善",
+        "metrics_before": null,
+        "metrics_after": null,
+        "routes_before": null,
+        "routes_after": null
+      }
+    ],
+    "truncated": false,
+    "omitted_count": 0
+  }
+}

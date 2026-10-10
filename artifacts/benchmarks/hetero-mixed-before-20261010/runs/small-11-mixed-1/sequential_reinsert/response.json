@@ -1,0 +1,640 @@
+{
+  "routes": [
+    {
+      "vehicle_id": "V01",
+      "store_ids": [
+        "S02",
+        "S08"
+      ],
+      "stops": [
+        {
+          "store_id": "S02",
+          "arrival_min": 605.43155711383,
+          "service_start_min": 605.43155711383,
+          "departure_min": 610.43155711383
+        },
+        {
+          "store_id": "S08",
+          "arrival_min": 666.4060322252591,
+          "service_start_min": 666.4060322252591,
+          "departure_min": 671.4060322252591
+        }
+      ],
+      "return_min": 756.3073867963141,
+      "distance_km": 133.15369339815706,
+      "cost": 416.3073867963141,
+      "box_ids": [
+        "B007",
+        "B008",
+        "B009",
+        "B010",
+        "B011",
+        "B023",
+        "B024",
+        "B025"
+      ],
+      "placements": [
+        {
+          "box_id": "B024",
+          "x_mm": 2100,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B025",
+          "x_mm": 2200,
+          "y_mm": 600,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B023",
+          "x_mm": 2550,
+          "y_mm": 1000,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B008",
+          "x_mm": 1950,
+          "y_mm": 1000,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B009",
+          "x_mm": 1700,
+          "y_mm": 600,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B011",
+          "x_mm": 1700,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B010",
+          "x_mm": 750,
+          "y_mm": 1000,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B007",
+          "x_mm": 900,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        }
+      ],
+      "unload_steps": [
+        {
+          "step": 1,
+          "store_id": "S02",
+          "box_id": "B010"
+        },
+        {
+          "step": 2,
+          "store_id": "S02",
+          "box_id": "B007"
+        },
+        {
+          "step": 3,
+          "store_id": "S02",
+          "box_id": "B009"
+        },
+        {
+          "step": 4,
+          "store_id": "S02",
+          "box_id": "B011"
+        },
+        {
+          "step": 5,
+          "store_id": "S02",
+          "box_id": "B008"
+        },
+        {
+          "step": 6,
+          "store_id": "S08",
+          "box_id": "B024"
+        },
+        {
+          "step": 7,
+          "store_id": "S08",
+          "box_id": "B025"
+        },
+        {
+          "step": 8,
+          "store_id": "S08",
+          "box_id": "B023"
+        }
+      ]
+    },
+    {
+      "vehicle_id": "V02",
+      "store_ids": [
+        "S04",
+        "S01",
+        "S06"
+      ],
+      "stops": [
+        {
+          "store_id": "S04",
+          "arrival_min": 548.2894891180188,
+          "service_start_min": 548.2894891180188,
+          "departure_min": 553.2894891180188
+        },
+        {
+          "store_id": "S01",
+          "arrival_min": 584.8378621347053,
+          "service_start_min": 584.8378621347053,
+          "departure_min": 589.8378621347053
+        },
+        {
+          "store_id": "S06",
+          "arrival_min": 640.9410417226723,
+          "service_start_min": 640.9410417226723,
+          "departure_min": 645.9410417226723
+        }
+      ],
+      "return_min": 687.8780940749776,
+      "distance_km": 96.43904703748882,
+      "cost": 292.87809407497764,
+      "box_ids": [
+        "B012",
+        "B013",
+        "B014",
+        "B015",
+        "B016",
+        "B001",
+        "B002",
+        "B003",
+        "B020",
+        "B021",
+        "B022"
+      ],
+      "placements": [
+        {
+          "box_id": "B020",
+          "x_mm": 1550,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B021",
+          "x_mm": 900,
+          "y_mm": 350,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B022",
+          "x_mm": 1150,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B001",
+          "x_mm": 750,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B002",
+          "x_mm": 100,
+          "y_mm": 300,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B003",
+          "x_mm": 300,
+          "y_mm": 300,
+          "z_mm": 300,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B012",
+          "x_mm": 1100,
+          "y_mm": 350,
+          "z_mm": 1000,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B013",
+          "x_mm": 500,
+          "y_mm": 700,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B014",
+          "x_mm": 350,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B015",
+          "x_mm": 400,
+          "y_mm": 300,
+          "z_mm": 700,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B016",
+          "x_mm": 400,
+          "y_mm": 300,
+          "z_mm": 1000,
+          "rotation_xy": 0
+        }
+      ],
+      "unload_steps": [
+        {
+          "step": 1,
+          "store_id": "S04",
+          "box_id": "B016"
+        },
+        {
+          "step": 2,
+          "store_id": "S04",
+          "box_id": "B012"
+        },
+        {
+          "step": 3,
+          "store_id": "S04",
+          "box_id": "B015"
+        },
+        {
+          "step": 4,
+          "store_id": "S04",
+          "box_id": "B014"
+        },
+        {
+          "step": 5,
+          "store_id": "S04",
+          "box_id": "B013"
+        },
+        {
+          "step": 6,
+          "store_id": "S01",
+          "box_id": "B003"
+        },
+        {
+          "step": 7,
+          "store_id": "S01",
+          "box_id": "B002"
+        },
+        {
+          "step": 8,
+          "store_id": "S01",
+          "box_id": "B001"
+        },
+        {
+          "step": 9,
+          "store_id": "S06",
+          "box_id": "B021"
+        },
+        {
+          "step": 10,
+          "store_id": "S06",
+          "box_id": "B022"
+        },
+        {
+          "step": 11,
+          "store_id": "S06",
+          "box_id": "B020"
+        }
+      ]
+    },
+    {
+      "vehicle_id": "V03",
+      "store_ids": [
+        "S09",
+        "S07"
+      ],
+      "stops": [
+        {
+          "store_id": "S09",
+          "arrival_min": 645.3602736451534,
+          "service_start_min": 645.3602736451534,
+          "departure_min": 650.3602736451534
+        },
+        {
+          "store_id": "S07",
+          "arrival_min": 755.3300459227,
+          "service_start_min": 755.3300459227,
+          "departure_min": 760.3300459227
+        }
+      ],
+      "return_min": 859.3184646796435,
+      "distance_km": 184.65923233982176,
+      "cost": 519.3184646796435,
+      "box_ids": [
+        "B034",
+        "B035",
+        "B036",
+        "B026",
+        "B027",
+        "B028"
+      ],
+      "placements": [
+        {
+          "box_id": "B027",
+          "x_mm": 1800,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B028",
+          "x_mm": 2400,
+          "y_mm": 400,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B026",
+          "x_mm": 2500,
+          "y_mm": 800,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B034",
+          "x_mm": 1900,
+          "y_mm": 800,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B035",
+          "x_mm": 1800,
+          "y_mm": 400,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B036",
+          "x_mm": 1300,
+          "y_mm": 800,
+          "z_mm": 0,
+          "rotation_xy": 0
+        }
+      ],
+      "unload_steps": [
+        {
+          "step": 1,
+          "store_id": "S09",
+          "box_id": "B036"
+        },
+        {
+          "step": 2,
+          "store_id": "S09",
+          "box_id": "B035"
+        },
+        {
+          "step": 3,
+          "store_id": "S09",
+          "box_id": "B034"
+        },
+        {
+          "step": 4,
+          "store_id": "S07",
+          "box_id": "B027"
+        },
+        {
+          "step": 5,
+          "store_id": "S07",
+          "box_id": "B028"
+        },
+        {
+          "step": 6,
+          "store_id": "S07",
+          "box_id": "B026"
+        }
+      ]
+    },
+    {
+      "vehicle_id": "V04",
+      "store_ids": [
+        "S05",
+        "S10",
+        "S03"
+      ],
+      "stops": [
+        {
+          "store_id": "S05",
+          "arrival_min": 603.0954123921765,
+          "service_start_min": 603.0954123921765,
+          "departure_min": 608.0954123921765
+        },
+        {
+          "store_id": "S10",
+          "arrival_min": 628.8636694206323,
+          "service_start_min": 628.8636694206323,
+          "departure_min": 633.8636694206323
+        },
+        {
+          "store_id": "S03",
+          "arrival_min": 651.1222851241005,
+          "service_start_min": 651.1222851241005,
+          "departure_min": 656.1222851241005
+        }
+      ],
+      "return_min": 751.836811691388,
+      "distance_km": 128.418405845694,
+      "cost": 356.836811691388,
+      "box_ids": [
+        "B017",
+        "B018",
+        "B019",
+        "B029",
+        "B030",
+        "B031",
+        "B032",
+        "B033",
+        "B004",
+        "B005",
+        "B006"
+      ],
+      "placements": [
+        {
+          "box_id": "B004",
+          "x_mm": 1550,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B006",
+          "x_mm": 1200,
+          "y_mm": 350,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B005",
+          "x_mm": 1150,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B029",
+          "x_mm": 800,
+          "y_mm": 300,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B030",
+          "x_mm": 400,
+          "y_mm": 600,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B031",
+          "x_mm": 750,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B032",
+          "x_mm": 300,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B033",
+          "x_mm": 1500,
+          "y_mm": 350,
+          "z_mm": 300,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B017",
+          "x_mm": 0,
+          "y_mm": 350,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B019",
+          "x_mm": 400,
+          "y_mm": 600,
+          "z_mm": 300,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B018",
+          "x_mm": 1500,
+          "y_mm": 350,
+          "z_mm": 600,
+          "rotation_xy": 0
+        }
+      ],
+      "unload_steps": [
+        {
+          "step": 1,
+          "store_id": "S05",
+          "box_id": "B018"
+        },
+        {
+          "step": 2,
+          "store_id": "S05",
+          "box_id": "B019"
+        },
+        {
+          "step": 3,
+          "store_id": "S05",
+          "box_id": "B017"
+        },
+        {
+          "step": 4,
+          "store_id": "S10",
+          "box_id": "B033"
+        },
+        {
+          "step": 5,
+          "store_id": "S10",
+          "box_id": "B032"
+        },
+        {
+          "step": 6,
+          "store_id": "S10",
+          "box_id": "B030"
+        },
+        {
+          "step": 7,
+          "store_id": "S10",
+          "box_id": "B031"
+        },
+        {
+          "step": 8,
+          "store_id": "S10",
+          "box_id": "B029"
+        },
+        {
+          "step": 9,
+          "store_id": "S03",
+          "box_id": "B005"
+        },
+        {
+          "step": 10,
+          "store_id": "S03",
+          "box_id": "B006"
+        },
+        {
+          "step": 11,
+          "store_id": "S03",
+          "box_id": "B004"
+        }
+      ]
+    }
+  ],
+  "unassigned": [],
+  "validation": {
+    "valid": true,
+    "violations": []
+  },
+  "metrics": {
+    "total_stores": 10,
+    "served_stores": 10,
+    "total_boxes": 36,
+    "served_boxes": 36,
+    "completion_rate": 1.0,
+    "used_vehicles": 4,
+    "total_distance_km": 542.6703786211616,
+    "total_cost": 1585.3407572423232,
+    "on_time_rate": 1.0,
+    "volume_utilization": 0.16193023255813954,
+    "weight_utilization": 0.126,
+    "unload_block_count": 0
+  },
+  "diagnostics": [
+    {
+      "iteration": 0,
+      "action": "pack_failed",
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "车辆 V02 装箱失败：箱 B012 在当前排序下未找到可行位置"
+    },
+    {
+      "iteration": 0,
+      "action": "pack_failed",
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "车辆 V04 装箱失败：箱 B007 在当前排序下未找到可行位置"
+    }
+  ],
+  "repair_trace": null
+}

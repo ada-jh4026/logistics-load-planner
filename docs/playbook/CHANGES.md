@@ -87,3 +87,12 @@ CONTRACT.md 的 SolveRequest / JobResponse / Result / 错误码；ALGORITHMS.md 
 ## 2026-10-10 O03 择优搬移与消融
 
 改动者：主线（Codex）。原因：O02 发现首个可行搬移与简单重新插入打平，需要检验预算内候选择优的实际增益。新增 `tasks/O03.md`，`board.json` 标记 O03 完成，`STATE.md` 更新接力状态。公开请求/响应协议、O02 原始记录和前端/智能体目录保持不变。重新验收范围：后端 177 项测试、O03 60 次持久化输出独立复审；结论和局限见 `artifacts/evidence/O03.md`。
+
+## 2026-10-10 H01 异构箱件配载与失败路线恢复
+
+改动者：主线（Codex）；用户明确要求实际修复 Claude 在 `1c5054e` 报告的问题。
+
+- 同步 ALGORITHMS A6/A7：增加逆站序分区、逐件可装入构造、异构承托面对齐、惰性候选枚举；为失败路线的逐店恢复保留总预算，恢复时保留已有有效路线并分散目标车辆候选。
+- 独立 geometry/unloading/validation 规则保持不变，仍不允许跨箱共同承托；失败不声明物理不可行。接口无新增字段；修复 accepted 事件必须确实服务被移门店。
+- 范围：backend、tests、scripts、data、主线文档和真实验收证据；不覆盖 Claude 的 frontend、agent、README、architecture。已有 repair_trace 消费端问题仍须 Claude 联调。
+- 验收区分手工可行见证、开发复现集、未参与调试的种子；保留旧实现、原始请求/响应和代码快照。结果见 `docs/heterogeneous-results.md`、`artifacts/evidence/H01.md`。

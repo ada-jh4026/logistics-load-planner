@@ -1,0 +1,163 @@
+{
+  "feasible_witness": [
+    {
+      "vehicle_id": "V01",
+      "store_ids": [
+        "S01",
+        "S02",
+        "S03"
+      ],
+      "placements": [
+        {
+          "box_id": "B001",
+          "x_mm": 0,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B002",
+          "x_mm": 0,
+          "y_mm": 250,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B003",
+          "x_mm": 0,
+          "y_mm": 650,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B004",
+          "x_mm": 0,
+          "y_mm": 1000,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B005",
+          "x_mm": 1000,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B006",
+          "x_mm": 1000,
+          "y_mm": 350,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B007",
+          "x_mm": 1000,
+          "y_mm": 750,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B008",
+          "x_mm": 1000,
+          "y_mm": 1050,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B009",
+          "x_mm": 2000,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B010",
+          "x_mm": 2000,
+          "y_mm": 250,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B011",
+          "x_mm": 2000,
+          "y_mm": 650,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B012",
+          "x_mm": 2000,
+          "y_mm": 1000,
+          "z_mm": 0,
+          "rotation_xy": 0
+        }
+      ],
+      "unload_steps": [
+        {
+          "step": 1,
+          "store_id": "S01",
+          "box_id": "B001"
+        },
+        {
+          "step": 2,
+          "store_id": "S01",
+          "box_id": "B002"
+        },
+        {
+          "step": 3,
+          "store_id": "S01",
+          "box_id": "B003"
+        },
+        {
+          "step": 4,
+          "store_id": "S01",
+          "box_id": "B004"
+        },
+        {
+          "step": 5,
+          "store_id": "S02",
+          "box_id": "B005"
+        },
+        {
+          "step": 6,
+          "store_id": "S02",
+          "box_id": "B006"
+        },
+        {
+          "step": 7,
+          "store_id": "S02",
+          "box_id": "B007"
+        },
+        {
+          "step": 8,
+          "store_id": "S02",
+          "box_id": "B008"
+        },
+        {
+          "step": 9,
+          "store_id": "S03",
+          "box_id": "B009"
+        },
+        {
+          "step": 10,
+          "store_id": "S03",
+          "box_id": "B010"
+        },
+        {
+          "step": 11,
+          "store_id": "S03",
+          "box_id": "B011"
+        },
+        {
+          "step": 12,
+          "store_id": "S03",
+          "box_id": "B012"
+        }
+      ]
+    }
+  ],
+  "search_seed": 6,
+  "current_packer_reason": "SEARCH_EXHAUSTED",
+  "current_packer_message": "卸货序列生成失败：UNLOAD_BLOCKED"
+}

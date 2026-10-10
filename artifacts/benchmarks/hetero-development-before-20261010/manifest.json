@@ -1,0 +1,16 @@
+{
+  "kind": "development_selected_after_packer_failure",
+  "cases": [
+    {
+      "case_id": "hetero-dev-6",
+      "path": "data/hetero_cases/hetero-development.json"
+    }
+  ],
+  "methods": [
+    "greedy",
+    "sequential",
+    "sequential_reinsert",
+    "coupled"
+  ],
+  "note": "fixed known-feasible synthetic cases; not enterprise data"
+}

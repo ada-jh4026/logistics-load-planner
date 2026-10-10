@@ -18,7 +18,9 @@
       "estimate_minutes": 30,
       "status": "done",
       "owner": "主线",
-      "evidence": ["artifacts/evidence/B01.md"],
+      "evidence": [
+        "artifacts/evidence/B01.md"
+      ],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/B01.md"
     },
@@ -32,7 +34,9 @@
       "estimate_minutes": 40,
       "status": "done",
       "owner": "主线",
-      "evidence": ["artifacts/evidence/B02.md"],
+      "evidence": [
+        "artifacts/evidence/B02.md"
+      ],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/B02.md"
     },
@@ -46,7 +50,9 @@
       "estimate_minutes": 45,
       "status": "done",
       "owner": "主线",
-      "evidence": ["artifacts/evidence/B03.md"],
+      "evidence": [
+        "artifacts/evidence/B03.md"
+      ],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/B03.md"
     },
@@ -60,7 +66,9 @@
       "estimate_minutes": 35,
       "status": "done",
       "owner": "主线",
-      "evidence": ["artifacts/evidence/B04.md"],
+      "evidence": [
+        "artifacts/evidence/B04.md"
+      ],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/B04.md"
     },
@@ -74,7 +82,9 @@
       "estimate_minutes": 45,
       "status": "done",
       "owner": "主线",
-      "evidence": ["artifacts/evidence/B05.md"],
+      "evidence": [
+        "artifacts/evidence/B05.md"
+      ],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/B05.md"
     },
@@ -88,7 +98,9 @@
       "estimate_minutes": 45,
       "status": "done",
       "owner": "主线",
-      "evidence": ["artifacts/evidence/B06.md"],
+      "evidence": [
+        "artifacts/evidence/B06.md"
+      ],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/B06.md"
     },
@@ -102,7 +114,9 @@
       "estimate_minutes": 45,
       "status": "done",
       "owner": "主线",
-      "evidence": ["artifacts/evidence/B07.md"],
+      "evidence": [
+        "artifacts/evidence/B07.md"
+      ],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/B07.md"
     },
@@ -117,7 +131,9 @@
       "estimate_minutes": 45,
       "status": "done",
       "owner": "主线",
-      "evidence": ["artifacts/evidence/B08.md"],
+      "evidence": [
+        "artifacts/evidence/B08.md"
+      ],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/B08.md"
     },
@@ -131,7 +147,9 @@
       "estimate_minutes": 60,
       "status": "done",
       "owner": "主线",
-      "evidence": ["artifacts/evidence/B09.md"],
+      "evidence": [
+        "artifacts/evidence/B09.md"
+      ],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/B09.md"
     },
@@ -146,7 +164,9 @@
       "estimate_minutes": 35,
       "status": "done",
       "owner": "主线",
-      "evidence": ["artifacts/evidence/B10.md"],
+      "evidence": [
+        "artifacts/evidence/B10.md"
+      ],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/B10.md"
     },
@@ -160,7 +180,9 @@
       "estimate_minutes": 30,
       "status": "done",
       "owner": "主线",
-      "evidence": ["artifacts/evidence/B11.md"],
+      "evidence": [
+        "artifacts/evidence/B11.md"
+      ],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/B11.md"
     },
@@ -174,7 +196,9 @@
       "estimate_minutes": 60,
       "status": "done",
       "owner": "主线",
-      "evidence": ["artifacts/evidence/B12.md"],
+      "evidence": [
+        "artifacts/evidence/B12.md"
+      ],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/B12.md"
     },
@@ -188,7 +212,9 @@
       "estimate_minutes": 45,
       "status": "done",
       "owner": "主线",
-      "evidence": ["artifacts/evidence/B13.md"],
+      "evidence": [
+        "artifacts/evidence/B13.md"
+      ],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/B13.md"
     },
@@ -202,7 +228,9 @@
       "estimate_minutes": 25,
       "status": "done",
       "owner": "主线",
-      "evidence": ["artifacts/evidence/B14.md"],
+      "evidence": [
+        "artifacts/evidence/B14.md"
+      ],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/B14.md"
     },
@@ -217,7 +245,9 @@
       "estimate_minutes": 45,
       "status": "done",
       "owner": "主线",
-      "evidence": ["artifacts/evidence/B15.md"],
+      "evidence": [
+        "artifacts/evidence/B15.md"
+      ],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/B15.md"
     },
@@ -233,7 +263,9 @@
       "estimate_minutes": 40,
       "status": "done",
       "owner": "主线",
-      "evidence": ["artifacts/evidence/B16.md"],
+      "evidence": [
+        "artifacts/evidence/B16.md"
+      ],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/B16.md"
     },
@@ -432,9 +464,13 @@
         "A01"
       ],
       "estimate_minutes": 60,
-      "status": "pending",
-      "owner": null,
-      "evidence": [],
+      "status": "done",
+      "owner": "agent-line (Claude Code)",
+      "evidence": [
+        "artifacts/evidence/A03.md",
+        "artifacts/evidence/A03_eval.json",
+        "artifacts/evidence/A03_A04_live.json"
+      ],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/A03.md"
     },
@@ -446,9 +482,12 @@
         "A02"
       ],
       "estimate_minutes": 40,
-      "status": "pending",
-      "owner": null,
-      "evidence": [],
+      "status": "done",
+      "owner": "agent-line (Claude Code)",
+      "evidence": [
+        "artifacts/evidence/A04.md",
+        "artifacts/evidence/A03_A04_live.json"
+      ],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/A04.md"
     },

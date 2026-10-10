@@ -1,0 +1,37 @@
+--- a/backend/routing.py
++++ b/backend/routing.py
+@@ -126,13 +126,14 @@
+         if budget is not None:
+             budget.tick()
+ 
+-        # 已有车尾部追加
++        # 已有车尾部追加：按「增量费用」比较（候选整车费用 − 该车原费用），
++        # 与新开一辆车的整车费用同口径；否则已有车的历史费用会把它挤出比较。
+         for route in routes:
+             cand = RouteCandidate(route.vehicle_id,
+                                   route.store_ids + [sid],
+                                   route.box_ids + agg[sid].box_ids)
+             if _feasible(request, cand, agg):
+-                cost = _candidate_cost(request, cand)
++                cost = _candidate_cost(request, cand) - _candidate_cost(request, route)
+                 if _better(cost, cand, best_cost, best):
+                     best, best_cost = cand, cost
+ 
+@@ -176,6 +177,8 @@
+ 
+         for v in sorted(request.vehicles, key=lambda v: v.id):
+             existing = next((r for r in routes if r.vehicle_id == v.id), None)
++            # 增量费用口径：插入已有车 = 新整车费用 − 原整车费用；新开车 = 整车费用
++            base_cost = _candidate_cost(request, existing) if existing else 0.0
+             if existing is None:
+                 positions = [0]
+             else:
+@@ -191,7 +194,7 @@
+                     new_boxes = existing.box_ids + agg[sid].box_ids
+                 cand = RouteCandidate(v.id, new_ids, new_boxes)
+                 if _feasible(request, cand, agg):
+-                    cost = _candidate_cost(request, cand)
++                    cost = _candidate_cost(request, cand) - base_cost
+                     if _better(cost, cand, best_cost, best):
+                         best, best_cost = cand, cost
+ 

@@ -1,11 +1,6 @@
-# 智能体服务依赖。安装到仓库根目录 .venv：
-#   uv pip install --python .venv/Scripts/python.exe -r agent/requirements.txt
-# 或 .venv\Scripts\python.exe -m pip install -r agent/requirements.txt
+# 智能体服务专属依赖；Web 框架、pydantic、httpx、pytest 与后端共用 requirements-dev.txt。
+# 安装（仓库根目录）：
+#   .venv\Scripts\python.exe -m pip install -r requirements-dev.txt -r agent/requirements.txt
 # 版本为 2026-10-10 实际安装并通过测试的版本。
-fastapi==0.143.0
-uvicorn[standard]==0.54.0
-pydantic==2.14.0
-httpx==0.28.1
 openai==3.28.0
 python-dotenv==1.2.1
-pytest==9.0.2

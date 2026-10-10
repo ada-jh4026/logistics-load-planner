@@ -21,7 +21,8 @@
 - 任何一方改 docs/playbook 规格先写 CHANGES.md。
 
 ## 尚待用户提供
-- 队名、成员介绍（README 占位）。
+- 队名、成员介绍（README「团队」表占位）。
+- 主线对 `artifacts/probes/routing_marginal_cost.patch` 的决定。
 - 赛事通知原文（提交渠道）。
 - DeepSeek 密钥放入本机 `agent/.env`（不入库）。
 
@@ -49,3 +50,4 @@
 - 2026-10-10 / A03–A04 / 本方 / agent/interpret.py rules.py timeparse.py compare.py app.py schemas.py、agent/tests、agent/scripts/eval_interpret.py / `pytest -q agent/tests` 49 passed；`python -m agent.scripts.eval_interpret` 真实 DeepSeek 20/20；interpret/compare 接口实测 / artifacts/evidence/A03.md A04.md A03_eval.json A03_A04_live.json A02_live.json / 下一步 F05 → F07 → I01 / 无阻塞。密钥已配置，A02 真实调用证据已补。
 - 2026-10-10 / F05 / 本方 / frontend/src/lib/api.ts useSolver.ts cases.ts、TopBar/App / 三服务同机：页面选 standard-11 运行 → 30/30 门店 12 车 4287.4 元 15 ms；c02 → 0/1 未配送 BOX_TOO_LARGE；后端日志 run_id 与页面一致；`npm run build` 通过 / artifacts/evidence/F05.md + 3 截图 + 日志摘录 / 下一步 F07 → I01 / 无阻塞。发现：sequential/coupled 在 standard-11 用 12 车 4287 元，greedy 6 车 2228 元，coupled 与 sequential 完全相同（修复未触发），已反馈主线。
 - 2026-10-10 / F07、I01 / 本方 / frontend/src/protocol/agent.ts lib/agentApi.ts useAssistant.ts patchDescribe.ts markdown.tsx components/AssistantPanel.tsx App.tsx / 浏览器自动化：small-11 求解 → 模型解释核对 12 数 → 「V02 今天不出车」→ 确认重算 → 自动对比 4→3 车、1577.1→1270.7 元、可比 −19.4%；无控制台错误；`npm run build` 通过 / artifacts/evidence/F07.md I01.md + 6 截图 / 下一步 I03 / 无阻塞。
+- 2026-10-10 / F06、I03 / 本方 / README.md（参赛版）、docs/architecture.md limitations.md submission-checklist.md demo-script.md、artifacts/demo/、artifacts/probes/、agent/requirements.txt / 全新 venv 按 README 安装 → 后端 162 + 智能体 49 = 211 测试通过；探针在完整管线验证增量费用口径（standard-11 12→5 车） / artifacts/evidence/F06.md I03.md / 下一步 I02（主线）、I04 / 待主线决定补丁、待用户补团队信息。I03 的 I02 依赖已解除：README 引用的是主线 B15 正式记录，I02 复核后数字若变再更新。

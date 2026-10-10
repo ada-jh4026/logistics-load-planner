@@ -34,3 +34,20 @@ CONTRACT.md 的 SolveRequest / JobResponse / Result / 错误码；ALGORITHMS.md 
 
 ### 需要重新验收的范围
 `python scripts/check_playbook.py` 通过（31 张卡）。其余为新增规格，由 A01 起的任务卡落实。
+
+---
+
+## 2026-10-10（晚）参赛材料与跨目录改动
+
+改动者：前端/智能体线（Claude Code）。
+
+| 文件 | 改动 |
+|---|---|
+| 根目录 `README.md` | 替换为参赛 README（I03）。原执行手册入口移至 `docs/playbook/README_playbook.md`，内容不变，顶部加一行说明。 |
+| `START_HERE.md` | 入口表中的 README 链接改指向 `docs/playbook/README_playbook.md`。 |
+| `docs/architecture.md`、`docs/limitations.md`、`docs/submission-checklist.md`、`docs/demo-script.md` | 新增。 |
+| `artifacts/probes/` | 新增：路线构造费用口径探针脚本、可选补丁与说明。**未改 `backend/`**，是否采纳由主线决定。 |
+| `artifacts/demo/` | 新增演示截图与索引。 |
+| `agent/requirements.txt` | 去掉与 `requirements-dev.txt` 冲突的 pytest / httpx 钉。 |
+
+不变：`backend/`、`tests/`、`data/`、`scripts/`、CONTRACT / ALGORITHMS / 任务卡。

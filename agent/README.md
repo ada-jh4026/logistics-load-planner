@@ -4,9 +4,9 @@
 
 ## 运行
 ```bash
-# 仓库根目录。依赖装进根目录 .venv（与后端共用）
-uv venv .venv --python 3.12            # 已有则跳过
-uv pip install --python .venv/Scripts/python.exe -r agent/requirements.txt
+# 仓库根目录。依赖装进根目录 .venv（与后端共用；Web 框架、pydantic、pytest 来自 requirements-dev.txt）
+python -m venv .venv                   # 已有则跳过
+.venv/Scripts/python.exe -m pip install -r requirements-dev.txt -r agent/requirements.txt
 .venv/Scripts/python.exe -m uvicorn agent.app:app --host 127.0.0.1 --port 8001
 ```
 测试：

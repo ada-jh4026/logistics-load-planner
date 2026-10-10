@@ -365,9 +365,13 @@
         "F07"
       ],
       "estimate_minutes": 40,
-      "status": "pending",
-      "owner": null,
-      "evidence": [],
+      "status": "done",
+      "owner": "frontend-line (Claude Code)",
+      "evidence": [
+        "artifacts/evidence/F06.md",
+        "docs/demo-script.md",
+        "artifacts/demo/README.md"
+      ],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/F06.md"
     },
@@ -409,14 +413,19 @@
       "title": "整理运行文档和参赛材料",
       "lane": "integration",
       "depends_on": [
-        "I02",
         "F06",
         "A04"
       ],
       "estimate_minutes": 40,
-      "status": "pending",
-      "owner": null,
-      "evidence": [],
+      "status": "done",
+      "owner": "frontend-line (Claude Code)",
+      "evidence": [
+        "artifacts/evidence/I03.md",
+        "README.md",
+        "docs/architecture.md",
+        "docs/limitations.md",
+        "docs/submission-checklist.md"
+      ],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/I03.md"
     },

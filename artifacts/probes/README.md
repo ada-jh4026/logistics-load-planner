@@ -96,3 +96,37 @@ git apply artifacts/probes/routing_marginal_cost.patch
 - 维度 3「业务契合」：药店配送的 SKU 外箱本来就不是立方体。
 
 建议主线把混合纸箱案例（本探针的 8 种规格或更贴近药店的规格表）作为第二组基准，与同规格基准分表汇报。本方可按上面的分区方案写成完整探针 + 补丁 + 回归测试交主线合入，或由主线直接实现；需要用户拍板归属。
+
+---
+
+# 探针 3：独立校验器对篡改型结果的漏检（2026-10-10 晚，前端/智能体线转交，来源：GPT 只读审查 B1/B2）
+
+> **状态：待主线修复。** 归属 `backend/validation.py`、`backend/metrics.py`、`tests/`。本方不改 backend，只交付可复现脚本。
+
+## 复现
+```
+.venv/Scripts/python.exe -X utf8 artifacts/probes/validator_tamper_probe.py
+```
+从 `data/cases/c01.json` 的真实求解结果出发，逐条篡改后调用 `validate_solution`。当前输出（提交 d9b7ebc）：
+
+| 篡改 | 结果 |
+|---|---|
+| 首车 `placements` 清空（`box_ids` 保留） | CAUGHT（BOX_MISSING） |
+| 首车 `unload_steps` 清空 | CAUGHT（BOX_MISSING） |
+| **`placements` 与 `unload_steps` 同时清空** | **LEAK** |
+| 同一箱件两个 placement、另一箱无位置 | CAUGHT（BOX_MISSING、OVERLAP） |
+| **路线里程改 0、费用改 100，总指标同步改** | **LEAK** |
+| **只把 `route.cost` 改 0** | **LEAK** |
+| **所有到站 / 开始 / 离店 / 回仓时刻改 0** | **LEAK** |
+| **`stops` 顺序与 `store_ids` 顺序不一致** | **LEAK** |
+
+5 / 8 条未被发现。前 4 条说明 `box_ids`、`placements`、`unload_steps` 三者之间缺少「集合完全相等」的交叉检查（只有当 placements 非空时 `validate_unload_steps` 才会比对）；后 4 条说明 `compute_metrics` 直接汇总响应里的 `route.distance_km` 与时刻，没有从坐标、车速、费率重算后逐字段比较。
+
+## 建议修法（一句话）
+1. 每条路线：`set(box_ids) == {p.box_id} == {s.box_id for s in unload_steps}`，且三者无重复；缺一项即 `STEP_MISMATCH` / `BOX_MISSING`。
+2. 每条路线：用 `schedule_route` 的重排结果逐站比较 `arrival / service_start / departure / return_min`，用坐标重算 `distance_km`，用车辆费率重算 `cost`；任一超出 EPS 即 `METRIC_MISMATCH`，并把总指标改为由重算值汇总后比较。
+3. `stops[i].store_id` 必须与 `store_ids[i]` 顺序一致。
+4. 把本脚本的 8 条篡改搬进 `tests/test_validation.py`。
+
+## 边界
+这是校验器的漏检，不是现有实验造假的证据：GPT 审查对 `artifacts/benchmarks/` 下 205 份结果 534 条路线做了独立重算，未发现不一致。修复后 README「独立校验器重算全部约束和指标」的说法才成立。

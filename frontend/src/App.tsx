@@ -14,6 +14,7 @@ import { CargoView } from './components/CargoView'
 import { RouteMap } from './components/RouteMap'
 import { UnloadStrip } from './components/UnloadStrip'
 import { SidePanel } from './components/SidePanel'
+import { KpiRow } from './components/KpiRow'
 
 type View = '3d' | 'map'
 
@@ -218,6 +219,7 @@ export default function App() {
         )}
 
         <main className="center">
+          <KpiRow response={busy || failed ? null : response} />
           <div className="stage">
             <div className="stage-tabs" role="tablist" aria-label="视图">
               <button role="tab" aria-selected={view === '3d'} onClick={() => setView('3d')}>

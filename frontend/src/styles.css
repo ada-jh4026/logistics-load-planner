@@ -1148,8 +1148,17 @@ h3 {
 }
 
 /* ---------- 三法对比 ---------- */
+.compare-table {
+  table-layout: fixed;
+}
+
+.compare-table th {
+  width: 34%;
+}
+
 .compare-table td {
   text-align: right;
+  font-size: 13px;
 }
 
 .compare-table .cmp-head {

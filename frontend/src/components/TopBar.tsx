@@ -16,12 +16,15 @@ interface Props {
   waitedSec: number
   onRun: () => void
   onCancel: () => void
+  onCompareMethods: () => void
+  comparing: boolean
+  comparingMethod: string | null
 }
 
-export function TopBar({ options, selectedKey, onSelect, onImport, importedName, response, serviceOnline, solveState, waitedSec, onRun, onCancel }: Props) {
+export function TopBar({ options, selectedKey, onSelect, onImport, importedName, response, serviceOnline, solveState, waitedSec, onRun, onCancel, onCompareMethods, comparing, comparingMethod }: Props) {
   const fileRef = useRef<HTMLInputElement>(null)
   const [issues, setIssues] = useState<string[] | null>(null)
-  const busy = solveState.phase === 'submitting' || solveState.phase === 'polling'
+  const busy = solveState.phase === 'submitting' || solveState.phase === 'polling' || comparing
 
   async function handleFile(file: File | undefined) {
     if (!file) return
@@ -93,14 +96,19 @@ export function TopBar({ options, selectedKey, onSelect, onImport, importedName,
           <input ref={fileRef} type="file" accept="application/json,.json" disabled={busy} onChange={(e) => handleFile(e.target.files?.[0])} />
         </label>
         {busy ? (
-          <button className="btn secondary" onClick={onCancel} title="停止等待这次求解；服务端任务不会被中断">
-            {solveState.phase === 'polling' && solveState.status === 'running' ? '计算中' : '排队中'}
-            {waitedSec > 0 ? ` ${waitedSec}s` : ''}，取消
+          <button className="btn secondary" onClick={onCancel} title="停止等待；服务端任务不会被中断">
+            {comparing ? `对比中：${comparingMethod ?? ''}` : solveState.phase === 'polling' && solveState.status === 'running' ? '计算中' : '排队中'}
+            {!comparing && waitedSec > 0 ? ` ${waitedSec}s` : ''}，取消
           </button>
         ) : (
-          <button className="btn" onClick={onRun} disabled={serviceOnline !== true} title={runHint}>
-            运行求解
-          </button>
+          <>
+            <button className="btn" onClick={onRun} disabled={serviceOnline !== true} title={runHint}>
+              运行求解
+            </button>
+            <button className="btn secondary" onClick={onCompareMethods} disabled={serviceOnline !== true} title="同一请求依次用简单贪心、先路线后装载、配载与路线协同求解，并排比较">
+              对比三种方法
+            </button>
+          </>
         )}
       </div>
 

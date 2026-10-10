@@ -15,6 +15,8 @@ import { RouteMap } from './components/RouteMap'
 import { UnloadStrip } from './components/UnloadStrip'
 import { SidePanel } from './components/SidePanel'
 import { KpiRow } from './components/KpiRow'
+import { MethodCompare } from './components/MethodCompare'
+import { useMethodCompare } from './lib/useMethodCompare'
 
 type View = '3d' | 'map'
 
@@ -99,10 +101,23 @@ export default function App() {
     [assistant.runCompare],
   )
   const solver = useSolver(onResult)
+  const methodCompare = useMethodCompare()
+  // 三法对比完成后默认展示协同结果；用户可在表里切换查看其它方法
+  useEffect(() => {
+    if (methodCompare.state.phase !== 'done') return
+    const coupled = methodCompare.state.runs.find((r) => r.method === 'coupled') ?? methodCompare.state.runs[methodCompare.state.runs.length - 1]
+    if (coupled) {
+      setResponse(coupled.response)
+      setSelectedBoxId(null)
+      setUnloadDone(0)
+      setRepairFocus(null)
+    }
+  }, [methodCompare.state])
 
   function handleSelect(key: string) {
     if (key === '__imported__') return
     solver.cancel()
+    methodCompare.clear()
     setPendingCompare(null)
     assistant.clearAll()
     setImportedName(null)
@@ -132,8 +147,25 @@ export default function App() {
     setUnloadDone(0)
   }
 
+  function handleCompareMethods() {
+    if (!request) return
+    setPendingCompare(null)
+    assistant.clearExplanation()
+    setResponse(null)
+    setRepairFocus(null)
+    methodCompare.run(request)
+  }
+
+  function handleShowMethodRun(r: JobResponse) {
+    setResponse(r)
+    setSelectedBoxId(null)
+    setUnloadDone(0)
+    setRepairFocus(null)
+  }
+
   function handleRun() {
     if (!request) return
+    methodCompare.clear()
     setPendingCompare(null)
     assistant.clearExplanation()
     setResponse(null) // 新任务开始即清空旧方案
@@ -183,7 +215,7 @@ export default function App() {
   const currentBoxId = route && unloadDone < route.unload_steps.length ? route.unload_steps[unloadDone].box_id : null
 
   const failed = response?.status === 'failed'
-  const busy = solver.busy
+  const busy = solver.busy || methodCompare.busy
   const solveError = solver.state.phase === 'error' ? solver.state.error : null
 
   return (
@@ -199,7 +231,13 @@ export default function App() {
         solveState={solver.state}
         waitedSec={solver.waitedSec}
         onRun={handleRun}
-        onCancel={solver.cancel}
+        onCancel={() => {
+          solver.cancel()
+          methodCompare.cancel()
+        }}
+        onCompareMethods={handleCompareMethods}
+        comparing={methodCompare.busy}
+        comparingMethod={methodCompare.state.phase === 'running' ? methodCompare.state.current : null}
       />
       <div className="workspace">
         {request && derived ? (
@@ -277,9 +315,15 @@ export default function App() {
             ) : busy ? (
               <div className="stage-message" aria-live="polite">
                 <div>
-                  <div className="big">{solver.state.phase === 'polling' && solver.state.status === 'running' ? '计算中' : '排队中'}</div>
+                  <div className="big">
+                    {methodCompare.busy ? '三种方法对比中' : solver.state.phase === 'polling' && solver.state.status === 'running' ? '计算中' : '排队中'}
+                  </div>
                   <div>
-                    {solver.state.phase === 'polling' ? `任务 ${solver.state.runId.slice(0, 8)}，已等待 ${solver.waitedSec} 秒` : '正在提交请求'}
+                    {methodCompare.state.phase === 'running'
+                      ? `正在求解：${methodCompare.state.current}（已完成 ${methodCompare.state.done.length} / 3）`
+                      : solver.state.phase === 'polling'
+                        ? `任务 ${solver.state.runId.slice(0, 8)}，已等待 ${solver.waitedSec} 秒`
+                        : '正在提交请求'}
                   </div>
                   {solver.waitedSec >= 75 && (
                     <div className="empty" style={{ marginTop: 6 }}>
@@ -365,7 +409,13 @@ export default function App() {
           </div>
 
           {derived && (
-            <UnloadStrip route={failed || busy ? null : route} derived={derived} done={unloadDone} onChange={setUnloadDone} onFocusBox={setSelectedBoxId} />
+            <UnloadStrip
+              route={failed || busy ? null : route}
+              derived={derived}
+              done={unloadDone}
+              onChange={setUnloadDone}
+              onFocusBox={setSelectedBoxId}
+            />
           )}
         </main>
 
@@ -376,7 +426,12 @@ export default function App() {
             derived={derived}
             selectedVehicleId={selectedVehicleId}
             selectedBoxId={selectedBoxId}
-            repair={<RepairPanel response={busy ? null : response} focus={repairFocus} onFocus={setRepairFocus} />}
+            repair={
+              <>
+                <MethodCompare state={methodCompare.state} currentRunId={response?.run_id ?? null} onShow={handleShowMethodRun} onClear={methodCompare.clear} />
+                <RepairPanel response={busy ? null : response} focus={repairFocus} onFocus={setRepairFocus} />
+              </>
+            }
             assistant={
               <AssistantPanel
                 request={request}

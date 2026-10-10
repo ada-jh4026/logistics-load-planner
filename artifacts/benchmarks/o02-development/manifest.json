@@ -1,0 +1,49 @@
+{
+  "source_manifest": "data\\conflict_cases\\manifest.json",
+  "selection": "development_subset",
+  "cases": [
+    {
+      "case_id": "geometry-11",
+      "path": "data/conflict_cases/geometry-11.json",
+      "category": "combination_geometry",
+      "seed": 11
+    },
+    {
+      "case_id": "time-geometry-11",
+      "path": "data/conflict_cases/time-geometry-11.json",
+      "category": "time_geometry",
+      "seed": 11
+    },
+    {
+      "case_id": "unload-mechanism-11",
+      "path": "data/conflict_cases/unload-mechanism-11.json",
+      "category": "unload_mechanism_control",
+      "seed": 11
+    },
+    {
+      "case_id": "impossible-size-11",
+      "path": "data/conflict_cases/impossible-size-11.json",
+      "category": "known_infeasible_control",
+      "seed": 11
+    }
+  ],
+  "methods": [
+    "greedy",
+    "sequential",
+    "sequential_reinsert",
+    "coupled"
+  ],
+  "sequential_reinsert_adapter": "request.options.method=sequential; adapter runs after sequential and is not a public API method",
+  "code_commit": "b84a5923ddbb253f7d92b988250b1b06b5019e17",
+  "dirty_worktree": true,
+  "implementation_sha256": "a41f8d76775d8e3512429042d13c6355a947f6fbdaedaadb306757c5d127eb63",
+  "environment": {
+    "python": "3.12.15",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "dependencies": {
+      "fastapi": "0.143.0",
+      "pydantic": "2.14.0"
+    }
+  },
+  "total_runs": 16
+}

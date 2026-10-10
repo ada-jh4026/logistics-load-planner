@@ -1,0 +1,139 @@
+{
+  "source_manifest": "data\\conflict_cases\\manifest.json",
+  "selection": "all_predeclared",
+  "cases": [
+    {
+      "case_id": "geometry-22",
+      "path": "data/conflict_cases/geometry-22.json",
+      "category": "combination_geometry",
+      "seed": 22
+    },
+    {
+      "case_id": "geometry-33",
+      "path": "data/conflict_cases/geometry-33.json",
+      "category": "combination_geometry",
+      "seed": 33
+    },
+    {
+      "case_id": "geometry-44",
+      "path": "data/conflict_cases/geometry-44.json",
+      "category": "combination_geometry",
+      "seed": 44
+    },
+    {
+      "case_id": "geometry-55",
+      "path": "data/conflict_cases/geometry-55.json",
+      "category": "combination_geometry",
+      "seed": 55
+    },
+    {
+      "case_id": "geometry-66",
+      "path": "data/conflict_cases/geometry-66.json",
+      "category": "combination_geometry",
+      "seed": 66
+    },
+    {
+      "case_id": "time-geometry-22",
+      "path": "data/conflict_cases/time-geometry-22.json",
+      "category": "time_geometry",
+      "seed": 22
+    },
+    {
+      "case_id": "time-geometry-33",
+      "path": "data/conflict_cases/time-geometry-33.json",
+      "category": "time_geometry",
+      "seed": 33
+    },
+    {
+      "case_id": "time-geometry-44",
+      "path": "data/conflict_cases/time-geometry-44.json",
+      "category": "time_geometry",
+      "seed": 44
+    },
+    {
+      "case_id": "time-geometry-55",
+      "path": "data/conflict_cases/time-geometry-55.json",
+      "category": "time_geometry",
+      "seed": 55
+    },
+    {
+      "case_id": "time-geometry-66",
+      "path": "data/conflict_cases/time-geometry-66.json",
+      "category": "time_geometry",
+      "seed": 66
+    },
+    {
+      "case_id": "unload-mechanism-22",
+      "path": "data/conflict_cases/unload-mechanism-22.json",
+      "category": "unload_mechanism_control",
+      "seed": 22
+    },
+    {
+      "case_id": "unload-mechanism-33",
+      "path": "data/conflict_cases/unload-mechanism-33.json",
+      "category": "unload_mechanism_control",
+      "seed": 33
+    },
+    {
+      "case_id": "unload-mechanism-44",
+      "path": "data/conflict_cases/unload-mechanism-44.json",
+      "category": "unload_mechanism_control",
+      "seed": 44
+    },
+    {
+      "case_id": "unload-mechanism-55",
+      "path": "data/conflict_cases/unload-mechanism-55.json",
+      "category": "unload_mechanism_control",
+      "seed": 55
+    },
+    {
+      "case_id": "unload-mechanism-66",
+      "path": "data/conflict_cases/unload-mechanism-66.json",
+      "category": "unload_mechanism_control",
+      "seed": 66
+    },
+    {
+      "case_id": "small-11",
+      "path": "data/cases/small-11.json",
+      "category": "no_repair_control",
+      "seed": 11
+    },
+    {
+      "case_id": "standard-11",
+      "path": "data/cases/standard-11.json",
+      "category": "no_repair_control",
+      "seed": 11
+    },
+    {
+      "case_id": "impossible-size-77",
+      "path": "data/conflict_cases/impossible-size-77.json",
+      "category": "known_infeasible_control",
+      "seed": 77
+    },
+    {
+      "case_id": "impossible-size-88",
+      "path": "data/conflict_cases/impossible-size-88.json",
+      "category": "known_infeasible_control",
+      "seed": 88
+    }
+  ],
+  "methods": [
+    "greedy",
+    "sequential",
+    "sequential_reinsert",
+    "coupled"
+  ],
+  "sequential_reinsert_adapter": "request.options.method=sequential; adapter runs after sequential and is not a public API method",
+  "code_commit": "b84a5923ddbb253f7d92b988250b1b06b5019e17",
+  "dirty_worktree": true,
+  "implementation_sha256": "e3630625f2884e400502451e808c42faa2ed13f9685d325a9b3088e8db6cb4ea",
+  "environment": {
+    "python": "3.12.15",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "dependencies": {
+      "fastapi": "0.143.0",
+      "pydantic": "2.14.0"
+    }
+  },
+  "total_runs": 76
+}

@@ -1,5 +1,5 @@
 # 从这里继续：两天物流赛题执行路线
-本仓库当前只有执行规划、接口示例与检查工具，尚无可运行业务系统。不要把设计、示例响应或任务卡当作已实现能力。
+本仓库已有可运行系统及实验/联调证据。下一轮 O01、O02 已在本地实施并验收；Claude 消费端联调和 I04 最终验收待办。方案见 `docs/optimization-plan.md`，实际结果见 `docs/conflict-results.md` 与 board。不要把尚未执行的后续建议或接口样例当作已完成能力。
 
 ## 新模型首次进入
 1. 读 AGENTS.md。
@@ -24,7 +24,7 @@
 - 官方背景与初版排期：两天参赛执行计划.md
 
 ## 立即执行
-主线从 B01 开始，B01完成后做 B02。前端同学同时从 F01 开始，使用已提供的示例JSON。F01无需等后端启动。
+按用户最新指令与 STATE/board 接力，不重新执行已完成的 B01/F01。切换后的主线模型使用 `docs/handoffs/codex-optimization.md`；前端/智能体线使用 `docs/handoffs/claude-optimization.md`。在用户发出实施指令后落实任务、保存证据并更新状态。
 
 默认分工：主线负责 backend/、tests/、scripts/、data/、docs/ 和根目录配置；同学负责 frontend/。主线维护 board.json，前端通过交接报告提供状态，避免两人同时改同一状态文件。
 

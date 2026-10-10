@@ -1,6 +1,6 @@
 # 当前事实与接力状态
-更新时间：2026-10-10 15:45（英国时间）
-阶段：后端 B01–B16、前端 F01–F04、智能体 A01–A02 均完成；真实模型调用待密钥。
+更新时间：2026-10-10（下一轮优化交接）
+阶段：原有后端、前端、智能体及 I01–I03 已有完成记录；I02 提交 `b84a592` 已推送。下一轮 O01/O02 已在本地实施并验收，尚未推送；Claude O04 消费端、可选 O03 和 I04 最终验收待办。方案见 `docs/optimization-plan.md`，结果见 `docs/conflict-results.md`。
 
 ## 已确定的事实
 - 比赛窗口：英国时间 2026-10-10 11:00 开始，**2026-10-12 11:00 截止**（北京时间 10-12 18:00）。内部冻结 10-12 07:30，提交 09:30。提交渠道以赛事通知为准。
@@ -13,17 +13,17 @@
 - 官方赛题与提交要求已读取；两方对齐选择「城市配送智能配载」。
 - 执行手册：求解器契约 v0.1、算法细则、验收 C01–C14、26+5 张任务卡、三组 UI 样例。
 - 2026-10-10 增补智能体层（见 CHANGES.md）：AGENT_CONTRACT.md、D08、A01–A04、F07。`python scripts/check_playbook.py` 通过，31 张卡依赖无环。
-- 不代表已创建应用、跑通算法、取得优化收益或完成线上提交。
+- 历史规划材料本身不是运行证据；现有实现、实验与联调以 board 和下方接力记录中的证据为准。尚未据此完成官方提交。
 
 ## 下一步
-- 主线：后端 B01–B16 全部完成；下一步 I01 端到端验收（B13 已就绪，可配合本方 F05 联调）。
-- 本方：A03 → A04；F05/F07 可用真实接口联调（B13 已就绪）。
+- 主线：O01/O02 已完成；根据 `docs/conflict-results.md` 的证据决定是否实施 O03，不为制造收益扩大范围。待 Claude 交接后做 O05/O06 和 I04。
+- 前端/智能体线：最新协议与真实案例已在本地工作区，交接提示词见 `docs/handoffs/claude-optimization.md`；同步严格模型、完成 O04 真实联调并更新材料。
 - 任何一方改 docs/playbook 规格先写 CHANGES.md。
 
 ## 尚待用户提供
 - 队名、成员介绍（README「团队」表占位）。
 - 赛事通知原文（提交渠道）。
-- DeepSeek 密钥放入本机 `agent/.env`（不入库）。
+- 真实模型调用此前已有验收；换机器时需另行配置本机 `agent/.env`（不入库），模板模式不依赖密钥。
 
 ## 接力记录（完成任务后追加）
 日期/任务ID/完成者/变更文件/实际命令与结果/证据路径/下一步/阻塞项。
@@ -52,3 +52,5 @@
 - 2026-10-10 / F06、I03 / 本方 / README.md（参赛版）、docs/architecture.md limitations.md submission-checklist.md demo-script.md、artifacts/demo/、artifacts/probes/、agent/requirements.txt / 全新 venv 按 README 安装 → 后端 162 + 智能体 49 = 211 测试通过；探针在完整管线验证增量费用口径（standard-11 12→5 车） / artifacts/evidence/F06.md I03.md / 下一步 I02（主线）、I04 / 待主线决定补丁、待用户补团队信息。I03 的 I02 依赖已解除：README 引用的是主线 B15 正式记录，I02 复核后数字若变再更新。
 - 2026-10-10 / 同步修正 / 本方 / README 5.1 换 corrected-* 数据、5.3 与 F07/I01/demo 换修正后流程数字；agent/grounding.py 改半单位容差（0.5625→56.3% 不再误判），agent 51 测试通过；修正后后端上重跑全流程（模型模式，核对 23/12 个数字，+5.8% 可比） / artifacts/evidence/F07.md、screenshots、demo / 下一步 I04 / 待用户补团队信息。
 - 2026-10-10 / I02 / 主线（Codex）/ artifacts/benchmarks/i02-20261010-{small,standard,stress}/、docs/results.md、artifacts/evidence/I02.md、board.json / 21 次正式重跑全部 completed、独立校验通过、180/180 门店；同案哈希与服务集合一致；C01 手算 10 km/¥120 无违规；coupled 较 greedy 降本 4.73%–19.61%，较 sequential 为 0%，协同修复未触发 / artifacts/evidence/I02.md / 下一步 I04 / 无阻塞，团队信息及外部提交仍待用户。
+- 2026-10-10 / O01 / 主线（Codex）/ CONTRACT、DECISIONS、CHANGES、backend/models.py solver.py、tests/test_repair_trace.py、data/conflict_cases/trace-c10.json、scripts/capture_repair_trace.py、真实 JSON / C10 修复 0→1 店、small-11 无需修复、两者独立校验通过；相关 52 测试通过；当前沙箱全量测试停滞后中断 / artifacts/evidence/O01.md / 下一步 O02，Claude 消费端按协议更新 / 前端与智能体尚未联调新增字段。
+- 2026-10-10 / O02 / 主线（Codex）/ data/conflict_cases、data/cases 代表案例、scripts/generate_conflict_cases.py sequential_reinsert.py conflict_benchmark.py audit_conflict_benchmark.py、docs/conflict-results.md、tests/ / 19 案四法共 76 次有效；独立复审 76/76，coupled 接受修复 10 次；全量后端测试在沙箱外 176 passed；新增简单重新插入基线在 10 个修复案与 coupled 覆盖和费用相同 / artifacts/evidence/O02.md、artifacts/benchmarks/o02-conflict-20261010/ / 下一步有条件 O03、Claude O04 联调、I04 / 未证明 coupled 超过简单补救，卸货端到端修复未触发。

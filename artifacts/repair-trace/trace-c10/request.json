@@ -1,0 +1,60 @@
+{
+  "schema_version": "0.1",
+  "case_id": "trace-c10",
+  "data_source": "synthetic",
+  "depot": {
+    "id": "DEPOT",
+    "x_km": 0.0,
+    "y_km": 0.0,
+    "departure_min": 480.0
+  },
+  "stores": [
+    {
+      "id": "S01",
+      "x_km": 3.0,
+      "y_km": 4.0,
+      "window_start_min": 0.0,
+      "window_end_min": 1440.0,
+      "service_min": 5.0
+    }
+  ],
+  "vehicles": [
+    {
+      "id": "V01",
+      "length_mm": 2000,
+      "width_mm": 1000,
+      "height_mm": 1000,
+      "max_weight_kg": 500.0,
+      "fixed_cost": 10.0,
+      "cost_per_km": 2.0
+    },
+    {
+      "id": "V02",
+      "length_mm": 3000,
+      "width_mm": 1500,
+      "height_mm": 1500,
+      "max_weight_kg": 1000.0,
+      "fixed_cost": 100.0,
+      "cost_per_km": 2.0
+    }
+  ],
+  "boxes": [
+    {
+      "id": "B01",
+      "store_id": "S01",
+      "length_mm": 2500,
+      "width_mm": 500,
+      "height_mm": 500,
+      "weight_kg": 50.0,
+      "fragile": false,
+      "allow_rotate_xy": true
+    }
+  ],
+  "options": {
+    "method": "coupled",
+    "seed": 42,
+    "time_limit_ms": 10000,
+    "max_iterations": 200,
+    "speed_kmph": 30.0
+  }
+}

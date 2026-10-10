@@ -1,0 +1,102 @@
+{
+  "total_runs": 16,
+  "valid_runs": 16,
+  "comparisons": [
+    {
+      "case_id": "geometry-11",
+      "category": "combination_geometry",
+      "baseline": "greedy",
+      "candidate": "coupled",
+      "cost_improvement": null,
+      "reason": "服务门店集合不同"
+    },
+    {
+      "case_id": "geometry-11",
+      "category": "combination_geometry",
+      "baseline": "sequential",
+      "candidate": "coupled",
+      "cost_improvement": null,
+      "reason": "服务门店集合不同"
+    },
+    {
+      "case_id": "geometry-11",
+      "category": "combination_geometry",
+      "baseline": "sequential_reinsert",
+      "candidate": "coupled",
+      "cost_improvement": 0.0,
+      "reason": null
+    },
+    {
+      "case_id": "time-geometry-11",
+      "category": "time_geometry",
+      "baseline": "greedy",
+      "candidate": "coupled",
+      "cost_improvement": null,
+      "reason": "服务门店集合不同"
+    },
+    {
+      "case_id": "time-geometry-11",
+      "category": "time_geometry",
+      "baseline": "sequential",
+      "candidate": "coupled",
+      "cost_improvement": null,
+      "reason": "服务门店集合不同"
+    },
+    {
+      "case_id": "time-geometry-11",
+      "category": "time_geometry",
+      "baseline": "sequential_reinsert",
+      "candidate": "coupled",
+      "cost_improvement": 0.0,
+      "reason": null
+    },
+    {
+      "case_id": "unload-mechanism-11",
+      "category": "unload_mechanism_control",
+      "baseline": "greedy",
+      "candidate": "coupled",
+      "cost_improvement": 0.0,
+      "reason": null
+    },
+    {
+      "case_id": "unload-mechanism-11",
+      "category": "unload_mechanism_control",
+      "baseline": "sequential",
+      "candidate": "coupled",
+      "cost_improvement": 0.0,
+      "reason": null
+    },
+    {
+      "case_id": "unload-mechanism-11",
+      "category": "unload_mechanism_control",
+      "baseline": "sequential_reinsert",
+      "candidate": "coupled",
+      "cost_improvement": 0.0,
+      "reason": null
+    },
+    {
+      "case_id": "impossible-size-11",
+      "category": "known_infeasible_control",
+      "baseline": "greedy",
+      "candidate": "coupled",
+      "cost_improvement": null,
+      "reason": "基线成本为 0"
+    },
+    {
+      "case_id": "impossible-size-11",
+      "category": "known_infeasible_control",
+      "baseline": "sequential",
+      "candidate": "coupled",
+      "cost_improvement": null,
+      "reason": "基线成本为 0"
+    },
+    {
+      "case_id": "impossible-size-11",
+      "category": "known_infeasible_control",
+      "baseline": "sequential_reinsert",
+      "candidate": "coupled",
+      "cost_improvement": null,
+      "reason": "基线成本为 0"
+    }
+  ]
+}

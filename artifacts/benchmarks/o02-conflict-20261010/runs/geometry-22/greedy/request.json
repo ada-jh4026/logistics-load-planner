@@ -1,0 +1,78 @@
+{
+  "schema_version": "0.1",
+  "case_id": "geometry-22",
+  "data_source": "synthetic",
+  "depot": {
+    "id": "DEPOT",
+    "x_km": 0.0,
+    "y_km": 0.0,
+    "departure_min": 480.0
+  },
+  "stores": [
+    {
+      "id": "S01",
+      "x_km": 4.0,
+      "y_km": 0.0,
+      "window_start_min": 0.0,
+      "window_end_min": 1440.0,
+      "service_min": 0.0
+    },
+    {
+      "id": "S02",
+      "x_km": 5.0,
+      "y_km": 0.0,
+      "window_start_min": 0.0,
+      "window_end_min": 1440.0,
+      "service_min": 0.0
+    }
+  ],
+  "vehicles": [
+    {
+      "id": "V01",
+      "length_mm": 3000,
+      "width_mm": 1000,
+      "height_mm": 1000,
+      "max_weight_kg": 500.0,
+      "fixed_cost": 10.0,
+      "cost_per_km": 2.0
+    },
+    {
+      "id": "V02",
+      "length_mm": 3000,
+      "width_mm": 1000,
+      "height_mm": 1000,
+      "max_weight_kg": 500.0,
+      "fixed_cost": 100.0,
+      "cost_per_km": 2.0
+    }
+  ],
+  "boxes": [
+    {
+      "id": "B01",
+      "store_id": "S01",
+      "length_mm": 1820,
+      "width_mm": 600,
+      "height_mm": 600,
+      "weight_kg": 50.0,
+      "fragile": false,
+      "allow_rotate_xy": false
+    },
+    {
+      "id": "B02",
+      "store_id": "S02",
+      "length_mm": 1820,
+      "width_mm": 600,
+      "height_mm": 600,
+      "weight_kg": 50.0,
+      "fragile": false,
+      "allow_rotate_xy": false
+    }
+  ],
+  "options": {
+    "method": "greedy",
+    "seed": 22,
+    "time_limit_ms": 10000,
+    "max_iterations": 200,
+    "speed_kmph": 30.0
+  }
+}

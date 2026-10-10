@@ -41,3 +41,4 @@ P0是数据验证、实际求解、独立约束检查、真实界面联调、实
 若改字段或规则，必须在这里写：原因、受影响任务/文件、向后兼容性、重新验收范围。同步CONTRACT、示例及前后端。禁止只改一端。
 
 - 2026-10-10 增补智能体层：原因、受影响文件、不变部分与重新验收范围见 CHANGES.md「2026-10-10 增补智能体层」。CONTRACT.md 字段零改动，B/I 任务卡不变。
+- 2026-10-10 O01：Result 增加可选 repair_trace v1，记录真实检测、候选检查和被接受的有效状态转换；旧响应缺字段解析为 null，非 coupled 的新响应为 null。与 diagnostics 分离；不改变求解目标、数据单位和旧字段。受影响：backend/models.py、backend/solver.py、严格消费端 agent/schemas.py、frontend/src/protocol/contract.ts、CONTRACT 和对应证据。两个消费端由 Claude 按协议交接更新；主线在消费端联调前不宣称端到端兼容。原因和验收见 CHANGES.md 的 O01 记录。

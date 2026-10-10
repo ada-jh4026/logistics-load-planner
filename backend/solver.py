@@ -15,6 +15,8 @@ from backend.metrics import compute_metrics
 from backend.models import (
     Diagnostic,
     Result,
+    RepairEvent,
+    RepairTrace,
     Route,
     SolveRequest,
     Unassigned,
@@ -25,6 +27,46 @@ from backend.packing import pack_route
 from backend.repair import relocation_candidates
 from backend.routing import build_insertion_routes
 from backend.validation import validate_solution
+
+MAX_REJECT_EVENTS = 64
+
+
+class _TraceRecorder:
+    """Bound rejected-event storage without losing counts or accepted steps."""
+
+    def __init__(self):
+        self.events: list[RepairEvent] = []
+        self.attempted_count = 0
+        self.accepted_count = 0
+        self.omitted_count = 0
+        self._next_id = 1
+        self._stored_rejections = 0
+
+    def add(self, *, iteration: int, action: str, outcome: str,
+            store_ids: list[str], box_ids: list[str],
+            source_vehicle_id: str | None, target_vehicle_id: str | None,
+            reason_code: str | None, message: str,
+            before: Result | None = None, after: Result | None = None) -> None:
+        event_id = self._next_id
+        self._next_id += 1
+        if outcome == "accepted":
+            self.accepted_count += 1
+        if outcome == "rejected":
+            if self._stored_rejections >= MAX_REJECT_EVENTS:
+                self.omitted_count += 1
+                return
+            self._stored_rejections += 1
+        self.events.append(RepairEvent(
+            event_id=event_id, iteration=iteration, action=action,
+            outcome=outcome, store_ids=list(store_ids), box_ids=list(box_ids),
+            source_vehicle_id=source_vehicle_id,
+            target_vehicle_id=target_vehicle_id, reason_code=reason_code,
+            message=message,
+            metrics_before=before.metrics.model_copy(deep=True) if before else None,
+            metrics_after=after.metrics.model_copy(deep=True) if after else None,
+            routes_before=[r.model_copy(deep=True) for r in before.routes] if before else None,
+            routes_after=[r.model_copy(deep=True) for r in after.routes] if after else None,
+        ))
 
 
 def solve(request: SolveRequest, budget: Budget | None = None) -> Result:
@@ -124,7 +166,8 @@ def _evaluate(request: SolveRequest, routes_by_vehicle: dict[str, list[str]],
 def _try_relocate(request: SolveRequest, sid: str,
                   routes_by_vehicle: dict[str, list[str]],
                   unassigned_stores: set[str], budget: Budget,
-                  ) -> tuple[dict, set] | None:
+                  trace: _TraceRecorder,
+                  ) -> tuple[dict, set, str | None, str] | None:
     """尝试把 sid 移到其他车，返回首个可行 (new_routes, new_unassigned)。
 
     仅重新 pack 受影响的车（源车 + 目标车），避免全量 pack 耗尽预算。
@@ -139,6 +182,9 @@ def _try_relocate(request: SolveRequest, sid: str,
     for target_vid, new_target_ids in cands:
         if target_vid == source_vid:
             continue
+        if budget.expired():
+            break
+        trace.attempted_count += 1
         new_routes = {vid: list(sids) for vid, sids in routes_by_vehicle.items()}
         if source_vid is not None:
             new_routes[source_vid] = [s for s in new_routes[source_vid] if s != sid]
@@ -147,14 +193,25 @@ def _try_relocate(request: SolveRequest, sid: str,
 
         # 仅重新 pack 受影响的车（源车移除后、目标车加入后）
         ok = True
-        for vid in {source_vid, target_vid}:
+        failed_reason = None
+        failed_message = None
+        for vid in sorted(v for v in {source_vid, target_vid} if v is not None):
             if vid is not None and vid in new_routes:
                 pack = pack_route(request, vid, new_routes[vid], budget)
                 if not pack.success:
                     ok = False
+                    failed_reason = pack.reason_code or "SEARCH_EXHAUSTED"
+                    failed_message = f"车辆 {vid} 装箱失败：{pack.message}"
                     break
         if ok:
-            return new_routes, set(unassigned_stores) - {sid}
+            return new_routes, set(unassigned_stores) - {sid}, source_vid, target_vid
+        trace.add(
+            iteration=budget.iterations, action="relocate", outcome="rejected",
+            store_ids=[sid],
+            box_ids=[b.id for b in request.boxes if b.store_id == sid],
+            source_vehicle_id=source_vid, target_vehicle_id=target_vid,
+            reason_code=failed_reason, message=failed_message or "装载检查未通过",
+        )
 
     return None
 
@@ -173,6 +230,20 @@ def solve_coupled(request: SolveRequest, budget: Budget | None = None) -> Result
 
     best_result, best_score = _evaluate(request, routes_by_vehicle,
                                         unassigned_stores, budget)
+    trace = _TraceRecorder()
+    initial_result = best_result.model_copy(deep=True)
+    served_vehicles = {r.vehicle_id for r in best_result.routes}
+    failed_vehicles = [vid for vid, sids in sorted(routes_by_vehicle.items())
+                       if sids and vid not in served_vehicles]
+    for vid, diagnostic in zip(failed_vehicles, best_result.diagnostics):
+        store_ids = routes_by_vehicle[vid]
+        trace.add(
+            iteration=budget.iterations, action="pack_failed", outcome="detected",
+            store_ids=store_ids,
+            box_ids=[b.id for b in request.boxes if b.store_id in store_ids],
+            source_vehicle_id=vid, target_vehicle_id=None,
+            reason_code=diagnostic.reason_code, message=diagnostic.message,
+        )
 
     # 修复循环
     while not budget.expired():
@@ -184,20 +255,58 @@ def solve_coupled(request: SolveRequest, budget: Budget | None = None) -> Result
         improved = False
         for sid in sorted(current_unassigned):
             moved = _try_relocate(request, sid, routes_by_vehicle,
-                                  unassigned_stores, budget)
+                                  unassigned_stores, budget, trace)
             if moved is None:
                 continue
-            new_routes, new_unassigned = moved
+            new_routes, new_unassigned, source_vid, target_vid = moved
             new_result, new_score = _evaluate(request, new_routes,
                                               new_unassigned, budget)
-            if new_score < best_score:
+            if new_result.validation.valid and new_score < best_score:
+                trace.add(
+                    iteration=budget.iterations, action="relocate", outcome="accepted",
+                    store_ids=[sid],
+                    box_ids=[b.id for b in request.boxes if b.store_id == sid],
+                    source_vehicle_id=source_vid, target_vehicle_id=target_vid,
+                    reason_code=None, message=f"门店 {sid} 调整至车辆 {target_vid} 并通过独立校验",
+                    before=best_result, after=new_result,
+                )
                 best_result, best_score = new_result, new_score
                 routes_by_vehicle = new_routes
                 unassigned_stores = new_unassigned
                 improved = True
                 break
+            reason = (new_result.validation.violations[0].code
+                      if not new_result.validation.valid else "NO_IMPROVEMENT")
+            trace.add(
+                iteration=budget.iterations, action="relocate", outcome="rejected",
+                store_ids=[sid],
+                box_ids=[b.id for b in request.boxes if b.store_id == sid],
+                source_vehicle_id=source_vid, target_vehicle_id=target_vid,
+                reason_code=reason,
+                message=(f"独立校验未通过：{reason}" if not new_result.validation.valid
+                         else "已验证方案的目标分数未改善"),
+            )
 
         if not improved:
             break
 
+    if best_result.metrics.served_stores == best_result.metrics.total_stores:
+        status = "repaired" if trace.accepted_count else "not_needed"
+    elif budget.expired():
+        status = "budget_exhausted"
+    elif trace.accepted_count:
+        status = "partially_repaired"
+    else:
+        status = "unresolved"
+    best_result.repair_trace = RepairTrace(
+        status=status,
+        initial_metrics=initial_result.metrics.model_copy(deep=True),
+        final_metrics=best_result.metrics.model_copy(deep=True),
+        initial_routes=[r.model_copy(deep=True) for r in initial_result.routes],
+        attempted_count=trace.attempted_count,
+        accepted_count=trace.accepted_count,
+        events=trace.events,
+        truncated=trace.omitted_count > 0,
+        omitted_count=trace.omitted_count,
+    )
     return best_result

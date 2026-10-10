@@ -62,7 +62,19 @@ volume_utilization,weight_utilization,unload_block_count
 }。
 指标定义见EVALUATION。空配送时利用率和准时率为null，成本/里程/车辆数为0。
 diagnostics:[{iteration,action,reason_code,message}]；诊断文本描述实际发生的尝试，不输出虚构修复过程。
-以上字段全部必需；没有内容时使用空数组/null，不任意省略。
+repair_trace: null 或 RepairTrace。旧版 Result 可以缺少该字段，解析时视为 null；新求解响应中 greedy/sequential 为 null，coupled 返回实际记录。null 表示“未提供记录”，不同于 not_needed。
+
+RepairTrace v1：
+- version: 固定整数 1；status: not_needed | repaired | partially_repaired | unresolved | budget_exhausted。
+- initial_metrics、final_metrics：初始与最终**已通过独立校验**的执行方案指标；initial_routes 为初始已验证路线。失败的候选路线不得在此作为有效路线。
+- attempted_count：确实被检查的搬移候选数，跳过源车/仅生成未检查的不算。accepted_count：确实进入最终方案改进链的动作数。二者不因日志截断而减少。
+- events：按真实检查顺序排列的 RepairEvent；truncated:boolean、omitted_count:非负整数。限长时优先保留检测与接受事件，省略部分拒绝事件。event_id 为本次记录内递增编号，允许截断后不连续。
+- RepairEvent：{event_id,iteration,action:pack_failed|relocate,outcome:detected|rejected|accepted,store_ids:string[],box_ids:string[],source_vehicle_id:string|null,target_vehicle_id:string|null,reason_code:string|null,message:string,metrics_before:Metrics|null,metrics_after:Metrics|null,routes_before:Route[]|null,routes_after:Route[]|null}。
+- 只有 accepted 事件携带 before/after 的完整已验证路线与指标，能从 initial_routes 顺序回放到最终 routes。其他事件四个快照字段为 null。box_ids 标识参与检查的箱件，不暗示全部都是碰撞的确切箱件。rejected 的 reason_code 是实际检查结果或 NO_IMPROVEMENT；SEARCH_EXHAUSTED 仍只表示启发式未找到。
+- status 规则：初始已全覆盖且无修复为 not_needed；预算终止且仍未全覆盖为 budget_exhausted；发生接受动作且最终全覆盖为 repaired；接受后仍未全覆盖为 partially_repaired；其余为 unresolved。最终是否全覆盖和费用仍以 metrics 和独立校验为准。
+
+O01 是 Result 的追加字段，schema_version 暂维持 0.1；由于 agent 使用独立严格模型、前端使用 Zod，**消费端更新前不得宣称全链路兼容**。旧响应缺字段可由新后端模型解析。协议消费者交接见 artifacts/evidence/O01.md。
+除旧版 Result 可缺 repair_trace 外，上述已有字段均必需；没有内容时使用空数组/null，不任意省略。
 
 ## 错误码
 输入：INVALID_INPUT。

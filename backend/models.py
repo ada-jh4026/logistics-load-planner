@@ -228,6 +228,41 @@ class Diagnostic(BaseModel):
     message: str
 
 
+class RepairEvent(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    event_id: int = Field(ge=1)
+    iteration: int = Field(ge=0)
+    action: Literal["pack_failed", "relocate"]
+    outcome: Literal["detected", "rejected", "accepted"]
+    store_ids: list[str]
+    box_ids: list[str]
+    source_vehicle_id: Optional[str]
+    target_vehicle_id: Optional[str]
+    reason_code: Optional[str]
+    message: str
+    metrics_before: Optional[Metrics] = None
+    metrics_after: Optional[Metrics] = None
+    routes_before: Optional[list[Route]] = None
+    routes_after: Optional[list[Route]] = None
+
+
+class RepairTrace(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    version: Literal[1] = 1
+    status: Literal["not_needed", "repaired", "partially_repaired",
+                    "unresolved", "budget_exhausted"]
+    initial_metrics: Metrics
+    final_metrics: Metrics
+    initial_routes: list[Route]
+    attempted_count: int = Field(ge=0)
+    accepted_count: int = Field(ge=0)
+    events: list[RepairEvent]
+    truncated: bool
+    omitted_count: int = Field(ge=0)
+
+
 class Result(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
@@ -236,6 +271,7 @@ class Result(BaseModel):
     validation: Validation
     metrics: Metrics
     diagnostics: list[Diagnostic] = Field(default_factory=list)
+    repair_trace: Optional[RepairTrace] = None
 
 
 class ErrorInfo(BaseModel):

@@ -1,0 +1,85 @@
+{
+  "routes": [
+    {
+      "vehicle_id": "V02",
+      "store_ids": [
+        "S03"
+      ],
+      "stops": [
+        {
+          "store_id": "S03",
+          "arrival_min": 504.0,
+          "service_start_min": 504.0,
+          "departure_min": 504.0
+        }
+      ],
+      "return_min": 528.0,
+      "distance_km": 24.0,
+      "cost": 148.0,
+      "box_ids": [
+        "B03"
+      ],
+      "placements": [
+        {
+          "box_id": "B03",
+          "x_mm": 1800,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        }
+      ],
+      "unload_steps": [
+        {
+          "step": 1,
+          "store_id": "S03",
+          "box_id": "B03"
+        }
+      ]
+    }
+  ],
+  "unassigned": [
+    {
+      "store_id": "S01",
+      "box_ids": [
+        "B01"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "箱 B02 在当前排序下未找到可行位置"
+    },
+    {
+      "store_id": "S02",
+      "box_ids": [
+        "B02"
+      ],
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "箱 B02 在当前排序下未找到可行位置"
+    }
+  ],
+  "validation": {
+    "valid": true,
+    "violations": []
+  },
+  "metrics": {
+    "total_stores": 3,
+    "served_stores": 1,
+    "total_boxes": 3,
+    "served_boxes": 1,
+    "completion_rate": 0.3333333333333333,
+    "used_vehicles": 1,
+    "total_distance_km": 24.0,
+    "total_cost": 148.0,
+    "on_time_rate": 1.0,
+    "volume_utilization": 0.64,
+    "weight_utilization": 0.1,
+    "unload_block_count": 0
+  },
+  "diagnostics": [
+    {
+      "iteration": 0,
+      "action": "pack_failed",
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "车辆 V01 装箱失败：箱 B02 在当前排序下未找到可行位置"
+    }
+  ],
+  "repair_trace": null
+}

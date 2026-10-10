@@ -51,3 +51,35 @@ CONTRACT.md 的 SolveRequest / JobResponse / Result / 错误码；ALGORITHMS.md 
 | `agent/requirements.txt` | 去掉与 `requirements-dev.txt` 冲突的 pytest / httpx 钉。 |
 
 不变：`backend/`、`tests/`、`data/`、`scripts/`、CONTRACT / ALGORITHMS / 任务卡。
+
+---
+
+## 2026-10-10 下一轮优化方案与模型交接（仅规划）
+
+改动者：主线（Codex）。用户要求写好执行细节和给 Claude 的提示词，随后切换模型实施。
+
+- 新增 `docs/optimization-plan.md`：O01–O06 分工、修复记录协议建议、冲突实验与增强基线、算法取舍、前端与事实表验收、演示与最终收口。
+- 新增 `docs/handoffs/codex-optimization.md`、`docs/handoffs/claude-optimization.md`：可直接复制的分工提示词。
+- 更新 START_HERE、STATE 的当前入口，避免下一模型误从已经完成的 B01 开始；更正 AGENTS 中“尚无产品代码”的过时事实描述。
+- 本次没有修改运行接口、算法、实验结果或任务状态。`repair_trace` 是待实施建议；实施前必须同步 CONTRACT/DECISIONS/样例及两个消费端。O01–O06 尚未完成，执行者开始时登记任务。
+- 当前材料为本地规划，未据此声称已推送、已联调或已正式提交。验收范围仅为文档及现有计划自检。
+
+---
+
+## 2026-10-10 O01 协同修复记录协议（执行中）
+
+改动者：主线（Codex）。原基准 coupled 未触发修复，前端无法从最终方案复原真实修复动作；需要结构化、可检验的过程记录。
+
+- 更新 CONTRACT.md 的 Result，追加可选 repair_trace v1；旧响应缺字段解析为 null。定义事件、已验证快照、状态、截断与计数语义。
+- 更新 DECISIONS.md D07，记录原 0.1 版本追加字段的兼容范围及消费者交接要求；新增 O01/O02 任务卡并登记 board，初始仅 O01 in_progress。
+- 运行接口旧字段、路由/装载/卸货约束及原 I02 结果不变。此项不是宣称修复算法有新的收益。
+- 验收范围：backend 模型与 coupled 搜索的相关测试、API 真实 JSON、旧 JSON 解析、独立校验和文档自检；agent/frontend 严格消费端由 Claude 更新并独立联调。
+
+## 2026-10-10 O02 合成冲突实验（已完成）
+
+改动者：主线（Codex）。增加固定的 19 案对照集和仅实验内部的 sequential_reinsert 基线；公开 SolveRequest.options.method 与求解 API 不变。开发 seed 11 和正式变体 seed 22/33/44/55/66 分开；完整来源和限制见 `docs/conflict-results.md`。
+
+- `data/conflict_cases/`、`scripts/generate_conflict_cases.py`：保存案例、证书和选案清单；两个代表输入复制到 `data/cases/` 供真实页面选取。
+- `scripts/sequential_reinsert.py`、`scripts/conflict_benchmark.py`、`scripts/audit_conflict_benchmark.py`：第四对照、原始文件与复审。
+- O02 全部 76 次独立校验通过；全量后端测试 176 passed。修复与简单 reinsert 在 10 个冲突案的覆盖和费用相同，卸货类没有端到端修复触发。详见 `artifacts/evidence/O02.md`。
+- 无消费者协议新增；Claude 仍需按 O01 同步 agent/frontend 的 repair_trace 模型并完成真实联调。现有 I02 原始记录保留。

@@ -527,6 +527,30 @@
       ],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/F07.md"
+    },
+    {
+      "id": "O01",
+      "title": "记录真实协同修复过程并发布消费协议",
+      "lane": "backend",
+      "depends_on": ["I02"],
+      "estimate_minutes": 90,
+      "status": "done",
+      "owner": "主线（Codex）",
+      "evidence": ["artifacts/evidence/O01.md"],
+      "blocked_reason": null,
+      "card": "docs/playbook/tasks/O01.md"
+    },
+    {
+      "id": "O02",
+      "title": "构建冲突案例和公平对照实验",
+      "lane": "backend",
+      "depends_on": ["O01"],
+      "estimate_minutes": 120,
+      "status": "done",
+      "owner": "主线（Codex）",
+      "evidence": ["artifacts/evidence/O02.md", "docs/conflict-results.md"],
+      "blocked_reason": null,
+      "card": "docs/playbook/tasks/O02.md"
     }
   ],
   "lanes": {

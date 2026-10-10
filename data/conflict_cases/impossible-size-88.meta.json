@@ -1,0 +1,11 @@
+{
+  "category": "known_infeasible_control",
+  "seed": 88,
+  "expected_trigger": "oversize",
+  "certificate": {
+    "box_id": "B01",
+    "length_mm": 5188,
+    "max_vehicle_length_mm": 5000,
+    "rotation_allowed": false
+  }
+}

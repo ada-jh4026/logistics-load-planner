@@ -1,0 +1,17 @@
+﻿case_id,category,method,data_hash,valid,elapsed_ms,termination_reason,served_stores,total_cost,used_vehicles,repair_status,repair_attempted,repair_accepted
+geometry-11,combination_geometry,greedy,9b3cb088c782ffad,True,14.999999955762178,completed,0,0.0,0,,,
+geometry-11,combination_geometry,sequential,9b3cb088c782ffad,True,0.0,completed,0,0.0,0,,,
+geometry-11,combination_geometry,sequential_reinsert,9b3cb088c782ffad,True,0.0,completed,2,154.0,2,,,
+geometry-11,combination_geometry,coupled,9b3cb088c782ffad,True,0.0,completed,2,154.0,2,repaired,1,1
+time-geometry-11,time_geometry,greedy,77b261bee50ca3d1,True,0.0,completed,1,148.0,1,,,
+time-geometry-11,time_geometry,sequential,77b261bee50ca3d1,True,0.0,completed,1,148.0,1,,,
+time-geometry-11,time_geometry,sequential_reinsert,77b261bee50ca3d1,True,0.0,completed,3,404.0,3,,,
+time-geometry-11,time_geometry,coupled,77b261bee50ca3d1,True,0.0,completed,3,404.0,3,repaired,3,1
+unload-mechanism-11,unload_mechanism_control,greedy,d2582671a0edcb54,True,0.0,completed,2,26.0,1,,,
+unload-mechanism-11,unload_mechanism_control,sequential,d2582671a0edcb54,True,0.0,completed,2,26.0,1,,,
+unload-mechanism-11,unload_mechanism_control,sequential_reinsert,d2582671a0edcb54,True,0.0,completed,2,26.0,1,,,
+unload-mechanism-11,unload_mechanism_control,coupled,d2582671a0edcb54,True,0.0,completed,2,26.0,1,not_needed,0,0
+impossible-size-11,known_infeasible_control,greedy,9077d76f5536c85f,True,0.0,completed,0,0.0,0,,,
+impossible-size-11,known_infeasible_control,sequential,9077d76f5536c85f,True,0.0,completed,0,0.0,0,,,
+impossible-size-11,known_infeasible_control,sequential_reinsert,9077d76f5536c85f,True,15.000000013969839,completed,0,0.0,0,,,
+impossible-size-11,known_infeasible_control,coupled,9077d76f5536c85f,True,16.00000000325963,completed,0,0.0,0,unresolved,1,0

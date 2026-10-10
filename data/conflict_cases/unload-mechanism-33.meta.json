@@ -1,0 +1,62 @@
+{
+  "category": "unload_mechanism_control",
+  "seed": 33,
+  "expected_trigger": "not_assumed",
+  "blocked_candidate": {
+    "placements": [
+      {
+        "box_id": "B01",
+        "x_mm": 900,
+        "y_mm": 0,
+        "z_mm": 0,
+        "rotation_xy": 0
+      },
+      {
+        "box_id": "B02",
+        "x_mm": 0,
+        "y_mm": 0,
+        "z_mm": 0,
+        "rotation_xy": 0
+      }
+    ],
+    "violation": "UNLOAD_BLOCKED"
+  },
+  "feasible_witness": [
+    {
+      "vehicle_id": "V01",
+      "store_ids": [
+        "S01",
+        "S02"
+      ],
+      "placements": [
+        {
+          "box_id": "B01",
+          "x_mm": 0,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B02",
+          "x_mm": 900,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        }
+      ],
+      "unload_steps": [
+        {
+          "step": 1,
+          "store_id": "S01",
+          "box_id": "B01"
+        },
+        {
+          "step": 2,
+          "store_id": "S02",
+          "box_id": "B02"
+        }
+      ]
+    }
+  ],
+  "construction": "checker rejects a blocking layout; end-to-end packer may avoid it"
+}

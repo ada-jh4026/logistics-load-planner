@@ -1,0 +1,104 @@
+{
+  "routes": [
+    {
+      "vehicle_id": "V01",
+      "store_ids": [
+        "S01"
+      ],
+      "stops": [
+        {
+          "store_id": "S01",
+          "arrival_min": 486.0,
+          "service_start_min": 486.0,
+          "departure_min": 486.0
+        }
+      ],
+      "return_min": 492.0,
+      "distance_km": 6.0,
+      "cost": 22.0,
+      "box_ids": [
+        "B01"
+      ],
+      "placements": [
+        {
+          "box_id": "B01",
+          "x_mm": 1190,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        }
+      ],
+      "unload_steps": [
+        {
+          "step": 1,
+          "store_id": "S01",
+          "box_id": "B01"
+        }
+      ]
+    },
+    {
+      "vehicle_id": "V02",
+      "store_ids": [
+        "S02"
+      ],
+      "stops": [
+        {
+          "store_id": "S02",
+          "arrival_min": 488.0,
+          "service_start_min": 488.0,
+          "departure_min": 488.0
+        }
+      ],
+      "return_min": 496.0,
+      "distance_km": 8.0,
+      "cost": 116.0,
+      "box_ids": [
+        "B02"
+      ],
+      "placements": [
+        {
+          "box_id": "B02",
+          "x_mm": 1190,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        }
+      ],
+      "unload_steps": [
+        {
+          "step": 1,
+          "store_id": "S02",
+          "box_id": "B02"
+        }
+      ]
+    }
+  ],
+  "unassigned": [],
+  "validation": {
+    "valid": true,
+    "violations": []
+  },
+  "metrics": {
+    "total_stores": 2,
+    "served_stores": 2,
+    "total_boxes": 2,
+    "served_boxes": 2,
+    "completion_rate": 1.0,
+    "used_vehicles": 2,
+    "total_distance_km": 14.0,
+    "total_cost": 138.0,
+    "on_time_rate": 1.0,
+    "volume_utilization": 0.2172,
+    "weight_utilization": 0.1,
+    "unload_block_count": 0
+  },
+  "diagnostics": [
+    {
+      "iteration": 0,
+      "action": "pack_failed",
+      "reason_code": "SEARCH_EXHAUSTED",
+      "message": "车辆 V01 装箱失败：箱 B02 在当前排序下未找到可行位置"
+    }
+  ],
+  "repair_trace": null
+}

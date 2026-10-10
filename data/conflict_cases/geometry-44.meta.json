@@ -1,0 +1,52 @@
+{
+  "category": "combination_geometry",
+  "seed": 44,
+  "expected_trigger": "packer_failure",
+  "feasible_witness": [
+    {
+      "vehicle_id": "V01",
+      "store_ids": [
+        "S01"
+      ],
+      "placements": [
+        {
+          "box_id": "B01",
+          "x_mm": 0,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        }
+      ],
+      "unload_steps": [
+        {
+          "step": 1,
+          "store_id": "S01",
+          "box_id": "B01"
+        }
+      ]
+    },
+    {
+      "vehicle_id": "V02",
+      "store_ids": [
+        "S02"
+      ],
+      "placements": [
+        {
+          "box_id": "B02",
+          "x_mm": 0,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        }
+      ],
+      "unload_steps": [
+        {
+          "step": 1,
+          "store_id": "S02",
+          "box_id": "B02"
+        }
+      ]
+    }
+  ],
+  "construction": "single boxes fit; combined floor layout exceeds all three axes"
+}

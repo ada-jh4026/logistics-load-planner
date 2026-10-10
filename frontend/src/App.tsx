@@ -17,6 +17,7 @@ import { SidePanel } from './components/SidePanel'
 import { KpiRow } from './components/KpiRow'
 import { MethodCompare } from './components/MethodCompare'
 import { useMethodCompare } from './lib/useMethodCompare'
+import { buildWorksheetHtml, openWorksheet } from './lib/worksheet'
 
 type View = '3d' | 'map'
 
@@ -102,6 +103,7 @@ export default function App() {
   )
   const solver = useSolver(onResult)
   const methodCompare = useMethodCompare()
+  const [worksheetHint, setWorksheetHint] = useState<string | null>(null)
   // 三法对比完成后默认展示协同结果；用户可在表里切换查看其它方法
   useEffect(() => {
     if (methodCompare.state.phase !== 'done') return
@@ -161,6 +163,20 @@ export default function App() {
     setSelectedBoxId(null)
     setUnloadDone(0)
     setRepairFocus(null)
+  }
+
+  function handleWorksheet() {
+    if (!request || !response || !route || !derived) return
+    let snapshot: string | null = null
+    const canvas = document.querySelector<HTMLCanvasElement>('[data-cargo-canvas] canvas')
+    try {
+      snapshot = canvas ? canvas.toDataURL('image/png') : null
+    } catch {
+      snapshot = null
+    }
+    const html = buildWorksheetHtml({ request, route, derived, snapshot, runId: response.run_id, isMock: response.is_mock })
+    if (!openWorksheet(html)) setWorksheetHint('浏览器拦截了新窗口，请允许弹出窗口后重试。')
+    else setWorksheetHint(null)
   }
 
   function handleRun() {
@@ -383,7 +399,7 @@ export default function App() {
                   <span className="legend-item">颜色 = 到站顺序</span>
                   {!route && <span className="legend-item">该车未启用，车厢为空</span>}
                 </div>
-                <div className="stage-note">拖动旋转 · 滚轮缩放 · 点击箱件查看</div>
+                <div className="stage-note">{worksheetHint ?? '拖动旋转 · 滚轮缩放 · 点击箱件查看'}</div>
               </>
             ) : (
               <>
@@ -415,6 +431,7 @@ export default function App() {
               done={unloadDone}
               onChange={setUnloadDone}
               onFocusBox={setSelectedBoxId}
+              onWorksheet={route && response && !busy && !failed && !snapshot ? handleWorksheet : undefined}
             />
           )}
         </main>

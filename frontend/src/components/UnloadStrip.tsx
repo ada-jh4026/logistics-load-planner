@@ -9,9 +9,11 @@ interface Props {
   done: number
   onChange: (done: number) => void
   onFocusBox: (id: string | null) => void
+  /** 打开可打印的装卸作业单；未提供则不显示按钮 */
+  onWorksheet?: () => void
 }
 
-export function UnloadStrip({ route, derived, done, onChange, onFocusBox }: Props) {
+export function UnloadStrip({ route, derived, done, onChange, onFocusBox, onWorksheet }: Props) {
   if (!route) {
     return (
       <div className="unload">
@@ -45,6 +47,13 @@ export function UnloadStrip({ route, derived, done, onChange, onFocusBox }: Prop
           </button>
         </div>
         <small className="empty">装货按卸货逆序进行</small>
+        {onWorksheet && (
+          <div className="buttons secondary-row">
+            <button className="btn quiet" onClick={onWorksheet} title="按本车生成现场装卸作业单（新窗口，可打印）">
+              打印作业单
+            </button>
+          </div>
+        )}
       </div>
       <div className="steps" role="list">
         {steps.map((s, i) => {

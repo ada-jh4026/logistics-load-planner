@@ -1,0 +1,27 @@
+{
+  "env": {
+    "python": "3.12.15",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "dependencies": {
+      "fastapi": "0.143.0",
+      "pydantic": "2.14.0"
+    }
+  },
+  "total_runs": 3,
+  "comparisons": [
+    {
+      "case_id": "stress-44",
+      "baseline": "greedy",
+      "candidate": "coupled",
+      "improvement": 0.14764214956806762,
+      "reason": null
+    },
+    {
+      "case_id": "stress-44",
+      "baseline": "sequential",
+      "candidate": "coupled",
+      "improvement": 0.0,
+      "reason": null
+    }
+  ]
+}

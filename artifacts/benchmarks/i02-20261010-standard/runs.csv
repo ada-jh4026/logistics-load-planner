@@ -1,0 +1,10 @@
+﻿case_id,method,data_hash,valid,elapsed_ms,termination_reason,served_stores,total_cost,used_vehicles
+standard-11,greedy,3b779b99e482b391,True,77.9999999795109,completed,30,2491.954979910922,6
+standard-11,sequential,3b779b99e482b391,True,94.0000000409782,completed,30,2003.1862109829754,5
+standard-11,coupled,3b779b99e482b391,True,110.00000004423782,completed,30,2003.1862109829754,5
+standard-22,greedy,cc78e5f2b67b368b,True,79.00000002700835,completed,30,2346.8244577834225,5
+standard-22,sequential,cc78e5f2b67b368b,True,125.0,completed,30,2176.5558233892793,5
+standard-22,coupled,cc78e5f2b67b368b,True,125.0,completed,30,2176.5558233892793,5
+standard-33,greedy,1e98f5f65adcc914,True,108.99999999674037,completed,30,2040.025272384271,5
+standard-33,sequential,1e98f5f65adcc914,True,77.9999999795109,completed,30,1834.9092542126384,5
+standard-33,coupled,1e98f5f65adcc914,True,78.00000003771856,completed,30,1834.9092542126384,5

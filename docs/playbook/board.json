@@ -402,9 +402,9 @@
         "I01"
       ],
       "estimate_minutes": 45,
-      "status": "pending",
-      "owner": null,
-      "evidence": [],
+      "status": "done",
+      "owner": "主线（Codex）",
+      "evidence": ["artifacts/evidence/I02.md", "docs/results.md"],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/I02.md"
     },

@@ -1,0 +1,55 @@
+{
+  "env": {
+    "python": "3.12.15",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "dependencies": {
+      "fastapi": "0.143.0",
+      "pydantic": "2.14.0"
+    }
+  },
+  "total_runs": 9,
+  "comparisons": [
+    {
+      "case_id": "small-11",
+      "baseline": "greedy",
+      "candidate": "coupled",
+      "improvement": 0.04726914384846435,
+      "reason": null
+    },
+    {
+      "case_id": "small-11",
+      "baseline": "sequential",
+      "candidate": "coupled",
+      "improvement": 0.0,
+      "reason": null
+    },
+    {
+      "case_id": "small-22",
+      "baseline": "greedy",
+      "candidate": "coupled",
+      "improvement": 0.09097317194108337,
+      "reason": null
+    },
+    {
+      "case_id": "small-22",
+      "baseline": "sequential",
+      "candidate": "coupled",
+      "improvement": 0.0,
+      "reason": null
+    },
+    {
+      "case_id": "small-33",
+      "baseline": "greedy",
+      "candidate": "coupled",
+      "improvement": 0.13688589947775484,
+      "reason": null
+    },
+    {
+      "case_id": "small-33",
+      "baseline": "sequential",
+      "candidate": "coupled",
+      "improvement": 0.0,
+      "reason": null
+    }
+  ]
+}

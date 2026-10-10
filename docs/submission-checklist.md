@@ -3,8 +3,8 @@
 截止：英国时间 2026-10-12 11:00（北京时间 18:00）。内部冻结 07:30，正式提交 09:30。
 
 ## 冻结前（功能）
-- [ ] 主线决定是否采纳 `artifacts/probes/routing_marginal_cost.patch`；采纳则重跑三套基准并更新 README 实验表。
-- [ ] 主线 I02：21 条实验记录齐全，`docs/results.md` 有表格与原始文件对应。
+- [x] 主线已采纳增量费用修正，重跑三套基准并更新 README 实验表（见 `docs/results.md`）。
+- [x] 主线 I02：21 条实验记录齐全，`docs/results.md` 有表格与原始文件对应。
 - [ ] F06：3 分钟演示脚本 `docs/demo-script.md` 走通一遍；录屏或关键截图在 `artifacts/demo/`。
 - [ ] README 团队信息、队名补齐（当前为占位）。
 

@@ -1,0 +1,80 @@
+{
+  "_meta": {
+    "date": "2026-10-10",
+    "note": "真实 DeepSeek 调用；输入为手工样例（模拟数据）。interpret 指令：'S01 最早九点半收货，B01 长度改成 500，V01 今天不出车'；compare 候选为把 V01 费用改为 108 的同一方案。"
+  },
+  "interpret": {
+    "mode": "llm",
+    "model": "deepseek-chat",
+    "warnings": [],
+    "understood": true,
+    "intent_ops": [
+      {
+        "action": "set",
+        "target": "store",
+        "id": "S01",
+        "field": "window_start_min",
+        "value": 570
+      },
+      {
+        "action": "set",
+        "target": "box",
+        "id": "B01",
+        "field": "length_mm",
+        "value": 500
+      },
+      {
+        "action": "remove_vehicle",
+        "target": "vehicle",
+        "id": "V01",
+        "field": null,
+        "value": null
+      }
+    ],
+    "patch": [
+      {
+        "op": "replace",
+        "path": "/stores/0/window_start_min",
+        "value": 570.0
+      }
+    ],
+    "rejected_ops": [
+      {
+        "intent": {
+          "action": "set",
+          "target": "box",
+          "id": "B01",
+          "field": "length_mm",
+          "value": 500
+        },
+        "reason": "字段 length_mm 不在允许修改范围"
+      },
+      {
+        "intent": {
+          "action": "remove_vehicle",
+          "target": "vehicle",
+          "id": "V01",
+          "field": null,
+          "value": null
+        },
+        "reason": "至少保留一辆车，不能移除最后一辆"
+      }
+    ],
+    "summary": "将 S01 的最早收货时间改为 09:30；未采纳：将 B01 的length_mm改为 500（字段 length_mm 不在允许修改范围）；移除车辆 V01（至少保留一辆车，不能移除最后一辆）。"
+  },
+  "compare": {
+    "mode": "llm",
+    "model": "deepseek-chat",
+    "warnings": [],
+    "same_served_set": true,
+    "both_valid": true,
+    "comparable_cost": true,
+    "cost_change_rate": -0.1,
+    "grounding": {
+      "checked_numbers": 8,
+      "unmatched_numbers": [],
+      "passed": true
+    },
+    "text": "## 方案对比\n\n**服务覆盖**：两方案一致。配送门店数均为 1 家（S01），未配送门店均为 1 家（S02，原因：箱件 B03 超车厢尺寸），完成率均为 50.0%。\n\n**费用与车辆**：两方案均使用 1 辆车（V01），总里程均为 10.0 km。总费用由 120.0 降至 108.0，费用变化率 -10.0%（两方案服务门店集合相同，可比）。"
+  }
+}

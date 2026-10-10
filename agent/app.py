@@ -11,10 +11,23 @@ from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
+from .compare import compare
 from .config import load_settings
 from .explain import explain
+from .interpret import interpret
 from .llm import build_llm
-from .schemas import ErrorBody, ErrorDetail, ErrorEnvelope, ExplainRequest, ExplainResponse, HealthResponse
+from .schemas import (
+    CompareRequest,
+    CompareResponse,
+    ErrorBody,
+    ErrorDetail,
+    ErrorEnvelope,
+    ExplainRequest,
+    ExplainResponse,
+    HealthResponse,
+    InterpretRequest,
+    InterpretResponse,
+)
 
 log = logging.getLogger("agent")
 
@@ -70,3 +83,21 @@ def post_explain(body: ExplainRequest) -> ExplainResponse | JSONResponse:
     if body.focus == "vehicle" and not body.vehicle_id:
         return _error(422, "INVALID_INPUT", "focus=vehicle 时必须提供 vehicle_id。", [ErrorDetail(path="vehicle_id", message="缺失")])
     return explain(body, llm)
+
+
+@app.post("/agent/interpret", response_model=InterpretResponse)
+def post_interpret(body: InterpretRequest) -> InterpretResponse:
+    return interpret(body, llm)
+
+
+@app.post("/agent/compare", response_model=CompareResponse)
+def post_compare(body: CompareRequest) -> CompareResponse | JSONResponse:
+    for name, pair in (("baseline", body.baseline), ("candidate", body.candidate)):
+        if pair.response.status not in ("succeeded", "partial") or pair.response.result is None:
+            return _error(
+                422,
+                "INVALID_INPUT",
+                f"{name} 必须是 succeeded 或 partial 状态且带 result。",
+                [ErrorDetail(path=f"{name}.response.status", message=f"当前为 {pair.response.status}")],
+            )
+    return compare(body, llm)

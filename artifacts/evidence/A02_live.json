@@ -1,0 +1,31 @@
+{
+  "overview": {
+    "mode": "llm",
+    "model": "deepseek-chat",
+    "warnings": [
+      "首轮输出有未匹配数字（09:10、09:20），重试后通过。"
+    ],
+    "grounding": {
+      "checked_numbers": 19,
+      "unmatched_numbers": [],
+      "passed": true
+    },
+    "text": "本次方案为部分完成：2 家门店中已配送 1 家，完成率 50.0%；3 箱中已配送 2 箱。\n\n- 启用车辆：1 辆（V01），停靠 1 站。\n- 费用与里程：总费用 120.0 元，总里程 10.0 km；V01 固定费用 100.0 元，每公里 2.0 元。\n- 利用率：体积利用率 50.0%，重量利用率 30.0%。\n- 等待情况：S01 等待 10 分钟，到店 08:10，服务开始 08:20，服务 5 分钟，08:25 离店，准时。\n- 未配送门店：S02（1 箱，B03），原因码 BOX_TOO_LARGE，含义为箱件 B03 所有允许朝向均超过现有车厢尺寸。"
+  },
+  "unload": {
+    "mode": "llm",
+    "model": "deepseek-chat",
+    "warnings": [],
+    "grounding": {
+      "checked_numbers": 12,
+      "unmatched_numbers": [],
+      "passed": true
+    },
+    "text": "**V01 卸货作业单**\n\n- 步骤1：到 S01，卸 B02（易碎，轻拿轻放）。\n- 步骤2：到 S01，卸 B01（非易碎）。\n\n装货按卸货逆序进行：先装 B01，后装 B02。\n\n**未配送门店**\n- S02：原因码 BOX_TOO_LARGE，箱件 B03 所有允许朝向均超过现有车厢尺寸。\n\n**车辆信息**\n- V01：到站 490 分钟，服务开始 500 分钟，离开 505 分钟，服务 5 分钟，等待 10 分钟，返场 515 分钟；箱数 2，易碎箱 1，里程 10.0 km，费用 120.0 元，容积利用率 50.0%，载重利用率 30.0%。"
+  },
+  "_meta": {
+    "date": "2026-10-10",
+    "input": "docs/playbook/examples/request-partial.json + response-partial.json",
+    "note": "真实 DeepSeek 调用；输入为手工样例（is_mock=true），本文件只证明模型链路与数字核对可用，不是算法结果。"
+  }
+}

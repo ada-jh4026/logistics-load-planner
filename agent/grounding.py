@@ -72,7 +72,8 @@ class FactIndex:
         return any(self._close(x, v) for v in self._candidates(unit))
 
     def has_percent(self, p: float) -> bool:
-        return any(abs(round(v * 100) - p) <= 1e-6 or abs(round(v * 100, 1) - p) <= 1e-6 for _, v in self.entries if 0 <= v <= 1)
+        # 比率类事实（利用率、完成率、费用变化率）在 [-1, 1]；文本里的百分数不带符号，所以按绝对值匹配
+        return any(abs(round(abs(v) * 100) - p) <= 1e-6 or abs(round(abs(v) * 100, 1) - p) <= 1e-6 for _, v in self.entries if -1 <= v <= 1)
 
     def has_time(self, h: int, m: int) -> bool:
         target = h * 60 + m

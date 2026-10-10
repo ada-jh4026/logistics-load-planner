@@ -1,0 +1,599 @@
+{
+  "date": "2026-10-10",
+  "model": "deepseek-chat",
+  "base_url": "https://api.deepseek.com",
+  "temperature": 0.0,
+  "total": 20,
+  "passed": 20,
+  "accuracy": 1.0,
+  "median_ms": 1002,
+  "max_ms": 1895,
+  "note": "输入为 docs/playbook/examples 样例（模拟数据）；准确率指 patched_request 与期望完全一致且由模型模式产出。",
+  "rows": [
+    {
+      "id": "c13-1",
+      "instruction": "S01 最早 9 点半收货",
+      "mode": "llm",
+      "elapsed_ms": 1895,
+      "passed": true,
+      "errors": [],
+      "intent_ops": [
+        {
+          "action": "set",
+          "target": "store",
+          "id": "S01",
+          "field": "window_start_min",
+          "value": 570
+        }
+      ],
+      "patch": [
+        {
+          "op": "replace",
+          "path": "/stores/0/window_start_min",
+          "value": 570.0
+        }
+      ],
+      "rejected": [],
+      "summary": "将 S01 的最早收货时间改为 09:30。",
+      "warnings": []
+    },
+    {
+      "id": "c13-2",
+      "instruction": "V01 今天不出车",
+      "mode": "llm",
+      "elapsed_ms": 1206,
+      "passed": true,
+      "errors": [],
+      "intent_ops": [
+        {
+          "action": "remove_vehicle",
+          "target": "vehicle",
+          "id": "V01",
+          "field": null,
+          "value": null
+        }
+      ],
+      "patch": [],
+      "rejected": [
+        {
+          "intent": {
+            "action": "remove_vehicle",
+            "target": "vehicle",
+            "id": "V01",
+            "field": null,
+            "value": null
+          },
+          "reason": "至少保留一辆车，不能移除最后一辆"
+        }
+      ],
+      "summary": "未采纳：移除车辆 V01（至少保留一辆车，不能移除最后一辆）。",
+      "warnings": []
+    },
+    {
+      "id": "c13-3",
+      "instruction": "把 B03 标为易碎",
+      "mode": "llm",
+      "elapsed_ms": 737,
+      "passed": true,
+      "errors": [],
+      "intent_ops": [
+        {
+          "action": "set",
+          "target": "box",
+          "id": "B03",
+          "field": "fragile",
+          "value": true
+        }
+      ],
+      "patch": [
+        {
+          "op": "replace",
+          "path": "/boxes/2/fragile",
+          "value": true
+        }
+      ],
+      "rejected": [],
+      "summary": "将 B03 的易碎标记改为 是。",
+      "warnings": []
+    },
+    {
+      "id": "c13-4",
+      "instruction": "S01 最晚 8 点收货",
+      "mode": "llm",
+      "elapsed_ms": 979,
+      "passed": true,
+      "errors": [],
+      "intent_ops": [
+        {
+          "action": "set",
+          "target": "store",
+          "id": "S01",
+          "field": "window_end_min",
+          "value": 480
+        }
+      ],
+      "patch": [],
+      "rejected": [
+        {
+          "intent": {
+            "action": "set",
+            "target": "store",
+            "id": "S01",
+            "field": "window_end_min",
+            "value": 480
+          },
+          "reason": "门店 S01 时间窗颠倒（08:20 > 08:00）"
+        }
+      ],
+      "summary": "未采纳：将 S01 的最晚收货时间改为 08:00（门店 S01 时间窗颠倒（08:20 > 08:00））。",
+      "warnings": []
+    },
+    {
+      "id": "c13-5",
+      "instruction": "把 B01 长度改成 500",
+      "mode": "llm",
+      "elapsed_ms": 1104,
+      "passed": true,
+      "errors": [],
+      "intent_ops": [
+        {
+          "action": "set",
+          "target": "box",
+          "id": "B01",
+          "field": "length_mm",
+          "value": 500
+        }
+      ],
+      "patch": [],
+      "rejected": [
+        {
+          "intent": {
+            "action": "set",
+            "target": "box",
+            "id": "B01",
+            "field": "length_mm",
+            "value": 500
+          },
+          "reason": "字段 length_mm 不在允许修改范围"
+        }
+      ],
+      "summary": "未采纳：将 B01 的length_mm改为 500（字段 length_mm 不在允许修改范围）。",
+      "warnings": []
+    },
+    {
+      "id": "c13-6",
+      "instruction": "S99 改时间窗",
+      "mode": "llm",
+      "elapsed_ms": 1047,
+      "passed": true,
+      "errors": [],
+      "intent_ops": [],
+      "patch": [],
+      "rejected": [],
+      "summary": "指令中提到的 S99 在实体清单中不存在，未生成任何操作，请确认门店编号。",
+      "warnings": []
+    },
+    {
+      "id": "c13-7",
+      "instruction": "时间预算 20 秒",
+      "mode": "llm",
+      "elapsed_ms": 809,
+      "passed": true,
+      "errors": [],
+      "intent_ops": [
+        {
+          "action": "set",
+          "target": "options",
+          "id": null,
+          "field": "time_limit_ms",
+          "value": 20000
+        }
+      ],
+      "patch": [
+        {
+          "op": "replace",
+          "path": "/options/time_limit_ms",
+          "value": 20000
+        }
+      ],
+      "rejected": [],
+      "summary": "将 求解选项 的时间预算改为 20 秒。",
+      "warnings": []
+    },
+    {
+      "id": "r-8",
+      "instruction": "V02 今天不出车",
+      "mode": "llm",
+      "elapsed_ms": 825,
+      "passed": true,
+      "errors": [],
+      "intent_ops": [
+        {
+          "action": "remove_vehicle",
+          "target": "vehicle",
+          "id": "V02",
+          "field": null,
+          "value": null
+        }
+      ],
+      "patch": [
+        {
+          "op": "remove",
+          "path": "/vehicles/1",
+          "value": null
+        }
+      ],
+      "rejected": [],
+      "summary": "移除车辆 V02。",
+      "warnings": []
+    },
+    {
+      "id": "r-9",
+      "instruction": "S02 卸货时间改为 15 分钟",
+      "mode": "llm",
+      "elapsed_ms": 856,
+      "passed": true,
+      "errors": [],
+      "intent_ops": [
+        {
+          "action": "set",
+          "target": "store",
+          "id": "S02",
+          "field": "service_min",
+          "value": 15
+        }
+      ],
+      "patch": [
+        {
+          "op": "replace",
+          "path": "/stores/1/service_min",
+          "value": 15.0
+        }
+      ],
+      "rejected": [],
+      "summary": "将 S02 的服务时长改为 15 分钟。",
+      "warnings": []
+    },
+    {
+      "id": "r-10",
+      "instruction": "车速按 40 公里每小时算",
+      "mode": "llm",
+      "elapsed_ms": 1061,
+      "passed": true,
+      "errors": [],
+      "intent_ops": [
+        {
+          "action": "set",
+          "target": "options",
+          "id": null,
+          "field": "speed_kmph",
+          "value": 40
+        }
+      ],
+      "patch": [
+        {
+          "op": "replace",
+          "path": "/options/speed_kmph",
+          "value": 40.0
+        }
+      ],
+      "rejected": [],
+      "summary": "将 求解选项 的车速改为 40 km/h。",
+      "warnings": []
+    },
+    {
+      "id": "r-11",
+      "instruction": "改用贪心",
+      "mode": "llm",
+      "elapsed_ms": 966,
+      "passed": true,
+      "errors": [],
+      "intent_ops": [
+        {
+          "action": "set",
+          "target": "options",
+          "id": null,
+          "field": "method",
+          "value": "greedy"
+        }
+      ],
+      "patch": [
+        {
+          "op": "replace",
+          "path": "/options/method",
+          "value": "greedy"
+        }
+      ],
+      "rejected": [],
+      "summary": "将 求解选项 的求解方法改为 greedy。",
+      "warnings": []
+    },
+    {
+      "id": "r-12",
+      "instruction": "仓库 8 点半出发",
+      "mode": "llm",
+      "elapsed_ms": 1002,
+      "passed": true,
+      "errors": [],
+      "intent_ops": [
+        {
+          "action": "set",
+          "target": "depot",
+          "id": null,
+          "field": "departure_min",
+          "value": 510
+        }
+      ],
+      "patch": [
+        {
+          "op": "replace",
+          "path": "/depot/departure_min",
+          "value": 510.0
+        }
+      ],
+      "rejected": [],
+      "summary": "将 仓库 的仓库出发时间改为 08:30。",
+      "warnings": []
+    },
+    {
+      "id": "r-13",
+      "instruction": "B01 不能旋转",
+      "mode": "llm",
+      "elapsed_ms": 1007,
+      "passed": true,
+      "errors": [],
+      "intent_ops": [
+        {
+          "action": "set",
+          "target": "box",
+          "id": "B01",
+          "field": "allow_rotate_xy",
+          "value": false
+        }
+      ],
+      "patch": [
+        {
+          "op": "replace",
+          "path": "/boxes/0/allow_rotate_xy",
+          "value": false
+        }
+      ],
+      "rejected": [],
+      "summary": "将 B01 的允许水平旋转改为 否。",
+      "warnings": []
+    },
+    {
+      "id": "r-14",
+      "instruction": "S01 最早 9 点半收货，最晚 11 点",
+      "mode": "llm",
+      "elapsed_ms": 1048,
+      "passed": true,
+      "errors": [],
+      "intent_ops": [
+        {
+          "action": "set",
+          "target": "store",
+          "id": "S01",
+          "field": "window_start_min",
+          "value": 570
+        },
+        {
+          "action": "set",
+          "target": "store",
+          "id": "S01",
+          "field": "window_end_min",
+          "value": 660
+        }
+      ],
+      "patch": [
+        {
+          "op": "replace",
+          "path": "/stores/0/window_start_min",
+          "value": 570.0
+        },
+        {
+          "op": "replace",
+          "path": "/stores/0/window_end_min",
+          "value": 660.0
+        }
+      ],
+      "rejected": [],
+      "summary": "将 S01 的最早收货时间改为 09:30；将 S01 的最晚收货时间改为 11:00。",
+      "warnings": []
+    },
+    {
+      "id": "r-15",
+      "instruction": "再加一辆和 V01 一样的车",
+      "mode": "llm",
+      "elapsed_ms": 1110,
+      "passed": true,
+      "errors": [],
+      "intent_ops": [
+        {
+          "action": "add_vehicle",
+          "target": "vehicle",
+          "id": null,
+          "field": null,
+          "value": {
+            "id": "V02",
+            "length_mm": 2000.0,
+            "width_mm": 1000.0,
+            "height_mm": 2000.0,
+            "max_weight_kg": 500.0,
+            "fixed_cost": 100.0,
+            "cost_per_km": 2.0
+          }
+        }
+      ],
+      "patch": [
+        {
+          "op": "add",
+          "path": "/vehicles/-",
+          "value": {
+            "id": "V02",
+            "length_mm": 2000.0,
+            "width_mm": 1000.0,
+            "height_mm": 2000.0,
+            "max_weight_kg": 500.0,
+            "fixed_cost": 100.0,
+            "cost_per_km": 2.0
+          }
+        }
+      ],
+      "rejected": [],
+      "summary": "新增车辆 V02。",
+      "warnings": []
+    },
+    {
+      "id": "r-16",
+      "instruction": "今天天气不错",
+      "mode": "llm",
+      "elapsed_ms": 922,
+      "passed": true,
+      "errors": [],
+      "intent_ops": [],
+      "patch": [],
+      "rejected": [],
+      "summary": "指令与调度无关，未包含任何可映射的调度操作，需要澄清具体调度需求。",
+      "warnings": []
+    },
+    {
+      "id": "l-17",
+      "instruction": "S07 今天只能 14 点以后收货，V02 不出车",
+      "mode": "llm",
+      "elapsed_ms": 911,
+      "passed": true,
+      "errors": [],
+      "intent_ops": [
+        {
+          "action": "set",
+          "target": "store",
+          "id": "S07",
+          "field": "window_start_min",
+          "value": 840
+        },
+        {
+          "action": "remove_vehicle",
+          "target": "vehicle",
+          "id": "V02",
+          "field": null,
+          "value": null
+        }
+      ],
+      "patch": [
+        {
+          "op": "remove",
+          "path": "/vehicles/1",
+          "value": null
+        }
+      ],
+      "rejected": [
+        {
+          "intent": {
+            "action": "set",
+            "target": "store",
+            "id": "S07",
+            "field": "window_start_min",
+            "value": 840
+          },
+          "reason": "门店 S07 不存在"
+        }
+      ],
+      "summary": "移除车辆 V02；未采纳：将 S07 的最早收货时间改为 14:00（门店 S07 不存在）。",
+      "warnings": []
+    },
+    {
+      "id": "l-18",
+      "instruction": "下午两点之前 S02 必须送到",
+      "mode": "llm",
+      "elapsed_ms": 955,
+      "passed": true,
+      "errors": [],
+      "intent_ops": [
+        {
+          "action": "set",
+          "target": "store",
+          "id": "S02",
+          "field": "window_end_min",
+          "value": 840
+        }
+      ],
+      "patch": [
+        {
+          "op": "replace",
+          "path": "/stores/1/window_end_min",
+          "value": 840.0
+        }
+      ],
+      "rejected": [],
+      "summary": "将 S02 的最晚收货时间改为 14:00。",
+      "warnings": []
+    },
+    {
+      "id": "l-19",
+      "instruction": "把求解时间放宽到半分钟，用协同方法",
+      "mode": "llm",
+      "elapsed_ms": 775,
+      "passed": true,
+      "errors": [],
+      "intent_ops": [
+        {
+          "action": "set",
+          "target": "options",
+          "id": null,
+          "field": "time_limit_ms",
+          "value": 30000
+        },
+        {
+          "action": "set",
+          "target": "options",
+          "id": null,
+          "field": "method",
+          "value": "coupled"
+        }
+      ],
+      "patch": [
+        {
+          "op": "replace",
+          "path": "/options/time_limit_ms",
+          "value": 30000
+        },
+        {
+          "op": "replace",
+          "path": "/options/method",
+          "value": "coupled"
+        }
+      ],
+      "rejected": [],
+      "summary": "将 求解选项 的时间预算改为 30 秒；将 求解选项 的求解方法改为 coupled。",
+      "warnings": []
+    },
+    {
+      "id": "l-20",
+      "instruction": "B02 其实不是易碎品",
+      "mode": "llm",
+      "elapsed_ms": 1136,
+      "passed": true,
+      "errors": [],
+      "intent_ops": [
+        {
+          "action": "set",
+          "target": "box",
+          "id": "B02",
+          "field": "fragile",
+          "value": false
+        }
+      ],
+      "patch": [
+        {
+          "op": "replace",
+          "path": "/boxes/1/fragile",
+          "value": false
+        }
+      ],
+      "rejected": [],
+      "summary": "将 B02 的易碎标记改为 否。",
+      "warnings": []
+    }
+  ]
+}

@@ -7,7 +7,7 @@ from __future__ import annotations
 
 from typing import Any, Literal
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 SCHEMA_VERSION = "0.1"
 
@@ -237,3 +237,89 @@ class ErrorBody(_Model):
 class ErrorEnvelope(_Model):
     schema_version: Literal["0.1"] = "0.1"
     error: ErrorBody
+
+
+# ---------- interpret ----------
+Action = Literal["set", "remove_vehicle", "add_vehicle"]
+Target = Literal["store", "box", "vehicle", "depot", "options"]
+
+
+class IntentOp(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    action: Action
+    target: Target | None = None
+    id: str | None = None
+    field: str | None = None
+    value: Any = None
+
+    @model_validator(mode="after")
+    def _infer_target(self) -> "IntentOp":
+        if self.action in ("remove_vehicle", "add_vehicle"):
+            self.target = "vehicle"
+        elif self.target is None:
+            raise ValueError("set 操作必须给出 target")
+        return self
+
+
+class RejectedOp(_Model):
+    intent: IntentOp
+    reason: str
+
+
+class PatchOp(_Model):
+    op: Literal["replace", "remove", "add"]
+    path: str
+    value: Any = None
+
+
+class InterpretRequest(_Model):
+    schema_version: Literal["0.1"]
+    request: SolveRequest
+    instruction: str = Field(min_length=1, max_length=2000)
+
+
+class InterpretResponse(_Model):
+    schema_version: Literal["0.1"] = "0.1"
+    mode: Mode
+    model: str | None
+    warnings: list[str]
+    understood: bool
+    intent_ops: list[IntentOp]
+    patch: list[PatchOp]
+    patched_request: SolveRequest | None
+    rejected_ops: list[RejectedOp]
+    summary: str
+
+
+# ---------- compare ----------
+class RunPair(_Model):
+    request: SolveRequest
+    response: JobResponse
+
+
+class CompareRequest(_Model):
+    schema_version: Literal["0.1"]
+    baseline: RunPair
+    candidate: RunPair
+    instruction: str | None = None
+
+
+class MetricDelta(_Model):
+    baseline: float | None
+    candidate: float | None
+    delta: float | None
+
+
+class CompareResponse(_Model):
+    schema_version: Literal["0.1"] = "0.1"
+    mode: Mode
+    model: str | None
+    warnings: list[str]
+    deltas: dict[str, MetricDelta]
+    same_served_set: bool
+    both_valid: bool
+    comparable_cost: bool
+    cost_change_rate: float | None
+    text: str
+    grounding: Grounding
+

@@ -1,0 +1,20 @@
+{"id": "c13-1", "request": "partial", "mode": "rule", "instruction": "S01 最早 9 点半收货", "expect": {"understood": true, "changes": {"stores.S01.window_start_min": 570}, "rejected": 0}}
+{"id": "c13-2", "request": "partial", "mode": "rule", "instruction": "V01 今天不出车", "expect": {"understood": true, "changes": {}, "rejected": 1}}
+{"id": "c13-3", "request": "partial", "mode": "rule", "instruction": "把 B03 标为易碎", "expect": {"understood": true, "changes": {"boxes.B03.fragile": true}, "rejected": 0}}
+{"id": "c13-4", "request": "partial", "mode": "rule", "instruction": "S01 最晚 8 点收货", "expect": {"understood": true, "changes": {}, "rejected": 1}}
+{"id": "c13-5", "request": "partial", "mode": "rule", "instruction": "把 B01 长度改成 500", "expect": {"understood": true, "changes": {}, "rejected": 1}}
+{"id": "c13-6", "request": "partial", "mode": "rule", "instruction": "S99 改时间窗", "expect": {"understood": false, "changes": {}}}
+{"id": "c13-7", "request": "partial", "mode": "rule", "instruction": "时间预算 20 秒", "expect": {"understood": true, "changes": {"options.time_limit_ms": 20000}, "rejected": 0}}
+{"id": "r-8", "request": "partial2v", "mode": "rule", "instruction": "V02 今天不出车", "expect": {"understood": true, "changes": {}, "removed_vehicles": ["V02"], "rejected": 0}}
+{"id": "r-9", "request": "partial", "mode": "rule", "instruction": "S02 卸货时间改为 15 分钟", "expect": {"understood": true, "changes": {"stores.S02.service_min": 15}, "rejected": 0}}
+{"id": "r-10", "request": "partial", "mode": "rule", "instruction": "车速按 40 公里每小时算", "expect": {"understood": true, "changes": {"options.speed_kmph": 40}, "rejected": 0}}
+{"id": "r-11", "request": "partial", "mode": "rule", "instruction": "改用贪心", "expect": {"understood": true, "changes": {"options.method": "greedy"}, "rejected": 0}}
+{"id": "r-12", "request": "partial", "mode": "rule", "instruction": "仓库 8 点半出发", "expect": {"understood": true, "changes": {"depot.departure_min": 510}, "rejected": 0}}
+{"id": "r-13", "request": "partial", "mode": "rule", "instruction": "B01 不能旋转", "expect": {"understood": true, "changes": {"boxes.B01.allow_rotate_xy": false}, "rejected": 0}}
+{"id": "r-14", "request": "partial", "mode": "rule", "instruction": "S01 最早 9 点半收货，最晚 11 点", "expect": {"understood": true, "changes": {"stores.S01.window_start_min": 570, "stores.S01.window_end_min": 660}, "rejected": 0}}
+{"id": "r-15", "request": "partial", "mode": "rule", "instruction": "再加一辆和 V01 一样的车", "expect": {"understood": true, "changes": {}, "added_vehicles": ["V02"], "rejected": 0}}
+{"id": "r-16", "request": "partial", "mode": "rule", "instruction": "今天天气不错", "expect": {"understood": false, "changes": {}}}
+{"id": "l-17", "request": "partial2v", "mode": "llm", "instruction": "S07 今天只能 14 点以后收货，V02 不出车", "expect": {"understood": true, "changes": {}, "removed_vehicles": ["V02"], "rejected_in": [0, 1], "note": "S07 不存在：模型要么不生成操作，要么生成后被系统以「门店 S07 不存在」拒绝"}}
+{"id": "l-18", "request": "partial", "mode": "llm", "instruction": "下午两点之前 S02 必须送到", "expect": {"understood": true, "changes": {"stores.S02.window_end_min": 840}, "rejected": 0}}
+{"id": "l-19", "request": "partial", "mode": "llm", "instruction": "把求解时间放宽到半分钟，用协同方法", "expect": {"understood": true, "changes": {"options.time_limit_ms": 30000, "options.method": "coupled"}, "rejected": 0}}
+{"id": "l-20", "request": "partial", "mode": "llm", "instruction": "B02 其实不是易碎品", "expect": {"understood": true, "changes": {"boxes.B02.fragile": false}, "rejected": 0}}

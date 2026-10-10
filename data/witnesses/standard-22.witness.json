@@ -1,0 +1,1626 @@
+{
+  "case_id": "standard-22",
+  "seed": 22,
+  "kind": "witness",
+  "note": "已知可行见证，仅用于数据正确性复核，不作为求解器答案。",
+  "routes": [
+    {
+      "vehicle_id": "V01",
+      "store_ids": [
+        "S03",
+        "S01",
+        "S02"
+      ],
+      "box_ids": [
+        "B009",
+        "B010",
+        "B011",
+        "B005",
+        "B006",
+        "B007",
+        "B008",
+        "B001",
+        "B002",
+        "B003",
+        "B004"
+      ],
+      "placements": [
+        {
+          "box_id": "B009",
+          "x_mm": 2500,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B010",
+          "x_mm": 2500,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B011",
+          "x_mm": 2500,
+          "y_mm": 1000,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B005",
+          "x_mm": 2000,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B006",
+          "x_mm": 2000,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B007",
+          "x_mm": 2000,
+          "y_mm": 1000,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B008",
+          "x_mm": 1500,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B001",
+          "x_mm": 1500,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B002",
+          "x_mm": 1500,
+          "y_mm": 1000,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B003",
+          "x_mm": 1000,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B004",
+          "x_mm": 1000,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        }
+      ],
+      "unload_steps": [
+        {
+          "step": 1,
+          "store_id": "S03",
+          "box_id": "B003"
+        },
+        {
+          "step": 2,
+          "store_id": "S03",
+          "box_id": "B004"
+        },
+        {
+          "step": 3,
+          "store_id": "S03",
+          "box_id": "B001"
+        },
+        {
+          "step": 4,
+          "store_id": "S03",
+          "box_id": "B002"
+        },
+        {
+          "step": 5,
+          "store_id": "S01",
+          "box_id": "B008"
+        },
+        {
+          "step": 6,
+          "store_id": "S01",
+          "box_id": "B005"
+        },
+        {
+          "step": 7,
+          "store_id": "S01",
+          "box_id": "B006"
+        },
+        {
+          "step": 8,
+          "store_id": "S01",
+          "box_id": "B007"
+        },
+        {
+          "step": 9,
+          "store_id": "S02",
+          "box_id": "B009"
+        },
+        {
+          "step": 10,
+          "store_id": "S02",
+          "box_id": "B010"
+        },
+        {
+          "step": 11,
+          "store_id": "S02",
+          "box_id": "B011"
+        }
+      ]
+    },
+    {
+      "vehicle_id": "V02",
+      "store_ids": [
+        "S04",
+        "S05"
+      ],
+      "box_ids": [
+        "B016",
+        "B017",
+        "B018",
+        "B012",
+        "B013",
+        "B014",
+        "B015"
+      ],
+      "placements": [
+        {
+          "box_id": "B016",
+          "x_mm": 1500,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B017",
+          "x_mm": 1500,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B018",
+          "x_mm": 1000,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B012",
+          "x_mm": 1000,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B013",
+          "x_mm": 500,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B014",
+          "x_mm": 500,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B015",
+          "x_mm": 0,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        }
+      ],
+      "unload_steps": [
+        {
+          "step": 1,
+          "store_id": "S04",
+          "box_id": "B015"
+        },
+        {
+          "step": 2,
+          "store_id": "S04",
+          "box_id": "B013"
+        },
+        {
+          "step": 3,
+          "store_id": "S04",
+          "box_id": "B014"
+        },
+        {
+          "step": 4,
+          "store_id": "S04",
+          "box_id": "B012"
+        },
+        {
+          "step": 5,
+          "store_id": "S05",
+          "box_id": "B018"
+        },
+        {
+          "step": 6,
+          "store_id": "S05",
+          "box_id": "B016"
+        },
+        {
+          "step": 7,
+          "store_id": "S05",
+          "box_id": "B017"
+        }
+      ]
+    },
+    {
+      "vehicle_id": "V03",
+      "store_ids": [
+        "S06",
+        "S07",
+        "S08"
+      ],
+      "box_ids": [
+        "B027",
+        "B028",
+        "B029",
+        "B022",
+        "B023",
+        "B024",
+        "B025",
+        "B026",
+        "B019",
+        "B020",
+        "B021"
+      ],
+      "placements": [
+        {
+          "box_id": "B027",
+          "x_mm": 2500,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B028",
+          "x_mm": 2500,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B029",
+          "x_mm": 2500,
+          "y_mm": 1000,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B022",
+          "x_mm": 2000,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B023",
+          "x_mm": 2000,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B024",
+          "x_mm": 2000,
+          "y_mm": 1000,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B025",
+          "x_mm": 1500,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B026",
+          "x_mm": 1500,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B019",
+          "x_mm": 1500,
+          "y_mm": 1000,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B020",
+          "x_mm": 1000,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B021",
+          "x_mm": 1000,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        }
+      ],
+      "unload_steps": [
+        {
+          "step": 1,
+          "store_id": "S06",
+          "box_id": "B020"
+        },
+        {
+          "step": 2,
+          "store_id": "S06",
+          "box_id": "B021"
+        },
+        {
+          "step": 3,
+          "store_id": "S06",
+          "box_id": "B019"
+        },
+        {
+          "step": 4,
+          "store_id": "S07",
+          "box_id": "B025"
+        },
+        {
+          "step": 5,
+          "store_id": "S07",
+          "box_id": "B026"
+        },
+        {
+          "step": 6,
+          "store_id": "S07",
+          "box_id": "B022"
+        },
+        {
+          "step": 7,
+          "store_id": "S07",
+          "box_id": "B023"
+        },
+        {
+          "step": 8,
+          "store_id": "S07",
+          "box_id": "B024"
+        },
+        {
+          "step": 9,
+          "store_id": "S08",
+          "box_id": "B027"
+        },
+        {
+          "step": 10,
+          "store_id": "S08",
+          "box_id": "B028"
+        },
+        {
+          "step": 11,
+          "store_id": "S08",
+          "box_id": "B029"
+        }
+      ]
+    },
+    {
+      "vehicle_id": "V04",
+      "store_ids": [
+        "S09",
+        "S10"
+      ],
+      "box_ids": [
+        "B034",
+        "B035",
+        "B036",
+        "B030",
+        "B031",
+        "B032",
+        "B033"
+      ],
+      "placements": [
+        {
+          "box_id": "B034",
+          "x_mm": 1500,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B035",
+          "x_mm": 1500,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B036",
+          "x_mm": 1000,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B030",
+          "x_mm": 1000,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B031",
+          "x_mm": 500,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B032",
+          "x_mm": 500,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B033",
+          "x_mm": 0,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        }
+      ],
+      "unload_steps": [
+        {
+          "step": 1,
+          "store_id": "S09",
+          "box_id": "B033"
+        },
+        {
+          "step": 2,
+          "store_id": "S09",
+          "box_id": "B031"
+        },
+        {
+          "step": 3,
+          "store_id": "S09",
+          "box_id": "B032"
+        },
+        {
+          "step": 4,
+          "store_id": "S09",
+          "box_id": "B030"
+        },
+        {
+          "step": 5,
+          "store_id": "S10",
+          "box_id": "B036"
+        },
+        {
+          "step": 6,
+          "store_id": "S10",
+          "box_id": "B034"
+        },
+        {
+          "step": 7,
+          "store_id": "S10",
+          "box_id": "B035"
+        }
+      ]
+    },
+    {
+      "vehicle_id": "V05",
+      "store_ids": [
+        "S11",
+        "S12",
+        "S13"
+      ],
+      "box_ids": [
+        "B044",
+        "B045",
+        "B046",
+        "B040",
+        "B041",
+        "B042",
+        "B043",
+        "B037",
+        "B038",
+        "B039"
+      ],
+      "placements": [
+        {
+          "box_id": "B044",
+          "x_mm": 2500,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B045",
+          "x_mm": 2500,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B046",
+          "x_mm": 2500,
+          "y_mm": 1000,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B040",
+          "x_mm": 2000,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B041",
+          "x_mm": 2000,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B042",
+          "x_mm": 2000,
+          "y_mm": 1000,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B043",
+          "x_mm": 1500,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B037",
+          "x_mm": 1500,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B038",
+          "x_mm": 1500,
+          "y_mm": 1000,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B039",
+          "x_mm": 1000,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        }
+      ],
+      "unload_steps": [
+        {
+          "step": 1,
+          "store_id": "S11",
+          "box_id": "B039"
+        },
+        {
+          "step": 2,
+          "store_id": "S11",
+          "box_id": "B037"
+        },
+        {
+          "step": 3,
+          "store_id": "S11",
+          "box_id": "B038"
+        },
+        {
+          "step": 4,
+          "store_id": "S12",
+          "box_id": "B043"
+        },
+        {
+          "step": 5,
+          "store_id": "S12",
+          "box_id": "B040"
+        },
+        {
+          "step": 6,
+          "store_id": "S12",
+          "box_id": "B041"
+        },
+        {
+          "step": 7,
+          "store_id": "S12",
+          "box_id": "B042"
+        },
+        {
+          "step": 8,
+          "store_id": "S13",
+          "box_id": "B044"
+        },
+        {
+          "step": 9,
+          "store_id": "S13",
+          "box_id": "B045"
+        },
+        {
+          "step": 10,
+          "store_id": "S13",
+          "box_id": "B046"
+        }
+      ]
+    },
+    {
+      "vehicle_id": "V06",
+      "store_ids": [
+        "S15",
+        "S14"
+      ],
+      "box_ids": [
+        "B050",
+        "B051",
+        "B052",
+        "B047",
+        "B048",
+        "B049"
+      ],
+      "placements": [
+        {
+          "box_id": "B050",
+          "x_mm": 1500,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B051",
+          "x_mm": 1500,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B052",
+          "x_mm": 1000,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B047",
+          "x_mm": 1000,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B048",
+          "x_mm": 500,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B049",
+          "x_mm": 500,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        }
+      ],
+      "unload_steps": [
+        {
+          "step": 1,
+          "store_id": "S15",
+          "box_id": "B048"
+        },
+        {
+          "step": 2,
+          "store_id": "S15",
+          "box_id": "B049"
+        },
+        {
+          "step": 3,
+          "store_id": "S15",
+          "box_id": "B047"
+        },
+        {
+          "step": 4,
+          "store_id": "S14",
+          "box_id": "B052"
+        },
+        {
+          "step": 5,
+          "store_id": "S14",
+          "box_id": "B050"
+        },
+        {
+          "step": 6,
+          "store_id": "S14",
+          "box_id": "B051"
+        }
+      ]
+    },
+    {
+      "vehicle_id": "V07",
+      "store_ids": [
+        "S17",
+        "S16",
+        "S18"
+      ],
+      "box_ids": [
+        "B062",
+        "B063",
+        "B064",
+        "B065",
+        "B057",
+        "B058",
+        "B059",
+        "B060",
+        "B061",
+        "B053",
+        "B054",
+        "B055",
+        "B056"
+      ],
+      "placements": [
+        {
+          "box_id": "B062",
+          "x_mm": 2500,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B063",
+          "x_mm": 2500,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B064",
+          "x_mm": 2500,
+          "y_mm": 1000,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B065",
+          "x_mm": 2000,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B057",
+          "x_mm": 2000,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B058",
+          "x_mm": 2000,
+          "y_mm": 1000,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B059",
+          "x_mm": 1500,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B060",
+          "x_mm": 1500,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B061",
+          "x_mm": 1500,
+          "y_mm": 1000,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B053",
+          "x_mm": 1000,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B054",
+          "x_mm": 1000,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B055",
+          "x_mm": 1000,
+          "y_mm": 1000,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B056",
+          "x_mm": 500,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        }
+      ],
+      "unload_steps": [
+        {
+          "step": 1,
+          "store_id": "S17",
+          "box_id": "B056"
+        },
+        {
+          "step": 2,
+          "store_id": "S17",
+          "box_id": "B053"
+        },
+        {
+          "step": 3,
+          "store_id": "S17",
+          "box_id": "B054"
+        },
+        {
+          "step": 4,
+          "store_id": "S17",
+          "box_id": "B055"
+        },
+        {
+          "step": 5,
+          "store_id": "S16",
+          "box_id": "B059"
+        },
+        {
+          "step": 6,
+          "store_id": "S16",
+          "box_id": "B060"
+        },
+        {
+          "step": 7,
+          "store_id": "S16",
+          "box_id": "B061"
+        },
+        {
+          "step": 8,
+          "store_id": "S16",
+          "box_id": "B057"
+        },
+        {
+          "step": 9,
+          "store_id": "S16",
+          "box_id": "B058"
+        },
+        {
+          "step": 10,
+          "store_id": "S18",
+          "box_id": "B065"
+        },
+        {
+          "step": 11,
+          "store_id": "S18",
+          "box_id": "B062"
+        },
+        {
+          "step": 12,
+          "store_id": "S18",
+          "box_id": "B063"
+        },
+        {
+          "step": 13,
+          "store_id": "S18",
+          "box_id": "B064"
+        }
+      ]
+    },
+    {
+      "vehicle_id": "V08",
+      "store_ids": [
+        "S20",
+        "S19"
+      ],
+      "box_ids": [
+        "B070",
+        "B071",
+        "B072",
+        "B066",
+        "B067",
+        "B068",
+        "B069"
+      ],
+      "placements": [
+        {
+          "box_id": "B070",
+          "x_mm": 1500,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B071",
+          "x_mm": 1500,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B072",
+          "x_mm": 1000,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B066",
+          "x_mm": 1000,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B067",
+          "x_mm": 500,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B068",
+          "x_mm": 500,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B069",
+          "x_mm": 0,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        }
+      ],
+      "unload_steps": [
+        {
+          "step": 1,
+          "store_id": "S20",
+          "box_id": "B069"
+        },
+        {
+          "step": 2,
+          "store_id": "S20",
+          "box_id": "B067"
+        },
+        {
+          "step": 3,
+          "store_id": "S20",
+          "box_id": "B068"
+        },
+        {
+          "step": 4,
+          "store_id": "S20",
+          "box_id": "B066"
+        },
+        {
+          "step": 5,
+          "store_id": "S19",
+          "box_id": "B072"
+        },
+        {
+          "step": 6,
+          "store_id": "S19",
+          "box_id": "B070"
+        },
+        {
+          "step": 7,
+          "store_id": "S19",
+          "box_id": "B071"
+        }
+      ]
+    },
+    {
+      "vehicle_id": "V09",
+      "store_ids": [
+        "S21",
+        "S23",
+        "S22"
+      ],
+      "box_ids": [
+        "B080",
+        "B081",
+        "B082",
+        "B083",
+        "B084",
+        "B077",
+        "B078",
+        "B079",
+        "B073",
+        "B074",
+        "B075",
+        "B076"
+      ],
+      "placements": [
+        {
+          "box_id": "B080",
+          "x_mm": 2500,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B081",
+          "x_mm": 2500,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B082",
+          "x_mm": 2500,
+          "y_mm": 1000,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B083",
+          "x_mm": 2000,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B084",
+          "x_mm": 2000,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B077",
+          "x_mm": 2000,
+          "y_mm": 1000,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B078",
+          "x_mm": 1500,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B079",
+          "x_mm": 1500,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B073",
+          "x_mm": 1500,
+          "y_mm": 1000,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B074",
+          "x_mm": 1000,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B075",
+          "x_mm": 1000,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B076",
+          "x_mm": 1000,
+          "y_mm": 1000,
+          "z_mm": 0,
+          "rotation_xy": 0
+        }
+      ],
+      "unload_steps": [
+        {
+          "step": 1,
+          "store_id": "S21",
+          "box_id": "B074"
+        },
+        {
+          "step": 2,
+          "store_id": "S21",
+          "box_id": "B075"
+        },
+        {
+          "step": 3,
+          "store_id": "S21",
+          "box_id": "B076"
+        },
+        {
+          "step": 4,
+          "store_id": "S21",
+          "box_id": "B073"
+        },
+        {
+          "step": 5,
+          "store_id": "S23",
+          "box_id": "B078"
+        },
+        {
+          "step": 6,
+          "store_id": "S23",
+          "box_id": "B079"
+        },
+        {
+          "step": 7,
+          "store_id": "S23",
+          "box_id": "B077"
+        },
+        {
+          "step": 8,
+          "store_id": "S22",
+          "box_id": "B083"
+        },
+        {
+          "step": 9,
+          "store_id": "S22",
+          "box_id": "B084"
+        },
+        {
+          "step": 10,
+          "store_id": "S22",
+          "box_id": "B080"
+        },
+        {
+          "step": 11,
+          "store_id": "S22",
+          "box_id": "B081"
+        },
+        {
+          "step": 12,
+          "store_id": "S22",
+          "box_id": "B082"
+        }
+      ]
+    },
+    {
+      "vehicle_id": "V10",
+      "store_ids": [
+        "S24",
+        "S25"
+      ],
+      "box_ids": [
+        "B089",
+        "B090",
+        "B091",
+        "B085",
+        "B086",
+        "B087",
+        "B088"
+      ],
+      "placements": [
+        {
+          "box_id": "B089",
+          "x_mm": 1500,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B090",
+          "x_mm": 1500,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B091",
+          "x_mm": 1000,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B085",
+          "x_mm": 1000,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B086",
+          "x_mm": 500,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B087",
+          "x_mm": 500,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B088",
+          "x_mm": 0,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        }
+      ],
+      "unload_steps": [
+        {
+          "step": 1,
+          "store_id": "S24",
+          "box_id": "B088"
+        },
+        {
+          "step": 2,
+          "store_id": "S24",
+          "box_id": "B086"
+        },
+        {
+          "step": 3,
+          "store_id": "S24",
+          "box_id": "B087"
+        },
+        {
+          "step": 4,
+          "store_id": "S24",
+          "box_id": "B085"
+        },
+        {
+          "step": 5,
+          "store_id": "S25",
+          "box_id": "B091"
+        },
+        {
+          "step": 6,
+          "store_id": "S25",
+          "box_id": "B089"
+        },
+        {
+          "step": 7,
+          "store_id": "S25",
+          "box_id": "B090"
+        }
+      ]
+    },
+    {
+      "vehicle_id": "V11",
+      "store_ids": [
+        "S27",
+        "S26",
+        "S28"
+      ],
+      "box_ids": [
+        "B100",
+        "B101",
+        "B102",
+        "B097",
+        "B098",
+        "B099",
+        "B092",
+        "B093",
+        "B094",
+        "B095",
+        "B096"
+      ],
+      "placements": [
+        {
+          "box_id": "B100",
+          "x_mm": 2500,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B101",
+          "x_mm": 2500,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B102",
+          "x_mm": 2500,
+          "y_mm": 1000,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B097",
+          "x_mm": 2000,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B098",
+          "x_mm": 2000,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B099",
+          "x_mm": 2000,
+          "y_mm": 1000,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B092",
+          "x_mm": 1500,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B093",
+          "x_mm": 1500,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B094",
+          "x_mm": 1500,
+          "y_mm": 1000,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B095",
+          "x_mm": 1000,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B096",
+          "x_mm": 1000,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        }
+      ],
+      "unload_steps": [
+        {
+          "step": 1,
+          "store_id": "S27",
+          "box_id": "B095"
+        },
+        {
+          "step": 2,
+          "store_id": "S27",
+          "box_id": "B096"
+        },
+        {
+          "step": 3,
+          "store_id": "S27",
+          "box_id": "B092"
+        },
+        {
+          "step": 4,
+          "store_id": "S27",
+          "box_id": "B093"
+        },
+        {
+          "step": 5,
+          "store_id": "S27",
+          "box_id": "B094"
+        },
+        {
+          "step": 6,
+          "store_id": "S26",
+          "box_id": "B097"
+        },
+        {
+          "step": 7,
+          "store_id": "S26",
+          "box_id": "B098"
+        },
+        {
+          "step": 8,
+          "store_id": "S26",
+          "box_id": "B099"
+        },
+        {
+          "step": 9,
+          "store_id": "S28",
+          "box_id": "B100"
+        },
+        {
+          "step": 10,
+          "store_id": "S28",
+          "box_id": "B101"
+        },
+        {
+          "step": 11,
+          "store_id": "S28",
+          "box_id": "B102"
+        }
+      ]
+    },
+    {
+      "vehicle_id": "V12",
+      "store_ids": [
+        "S29",
+        "S30"
+      ],
+      "box_ids": [
+        "B108",
+        "B109",
+        "B110",
+        "B111",
+        "B112",
+        "B103",
+        "B104",
+        "B105",
+        "B106",
+        "B107"
+      ],
+      "placements": [
+        {
+          "box_id": "B108",
+          "x_mm": 1500,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B109",
+          "x_mm": 1500,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B110",
+          "x_mm": 1000,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B111",
+          "x_mm": 1000,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B112",
+          "x_mm": 500,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B103",
+          "x_mm": 500,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B104",
+          "x_mm": 0,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B105",
+          "x_mm": 0,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B106",
+          "x_mm": 1500,
+          "y_mm": 0,
+          "z_mm": 500,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B107",
+          "x_mm": 1500,
+          "y_mm": 500,
+          "z_mm": 500,
+          "rotation_xy": 0
+        }
+      ],
+      "unload_steps": [
+        {
+          "step": 1,
+          "store_id": "S29",
+          "box_id": "B106"
+        },
+        {
+          "step": 2,
+          "store_id": "S29",
+          "box_id": "B107"
+        },
+        {
+          "step": 3,
+          "store_id": "S29",
+          "box_id": "B104"
+        },
+        {
+          "step": 4,
+          "store_id": "S29",
+          "box_id": "B105"
+        },
+        {
+          "step": 5,
+          "store_id": "S29",
+          "box_id": "B103"
+        },
+        {
+          "step": 6,
+          "store_id": "S30",
+          "box_id": "B112"
+        },
+        {
+          "step": 7,
+          "store_id": "S30",
+          "box_id": "B110"
+        },
+        {
+          "step": 8,
+          "store_id": "S30",
+          "box_id": "B111"
+        },
+        {
+          "step": 9,
+          "store_id": "S30",
+          "box_id": "B108"
+        },
+        {
+          "step": 10,
+          "store_id": "S30",
+          "box_id": "B109"
+        }
+      ]
+    }
+  ]
+}

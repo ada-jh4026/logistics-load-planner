@@ -16,9 +16,9 @@
       "lane": "backend",
       "depends_on": [],
       "estimate_minutes": 30,
-      "status": "pending",
-      "owner": null,
-      "evidence": [],
+      "status": "done",
+      "owner": "主线",
+      "evidence": ["artifacts/evidence/B01.md"],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/B01.md"
     },
@@ -30,9 +30,9 @@
         "B01"
       ],
       "estimate_minutes": 40,
-      "status": "pending",
-      "owner": null,
-      "evidence": [],
+      "status": "done",
+      "owner": "主线",
+      "evidence": ["artifacts/evidence/B02.md"],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/B02.md"
     },
@@ -44,9 +44,9 @@
         "B02"
       ],
       "estimate_minutes": 45,
-      "status": "pending",
-      "owner": null,
-      "evidence": [],
+      "status": "done",
+      "owner": "主线",
+      "evidence": ["artifacts/evidence/B03.md"],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/B03.md"
     },
@@ -58,9 +58,9 @@
         "B02"
       ],
       "estimate_minutes": 35,
-      "status": "pending",
-      "owner": null,
-      "evidence": [],
+      "status": "done",
+      "owner": "主线",
+      "evidence": ["artifacts/evidence/B04.md"],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/B04.md"
     },
@@ -72,9 +72,9 @@
         "B04"
       ],
       "estimate_minutes": 45,
-      "status": "pending",
-      "owner": null,
-      "evidence": [],
+      "status": "done",
+      "owner": "主线",
+      "evidence": ["artifacts/evidence/B05.md"],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/B05.md"
     },
@@ -86,9 +86,9 @@
         "B02"
       ],
       "estimate_minutes": 45,
-      "status": "pending",
-      "owner": null,
-      "evidence": [],
+      "status": "done",
+      "owner": "主线",
+      "evidence": ["artifacts/evidence/B06.md"],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/B06.md"
     },
@@ -100,9 +100,9 @@
         "B06"
       ],
       "estimate_minutes": 45,
-      "status": "pending",
-      "owner": null,
-      "evidence": [],
+      "status": "done",
+      "owner": "主线",
+      "evidence": ["artifacts/evidence/B07.md"],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/B07.md"
     },
@@ -115,9 +115,9 @@
         "B07"
       ],
       "estimate_minutes": 45,
-      "status": "pending",
-      "owner": null,
-      "evidence": [],
+      "status": "done",
+      "owner": "主线",
+      "evidence": ["artifacts/evidence/B08.md"],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/B08.md"
     },
@@ -129,9 +129,9 @@
         "B08"
       ],
       "estimate_minutes": 60,
-      "status": "pending",
-      "owner": null,
-      "evidence": [],
+      "status": "done",
+      "owner": "主线",
+      "evidence": ["artifacts/evidence/B09.md"],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/B09.md"
     },
@@ -144,9 +144,9 @@
         "B09"
       ],
       "estimate_minutes": 35,
-      "status": "pending",
-      "owner": null,
-      "evidence": [],
+      "status": "done",
+      "owner": "主线",
+      "evidence": ["artifacts/evidence/B10.md"],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/B10.md"
     },
@@ -158,9 +158,9 @@
         "B10"
       ],
       "estimate_minutes": 30,
-      "status": "pending",
-      "owner": null,
-      "evidence": [],
+      "status": "done",
+      "owner": "主线",
+      "evidence": ["artifacts/evidence/B11.md"],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/B11.md"
     },
@@ -172,9 +172,9 @@
         "B11"
       ],
       "estimate_minutes": 60,
-      "status": "pending",
-      "owner": null,
-      "evidence": [],
+      "status": "done",
+      "owner": "主线",
+      "evidence": ["artifacts/evidence/B12.md"],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/B12.md"
     },
@@ -186,9 +186,9 @@
         "B12"
       ],
       "estimate_minutes": 45,
-      "status": "pending",
-      "owner": null,
-      "evidence": [],
+      "status": "done",
+      "owner": "主线",
+      "evidence": ["artifacts/evidence/B13.md"],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/B13.md"
     },
@@ -200,9 +200,9 @@
         "B13"
       ],
       "estimate_minutes": 25,
-      "status": "pending",
-      "owner": null,
-      "evidence": [],
+      "status": "done",
+      "owner": "主线",
+      "evidence": ["artifacts/evidence/B14.md"],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/B14.md"
     },
@@ -215,9 +215,9 @@
         "B12"
       ],
       "estimate_minutes": 45,
-      "status": "pending",
-      "owner": null,
-      "evidence": [],
+      "status": "done",
+      "owner": "主线",
+      "evidence": ["artifacts/evidence/B15.md"],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/B15.md"
     },
@@ -231,9 +231,9 @@
         "B15"
       ],
       "estimate_minutes": 40,
-      "status": "pending",
-      "owner": null,
-      "evidence": [],
+      "status": "done",
+      "owner": "主线",
+      "evidence": ["artifacts/evidence/B16.md"],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/B16.md"
     },

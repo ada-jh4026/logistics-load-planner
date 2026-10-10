@@ -16,7 +16,7 @@
 - 不代表已创建应用、跑通算法、取得优化收益或完成线上提交。
 
 ## 下一步
-- 主线：B16，完成后端回归与生成数据复核（B16 依赖 B13、B14、B15 已满足）。
+- 主线：后端 B01–B16 全部完成。下一步 I01 端到端真实业务验收（依赖 B13、F05，F05 待前端联调）。
 - 本方：F01 → A01，之后按 SCHEDULE。
 - 任何一方改 docs/playbook 规格先写 CHANGES.md。
 
@@ -43,3 +43,4 @@
 - 2026-10-10 / B13 / 主线（AI 助手）/ backend/jobs.py、backend/app.py、tests/test_api.py、artifacts/evidence/B13.md / JobManager 单线程串行 + examples/solve/jobs 接口 + CORS + 422/404/429 错误外壳 + case_id 白名单；POST 202→轮询 succeeded/partial、is_mock=false；pytest 10 passed；全量 143 passed / 证据 artifacts/evidence/B13.md / 下一步 B14 / 阻塞：无。
 - 2026-10-10 / B14 / 主线（AI 助手）/ backend/explanations.py、tests/test_explanations.py、docs/explanations.md、backend/solver.py、artifacts/evidence/B14.md / generate_explanation + loading_guide 从真实结果生成确定性解释；修复 coupled unassigned reason_code 丢失；无编造收益/修复；pytest 6 passed；全量 149 passed / 证据 artifacts/evidence/B14.md / 下一步 B15 / 阻塞：无。
 - 2026-10-10 / B15 / 主线（AI 助手）/ scripts/benchmark.py、tests/test_benchmark.py、artifacts/benchmarks/smoke/、artifacts/evidence/B15.md / run_benchmark + cost_improvement 可比性保护；small 冒烟 9 runs 6 comparisons、改善率如实含负值；不可比输出 null+原因；pytest 5 passed；全量 154 passed / 证据 artifacts/evidence/B15.md / 下一步 B16 / 阻塞：无。
+- 2026-10-10 / B16 / 主线（AI 助手）/ tests/test_regression.py、scripts/generate_cases.py、backend/solver.py、data/、artifacts/evidence/B16.md / 见证改用 pack_route 构造修复抽底 bug、coupled reason_code 修复；7 份见证全过独立校验；C01–C11 回归映射齐全；全量 162 passed / 证据 artifacts/evidence/B16.md / 下一步 I01（待 F05 前端联调）/ 阻塞：无。

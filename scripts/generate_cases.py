@@ -187,32 +187,34 @@ def generate_suite(suite: str, seed: int) -> tuple[dict, dict]:
         "options": _options(42),
     }
 
-    witness = _build_witness(request, groups, route_box_ids, seed)
+    witness = _build_witness(request, groups, seed)
     return request, witness
 
 
-def _build_witness(request: dict, groups, route_box_ids, seed: int) -> dict:
-    """基于分组信息构造已知可行见证（路线 + 逐箱布局 + 卸货步骤）。"""
-    box_store = {b["id"]: b["store_id"] for b in request["boxes"]}
+def _build_witness(request: dict, groups, seed: int) -> dict:
+    """用确定性 packer 构造已知可行见证（路线 + 逐箱布局 + 卸货步骤）。
+
+    见证由 pack_route 生成（逆配送序装箱 + 正确卸货序列），保证布局与卸货
+    均可行；仅用于数据正确性复核，不作为求解器答案（B16 用独立校验器复查）。
+    """
+    from backend.models import SolveRequest
+    from backend.packing import pack_route
+
+    req = SolveRequest.model_validate(request)
     routes = []
-    for (kind, group), vehicle, box_ids in zip(groups, request["vehicles"], route_box_ids):
-        spec = VEHICLE_TYPES[kind]
-        layout = _floor_layout(len(box_ids), spec["length_mm"],
-                               spec["width_mm"], spec["height_mm"])
-        placements = [
-            {"box_id": bid, "x_mm": px, "y_mm": py, "z_mm": pz, "rotation_xy": 0}
-            for bid, (px, py, pz) in zip(box_ids, layout)
-        ]
-        unload_steps = [
-            {"step": i, "store_id": box_store[bid], "box_id": bid}
-            for i, bid in enumerate(box_ids, start=1)
-        ]
+    for (kind, group), vehicle in zip(groups, request["vehicles"]):
+        store_ids = [sid for sid, _, _ in group]
+        pack = pack_route(req, vehicle["id"], store_ids)
+        if not pack.success:
+            raise ValueError(
+                f"见证构造失败：车辆 {vehicle['id']} 门店 {store_ids} "
+                f"reason={pack.reason_code}: {pack.message}")
         routes.append({
             "vehicle_id": vehicle["id"],
-            "store_ids": [sid for sid, _, _ in group],
-            "box_ids": box_ids,
-            "placements": placements,
-            "unload_steps": unload_steps,
+            "store_ids": store_ids,
+            "box_ids": [p.box_id for p in pack.placements],
+            "placements": [p.model_dump() for p in pack.placements],
+            "unload_steps": [s.model_dump() for s in pack.unload_steps],
         })
 
     return {

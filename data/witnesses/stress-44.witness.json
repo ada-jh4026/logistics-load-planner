@@ -12,30 +12,79 @@
         "S02"
       ],
       "box_ids": [
-        "B001",
-        "B002",
-        "B003",
-        "B004",
-        "B005",
-        "B006",
-        "B007",
         "B008",
         "B009",
         "B010",
-        "B011"
+        "B011",
+        "B005",
+        "B006",
+        "B007",
+        "B001",
+        "B002",
+        "B003",
+        "B004"
       ],
       "placements": [
         {
-          "box_id": "B001",
-          "x_mm": 0,
+          "box_id": "B008",
+          "x_mm": 2500,
           "y_mm": 0,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
-          "box_id": "B002",
-          "x_mm": 500,
+          "box_id": "B009",
+          "x_mm": 2500,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B010",
+          "x_mm": 2500,
+          "y_mm": 1000,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B011",
+          "x_mm": 2000,
           "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B005",
+          "x_mm": 2000,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B006",
+          "x_mm": 2000,
+          "y_mm": 1000,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B007",
+          "x_mm": 1500,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B001",
+          "x_mm": 1500,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B002",
+          "x_mm": 1500,
+          "y_mm": 1000,
           "z_mm": 0,
           "rotation_xy": 0
         },
@@ -48,56 +97,7 @@
         },
         {
           "box_id": "B004",
-          "x_mm": 1500,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B005",
-          "x_mm": 2000,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B006",
-          "x_mm": 2500,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B007",
-          "x_mm": 0,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B008",
-          "x_mm": 500,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B009",
           "x_mm": 1000,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B010",
-          "x_mm": 1500,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B011",
-          "x_mm": 2000,
           "y_mm": 500,
           "z_mm": 0,
           "rotation_xy": 0
@@ -107,57 +107,57 @@
         {
           "step": 1,
           "store_id": "S03",
-          "box_id": "B001"
+          "box_id": "B003"
         },
         {
           "step": 2,
           "store_id": "S03",
-          "box_id": "B002"
+          "box_id": "B004"
         },
         {
           "step": 3,
           "store_id": "S03",
-          "box_id": "B003"
+          "box_id": "B001"
         },
         {
           "step": 4,
           "store_id": "S03",
-          "box_id": "B004"
+          "box_id": "B002"
         },
         {
           "step": 5,
           "store_id": "S01",
-          "box_id": "B005"
+          "box_id": "B007"
         },
         {
           "step": 6,
           "store_id": "S01",
-          "box_id": "B006"
+          "box_id": "B005"
         },
         {
           "step": 7,
           "store_id": "S01",
-          "box_id": "B007"
+          "box_id": "B006"
         },
         {
           "step": 8,
           "store_id": "S02",
-          "box_id": "B008"
+          "box_id": "B011"
         },
         {
           "step": 9,
           "store_id": "S02",
-          "box_id": "B009"
+          "box_id": "B008"
         },
         {
           "step": 10,
           "store_id": "S02",
-          "box_id": "B010"
+          "box_id": "B009"
         },
         {
           "step": 11,
           "store_id": "S02",
-          "box_id": "B011"
+          "box_id": "B010"
         }
       ]
     },
@@ -168,18 +168,39 @@
         "S05"
       ],
       "box_ids": [
-        "B012",
-        "B013",
-        "B014",
         "B015",
         "B016",
-        "B017"
+        "B017",
+        "B012",
+        "B013",
+        "B014"
       ],
       "placements": [
         {
-          "box_id": "B012",
-          "x_mm": 0,
+          "box_id": "B015",
+          "x_mm": 1500,
           "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B016",
+          "x_mm": 1500,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B017",
+          "x_mm": 1000,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B012",
+          "x_mm": 1000,
+          "y_mm": 500,
           "z_mm": 0,
           "rotation_xy": 0
         },
@@ -192,27 +213,6 @@
         },
         {
           "box_id": "B014",
-          "x_mm": 1000,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B015",
-          "x_mm": 1500,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B016",
-          "x_mm": 0,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B017",
           "x_mm": 500,
           "y_mm": 500,
           "z_mm": 0,
@@ -223,32 +223,32 @@
         {
           "step": 1,
           "store_id": "S04",
-          "box_id": "B012"
+          "box_id": "B013"
         },
         {
           "step": 2,
           "store_id": "S04",
-          "box_id": "B013"
+          "box_id": "B014"
         },
         {
           "step": 3,
           "store_id": "S04",
-          "box_id": "B014"
+          "box_id": "B012"
         },
         {
           "step": 4,
           "store_id": "S05",
-          "box_id": "B015"
+          "box_id": "B017"
         },
         {
           "step": 5,
           "store_id": "S05",
-          "box_id": "B016"
+          "box_id": "B015"
         },
         {
           "step": 6,
           "store_id": "S05",
-          "box_id": "B017"
+          "box_id": "B016"
         }
       ]
     },
@@ -260,95 +260,32 @@
         "S06"
       ],
       "box_ids": [
-        "B018",
-        "B019",
-        "B020",
-        "B021",
+        "B027",
+        "B028",
+        "B029",
+        "B030",
+        "B031",
         "B022",
         "B023",
         "B024",
         "B025",
         "B026",
-        "B027",
-        "B028",
-        "B029",
-        "B030",
-        "B031"
+        "B018",
+        "B019",
+        "B020",
+        "B021"
       ],
       "placements": [
         {
-          "box_id": "B018",
-          "x_mm": 0,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B019",
-          "x_mm": 500,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B020",
-          "x_mm": 1000,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B021",
-          "x_mm": 1500,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B022",
-          "x_mm": 2000,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B023",
+          "box_id": "B027",
           "x_mm": 2500,
           "y_mm": 0,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
-          "box_id": "B024",
-          "x_mm": 0,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B025",
-          "x_mm": 500,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B026",
-          "x_mm": 1000,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B027",
-          "x_mm": 1500,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
           "box_id": "B028",
-          "x_mm": 2000,
+          "x_mm": 2500,
           "y_mm": 500,
           "z_mm": 0,
           "rotation_xy": 0
@@ -356,21 +293,84 @@
         {
           "box_id": "B029",
           "x_mm": 2500,
-          "y_mm": 500,
+          "y_mm": 1000,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
           "box_id": "B030",
-          "x_mm": 0,
-          "y_mm": 1000,
+          "x_mm": 2000,
+          "y_mm": 0,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
           "box_id": "B031",
-          "x_mm": 500,
+          "x_mm": 2000,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B022",
+          "x_mm": 2000,
           "y_mm": 1000,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B023",
+          "x_mm": 1500,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B024",
+          "x_mm": 1500,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B025",
+          "x_mm": 1500,
+          "y_mm": 1000,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B026",
+          "x_mm": 1000,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B018",
+          "x_mm": 1000,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B019",
+          "x_mm": 1000,
+          "y_mm": 1000,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B020",
+          "x_mm": 500,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B021",
+          "x_mm": 500,
+          "y_mm": 500,
           "z_mm": 0,
           "rotation_xy": 0
         }
@@ -379,27 +379,27 @@
         {
           "step": 1,
           "store_id": "S07",
-          "box_id": "B018"
+          "box_id": "B020"
         },
         {
           "step": 2,
           "store_id": "S07",
-          "box_id": "B019"
+          "box_id": "B021"
         },
         {
           "step": 3,
           "store_id": "S07",
-          "box_id": "B020"
+          "box_id": "B018"
         },
         {
           "step": 4,
           "store_id": "S07",
-          "box_id": "B021"
+          "box_id": "B019"
         },
         {
           "step": 5,
           "store_id": "S08",
-          "box_id": "B022"
+          "box_id": "B026"
         },
         {
           "step": 6,
@@ -419,32 +419,32 @@
         {
           "step": 9,
           "store_id": "S08",
-          "box_id": "B026"
+          "box_id": "B022"
         },
         {
           "step": 10,
           "store_id": "S06",
-          "box_id": "B027"
+          "box_id": "B030"
         },
         {
           "step": 11,
           "store_id": "S06",
-          "box_id": "B028"
+          "box_id": "B031"
         },
         {
           "step": 12,
           "store_id": "S06",
-          "box_id": "B029"
+          "box_id": "B027"
         },
         {
           "step": 13,
           "store_id": "S06",
-          "box_id": "B030"
+          "box_id": "B028"
         },
         {
           "step": 14,
           "store_id": "S06",
-          "box_id": "B031"
+          "box_id": "B029"
         }
       ]
     },
@@ -455,19 +455,40 @@
         "S09"
       ],
       "box_ids": [
+        "B036",
+        "B037",
+        "B038",
         "B032",
         "B033",
         "B034",
-        "B035",
-        "B036",
-        "B037",
-        "B038"
+        "B035"
       ],
       "placements": [
         {
-          "box_id": "B032",
-          "x_mm": 0,
+          "box_id": "B036",
+          "x_mm": 1500,
           "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B037",
+          "x_mm": 1500,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B038",
+          "x_mm": 1000,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B032",
+          "x_mm": 1000,
+          "y_mm": 500,
           "z_mm": 0,
           "rotation_xy": 0
         },
@@ -480,36 +501,15 @@
         },
         {
           "box_id": "B034",
-          "x_mm": 1000,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B035",
-          "x_mm": 1500,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B036",
-          "x_mm": 0,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B037",
           "x_mm": 500,
           "y_mm": 500,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
-          "box_id": "B038",
-          "x_mm": 1000,
-          "y_mm": 500,
+          "box_id": "B035",
+          "x_mm": 0,
+          "y_mm": 0,
           "z_mm": 0,
           "rotation_xy": 0
         }
@@ -518,7 +518,7 @@
         {
           "step": 1,
           "store_id": "S10",
-          "box_id": "B032"
+          "box_id": "B035"
         },
         {
           "step": 2,
@@ -533,22 +533,22 @@
         {
           "step": 4,
           "store_id": "S10",
-          "box_id": "B035"
+          "box_id": "B032"
         },
         {
           "step": 5,
           "store_id": "S09",
-          "box_id": "B036"
+          "box_id": "B038"
         },
         {
           "step": 6,
           "store_id": "S09",
-          "box_id": "B037"
+          "box_id": "B036"
         },
         {
           "step": 7,
           "store_id": "S09",
-          "box_id": "B038"
+          "box_id": "B037"
         }
       ]
     },
@@ -560,44 +560,37 @@
         "S13"
       ],
       "box_ids": [
-        "B039",
-        "B040",
-        "B041",
-        "B042",
+        "B047",
+        "B048",
+        "B049",
         "B043",
         "B044",
         "B045",
         "B046",
-        "B047",
-        "B048",
-        "B049"
+        "B039",
+        "B040",
+        "B041",
+        "B042"
       ],
       "placements": [
         {
-          "box_id": "B039",
-          "x_mm": 0,
+          "box_id": "B047",
+          "x_mm": 2500,
           "y_mm": 0,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
-          "box_id": "B040",
-          "x_mm": 500,
-          "y_mm": 0,
+          "box_id": "B048",
+          "x_mm": 2500,
+          "y_mm": 500,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
-          "box_id": "B041",
-          "x_mm": 1000,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B042",
-          "x_mm": 1500,
-          "y_mm": 0,
+          "box_id": "B049",
+          "x_mm": 2500,
+          "y_mm": 1000,
           "z_mm": 0,
           "rotation_xy": 0
         },
@@ -610,42 +603,49 @@
         },
         {
           "box_id": "B044",
-          "x_mm": 2500,
-          "y_mm": 0,
+          "x_mm": 2000,
+          "y_mm": 500,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
           "box_id": "B045",
-          "x_mm": 0,
-          "y_mm": 500,
+          "x_mm": 2000,
+          "y_mm": 1000,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
           "box_id": "B046",
-          "x_mm": 500,
-          "y_mm": 500,
+          "x_mm": 1500,
+          "y_mm": 0,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
-          "box_id": "B047",
-          "x_mm": 1000,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B048",
+          "box_id": "B039",
           "x_mm": 1500,
           "y_mm": 500,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
-          "box_id": "B049",
-          "x_mm": 2000,
+          "box_id": "B040",
+          "x_mm": 1500,
+          "y_mm": 1000,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B041",
+          "x_mm": 1000,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B042",
+          "x_mm": 1000,
           "y_mm": 500,
           "z_mm": 0,
           "rotation_xy": 0
@@ -655,42 +655,42 @@
         {
           "step": 1,
           "store_id": "S11",
-          "box_id": "B039"
+          "box_id": "B041"
         },
         {
           "step": 2,
           "store_id": "S11",
-          "box_id": "B040"
+          "box_id": "B042"
         },
         {
           "step": 3,
           "store_id": "S11",
-          "box_id": "B041"
+          "box_id": "B039"
         },
         {
           "step": 4,
           "store_id": "S11",
-          "box_id": "B042"
+          "box_id": "B040"
         },
         {
           "step": 5,
           "store_id": "S12",
-          "box_id": "B043"
+          "box_id": "B046"
         },
         {
           "step": 6,
           "store_id": "S12",
-          "box_id": "B044"
+          "box_id": "B043"
         },
         {
           "step": 7,
           "store_id": "S12",
-          "box_id": "B045"
+          "box_id": "B044"
         },
         {
           "step": 8,
           "store_id": "S12",
-          "box_id": "B046"
+          "box_id": "B045"
         },
         {
           "step": 9,
@@ -716,18 +716,39 @@
         "S15"
       ],
       "box_ids": [
-        "B050",
-        "B051",
-        "B052",
         "B053",
         "B054",
-        "B055"
+        "B055",
+        "B050",
+        "B051",
+        "B052"
       ],
       "placements": [
         {
-          "box_id": "B050",
-          "x_mm": 0,
+          "box_id": "B053",
+          "x_mm": 1500,
           "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B054",
+          "x_mm": 1500,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B055",
+          "x_mm": 1000,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B050",
+          "x_mm": 1000,
+          "y_mm": 500,
           "z_mm": 0,
           "rotation_xy": 0
         },
@@ -740,27 +761,6 @@
         },
         {
           "box_id": "B052",
-          "x_mm": 1000,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B053",
-          "x_mm": 1500,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B054",
-          "x_mm": 0,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B055",
           "x_mm": 500,
           "y_mm": 500,
           "z_mm": 0,
@@ -771,32 +771,32 @@
         {
           "step": 1,
           "store_id": "S14",
-          "box_id": "B050"
+          "box_id": "B051"
         },
         {
           "step": 2,
           "store_id": "S14",
-          "box_id": "B051"
+          "box_id": "B052"
         },
         {
           "step": 3,
           "store_id": "S14",
-          "box_id": "B052"
+          "box_id": "B050"
         },
         {
           "step": 4,
           "store_id": "S15",
-          "box_id": "B053"
+          "box_id": "B055"
         },
         {
           "step": 5,
           "store_id": "S15",
-          "box_id": "B054"
+          "box_id": "B053"
         },
         {
           "step": 6,
           "store_id": "S15",
-          "box_id": "B055"
+          "box_id": "B054"
         }
       ]
     },
@@ -808,95 +808,32 @@
         "S18"
       ],
       "box_ids": [
-        "B056",
-        "B057",
-        "B058",
-        "B059",
-        "B060",
-        "B061",
-        "B062",
-        "B063",
-        "B064",
         "B065",
         "B066",
         "B067",
         "B068",
-        "B069"
+        "B069",
+        "B061",
+        "B062",
+        "B063",
+        "B064",
+        "B056",
+        "B057",
+        "B058",
+        "B059",
+        "B060"
       ],
       "placements": [
         {
-          "box_id": "B056",
-          "x_mm": 0,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B057",
-          "x_mm": 500,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B058",
-          "x_mm": 1000,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B059",
-          "x_mm": 1500,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B060",
-          "x_mm": 2000,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B061",
+          "box_id": "B065",
           "x_mm": 2500,
           "y_mm": 0,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
-          "box_id": "B062",
-          "x_mm": 0,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B063",
-          "x_mm": 500,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B064",
-          "x_mm": 1000,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B065",
-          "x_mm": 1500,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
           "box_id": "B066",
-          "x_mm": 2000,
+          "x_mm": 2500,
           "y_mm": 500,
           "z_mm": 0,
           "rotation_xy": 0
@@ -904,21 +841,84 @@
         {
           "box_id": "B067",
           "x_mm": 2500,
-          "y_mm": 500,
+          "y_mm": 1000,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
           "box_id": "B068",
-          "x_mm": 0,
-          "y_mm": 1000,
+          "x_mm": 2000,
+          "y_mm": 0,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
           "box_id": "B069",
-          "x_mm": 500,
+          "x_mm": 2000,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B061",
+          "x_mm": 2000,
           "y_mm": 1000,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B062",
+          "x_mm": 1500,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B063",
+          "x_mm": 1500,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B064",
+          "x_mm": 1500,
+          "y_mm": 1000,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B056",
+          "x_mm": 1000,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B057",
+          "x_mm": 1000,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B058",
+          "x_mm": 1000,
+          "y_mm": 1000,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B059",
+          "x_mm": 500,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B060",
+          "x_mm": 500,
+          "y_mm": 500,
           "z_mm": 0,
           "rotation_xy": 0
         }
@@ -927,72 +927,72 @@
         {
           "step": 1,
           "store_id": "S17",
-          "box_id": "B056"
+          "box_id": "B059"
         },
         {
           "step": 2,
           "store_id": "S17",
-          "box_id": "B057"
+          "box_id": "B060"
         },
         {
           "step": 3,
           "store_id": "S17",
-          "box_id": "B058"
+          "box_id": "B056"
         },
         {
           "step": 4,
           "store_id": "S17",
-          "box_id": "B059"
+          "box_id": "B057"
         },
         {
           "step": 5,
           "store_id": "S17",
-          "box_id": "B060"
+          "box_id": "B058"
         },
         {
           "step": 6,
           "store_id": "S16",
-          "box_id": "B061"
+          "box_id": "B062"
         },
         {
           "step": 7,
           "store_id": "S16",
-          "box_id": "B062"
+          "box_id": "B063"
         },
         {
           "step": 8,
           "store_id": "S16",
-          "box_id": "B063"
+          "box_id": "B064"
         },
         {
           "step": 9,
           "store_id": "S16",
-          "box_id": "B064"
+          "box_id": "B061"
         },
         {
           "step": 10,
           "store_id": "S18",
-          "box_id": "B065"
+          "box_id": "B068"
         },
         {
           "step": 11,
           "store_id": "S18",
-          "box_id": "B066"
+          "box_id": "B069"
         },
         {
           "step": 12,
           "store_id": "S18",
-          "box_id": "B067"
+          "box_id": "B065"
         },
         {
           "step": 13,
           "store_id": "S18",
-          "box_id": "B068"
+          "box_id": "B066"
         },
         {
           "step": 14,
           "store_id": "S18",
-          "box_id": "B069"
+          "box_id": "B067"
         }
       ]
     },
@@ -1003,20 +1003,48 @@
         "S20"
       ],
       "box_ids": [
+        "B075",
+        "B076",
+        "B077",
+        "B078",
         "B070",
         "B071",
         "B072",
         "B073",
-        "B074",
-        "B075",
-        "B076",
-        "B077",
-        "B078"
+        "B074"
       ],
       "placements": [
         {
+          "box_id": "B075",
+          "x_mm": 1500,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B076",
+          "x_mm": 1500,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B077",
+          "x_mm": 1000,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B078",
+          "x_mm": 1000,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
           "box_id": "B070",
-          "x_mm": 0,
+          "x_mm": 500,
           "y_mm": 0,
           "z_mm": 0,
           "rotation_xy": 0
@@ -1024,55 +1052,27 @@
         {
           "box_id": "B071",
           "x_mm": 500,
-          "y_mm": 0,
+          "y_mm": 500,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
           "box_id": "B072",
-          "x_mm": 1000,
+          "x_mm": 0,
           "y_mm": 0,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
           "box_id": "B073",
-          "x_mm": 1500,
-          "y_mm": 0,
+          "x_mm": 0,
+          "y_mm": 500,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
           "box_id": "B074",
-          "x_mm": 0,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B075",
-          "x_mm": 500,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B076",
-          "x_mm": 1000,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B077",
           "x_mm": 1500,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B078",
-          "x_mm": 0,
           "y_mm": 0,
           "z_mm": 500,
           "rotation_xy": 0
@@ -1082,47 +1082,47 @@
         {
           "step": 1,
           "store_id": "S19",
-          "box_id": "B070"
+          "box_id": "B074"
         },
         {
           "step": 2,
           "store_id": "S19",
-          "box_id": "B071"
+          "box_id": "B072"
         },
         {
           "step": 3,
           "store_id": "S19",
-          "box_id": "B072"
+          "box_id": "B073"
         },
         {
           "step": 4,
           "store_id": "S19",
-          "box_id": "B073"
+          "box_id": "B070"
         },
         {
           "step": 5,
           "store_id": "S19",
-          "box_id": "B074"
+          "box_id": "B071"
         },
         {
           "step": 6,
           "store_id": "S20",
-          "box_id": "B075"
+          "box_id": "B077"
         },
         {
           "step": 7,
           "store_id": "S20",
-          "box_id": "B076"
+          "box_id": "B078"
         },
         {
           "step": 8,
           "store_id": "S20",
-          "box_id": "B077"
+          "box_id": "B075"
         },
         {
           "step": 9,
           "store_id": "S20",
-          "box_id": "B078"
+          "box_id": "B076"
         }
       ]
     },
@@ -1134,95 +1134,32 @@
         "S22"
       ],
       "box_ids": [
-        "B079",
-        "B080",
-        "B081",
-        "B082",
+        "B088",
+        "B089",
+        "B090",
+        "B091",
+        "B092",
         "B083",
         "B084",
         "B085",
         "B086",
         "B087",
-        "B088",
-        "B089",
-        "B090",
-        "B091",
-        "B092"
+        "B079",
+        "B080",
+        "B081",
+        "B082"
       ],
       "placements": [
         {
-          "box_id": "B079",
-          "x_mm": 0,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B080",
-          "x_mm": 500,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B081",
-          "x_mm": 1000,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B082",
-          "x_mm": 1500,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B083",
-          "x_mm": 2000,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B084",
+          "box_id": "B088",
           "x_mm": 2500,
           "y_mm": 0,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
-          "box_id": "B085",
-          "x_mm": 0,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B086",
-          "x_mm": 500,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B087",
-          "x_mm": 1000,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B088",
-          "x_mm": 1500,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
           "box_id": "B089",
-          "x_mm": 2000,
+          "x_mm": 2500,
           "y_mm": 500,
           "z_mm": 0,
           "rotation_xy": 0
@@ -1230,21 +1167,84 @@
         {
           "box_id": "B090",
           "x_mm": 2500,
-          "y_mm": 500,
+          "y_mm": 1000,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
           "box_id": "B091",
-          "x_mm": 0,
-          "y_mm": 1000,
+          "x_mm": 2000,
+          "y_mm": 0,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
           "box_id": "B092",
-          "x_mm": 500,
+          "x_mm": 2000,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B083",
+          "x_mm": 2000,
           "y_mm": 1000,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B084",
+          "x_mm": 1500,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B085",
+          "x_mm": 1500,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B086",
+          "x_mm": 1500,
+          "y_mm": 1000,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B087",
+          "x_mm": 1000,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B079",
+          "x_mm": 1000,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B080",
+          "x_mm": 1000,
+          "y_mm": 1000,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B081",
+          "x_mm": 500,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B082",
+          "x_mm": 500,
+          "y_mm": 500,
           "z_mm": 0,
           "rotation_xy": 0
         }
@@ -1253,27 +1253,27 @@
         {
           "step": 1,
           "store_id": "S21",
-          "box_id": "B079"
+          "box_id": "B081"
         },
         {
           "step": 2,
           "store_id": "S21",
-          "box_id": "B080"
+          "box_id": "B082"
         },
         {
           "step": 3,
           "store_id": "S21",
-          "box_id": "B081"
+          "box_id": "B079"
         },
         {
           "step": 4,
           "store_id": "S21",
-          "box_id": "B082"
+          "box_id": "B080"
         },
         {
           "step": 5,
           "store_id": "S23",
-          "box_id": "B083"
+          "box_id": "B087"
         },
         {
           "step": 6,
@@ -1293,32 +1293,32 @@
         {
           "step": 9,
           "store_id": "S23",
-          "box_id": "B087"
+          "box_id": "B083"
         },
         {
           "step": 10,
           "store_id": "S22",
-          "box_id": "B088"
+          "box_id": "B091"
         },
         {
           "step": 11,
           "store_id": "S22",
-          "box_id": "B089"
+          "box_id": "B092"
         },
         {
           "step": 12,
           "store_id": "S22",
-          "box_id": "B090"
+          "box_id": "B088"
         },
         {
           "step": 13,
           "store_id": "S22",
-          "box_id": "B091"
+          "box_id": "B089"
         },
         {
           "step": 14,
           "store_id": "S22",
-          "box_id": "B092"
+          "box_id": "B090"
         }
       ]
     },
@@ -1329,36 +1329,71 @@
         "S25"
       ],
       "box_ids": [
-        "B093",
-        "B094",
-        "B095",
-        "B096",
-        "B097",
         "B098",
         "B099",
         "B100",
         "B101",
-        "B102"
+        "B102",
+        "B093",
+        "B094",
+        "B095",
+        "B096",
+        "B097"
       ],
       "placements": [
         {
-          "box_id": "B093",
-          "x_mm": 0,
+          "box_id": "B098",
+          "x_mm": 1500,
           "y_mm": 0,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
-          "box_id": "B094",
+          "box_id": "B099",
+          "x_mm": 1500,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B100",
+          "x_mm": 1000,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B101",
+          "x_mm": 1000,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B102",
           "x_mm": 500,
           "y_mm": 0,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
-          "box_id": "B095",
-          "x_mm": 1000,
+          "box_id": "B093",
+          "x_mm": 500,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B094",
+          "x_mm": 0,
           "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B095",
+          "x_mm": 0,
+          "y_mm": 500,
           "z_mm": 0,
           "rotation_xy": 0
         },
@@ -1366,48 +1401,13 @@
           "box_id": "B096",
           "x_mm": 1500,
           "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B097",
-          "x_mm": 0,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B098",
-          "x_mm": 500,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B099",
-          "x_mm": 1000,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B100",
-          "x_mm": 1500,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B101",
-          "x_mm": 0,
-          "y_mm": 0,
           "z_mm": 500,
           "rotation_xy": 0
         },
         {
-          "box_id": "B102",
-          "x_mm": 500,
-          "y_mm": 0,
+          "box_id": "B097",
+          "x_mm": 1500,
+          "y_mm": 500,
           "z_mm": 500,
           "rotation_xy": 0
         }
@@ -1416,52 +1416,52 @@
         {
           "step": 1,
           "store_id": "S24",
-          "box_id": "B093"
+          "box_id": "B096"
         },
         {
           "step": 2,
           "store_id": "S24",
-          "box_id": "B094"
+          "box_id": "B097"
         },
         {
           "step": 3,
           "store_id": "S24",
-          "box_id": "B095"
+          "box_id": "B094"
         },
         {
           "step": 4,
           "store_id": "S24",
-          "box_id": "B096"
+          "box_id": "B095"
         },
         {
           "step": 5,
           "store_id": "S24",
-          "box_id": "B097"
+          "box_id": "B093"
         },
         {
           "step": 6,
           "store_id": "S25",
-          "box_id": "B098"
+          "box_id": "B102"
         },
         {
           "step": 7,
           "store_id": "S25",
-          "box_id": "B099"
+          "box_id": "B100"
         },
         {
           "step": 8,
           "store_id": "S25",
-          "box_id": "B100"
+          "box_id": "B101"
         },
         {
           "step": 9,
           "store_id": "S25",
-          "box_id": "B101"
+          "box_id": "B098"
         },
         {
           "step": 10,
           "store_id": "S25",
-          "box_id": "B102"
+          "box_id": "B099"
         }
       ]
     },
@@ -1473,101 +1473,101 @@
         "S26"
       ],
       "box_ids": [
-        "B103",
-        "B104",
-        "B105",
-        "B106",
-        "B107",
-        "B108",
-        "B109",
         "B110",
         "B111",
         "B112",
         "B113",
-        "B114"
+        "B114",
+        "B106",
+        "B107",
+        "B108",
+        "B109",
+        "B103",
+        "B104",
+        "B105"
       ],
       "placements": [
         {
-          "box_id": "B103",
-          "x_mm": 0,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B104",
-          "x_mm": 500,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B105",
-          "x_mm": 1000,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B106",
-          "x_mm": 1500,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B107",
-          "x_mm": 2000,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B108",
+          "box_id": "B110",
           "x_mm": 2500,
           "y_mm": 0,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
-          "box_id": "B109",
-          "x_mm": 0,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B110",
-          "x_mm": 500,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
           "box_id": "B111",
-          "x_mm": 1000,
+          "x_mm": 2500,
           "y_mm": 500,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
           "box_id": "B112",
-          "x_mm": 1500,
-          "y_mm": 500,
+          "x_mm": 2500,
+          "y_mm": 1000,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
           "box_id": "B113",
           "x_mm": 2000,
-          "y_mm": 500,
+          "y_mm": 0,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
           "box_id": "B114",
-          "x_mm": 2500,
+          "x_mm": 2000,
           "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B106",
+          "x_mm": 2000,
+          "y_mm": 1000,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B107",
+          "x_mm": 1500,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B108",
+          "x_mm": 1500,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B109",
+          "x_mm": 1500,
+          "y_mm": 1000,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B103",
+          "x_mm": 1000,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B104",
+          "x_mm": 1000,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B105",
+          "x_mm": 1000,
+          "y_mm": 1000,
           "z_mm": 0,
           "rotation_xy": 0
         }
@@ -1591,47 +1591,47 @@
         {
           "step": 4,
           "store_id": "S27",
-          "box_id": "B106"
+          "box_id": "B107"
         },
         {
           "step": 5,
           "store_id": "S27",
-          "box_id": "B107"
+          "box_id": "B108"
         },
         {
           "step": 6,
           "store_id": "S27",
-          "box_id": "B108"
+          "box_id": "B109"
         },
         {
           "step": 7,
           "store_id": "S27",
-          "box_id": "B109"
+          "box_id": "B106"
         },
         {
           "step": 8,
           "store_id": "S26",
-          "box_id": "B110"
+          "box_id": "B113"
         },
         {
           "step": 9,
           "store_id": "S26",
-          "box_id": "B111"
+          "box_id": "B114"
         },
         {
           "step": 10,
           "store_id": "S26",
-          "box_id": "B112"
+          "box_id": "B110"
         },
         {
           "step": 11,
           "store_id": "S26",
-          "box_id": "B113"
+          "box_id": "B111"
         },
         {
           "step": 12,
           "store_id": "S26",
-          "box_id": "B114"
+          "box_id": "B112"
         }
       ]
     },
@@ -1642,18 +1642,39 @@
         "S30"
       ],
       "box_ids": [
-        "B115",
-        "B116",
-        "B117",
         "B118",
         "B119",
-        "B120"
+        "B120",
+        "B115",
+        "B116",
+        "B117"
       ],
       "placements": [
         {
-          "box_id": "B115",
-          "x_mm": 0,
+          "box_id": "B118",
+          "x_mm": 1500,
           "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B119",
+          "x_mm": 1500,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B120",
+          "x_mm": 1000,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B115",
+          "x_mm": 1000,
+          "y_mm": 500,
           "z_mm": 0,
           "rotation_xy": 0
         },
@@ -1666,27 +1687,6 @@
         },
         {
           "box_id": "B117",
-          "x_mm": 1000,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B118",
-          "x_mm": 1500,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B119",
-          "x_mm": 0,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B120",
           "x_mm": 500,
           "y_mm": 500,
           "z_mm": 0,
@@ -1697,32 +1697,32 @@
         {
           "step": 1,
           "store_id": "S29",
-          "box_id": "B115"
+          "box_id": "B116"
         },
         {
           "step": 2,
           "store_id": "S29",
-          "box_id": "B116"
+          "box_id": "B117"
         },
         {
           "step": 3,
           "store_id": "S29",
-          "box_id": "B117"
+          "box_id": "B115"
         },
         {
           "step": 4,
           "store_id": "S30",
-          "box_id": "B118"
+          "box_id": "B120"
         },
         {
           "step": 5,
           "store_id": "S30",
-          "box_id": "B119"
+          "box_id": "B118"
         },
         {
           "step": 6,
           "store_id": "S30",
-          "box_id": "B120"
+          "box_id": "B119"
         }
       ]
     },
@@ -1734,109 +1734,109 @@
         "S31"
       ],
       "box_ids": [
-        "B121",
-        "B122",
-        "B123",
+        "B129",
+        "B130",
+        "B131",
+        "B132",
+        "B133",
         "B124",
         "B125",
         "B126",
         "B127",
         "B128",
-        "B129",
-        "B130",
-        "B131",
-        "B132",
-        "B133"
+        "B121",
+        "B122",
+        "B123"
       ],
       "placements": [
         {
-          "box_id": "B121",
-          "x_mm": 0,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B122",
-          "x_mm": 500,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B123",
-          "x_mm": 1000,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B124",
-          "x_mm": 1500,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B125",
-          "x_mm": 2000,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B126",
+          "box_id": "B129",
           "x_mm": 2500,
           "y_mm": 0,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
-          "box_id": "B127",
-          "x_mm": 0,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B128",
-          "x_mm": 500,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B129",
-          "x_mm": 1000,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
           "box_id": "B130",
-          "x_mm": 1500,
+          "x_mm": 2500,
           "y_mm": 500,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
           "box_id": "B131",
+          "x_mm": 2500,
+          "y_mm": 1000,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B132",
+          "x_mm": 2000,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B133",
           "x_mm": 2000,
           "y_mm": 500,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
-          "box_id": "B132",
-          "x_mm": 2500,
+          "box_id": "B124",
+          "x_mm": 2000,
+          "y_mm": 1000,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B125",
+          "x_mm": 1500,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B126",
+          "x_mm": 1500,
           "y_mm": 500,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
-          "box_id": "B133",
-          "x_mm": 0,
+          "box_id": "B127",
+          "x_mm": 1500,
           "y_mm": 1000,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B128",
+          "x_mm": 1000,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B121",
+          "x_mm": 1000,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B122",
+          "x_mm": 1000,
+          "y_mm": 1000,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B123",
+          "x_mm": 500,
+          "y_mm": 0,
           "z_mm": 0,
           "rotation_xy": 0
         }
@@ -1845,22 +1845,22 @@
         {
           "step": 1,
           "store_id": "S32",
-          "box_id": "B121"
+          "box_id": "B123"
         },
         {
           "step": 2,
           "store_id": "S32",
-          "box_id": "B122"
+          "box_id": "B121"
         },
         {
           "step": 3,
           "store_id": "S32",
-          "box_id": "B123"
+          "box_id": "B122"
         },
         {
           "step": 4,
           "store_id": "S33",
-          "box_id": "B124"
+          "box_id": "B128"
         },
         {
           "step": 5,
@@ -1880,32 +1880,32 @@
         {
           "step": 8,
           "store_id": "S33",
-          "box_id": "B128"
+          "box_id": "B124"
         },
         {
           "step": 9,
           "store_id": "S31",
-          "box_id": "B129"
+          "box_id": "B132"
         },
         {
           "step": 10,
           "store_id": "S31",
-          "box_id": "B130"
+          "box_id": "B133"
         },
         {
           "step": 11,
           "store_id": "S31",
-          "box_id": "B131"
+          "box_id": "B129"
         },
         {
           "step": 12,
           "store_id": "S31",
-          "box_id": "B132"
+          "box_id": "B130"
         },
         {
           "step": 13,
           "store_id": "S31",
-          "box_id": "B133"
+          "box_id": "B131"
         }
       ]
     },
@@ -1916,19 +1916,40 @@
         "S34"
       ],
       "box_ids": [
+        "B138",
+        "B139",
+        "B140",
         "B134",
         "B135",
         "B136",
-        "B137",
-        "B138",
-        "B139",
-        "B140"
+        "B137"
       ],
       "placements": [
         {
-          "box_id": "B134",
-          "x_mm": 0,
+          "box_id": "B138",
+          "x_mm": 1500,
           "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B139",
+          "x_mm": 1500,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B140",
+          "x_mm": 1000,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B134",
+          "x_mm": 1000,
+          "y_mm": 500,
           "z_mm": 0,
           "rotation_xy": 0
         },
@@ -1941,36 +1962,15 @@
         },
         {
           "box_id": "B136",
-          "x_mm": 1000,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B137",
-          "x_mm": 1500,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B138",
-          "x_mm": 0,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B139",
           "x_mm": 500,
           "y_mm": 500,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
-          "box_id": "B140",
-          "x_mm": 1000,
-          "y_mm": 500,
+          "box_id": "B137",
+          "x_mm": 0,
+          "y_mm": 0,
           "z_mm": 0,
           "rotation_xy": 0
         }
@@ -1979,7 +1979,7 @@
         {
           "step": 1,
           "store_id": "S35",
-          "box_id": "B134"
+          "box_id": "B137"
         },
         {
           "step": 2,
@@ -1994,22 +1994,22 @@
         {
           "step": 4,
           "store_id": "S35",
-          "box_id": "B137"
+          "box_id": "B134"
         },
         {
           "step": 5,
           "store_id": "S34",
-          "box_id": "B138"
+          "box_id": "B140"
         },
         {
           "step": 6,
           "store_id": "S34",
-          "box_id": "B139"
+          "box_id": "B138"
         },
         {
           "step": 7,
           "store_id": "S34",
-          "box_id": "B140"
+          "box_id": "B139"
         }
       ]
     },
@@ -2021,30 +2021,86 @@
         "S38"
       ],
       "box_ids": [
-        "B141",
-        "B142",
-        "B143",
-        "B144",
-        "B145",
-        "B146",
-        "B147",
         "B148",
         "B149",
         "B150",
         "B151",
-        "B152"
+        "B152",
+        "B145",
+        "B146",
+        "B147",
+        "B141",
+        "B142",
+        "B143",
+        "B144"
       ],
       "placements": [
         {
-          "box_id": "B141",
-          "x_mm": 0,
+          "box_id": "B148",
+          "x_mm": 2500,
           "y_mm": 0,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
+          "box_id": "B149",
+          "x_mm": 2500,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B150",
+          "x_mm": 2500,
+          "y_mm": 1000,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B151",
+          "x_mm": 2000,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B152",
+          "x_mm": 2000,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B145",
+          "x_mm": 2000,
+          "y_mm": 1000,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B146",
+          "x_mm": 1500,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B147",
+          "x_mm": 1500,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B141",
+          "x_mm": 1500,
+          "y_mm": 1000,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
           "box_id": "B142",
-          "x_mm": 500,
+          "x_mm": 1000,
           "y_mm": 0,
           "z_mm": 0,
           "rotation_xy": 0
@@ -2052,70 +2108,14 @@
         {
           "box_id": "B143",
           "x_mm": 1000,
-          "y_mm": 0,
+          "y_mm": 500,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
           "box_id": "B144",
-          "x_mm": 1500,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B145",
-          "x_mm": 2000,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B146",
-          "x_mm": 2500,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B147",
-          "x_mm": 0,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B148",
-          "x_mm": 500,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B149",
           "x_mm": 1000,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B150",
-          "x_mm": 1500,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B151",
-          "x_mm": 2000,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B152",
-          "x_mm": 2500,
-          "y_mm": 500,
+          "y_mm": 1000,
           "z_mm": 0,
           "rotation_xy": 0
         }
@@ -2124,62 +2124,62 @@
         {
           "step": 1,
           "store_id": "S36",
-          "box_id": "B141"
+          "box_id": "B142"
         },
         {
           "step": 2,
           "store_id": "S36",
-          "box_id": "B142"
+          "box_id": "B143"
         },
         {
           "step": 3,
           "store_id": "S36",
-          "box_id": "B143"
+          "box_id": "B144"
         },
         {
           "step": 4,
           "store_id": "S36",
-          "box_id": "B144"
+          "box_id": "B141"
         },
         {
           "step": 5,
           "store_id": "S37",
-          "box_id": "B145"
+          "box_id": "B146"
         },
         {
           "step": 6,
           "store_id": "S37",
-          "box_id": "B146"
+          "box_id": "B147"
         },
         {
           "step": 7,
           "store_id": "S37",
-          "box_id": "B147"
+          "box_id": "B145"
         },
         {
           "step": 8,
           "store_id": "S38",
-          "box_id": "B148"
+          "box_id": "B151"
         },
         {
           "step": 9,
           "store_id": "S38",
-          "box_id": "B149"
+          "box_id": "B152"
         },
         {
           "step": 10,
           "store_id": "S38",
-          "box_id": "B150"
+          "box_id": "B148"
         },
         {
           "step": 11,
           "store_id": "S38",
-          "box_id": "B151"
+          "box_id": "B149"
         },
         {
           "step": 12,
           "store_id": "S38",
-          "box_id": "B152"
+          "box_id": "B150"
         }
       ]
     },
@@ -2190,37 +2190,16 @@
         "S39"
       ],
       "box_ids": [
-        "B153",
-        "B154",
-        "B155",
         "B156",
         "B157",
         "B158",
         "B159",
-        "B160"
+        "B160",
+        "B153",
+        "B154",
+        "B155"
       ],
       "placements": [
-        {
-          "box_id": "B153",
-          "x_mm": 0,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B154",
-          "x_mm": 500,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B155",
-          "x_mm": 1000,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
         {
           "box_id": "B156",
           "x_mm": 1500,
@@ -2230,15 +2209,15 @@
         },
         {
           "box_id": "B157",
-          "x_mm": 0,
+          "x_mm": 1500,
           "y_mm": 500,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
           "box_id": "B158",
-          "x_mm": 500,
-          "y_mm": 500,
+          "x_mm": 1000,
+          "y_mm": 0,
           "z_mm": 0,
           "rotation_xy": 0
         },
@@ -2251,7 +2230,28 @@
         },
         {
           "box_id": "B160",
-          "x_mm": 1500,
+          "x_mm": 500,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B153",
+          "x_mm": 500,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B154",
+          "x_mm": 0,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B155",
+          "x_mm": 0,
           "y_mm": 500,
           "z_mm": 0,
           "rotation_xy": 0
@@ -2261,42 +2261,42 @@
         {
           "step": 1,
           "store_id": "S40",
-          "box_id": "B153"
+          "box_id": "B154"
         },
         {
           "step": 2,
           "store_id": "S40",
-          "box_id": "B154"
+          "box_id": "B155"
         },
         {
           "step": 3,
           "store_id": "S40",
-          "box_id": "B155"
+          "box_id": "B153"
         },
         {
           "step": 4,
           "store_id": "S39",
-          "box_id": "B156"
+          "box_id": "B160"
         },
         {
           "step": 5,
           "store_id": "S39",
-          "box_id": "B157"
+          "box_id": "B158"
         },
         {
           "step": 6,
           "store_id": "S39",
-          "box_id": "B158"
+          "box_id": "B159"
         },
         {
           "step": 7,
           "store_id": "S39",
-          "box_id": "B159"
+          "box_id": "B156"
         },
         {
           "step": 8,
           "store_id": "S39",
-          "box_id": "B160"
+          "box_id": "B157"
         }
       ]
     },
@@ -2308,43 +2308,43 @@
         "S43"
       ],
       "box_ids": [
-        "B161",
-        "B162",
-        "B163",
+        "B169",
+        "B170",
+        "B171",
         "B164",
         "B165",
         "B166",
         "B167",
         "B168",
-        "B169",
-        "B170",
-        "B171"
+        "B161",
+        "B162",
+        "B163"
       ],
       "placements": [
         {
-          "box_id": "B161",
-          "x_mm": 0,
+          "box_id": "B169",
+          "x_mm": 2500,
           "y_mm": 0,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
-          "box_id": "B162",
-          "x_mm": 500,
-          "y_mm": 0,
+          "box_id": "B170",
+          "x_mm": 2500,
+          "y_mm": 500,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
-          "box_id": "B163",
-          "x_mm": 1000,
-          "y_mm": 0,
+          "box_id": "B171",
+          "x_mm": 2500,
+          "y_mm": 1000,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
           "box_id": "B164",
-          "x_mm": 1500,
+          "x_mm": 2000,
           "y_mm": 0,
           "z_mm": 0,
           "rotation_xy": 0
@@ -2352,48 +2352,48 @@
         {
           "box_id": "B165",
           "x_mm": 2000,
-          "y_mm": 0,
+          "y_mm": 500,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
           "box_id": "B166",
-          "x_mm": 2500,
-          "y_mm": 0,
+          "x_mm": 2000,
+          "y_mm": 1000,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
           "box_id": "B167",
-          "x_mm": 0,
-          "y_mm": 500,
+          "x_mm": 1500,
+          "y_mm": 0,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
           "box_id": "B168",
-          "x_mm": 500,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B169",
-          "x_mm": 1000,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B170",
           "x_mm": 1500,
           "y_mm": 500,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
-          "box_id": "B171",
-          "x_mm": 2000,
+          "box_id": "B161",
+          "x_mm": 1500,
+          "y_mm": 1000,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B162",
+          "x_mm": 1000,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B163",
+          "x_mm": 1000,
           "y_mm": 500,
           "z_mm": 0,
           "rotation_xy": 0
@@ -2403,42 +2403,42 @@
         {
           "step": 1,
           "store_id": "S42",
-          "box_id": "B161"
+          "box_id": "B162"
         },
         {
           "step": 2,
           "store_id": "S42",
-          "box_id": "B162"
+          "box_id": "B163"
         },
         {
           "step": 3,
           "store_id": "S42",
-          "box_id": "B163"
+          "box_id": "B161"
         },
         {
           "step": 4,
           "store_id": "S41",
-          "box_id": "B164"
+          "box_id": "B167"
         },
         {
           "step": 5,
           "store_id": "S41",
-          "box_id": "B165"
+          "box_id": "B168"
         },
         {
           "step": 6,
           "store_id": "S41",
-          "box_id": "B166"
+          "box_id": "B164"
         },
         {
           "step": 7,
           "store_id": "S41",
-          "box_id": "B167"
+          "box_id": "B165"
         },
         {
           "step": 8,
           "store_id": "S41",
-          "box_id": "B168"
+          "box_id": "B166"
         },
         {
           "step": 9,
@@ -2464,20 +2464,41 @@
         "S44"
       ],
       "box_ids": [
+        "B177",
+        "B178",
+        "B179",
         "B172",
         "B173",
         "B174",
         "B175",
-        "B176",
-        "B177",
-        "B178",
-        "B179"
+        "B176"
       ],
       "placements": [
         {
-          "box_id": "B172",
-          "x_mm": 0,
+          "box_id": "B177",
+          "x_mm": 1500,
           "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B178",
+          "x_mm": 1500,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B179",
+          "x_mm": 1000,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B172",
+          "x_mm": 1000,
+          "y_mm": 500,
           "z_mm": 0,
           "rotation_xy": 0
         },
@@ -2490,14 +2511,14 @@
         },
         {
           "box_id": "B174",
-          "x_mm": 1000,
-          "y_mm": 0,
+          "x_mm": 500,
+          "y_mm": 500,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
           "box_id": "B175",
-          "x_mm": 1500,
+          "x_mm": 0,
           "y_mm": 0,
           "z_mm": 0,
           "rotation_xy": 0
@@ -2508,69 +2529,48 @@
           "y_mm": 500,
           "z_mm": 0,
           "rotation_xy": 0
-        },
-        {
-          "box_id": "B177",
-          "x_mm": 500,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B178",
-          "x_mm": 1000,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B179",
-          "x_mm": 1500,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
         }
       ],
       "unload_steps": [
         {
           "step": 1,
           "store_id": "S45",
-          "box_id": "B172"
+          "box_id": "B175"
         },
         {
           "step": 2,
           "store_id": "S45",
-          "box_id": "B173"
+          "box_id": "B176"
         },
         {
           "step": 3,
           "store_id": "S45",
-          "box_id": "B174"
+          "box_id": "B173"
         },
         {
           "step": 4,
           "store_id": "S45",
-          "box_id": "B175"
+          "box_id": "B174"
         },
         {
           "step": 5,
           "store_id": "S45",
-          "box_id": "B176"
+          "box_id": "B172"
         },
         {
           "step": 6,
           "store_id": "S44",
-          "box_id": "B177"
+          "box_id": "B179"
         },
         {
           "step": 7,
           "store_id": "S44",
-          "box_id": "B178"
+          "box_id": "B177"
         },
         {
           "step": 8,
           "store_id": "S44",
-          "box_id": "B179"
+          "box_id": "B178"
         }
       ]
     },
@@ -2582,41 +2582,41 @@
         "S46"
       ],
       "box_ids": [
-        "B180",
-        "B181",
-        "B182",
+        "B186",
+        "B187",
+        "B188",
         "B183",
         "B184",
         "B185",
-        "B186",
-        "B187",
-        "B188"
+        "B180",
+        "B181",
+        "B182"
       ],
       "placements": [
         {
-          "box_id": "B180",
-          "x_mm": 0,
+          "box_id": "B186",
+          "x_mm": 2500,
           "y_mm": 0,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
-          "box_id": "B181",
-          "x_mm": 500,
-          "y_mm": 0,
+          "box_id": "B187",
+          "x_mm": 2500,
+          "y_mm": 500,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
-          "box_id": "B182",
-          "x_mm": 1000,
-          "y_mm": 0,
+          "box_id": "B188",
+          "x_mm": 2500,
+          "y_mm": 1000,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
           "box_id": "B183",
-          "x_mm": 1500,
+          "x_mm": 2000,
           "y_mm": 0,
           "z_mm": 0,
           "rotation_xy": 0
@@ -2624,35 +2624,35 @@
         {
           "box_id": "B184",
           "x_mm": 2000,
-          "y_mm": 0,
+          "y_mm": 500,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
           "box_id": "B185",
-          "x_mm": 2500,
+          "x_mm": 2000,
+          "y_mm": 1000,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B180",
+          "x_mm": 1500,
           "y_mm": 0,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
-          "box_id": "B186",
-          "x_mm": 0,
+          "box_id": "B181",
+          "x_mm": 1500,
           "y_mm": 500,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
-          "box_id": "B187",
-          "x_mm": 500,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B188",
-          "x_mm": 1000,
-          "y_mm": 500,
+          "box_id": "B182",
+          "x_mm": 1500,
+          "y_mm": 1000,
           "z_mm": 0,
           "rotation_xy": 0
         }
@@ -2712,36 +2712,15 @@
         "S50"
       ],
       "box_ids": [
-        "B189",
-        "B190",
-        "B191",
         "B192",
         "B193",
         "B194",
-        "B195"
+        "B195",
+        "B189",
+        "B190",
+        "B191"
       ],
       "placements": [
-        {
-          "box_id": "B189",
-          "x_mm": 0,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B190",
-          "x_mm": 500,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B191",
-          "x_mm": 1000,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
         {
           "box_id": "B192",
           "x_mm": 1500,
@@ -2751,15 +2730,15 @@
         },
         {
           "box_id": "B193",
-          "x_mm": 0,
+          "x_mm": 1500,
           "y_mm": 500,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
           "box_id": "B194",
-          "x_mm": 500,
-          "y_mm": 500,
+          "x_mm": 1000,
+          "y_mm": 0,
           "z_mm": 0,
           "rotation_xy": 0
         },
@@ -2769,43 +2748,64 @@
           "y_mm": 500,
           "z_mm": 0,
           "rotation_xy": 0
+        },
+        {
+          "box_id": "B189",
+          "x_mm": 500,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B190",
+          "x_mm": 500,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B191",
+          "x_mm": 0,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
         }
       ],
       "unload_steps": [
         {
           "step": 1,
           "store_id": "S49",
-          "box_id": "B189"
+          "box_id": "B191"
         },
         {
           "step": 2,
           "store_id": "S49",
-          "box_id": "B190"
+          "box_id": "B189"
         },
         {
           "step": 3,
           "store_id": "S49",
-          "box_id": "B191"
+          "box_id": "B190"
         },
         {
           "step": 4,
           "store_id": "S50",
-          "box_id": "B192"
+          "box_id": "B194"
         },
         {
           "step": 5,
           "store_id": "S50",
-          "box_id": "B193"
+          "box_id": "B195"
         },
         {
           "step": 6,
           "store_id": "S50",
-          "box_id": "B194"
+          "box_id": "B192"
         },
         {
           "step": 7,
           "store_id": "S50",
-          "box_id": "B195"
+          "box_id": "B193"
         }
       ]
     },
@@ -2817,31 +2817,87 @@
         "S52"
       ],
       "box_ids": [
-        "B196",
-        "B197",
-        "B198",
-        "B199",
-        "B200",
-        "B201",
-        "B202",
-        "B203",
         "B204",
         "B205",
         "B206",
         "B207",
-        "B208"
+        "B208",
+        "B201",
+        "B202",
+        "B203",
+        "B196",
+        "B197",
+        "B198",
+        "B199",
+        "B200"
       ],
       "placements": [
         {
-          "box_id": "B196",
-          "x_mm": 0,
+          "box_id": "B204",
+          "x_mm": 2500,
           "y_mm": 0,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
+          "box_id": "B205",
+          "x_mm": 2500,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B206",
+          "x_mm": 2500,
+          "y_mm": 1000,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B207",
+          "x_mm": 2000,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B208",
+          "x_mm": 2000,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B201",
+          "x_mm": 2000,
+          "y_mm": 1000,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B202",
+          "x_mm": 1500,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B203",
+          "x_mm": 1500,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B196",
+          "x_mm": 1500,
+          "y_mm": 1000,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
           "box_id": "B197",
-          "x_mm": 500,
+          "x_mm": 1000,
           "y_mm": 0,
           "z_mm": 0,
           "rotation_xy": 0
@@ -2849,77 +2905,21 @@
         {
           "box_id": "B198",
           "x_mm": 1000,
-          "y_mm": 0,
+          "y_mm": 500,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
           "box_id": "B199",
-          "x_mm": 1500,
-          "y_mm": 0,
+          "x_mm": 1000,
+          "y_mm": 1000,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
           "box_id": "B200",
-          "x_mm": 2000,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B201",
-          "x_mm": 2500,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B202",
-          "x_mm": 0,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B203",
           "x_mm": 500,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B204",
-          "x_mm": 1000,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B205",
-          "x_mm": 1500,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B206",
-          "x_mm": 2000,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B207",
-          "x_mm": 2500,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B208",
-          "x_mm": 0,
-          "y_mm": 1000,
+          "y_mm": 0,
           "z_mm": 0,
           "rotation_xy": 0
         }
@@ -2928,7 +2928,7 @@
         {
           "step": 1,
           "store_id": "S51",
-          "box_id": "B196"
+          "box_id": "B200"
         },
         {
           "step": 2,
@@ -2948,47 +2948,47 @@
         {
           "step": 5,
           "store_id": "S51",
-          "box_id": "B200"
+          "box_id": "B196"
         },
         {
           "step": 6,
           "store_id": "S53",
-          "box_id": "B201"
+          "box_id": "B202"
         },
         {
           "step": 7,
           "store_id": "S53",
-          "box_id": "B202"
+          "box_id": "B203"
         },
         {
           "step": 8,
           "store_id": "S53",
-          "box_id": "B203"
+          "box_id": "B201"
         },
         {
           "step": 9,
           "store_id": "S52",
-          "box_id": "B204"
+          "box_id": "B207"
         },
         {
           "step": 10,
           "store_id": "S52",
-          "box_id": "B205"
+          "box_id": "B208"
         },
         {
           "step": 11,
           "store_id": "S52",
-          "box_id": "B206"
+          "box_id": "B204"
         },
         {
           "step": 12,
           "store_id": "S52",
-          "box_id": "B207"
+          "box_id": "B205"
         },
         {
           "step": 13,
           "store_id": "S52",
-          "box_id": "B208"
+          "box_id": "B206"
         }
       ]
     },
@@ -2999,55 +2999,27 @@
         "S54"
       ],
       "box_ids": [
-        "B209",
-        "B210",
-        "B211",
-        "B212",
         "B213",
         "B214",
         "B215",
         "B216",
-        "B217"
+        "B217",
+        "B209",
+        "B210",
+        "B211",
+        "B212"
       ],
       "placements": [
         {
-          "box_id": "B209",
-          "x_mm": 0,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B210",
-          "x_mm": 500,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B211",
-          "x_mm": 1000,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B212",
+          "box_id": "B213",
           "x_mm": 1500,
           "y_mm": 0,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
-          "box_id": "B213",
-          "x_mm": 0,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
           "box_id": "B214",
-          "x_mm": 500,
+          "x_mm": 1500,
           "y_mm": 500,
           "z_mm": 0,
           "rotation_xy": 0
@@ -3055,20 +3027,48 @@
         {
           "box_id": "B215",
           "x_mm": 1000,
-          "y_mm": 500,
+          "y_mm": 0,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
           "box_id": "B216",
-          "x_mm": 1500,
+          "x_mm": 1000,
           "y_mm": 500,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
           "box_id": "B217",
+          "x_mm": 500,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B209",
+          "x_mm": 500,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B210",
           "x_mm": 0,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B211",
+          "x_mm": 0,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B212",
+          "x_mm": 1500,
           "y_mm": 0,
           "z_mm": 500,
           "rotation_xy": 0
@@ -3078,7 +3078,7 @@
         {
           "step": 1,
           "store_id": "S55",
-          "box_id": "B209"
+          "box_id": "B212"
         },
         {
           "step": 2,
@@ -3093,32 +3093,32 @@
         {
           "step": 4,
           "store_id": "S55",
-          "box_id": "B212"
+          "box_id": "B209"
         },
         {
           "step": 5,
           "store_id": "S54",
-          "box_id": "B213"
+          "box_id": "B217"
         },
         {
           "step": 6,
           "store_id": "S54",
-          "box_id": "B214"
+          "box_id": "B215"
         },
         {
           "step": 7,
           "store_id": "S54",
-          "box_id": "B215"
+          "box_id": "B216"
         },
         {
           "step": 8,
           "store_id": "S54",
-          "box_id": "B216"
+          "box_id": "B213"
         },
         {
           "step": 9,
           "store_id": "S54",
-          "box_id": "B217"
+          "box_id": "B214"
         }
       ]
     },
@@ -3130,44 +3130,37 @@
         "S57"
       ],
       "box_ids": [
-        "B218",
-        "B219",
-        "B220",
-        "B221",
+        "B226",
+        "B227",
+        "B228",
         "B222",
         "B223",
         "B224",
         "B225",
-        "B226",
-        "B227",
-        "B228"
+        "B218",
+        "B219",
+        "B220",
+        "B221"
       ],
       "placements": [
         {
-          "box_id": "B218",
-          "x_mm": 0,
+          "box_id": "B226",
+          "x_mm": 2500,
           "y_mm": 0,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
-          "box_id": "B219",
-          "x_mm": 500,
-          "y_mm": 0,
+          "box_id": "B227",
+          "x_mm": 2500,
+          "y_mm": 500,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
-          "box_id": "B220",
-          "x_mm": 1000,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B221",
-          "x_mm": 1500,
-          "y_mm": 0,
+          "box_id": "B228",
+          "x_mm": 2500,
+          "y_mm": 1000,
           "z_mm": 0,
           "rotation_xy": 0
         },
@@ -3180,42 +3173,49 @@
         },
         {
           "box_id": "B223",
-          "x_mm": 2500,
-          "y_mm": 0,
+          "x_mm": 2000,
+          "y_mm": 500,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
           "box_id": "B224",
-          "x_mm": 0,
-          "y_mm": 500,
+          "x_mm": 2000,
+          "y_mm": 1000,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
           "box_id": "B225",
-          "x_mm": 500,
-          "y_mm": 500,
+          "x_mm": 1500,
+          "y_mm": 0,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
-          "box_id": "B226",
-          "x_mm": 1000,
-          "y_mm": 500,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B227",
+          "box_id": "B218",
           "x_mm": 1500,
           "y_mm": 500,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
-          "box_id": "B228",
-          "x_mm": 2000,
+          "box_id": "B219",
+          "x_mm": 1500,
+          "y_mm": 1000,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B220",
+          "x_mm": 1000,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B221",
+          "x_mm": 1000,
           "y_mm": 500,
           "z_mm": 0,
           "rotation_xy": 0
@@ -3225,42 +3225,42 @@
         {
           "step": 1,
           "store_id": "S58",
-          "box_id": "B218"
+          "box_id": "B220"
         },
         {
           "step": 2,
           "store_id": "S58",
-          "box_id": "B219"
+          "box_id": "B221"
         },
         {
           "step": 3,
           "store_id": "S58",
-          "box_id": "B220"
+          "box_id": "B218"
         },
         {
           "step": 4,
           "store_id": "S58",
-          "box_id": "B221"
+          "box_id": "B219"
         },
         {
           "step": 5,
           "store_id": "S56",
-          "box_id": "B222"
+          "box_id": "B225"
         },
         {
           "step": 6,
           "store_id": "S56",
-          "box_id": "B223"
+          "box_id": "B222"
         },
         {
           "step": 7,
           "store_id": "S56",
-          "box_id": "B224"
+          "box_id": "B223"
         },
         {
           "step": 8,
           "store_id": "S56",
-          "box_id": "B225"
+          "box_id": "B224"
         },
         {
           "step": 9,
@@ -3286,37 +3286,16 @@
         "S59"
       ],
       "box_ids": [
-        "B229",
-        "B230",
-        "B231",
         "B232",
         "B233",
         "B234",
         "B235",
-        "B236"
+        "B236",
+        "B229",
+        "B230",
+        "B231"
       ],
       "placements": [
-        {
-          "box_id": "B229",
-          "x_mm": 0,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B230",
-          "x_mm": 500,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
-        {
-          "box_id": "B231",
-          "x_mm": 1000,
-          "y_mm": 0,
-          "z_mm": 0,
-          "rotation_xy": 0
-        },
         {
           "box_id": "B232",
           "x_mm": 1500,
@@ -3326,15 +3305,15 @@
         },
         {
           "box_id": "B233",
-          "x_mm": 0,
+          "x_mm": 1500,
           "y_mm": 500,
           "z_mm": 0,
           "rotation_xy": 0
         },
         {
           "box_id": "B234",
-          "x_mm": 500,
-          "y_mm": 500,
+          "x_mm": 1000,
+          "y_mm": 0,
           "z_mm": 0,
           "rotation_xy": 0
         },
@@ -3347,7 +3326,28 @@
         },
         {
           "box_id": "B236",
-          "x_mm": 1500,
+          "x_mm": 500,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B229",
+          "x_mm": 500,
+          "y_mm": 500,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B230",
+          "x_mm": 0,
+          "y_mm": 0,
+          "z_mm": 0,
+          "rotation_xy": 0
+        },
+        {
+          "box_id": "B231",
+          "x_mm": 0,
           "y_mm": 500,
           "z_mm": 0,
           "rotation_xy": 0
@@ -3357,42 +3357,42 @@
         {
           "step": 1,
           "store_id": "S60",
-          "box_id": "B229"
+          "box_id": "B230"
         },
         {
           "step": 2,
           "store_id": "S60",
-          "box_id": "B230"
+          "box_id": "B231"
         },
         {
           "step": 3,
           "store_id": "S60",
-          "box_id": "B231"
+          "box_id": "B229"
         },
         {
           "step": 4,
           "store_id": "S59",
-          "box_id": "B232"
+          "box_id": "B236"
         },
         {
           "step": 5,
           "store_id": "S59",
-          "box_id": "B233"
+          "box_id": "B234"
         },
         {
           "step": 6,
           "store_id": "S59",
-          "box_id": "B234"
+          "box_id": "B235"
         },
         {
           "step": 7,
           "store_id": "S59",
-          "box_id": "B235"
+          "box_id": "B232"
         },
         {
           "step": 8,
           "store_id": "S59",
-          "box_id": "B236"
+          "box_id": "B233"
         }
       ]
     }

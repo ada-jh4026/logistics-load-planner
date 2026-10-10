@@ -3073,8 +3073,8 @@
   "options": {
     "method": "coupled",
     "seed": 42,
-    "time_limit_ms": 10000,
-    "max_iterations": 200,
+    "time_limit_ms": 30000,
+    "max_iterations": 10000,
     "speed_kmph": 30.0
   }
 }

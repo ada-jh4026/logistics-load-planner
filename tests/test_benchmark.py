@@ -7,12 +7,13 @@ import pytest
 from scripts.benchmark import cost_improvement, run_benchmark
 
 
-def test_run_benchmark_small(tmp_path):
-    summary = run_benchmark("small", tmp_path)
+def test_run_benchmark_small():
+    out = Path("artifacts/benchmarks/test_tmp")
+    summary = run_benchmark("small", out)
     # small 3 seed × 3 method = 9 runs
     assert summary["total_runs"] == 9
-    assert (tmp_path / "runs.json").is_file()
-    assert (tmp_path / "summary.json").is_file()
+    assert (out / "runs.json").is_file()
+    assert (out / "summary.json").is_file()
 
 
 def test_cost_improvement_comparable():

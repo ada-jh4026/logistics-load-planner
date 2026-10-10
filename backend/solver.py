@@ -125,7 +125,10 @@ def _try_relocate(request: SolveRequest, sid: str,
                   routes_by_vehicle: dict[str, list[str]],
                   unassigned_stores: set[str], budget: Budget,
                   ) -> tuple[dict, set] | None:
-    """尝试把 sid 移到其他车，返回首个可行 (new_routes, new_unassigned)。"""
+    """尝试把 sid 移到其他车，返回首个可行 (new_routes, new_unassigned)。
+
+    仅重新 pack 受影响的车（源车 + 目标车），避免全量 pack 耗尽预算。
+    """
     current = [(vid, list(sids)) for vid, sids in routes_by_vehicle.items()
                if sids]
     cands = relocation_candidates(request, sid, current)
@@ -142,13 +145,16 @@ def _try_relocate(request: SolveRequest, sid: str,
         new_routes[target_vid] = new_target_ids
         new_routes = {vid: sids for vid, sids in new_routes.items() if sids}
 
-        # 重新评估整个分配（pack 所有车），全部可行则接受
-        new_unassigned = set(unassigned_stores) - {sid}
-        result, _ = _evaluate(request, new_routes, new_unassigned, budget)
-        # 若该店被成功服务（不在 unassigned 中）则接受
-        served = {s for r in result.routes for s in r.store_ids}
-        if sid in served:
-            return new_routes, new_unassigned
+        # 仅重新 pack 受影响的车（源车移除后、目标车加入后）
+        ok = True
+        for vid in {source_vid, target_vid}:
+            if vid is not None and vid in new_routes:
+                pack = pack_route(request, vid, new_routes[vid], budget)
+                if not pack.success:
+                    ok = False
+                    break
+        if ok:
+            return new_routes, set(unassigned_stores) - {sid}
 
     return None
 

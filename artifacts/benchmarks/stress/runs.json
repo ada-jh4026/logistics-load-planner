@@ -1,0 +1,71 @@
+[
+  {
+    "case_id": "stress-44",
+    "method": "greedy",
+    "data_hash": "a589ed3ae2b1c8af",
+    "valid": true,
+    "violations": [],
+    "elapsed_ms": 140.00000001396984,
+    "termination_reason": "completed",
+    "metrics": {
+      "total_stores": 60,
+      "served_stores": 60,
+      "total_boxes": 236,
+      "served_boxes": 236,
+      "completion_rate": 1.0,
+      "used_vehicles": 13,
+      "total_distance_km": 1635.0883007170232,
+      "total_cost": 4620.1766014340465,
+      "on_time_rate": 1.0,
+      "volume_utilization": 0.5388127853881278,
+      "weight_utilization": 0.33714285714285713,
+      "unload_block_count": 0
+    }
+  },
+  {
+    "case_id": "stress-44",
+    "method": "sequential",
+    "data_hash": "b57d57fb3a49f5c5",
+    "valid": true,
+    "violations": [],
+    "elapsed_ms": 204.00000002700835,
+    "termination_reason": "completed",
+    "metrics": {
+      "total_stores": 60,
+      "served_stores": 60,
+      "total_boxes": 236,
+      "served_boxes": 236,
+      "completion_rate": 1.0,
+      "used_vehicles": 24,
+      "total_distance_km": 2635.2399794956377,
+      "total_cost": 8270.479958991276,
+      "on_time_rate": 1.0,
+      "volume_utilization": 0.22868217054263565,
+      "weight_utilization": 0.13111111111111112,
+      "unload_block_count": 0
+    }
+  },
+  {
+    "case_id": "stress-44",
+    "method": "coupled",
+    "data_hash": "165b3f5c0fa9ee90",
+    "valid": true,
+    "violations": [],
+    "elapsed_ms": 202.9999999795109,
+    "termination_reason": "completed",
+    "metrics": {
+      "total_stores": 60,
+      "served_stores": 60,
+      "total_boxes": 236,
+      "served_boxes": 236,
+      "completion_rate": 1.0,
+      "used_vehicles": 24,
+      "total_distance_km": 2635.2399794956377,
+      "total_cost": 8270.479958991275,
+      "on_time_rate": 1.0,
+      "volume_utilization": 0.22868217054263565,
+      "weight_utilization": 0.13111111111111112,
+      "unload_block_count": 0
+    }
+  }
+]

@@ -28,6 +28,10 @@ Thumbs.db
 # Local diagnostic/temp scratch dir
 .dsh-tmp/
 
+# uv-managed cache and Python toolchains (reproducible via uv, not versioned)
+.uv-cache/
+.uv-python/
+
 # Large recordings; keep lightweight evidence and benchmark results tracked
 artifacts/demo/*.mp4
 artifacts/demo/*.mov

@@ -184,7 +184,12 @@ def generate_suite(suite: str, seed: int) -> tuple[dict, dict]:
         "stores": stores,
         "vehicles": vehicles,
         "boxes": boxes,
-        "options": _options(42),
+        # 实验套件用足够大的迭代上限与压力案例 30s 预算（EVALUATION 口径）
+        "options": {
+            **_options(42),
+            "max_iterations": 10000,
+            "time_limit_ms": 30000 if suite == "stress" else 10000,
+        },
     }
 
     witness = _build_witness(request, groups, seed)

@@ -32,6 +32,9 @@ Thumbs.db
 .uv-cache/
 .uv-python/
 
+# pytest / benchmark transient outputs
+artifacts/benchmarks/test_tmp/
+
 # Large recordings; keep lightweight evidence and benchmark results tracked
 artifacts/demo/*.mp4
 artifacts/demo/*.mov

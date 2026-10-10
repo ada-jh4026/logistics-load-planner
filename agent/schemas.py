@@ -1,0 +1,239 @@
+"""CONTRACT v0.1 的 pydantic 镜像（SolveRequest / JobResponse）与 AGENT_CONTRACT 的请求响应模型。
+
+字段名、单位、枚举与 docs/playbook/CONTRACT.md 完全一致；这里不做求解器那样严格的业务校验，
+只保证结构正确，便于事实表推导。
+"""
+from __future__ import annotations
+
+from typing import Any, Literal
+
+from pydantic import BaseModel, ConfigDict, Field
+
+SCHEMA_VERSION = "0.1"
+
+
+class _Model(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+
+# ---------- SolveRequest ----------
+class Depot(_Model):
+    id: str
+    x_km: float
+    y_km: float
+    departure_min: float
+
+
+class Store(_Model):
+    id: str
+    x_km: float
+    y_km: float
+    window_start_min: float
+    window_end_min: float
+    service_min: float
+
+
+class Vehicle(_Model):
+    id: str
+    length_mm: float
+    width_mm: float
+    height_mm: float
+    max_weight_kg: float
+    fixed_cost: float
+    cost_per_km: float
+
+
+class Box(_Model):
+    id: str
+    store_id: str
+    length_mm: float
+    width_mm: float
+    height_mm: float
+    weight_kg: float
+    fragile: bool
+    allow_rotate_xy: bool
+
+
+Method = Literal["greedy", "sequential", "coupled"]
+
+
+class Options(_Model):
+    method: Method
+    seed: int
+    time_limit_ms: int
+    max_iterations: int
+    speed_kmph: float
+
+
+class SolveRequest(_Model):
+    schema_version: Literal["0.1"]
+    case_id: str = Field(min_length=1)
+    data_source: str
+    depot: Depot
+    stores: list[Store] = Field(min_length=1)
+    vehicles: list[Vehicle] = Field(min_length=1)
+    boxes: list[Box] = Field(min_length=1)
+    options: Options
+
+
+# ---------- JobResponse ----------
+class Stop(_Model):
+    store_id: str
+    arrival_min: float
+    service_start_min: float
+    departure_min: float
+
+
+class Placement(_Model):
+    box_id: str
+    x_mm: float
+    y_mm: float
+    z_mm: float
+    rotation_xy: Literal[0, 90]
+
+
+class UnloadStep(_Model):
+    step: int
+    store_id: str
+    box_id: str
+
+
+class Route(_Model):
+    vehicle_id: str
+    store_ids: list[str]
+    stops: list[Stop]
+    return_min: float
+    distance_km: float
+    cost: float
+    box_ids: list[str]
+    placements: list[Placement]
+    unload_steps: list[UnloadStep]
+
+
+ReasonCode = Literal["BOX_TOO_LARGE", "CAPACITY_LIMIT", "TIME_WINDOW", "SEARCH_EXHAUSTED", "TIME_LIMIT"]
+
+
+class Unassigned(_Model):
+    store_id: str
+    box_ids: list[str]
+    reason_code: ReasonCode
+    message: str
+
+
+class Violation(_Model):
+    code: str
+    vehicle_id: str | None
+    box_ids: list[str]
+    store_id: str | None
+    message: str
+
+
+class Validation(_Model):
+    valid: bool
+    violations: list[Violation]
+
+
+class Metrics(_Model):
+    total_stores: int
+    served_stores: int
+    total_boxes: int
+    served_boxes: int
+    completion_rate: float
+    used_vehicles: int
+    total_distance_km: float
+    total_cost: float
+    on_time_rate: float | None
+    volume_utilization: float | None
+    weight_utilization: float | None
+    unload_block_count: int
+
+
+class Diagnostic(BaseModel):
+    model_config = ConfigDict(extra="allow")
+    iteration: int
+    action: str
+    reason_code: str | None = None
+    message: str
+
+
+class Result(_Model):
+    routes: list[Route]
+    unassigned: list[Unassigned]
+    validation: Validation
+    metrics: Metrics
+    diagnostics: list[Diagnostic]
+
+
+JobStatus = Literal["queued", "running", "succeeded", "partial", "failed"]
+Termination = Literal["completed", "time_limit", "iteration_limit", "internal_error"]
+
+
+class JobError(_Model):
+    code: str
+    message: str
+
+
+class JobResponse(_Model):
+    schema_version: Literal["0.1"]
+    run_id: str
+    case_id: str
+    status: JobStatus
+    data_source: str
+    is_mock: bool
+    method: Method
+    termination_reason: Termination | None
+    elapsed_ms: float
+    result: Result | None
+    error: JobError | None
+
+
+# ---------- Agent API ----------
+Mode = Literal["llm", "template"]
+Focus = Literal["overview", "unassigned", "unload", "vehicle"]
+
+
+class ExplainRequest(_Model):
+    schema_version: Literal["0.1"]
+    request: SolveRequest
+    response: JobResponse
+    focus: Focus = "overview"
+    vehicle_id: str | None = None
+    question: str | None = None
+
+
+class Grounding(_Model):
+    checked_numbers: int
+    unmatched_numbers: list[str]
+    passed: bool
+
+
+class ExplainResponse(_Model):
+    schema_version: Literal["0.1"] = "0.1"
+    mode: Mode
+    model: str | None
+    warnings: list[str]
+    text: str
+    facts: dict[str, Any]
+    grounding: Grounding
+
+
+class HealthResponse(_Model):
+    status: Literal["ok"] = "ok"
+    schema_version: Literal["0.1"] = "0.1"
+    llm: dict[str, Any]
+
+
+class ErrorDetail(_Model):
+    path: str
+    message: str
+
+
+class ErrorBody(_Model):
+    code: str
+    message: str
+    details: list[ErrorDetail]
+
+
+class ErrorEnvelope(_Model):
+    schema_version: Literal["0.1"] = "0.1"
+    error: ErrorBody

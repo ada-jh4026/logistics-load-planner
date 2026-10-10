@@ -1,6 +1,6 @@
 # 当前事实与接力状态
-更新时间：2026-10-10 14:50（英国时间）
-阶段：前端 F01–F04 完成（样例驱动）；后端与智能体服务未开始。
+更新时间：2026-10-10 15:45（英国时间）
+阶段：前端 F01–F04、智能体 A01–A02 完成（样例驱动、FakeLLM）；后端未开始；真实模型调用待密钥。
 
 ## 已确定的事实
 - 比赛窗口：英国时间 2026-10-10 11:00 开始，**2026-10-12 11:00 截止**（北京时间 10-12 18:00）。内部冻结 10-12 07:30，提交 09:30。提交渠道以赛事通知为准。
@@ -16,8 +16,8 @@
 - 不代表已创建应用、跑通算法、取得优化收益或完成线上提交。
 
 ## 下一步
-- 主线：B01。
-- 本方：A01 → A02 → A03；F05/F07 等 B13。
+- 主线：B01（根目录 .venv 已由本方用 uv 建好，Python 3.12，可直接复用）。
+- 本方：A03 → A04；F05/F07 等 B13。用户放入 agent/.env 后补 A02_live.json。
 - 任何一方改 docs/playbook 规格先写 CHANGES.md。
 
 ## 尚待用户提供
@@ -29,3 +29,4 @@
 日期/任务ID/完成者/变更文件/实际命令与结果/证据路径/下一步/阻塞项。
 - 2026-10-10 / 手册增补 / 本方 / 见 CHANGES.md / `py -3.13 -I scripts/check_playbook.py` PASS 31 cards / CHANGES.md / 下一步 F01、A01 / 无阻塞。
 - 2026-10-10 / F01–F04 / 本方 / frontend/ 全部、artifacts/evidence/F0{1..4}.md 与截图 / `npm run build` 退出 0，`npm run dev` 于 127.0.0.1:5173 / artifacts/evidence/ / 下一步 A01 / 无阻塞；F05 等 B13。
+- 2026-10-10 / A01–A02 / 本方 / agent/ 全部、artifacts/evidence/A01.md A02.md / `.venv\Scripts\python.exe -m pytest -q agent/tests` 18 passed；uvicorn 8001 health 与 explain 实测 / artifacts/evidence/ / 下一步 A03 / 真实模型调用待密钥。

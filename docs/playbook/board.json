@@ -400,9 +400,11 @@
       "lane": "agent",
       "depends_on": [],
       "estimate_minutes": 45,
-      "status": "pending",
-      "owner": null,
-      "evidence": [],
+      "status": "done",
+      "owner": "agent-line (Claude Code)",
+      "evidence": [
+        "artifacts/evidence/A01.md"
+      ],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/A01.md"
     },
@@ -414,9 +416,11 @@
         "A01"
       ],
       "estimate_minutes": 50,
-      "status": "pending",
-      "owner": null,
-      "evidence": [],
+      "status": "done",
+      "owner": "agent-line (Claude Code)",
+      "evidence": [
+        "artifacts/evidence/A02.md"
+      ],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/A02.md"
     },

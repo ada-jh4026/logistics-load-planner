@@ -16,8 +16,8 @@
 - 历史规划材料本身不是运行证据；现有实现、实验与联调以 board 和下方接力记录中的证据为准。尚未据此完成官方提交。
 
 ## 下一步
-- 主线：O01–O03 已完成；O03 仅胜过旧首可行策略的开发回归案，与简单重新插入仍持平。待 Claude 交接后做 O05/O06 和 I04。
-- 前端/智能体线：最新协议与真实案例已在本地工作区，交接提示词见 `docs/handoffs/claude-optimization.md`；同步严格模型、完成 O04 真实联调并更新材料。
+- 主线：O01–O03、H01 已完成。**审查阻断 B1/B2（独立校验器漏检）待主线修复**：`artifacts/probes/validator_tamper_probe.py` 8 条篡改当前 5 条通过校验，修法见 `artifacts/probes/README.md` 探针 3；修后更新 `START_HERE.md`（仍写 O04 待办）并做 I04。
+- 前端/智能体线：O04、易用性四项、审查修复（B3、I1–I7、I9、S1–S5）均已完成并推送；剩余只等团队信息与主线 B1/B2 后的复跑。
 - 任何一方改 docs/playbook 规格先写 CHANGES.md。
 
 ## 尚待用户提供
@@ -59,3 +59,4 @@
 - 2026-10-11 / O04（面板 + 修复事实） / 本方 / frontend RepairPanel.tsx lib/repair.ts lib/archive.ts App.tsx、agent facts/templates/explain/grounding、AGENT_CONTRACT FactSheet.repair、CHANGES / agent 63 passed；tsc+build 通过；浏览器自动化：5 种状态 + 旧响应 + 快照回放 + 实时 geometry-22 + 助手解释，无控制台错误 / artifacts/evidence/O04.md、artifacts/demo/repair/ / 下一步 KPI 行、卸货动画、方法对比、作业单打印 / 无阻塞。board 的 O04 卡由主线登记。
 - 2026-10-11 / 前端易用性四项 / 本方 / KpiRow、CargoView 动画、useMethodCompare+MethodCompare、worksheet.ts（提交 f17aeda、3525c48、3e9cf8c、7951368）/ tsc+build 每项通过；浏览器自动化：对比表 small-11 三法数值、动画、作业单 17 行 + 截图 / artifacts/evidence/UI-polish.md、artifacts/demo/ui/ / 下一步 README/演示脚本同步新功能，等主线 I04 / 无阻塞。
 - 2026-10-11 / 材料同步 / 本方 / README（核心方案含分区配载与逐店恢复、5.2 冲突实验、5.3 混合箱件实验、5.4 智能体含修复事实、5.5 端到端含面板/对比/作业单、限制）、docs/limitations.md、demo-script.md（第 3 段改为 geometry-22 修复演示、第 4 段加三法对比）、architecture.md / 全量 248 测试通过、check_playbook 通过、引用路径逐一存在 / — / 下一步 等主线 I04；用户补团队信息 / 无阻塞。
+- 2026-10-10 晚 / 只读审查修复（GPT 审查基准 d9b7ebc） / 本方 / agent/grounding.py rules.py interpret.py templates.py timeparse.py + 9 条回归测试；frontend App.tsx KpiRow SidePanel VehicleRail RouteMap derive.ts format.ts worksheet.ts styles.css；README、architecture、limitations、demo-script、submission-checklist、AGENT_CONTRACT；artifacts/probes/validator_tamper_probe.py、artifacts/evidence/review-fixes.md、artifacts/demo/flow-standard-11/ / `pytest -q tests agent/tests` 257 passed；`npm run build` 通过（主包 394 kB + 3D 分包 950 kB）；真实 DeepSeek 在 standard-11 / geometry-22 上解释与指令复测通过；浏览器自动化：快照回放同源、1366×768、三法对比、作业单、五种修复状态回归无误 / artifacts/evidence/review-fixes.md / 下一步：**主线修 B1/B2**（独立校验器对篡改型结果漏检，探针 `artifacts/probes/validator_tamper_probe.py` 当前 5/8 LEAK，修法见 probes/README 探针 3），修后在提交清单勾选；用户补 README 团队表；I04 冻结验收 / 阻塞：B1/B2 归主线。

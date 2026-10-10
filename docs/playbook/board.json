@@ -115,9 +115,9 @@
         "B07"
       ],
       "estimate_minutes": 45,
-      "status": "pending",
-      "owner": null,
-      "evidence": [],
+      "status": "done",
+      "owner": "主线",
+      "evidence": ["artifacts/evidence/B08.md"],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/B08.md"
     },

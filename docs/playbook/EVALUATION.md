@@ -24,3 +24,9 @@ UI示例is_mock=true不能进入实验数据。脚本发现mock响应应立即�
 python -m scripts.benchmark --suite standard --output artifacts/benchmarks/latest
 python -m scripts.benchmark --suite stress --output artifacts/benchmarks/stress
 
+## 智能体评估（不计入 21 条求解对比记录）
+- 指令解释准确率：agent/tests/data/instructions.jsonl（≥10 条，含应拒绝与应澄清的样例）。规则模式逐条断言；模型模式用 agent/scripts/eval_interpret.py 统计「patched_request 与期望完全一致」的比例，保存到 artifacts/evidence/A03_eval.json，附模型名、温度、日期。
+- 解释数字核对通过率：对实验中每个真实响应调用 explain(overview)，统计首轮 grounding.passed 比例与回退比例；首轮不通过的样例原文保留。
+- 延迟：记录每次模型调用耗时的中位数与最大值；模板模式耗时另记。
+- 口径：模型输出的任何业务收益表述都不是实验结论；README 中引用智能体文本须标注 mode。
+

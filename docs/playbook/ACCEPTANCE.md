@@ -62,3 +62,23 @@ B02箱底z=1000，三维位置要加半个箱高后转成渲染中心。若Three
 通过截图与实际交互确认：车辆切换、路线顺序、箱体高亮、逐步卸货、错误提示、mock标记、刷新后重新提交。
 验收文件：artifacts/evidence/F03.md、F04.md、F05.md。
 
+## C13 指令解释与受控补丁（智能体）
+以 examples/request-partial.json 为输入。
+- 「S01 最早 9 点半收货」→ patch 仅含 `/stores/0/window_start_min`=570；其余字段逐一相等。
+- 「V01 今天不出车」→ 因只剩一辆车，操作进入 rejected_ops（至少保留一辆），patched_request 等于原请求，understood=true。
+- 「把 B03 标为易碎」→ `/boxes/2/fragile`=true。
+- 「S01 最晚 8 点收货」→ 导致 window_end 480 < window_start 500，校验失败进入 rejected_ops。
+- 「把 B01 长度改成 500」→ 字段不在白名单，rejected_ops，不生成 patch。
+- 「S99 改时间窗」→ 未知 ID，understood=false，patch=[]。
+- 「时间预算 20 秒」→ `/options/time_limit_ms`=20000。
+以上在模板（规则）模式下必须全部通过；模型模式用 FakeLLM 注入 intent_ops 验证解析、白名单与校验链路相同。
+测试文件：agent/tests/test_interpret.py。
+
+## C14 解释证据绑定（智能体）
+以 examples/response-partial.json 为输入，FactSheet 必含：total_cost 120、volume_utilization 0.5、S02 未分配且 reason_code=BOX_TOO_LARGE、V01 到 S01 等待 10 分钟（490→500）。
+- FakeLLM 输出「总费用 120 元，利用率 50%，S01 等待 10 分钟」→ grounding.passed=true，mode=llm。
+- FakeLLM 输出「总费用 150 元」→ unmatched 含 150，重试一次仍错则 mode=template，warnings 非空，text 为模板文本。
+- FakeLLM 抛异常或超时 → mode=template，HTTP 200。
+- response.status=failed → HTTP 422。
+测试文件：agent/tests/test_grounding.py、agent/tests/test_explain_llm.py。
+

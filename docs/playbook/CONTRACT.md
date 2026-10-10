@@ -72,3 +72,6 @@ diagnostics:[{iteration,action,reason_code,message}]；诊断文本描述实际�
 ## 调用与轮询
 前端POST一次后每500ms轮询；任务结束立即停止。重复点击禁用，不每次轮询重发POST。网络错误保留用户输入并允许重新查询；约75秒未结束提示查看服务状态。后端限制排队数量（默认8），超限返回HTTP429和明确消息。
 
+
+## 关联协议
+调度助手智能体服务的接口见 AGENT_CONTRACT.md；它只消费本协议的 SolveRequest / JobResponse，不新增、不修改本协议字段。

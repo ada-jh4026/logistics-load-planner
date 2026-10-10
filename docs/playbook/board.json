@@ -312,7 +312,8 @@
       "lane": "frontend",
       "depends_on": [
         "F05",
-        "I01"
+        "I01",
+        "F07"
       ],
       "estimate_minutes": 40,
       "status": "pending",
@@ -357,7 +358,8 @@
       "lane": "integration",
       "depends_on": [
         "I02",
-        "F06"
+        "F06",
+        "A04"
       ],
       "estimate_minutes": 40,
       "status": "pending",
@@ -379,6 +381,81 @@
       "evidence": [],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/I04.md"
+    },
+    {
+      "id": "A01",
+      "title": "建立智能体服务骨架与模板解释",
+      "lane": "agent",
+      "depends_on": [],
+      "estimate_minutes": 45,
+      "status": "pending",
+      "owner": null,
+      "evidence": [],
+      "blocked_reason": null,
+      "card": "docs/playbook/tasks/A01.md"
+    },
+    {
+      "id": "A02",
+      "title": "接入 DeepSeek 并实现证据绑定解释",
+      "lane": "agent",
+      "depends_on": [
+        "A01"
+      ],
+      "estimate_minutes": 50,
+      "status": "pending",
+      "owner": null,
+      "evidence": [],
+      "blocked_reason": null,
+      "card": "docs/playbook/tasks/A02.md"
+    },
+    {
+      "id": "A03",
+      "title": "自然语言指令到受控补丁",
+      "lane": "agent",
+      "depends_on": [
+        "A01"
+      ],
+      "estimate_minutes": 60,
+      "status": "pending",
+      "owner": null,
+      "evidence": [],
+      "blocked_reason": null,
+      "card": "docs/playbook/tasks/A03.md"
+    },
+    {
+      "id": "A04",
+      "title": "方案对比叙述与装卸作业单",
+      "lane": "agent",
+      "depends_on": [
+        "A02"
+      ],
+      "estimate_minutes": 40,
+      "status": "pending",
+      "owner": null,
+      "evidence": [],
+      "blocked_reason": null,
+      "card": "docs/playbook/tasks/A04.md"
+    },
+    {
+      "id": "F07",
+      "title": "调度助手面板",
+      "lane": "frontend",
+      "depends_on": [
+        "F04",
+        "A03"
+      ],
+      "estimate_minutes": 60,
+      "status": "pending",
+      "owner": null,
+      "evidence": [],
+      "blocked_reason": null,
+      "card": "docs/playbook/tasks/F07.md"
     }
-  ]
+  ],
+  "lanes": {
+    "backend": "主线（队友）",
+    "frontend": "前端线（本方）",
+    "agent": "智能体线（本方）",
+    "integration": "联合"
+  }
 }

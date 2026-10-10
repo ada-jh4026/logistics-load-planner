@@ -16,7 +16,7 @@
 - 不代表已创建应用、跑通算法、取得优化收益或完成线上提交。
 
 ## 下一步
-- 主线：B07，实现卸货序列及装货逆序检查（B07 依赖 B06 已满足）。
+- 主线：B08，组合独立方案校验器（B08 依赖 B04、B07 已满足）。
 - 本方：F01 → A01，之后按 SCHEDULE。
 - 任何一方改 docs/playbook 规格先写 CHANGES.md。
 
@@ -34,3 +34,4 @@
 - 2026-10-10 / B04 / 主线（AI 助手）/ backend/network.py、backend/metrics.py、tests/test_routing.py、tests/test_metrics.py、artifacts/evidence/B04.md / distance_km/travel_min/schedule_route/compute_metrics；C01 手算 10km/120元/服务500/回仓515/利用率0.5·0.3 断言通过；pytest 11 passed；全量 48 passed / 证据 artifacts/evidence/B04.md / 下一步 B05 / 阻塞：无。
 - 2026-10-10 / B05 / 主线（AI 助手）/ backend/routing.py、tests/test_route_builders.py、artifacts/evidence/B05.md / build_greedy_routes（尾插）+ build_insertion_routes（全位置插入 + 2 轮 2-opt）；门店原子分配、必要条件通过、确定性；pytest 11 passed；全量 59 passed / 证据 artifacts/evidence/B05.md / 下一步 B06 / 阻塞：无。
 - 2026-10-10 / B06 / 主线（AI 助手）/ backend/geometry.py、tests/test_geometry.py、artifacts/evidence/B06.md / oriented_size/intersects/inside_vehicle/find_support/validate_layout；C04 易碎承托、面接触不碰撞、浮空/跨箱/越界/旋转禁止；pytest 15 passed；全量 74 passed / 证据 artifacts/evidence/B06.md / 下一步 B07 / 阻塞：无。
+- 2026-10-10 / B07 / 主线（AI 助手）/ backend/unloading.py、tests/test_unloading.py、artifacts/evidence/B07.md / generate/validate_unload_steps + loading 逆序；C05 阻挡与交换通过、C06 抽底拒绝、生成与验证分离；pytest 9 passed；全量 83 passed / 证据 artifacts/evidence/B07.md / 下一步 B08 / 阻塞：无。

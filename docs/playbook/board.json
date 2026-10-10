@@ -2,7 +2,7 @@
   "schema_version": "0.1",
   "project": "城市配送智能配载",
   "updated": "2026-10-10",
-  "implementation_started": false,
+  "implementation_started": true,
   "task_status_values": [
     "pending",
     "in_progress",
@@ -243,9 +243,11 @@
       "lane": "frontend",
       "depends_on": [],
       "estimate_minutes": 30,
-      "status": "pending",
-      "owner": null,
-      "evidence": [],
+      "status": "done",
+      "owner": "frontend-line (Claude Code)",
+      "evidence": [
+        "artifacts/evidence/F01.md"
+      ],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/F01.md"
     },
@@ -257,9 +259,12 @@
         "F01"
       ],
       "estimate_minutes": 40,
-      "status": "pending",
-      "owner": null,
-      "evidence": [],
+      "status": "done",
+      "owner": "frontend-line (Claude Code)",
+      "evidence": [
+        "artifacts/evidence/F02.md",
+        "artifacts/evidence/screenshots/F02_partial_route_map.png"
+      ],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/F02.md"
     },
@@ -271,9 +276,12 @@
         "F02"
       ],
       "estimate_minutes": 50,
-      "status": "pending",
-      "owner": null,
-      "evidence": [],
+      "status": "done",
+      "owner": "frontend-line (Claude Code)",
+      "evidence": [
+        "artifacts/evidence/F03.md",
+        "artifacts/evidence/screenshots/F03_success_3d.png"
+      ],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/F03.md"
     },
@@ -285,9 +293,13 @@
         "F03"
       ],
       "estimate_minutes": 40,
-      "status": "pending",
-      "owner": null,
-      "evidence": [],
+      "status": "done",
+      "owner": "frontend-line (Claude Code)",
+      "evidence": [
+        "artifacts/evidence/F04.md",
+        "artifacts/evidence/screenshots/F04_partial_unload_step1.png",
+        "artifacts/evidence/screenshots/F04_failed_state.png"
+      ],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/F04.md"
     },

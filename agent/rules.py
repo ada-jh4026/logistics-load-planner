@@ -21,6 +21,7 @@ _METHOD_WORDS = {
 }
 _DIM_WORDS = {"载重": "max_weight_kg", "长度": "length_mm", "长": "length_mm", "宽度": "width_mm", "宽": "width_mm", "高度": "height_mm", "高": "height_mm", "重量": "weight_kg", "重": "weight_kg"}
 # 门店的坐标 / 位置类修改不在白名单；仍生成一个会被拒绝的 set，让用户看到「x_km 不在允许修改范围」而不是被静默忽略
+_REMOVE_VERB = re.compile(r"不出车|不可用|停用|去掉|移除|删掉|删除|维修|坏了|不用|不派|不能用|没法用|不参与")
 _STORE_FORBIDDEN = re.compile(r"坐标|位置|地址|x_km|y_km|经纬|地方")
 
 
@@ -34,6 +35,12 @@ def parse_rules(instruction: str, r: SolveRequest) -> tuple[list[IntentOp], list
 
     for clause in [c.strip() for c in _SPLIT.split(instruction) if c and c.strip()]:
         ids = [t.upper() for t in _ID_TOKEN.findall(clause)]
+        # 「V02 和 V04 都不出车」：一个子句里多辆已知车 + 停用动词 → 逐辆移除
+        many_vehicles = [known_vehicles[t] for t in ids if t in known_vehicles]
+        if len(many_vehicles) >= 2 and _REMOVE_VERB.search(clause):
+            ops.extend(IntentOp(action="remove_vehicle", target="vehicle", id=v) for v in many_vehicles)
+            last = ("vehicle", many_vehicles[-1])
+            continue
         ent: tuple[str, str] | None = None
         unknown: list[str] = []
         for t in ids:
@@ -123,7 +130,7 @@ def _clause_ops(c: str, ent: tuple[str, str] | None, r: SolveRequest) -> list[In
 
     # --- 车辆 ---
     if target == "vehicle":
-        if re.search(r"不出车|不可用|停用|去掉|移除|删掉|删除|维修|坏了|不用|不派|不能用|没法用|不参与", c):
+        if _REMOVE_VERB.search(c):
             ops.append(IntentOp(action="remove_vehicle", target="vehicle", id=id_))
         else:
             for w, f in _DIM_WORDS.items():

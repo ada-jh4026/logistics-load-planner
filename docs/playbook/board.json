@@ -30,9 +30,9 @@
         "B01"
       ],
       "estimate_minutes": 40,
-      "status": "pending",
-      "owner": null,
-      "evidence": [],
+      "status": "done",
+      "owner": "主线",
+      "evidence": ["artifacts/evidence/B02.md"],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/B02.md"
     },

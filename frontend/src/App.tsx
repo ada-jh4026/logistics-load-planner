@@ -1,7 +1,9 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import type { JobResponse, SolveRequest } from './protocol/contract'
-import { SCENARIOS } from './lib/mock'
 import { derive } from './lib/derive'
+import { loadCase, loadServiceCases, SAMPLE_OPTIONS, type CaseOption } from './lib/cases'
+import { ERROR_HINT } from './lib/api'
+import { useSolver } from './lib/useSolver'
 import { TopBar } from './components/TopBar'
 import { VehicleRail } from './components/VehicleRail'
 import { CargoView } from './components/CargoView'
@@ -12,34 +14,77 @@ import { SidePanel } from './components/SidePanel'
 type View = '3d' | 'map'
 
 export default function App() {
-  const [scenarioId, setScenarioId] = useState(SCENARIOS[0].id)
-  const scenario = SCENARIOS.find((s) => s.id === scenarioId) ?? SCENARIOS[0]
-  const [request, setRequest] = useState<SolveRequest>(scenario.request)
-  const [response, setResponse] = useState<JobResponse | null>(scenario.response)
+  const [options, setOptions] = useState<CaseOption[]>(SAMPLE_OPTIONS)
+  const [serviceOnline, setServiceOnline] = useState<boolean | null>(null)
+  const [selectedKey, setSelectedKey] = useState(SAMPLE_OPTIONS[0].key)
   const [importedName, setImportedName] = useState<string | null>(null)
+  const [request, setRequest] = useState<SolveRequest | null>(null)
+  const [response, setResponse] = useState<JobResponse | null>(null)
+  const [loadError, setLoadError] = useState<string | null>(null)
   const [view, setView] = useState<View>('3d')
   const [selectedVehicleId, setSelectedVehicleId] = useState<string | null>(null)
   const [selectedBoxId, setSelectedBoxId] = useState<string | null>(null)
   const [unloadDone, setUnloadDone] = useState(0)
   const [resetKey, setResetKey] = useState(0)
 
-  // 切换案例：清空旧结果，不让旧数字冒充新结果。
+  // 探测求解服务：可达则把服务案例放在前面并默认选中第一个服务案例
+  useEffect(() => {
+    let alive = true
+    loadServiceCases().then((svc) => {
+      if (!alive) return
+      if (svc) {
+        setOptions([...svc, ...SAMPLE_OPTIONS])
+        setServiceOnline(true)
+        if (svc.length > 0) setSelectedKey(svc[0].key)
+      } else {
+        setServiceOnline(false)
+      }
+    })
+    return () => {
+      alive = false
+    }
+  }, [])
+
+  // 切换案例：加载请求，清空旧结果，不让旧数字冒充新结果。
   useEffect(() => {
     if (importedName) return
-    setRequest(scenario.request)
-    setResponse(scenario.response)
+    const opt = options.find((o) => o.key === selectedKey)
+    if (!opt) return
+    let alive = true
+    setLoadError(null)
+    loadCase(opt)
+      .then(({ request, response }) => {
+        if (!alive) return
+        setRequest(request)
+        setResponse(response)
+        setSelectedBoxId(null)
+        setUnloadDone(0)
+      })
+      .catch((e) => {
+        if (!alive) return
+        setLoadError(`读取案例失败：${(e as Error).message}`)
+      })
+    return () => {
+      alive = false
+    }
+  }, [selectedKey, options, importedName])
+
+  const onResult = useCallback((r: JobResponse) => {
+    setResponse(r)
     setSelectedBoxId(null)
     setUnloadDone(0)
-  }, [scenario, importedName])
+  }, [])
+  const solver = useSolver(onResult)
 
-  function handleScenarioChange(id: string) {
-    if (id === '__imported__') return
+  function handleSelect(key: string) {
+    if (key === '__imported__') return
+    solver.cancel()
     setImportedName(null)
-    setScenarioId(id)
+    setSelectedKey(key)
   }
 
   function handleImport(req: SolveRequest, name: string) {
-    // 导入的是请求，还没有方案；旧样例的响应不能留在页面上。
+    solver.cancel()
     setImportedName(name)
     setRequest(req)
     setResponse(null)
@@ -47,18 +92,25 @@ export default function App() {
     setUnloadDone(0)
   }
 
-  const derived = useMemo(() => derive(request, response), [request, response])
+  function handleRun() {
+    if (!request) return
+    setResponse(null) // 新任务开始即清空旧方案
+    solver.run(request)
+  }
+
+  const derived = useMemo(() => (request ? derive(request, response) : null), [request, response])
 
   // 默认选中第一辆启用的车；没有方案时选第一辆车。
   useEffect(() => {
+    if (!request || !derived) return
     const firstUsed = request.vehicles.find((v) => derived.routesByVehicle.has(v.id)) ?? request.vehicles[0]
     setSelectedVehicleId(firstUsed?.id ?? null)
     setUnloadDone(0)
     setSelectedBoxId(null)
   }, [request, derived])
 
-  const vehicle = selectedVehicleId ? derived.vehiclesById.get(selectedVehicleId) ?? null : null
-  const route = selectedVehicleId ? derived.routesByVehicle.get(selectedVehicleId) ?? null : null
+  const vehicle = derived && selectedVehicleId ? derived.vehiclesById.get(selectedVehicleId) ?? null : null
+  const route = derived && selectedVehicleId ? derived.routesByVehicle.get(selectedVehicleId) ?? null : null
 
   const unloadedIds = useMemo(() => {
     const s = new Set<string>()
@@ -68,32 +120,40 @@ export default function App() {
   const currentBoxId = route && unloadDone < route.unload_steps.length ? route.unload_steps[unloadDone].box_id : null
 
   const failed = response?.status === 'failed'
+  const busy = solver.busy
+  const solveError = solver.state.phase === 'error' ? solver.state.error : null
 
   return (
     <div className="app">
       <TopBar
-        scenarios={SCENARIOS}
-        scenarioId={scenarioId}
-        onScenarioChange={handleScenarioChange}
+        options={options}
+        selectedKey={selectedKey}
+        onSelect={handleSelect}
         onImport={handleImport}
         importedName={importedName}
         response={response}
-        onRun={() => {}}
-        runEnabled={false}
-        runHint="求解服务接口（B13）完成后启用；当前展示的是样例数据。"
+        serviceOnline={serviceOnline}
+        solveState={solver.state}
+        waitedSec={solver.waitedSec}
+        onRun={handleRun}
+        onCancel={solver.cancel}
       />
       <div className="workspace">
-        <VehicleRail
-          request={request}
-          response={response}
-          derived={derived}
-          selectedVehicleId={selectedVehicleId}
-          onSelectVehicle={(id) => {
-            setSelectedVehicleId(id)
-            setUnloadDone(0)
-            setSelectedBoxId(null)
-          }}
-        />
+        {request && derived ? (
+          <VehicleRail
+            request={request}
+            response={response}
+            derived={derived}
+            selectedVehicleId={selectedVehicleId}
+            onSelectVehicle={(id) => {
+              setSelectedVehicleId(id)
+              setUnloadDone(0)
+              setSelectedBoxId(null)
+            }}
+          />
+        ) : (
+          <aside className="rail" />
+        )}
 
         <main className="center">
           <div className="stage">
@@ -113,7 +173,58 @@ export default function App() {
               </div>
             )}
 
-            {failed ? (
+            {loadError ? (
+              <div className="stage-message">
+                <div>
+                  <div className="big">案例读取失败</div>
+                  <div>{loadError}</div>
+                </div>
+              </div>
+            ) : !request || !derived ? (
+              <div className="stage-message">
+                <div>
+                  <div className="big">正在读取案例</div>
+                </div>
+              </div>
+            ) : solveError ? (
+              <div className="stage-message">
+                <div>
+                  <div className="big">提交失败</div>
+                  <div>{solveError.message}</div>
+                  <div className="empty" style={{ marginTop: 6 }}>
+                    错误码 {solveError.code}。{ERROR_HINT[solveError.code] ?? ''}输入已保留，可直接重试。
+                  </div>
+                  {solveError.details.length > 0 && (
+                    <ul className="violations" style={{ textAlign: 'left', display: 'inline-block' }}>
+                      {solveError.details.slice(0, 8).map((d, i) => (
+                        <li key={i}>
+                          {d.path}：{d.message}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  <div style={{ marginTop: 10 }}>
+                    <button className="btn quiet" onClick={solver.dismissError}>
+                      关闭
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ) : busy ? (
+              <div className="stage-message" aria-live="polite">
+                <div>
+                  <div className="big">{solver.state.phase === 'polling' && solver.state.status === 'running' ? '计算中' : '排队中'}</div>
+                  <div>
+                    {solver.state.phase === 'polling' ? `任务 ${solver.state.runId.slice(0, 8)}，已等待 ${solver.waitedSec} 秒` : '正在提交请求'}
+                  </div>
+                  {solver.waitedSec >= 75 && (
+                    <div className="empty" style={{ marginTop: 6 }}>
+                      等待较长，请检查求解服务状态或取消后重试。
+                    </div>
+                  )}
+                </div>
+              </div>
+            ) : failed ? (
               <div className="stage-message">
                 <div>
                   <div className="big">求解失败</div>
@@ -127,9 +238,12 @@ export default function App() {
               <div className="stage-message">
                 <div>
                   <div className="big">尚无方案</div>
-                  <div>{importedName ? `已导入 ${importedName}：${request.stores.length} 家门店、${request.boxes.length} 箱、${request.vehicles.length} 辆车。` : '选择案例并运行求解。'}</div>
+                  <div>
+                    {importedName ? `已导入 ${importedName}：` : '当前案例：'}
+                    {request.stores.length} 家门店、{request.boxes.length} 箱、{request.vehicles.length} 辆车。
+                  </div>
                   <div className="empty" style={{ marginTop: 6 }}>
-                    求解服务接入后，点击「运行求解」生成方案。
+                    {serviceOnline ? '点击「运行求解」生成方案。' : '求解服务未连接，启动后端后刷新页面。'}
                   </div>
                 </div>
               </div>
@@ -174,22 +288,16 @@ export default function App() {
             )}
           </div>
 
-          <UnloadStrip
-            route={failed ? null : route}
-            derived={derived}
-            done={unloadDone}
-            onChange={setUnloadDone}
-            onFocusBox={setSelectedBoxId}
-          />
+          {derived && (
+            <UnloadStrip route={failed || busy ? null : route} derived={derived} done={unloadDone} onChange={setUnloadDone} onFocusBox={setSelectedBoxId} />
+          )}
         </main>
 
-        <SidePanel
-          request={request}
-          response={response}
-          derived={derived}
-          selectedVehicleId={selectedVehicleId}
-          selectedBoxId={selectedBoxId}
-        />
+        {request && derived ? (
+          <SidePanel request={request} response={busy ? null : response} derived={derived} selectedVehicleId={selectedVehicleId} selectedBoxId={selectedBoxId} />
+        ) : (
+          <aside className="side" />
+        )}
       </div>
     </div>
   )

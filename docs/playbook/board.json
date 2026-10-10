@@ -344,9 +344,14 @@
         "B13"
       ],
       "estimate_minutes": 45,
-      "status": "pending",
-      "owner": null,
-      "evidence": [],
+      "status": "done",
+      "owner": "frontend-line (Claude Code)",
+      "evidence": [
+        "artifacts/evidence/F05.md",
+        "artifacts/evidence/screenshots/F05_standard-11_3d_real.png",
+        "artifacts/evidence/screenshots/F05_c02_unassigned_real.png",
+        "artifacts/evidence/F05_backend_log_excerpt.txt"
+      ],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/F05.md"
     },

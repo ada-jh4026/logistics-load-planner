@@ -798,3 +798,14 @@ h3 {
     border-right: 1px solid var(--rule);
   }
 }
+
+.file-btn.disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.file-btn {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}

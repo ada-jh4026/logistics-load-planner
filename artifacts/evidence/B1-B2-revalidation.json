@@ -1,0 +1,1239 @@
+{
+  "date": "2026-10-11",
+  "kind": "revalidation_of_saved_outputs_not_new_solver_runs",
+  "validator_sha256": "13831335ea65ffffa014f5d4751ce90564efdcc7084ce1e9eff3dc45e91f4641",
+  "runs": 205,
+  "valid": 205,
+  "records": [
+    {
+      "path": "artifacts\\benchmarks\\i02-20261010-small\\runs\\small-11\\coupled\\response.json",
+      "sha256": "a675b29f9ad3893c88dc54488bcb2e3b1dd3d4bbc4b5a6637202918238b2ff11",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\i02-20261010-small\\runs\\small-11\\greedy\\response.json",
+      "sha256": "93f0da96417d48a6f72492242dd96ec33122385875e29cb390b7cbf0adb382a5",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\i02-20261010-small\\runs\\small-11\\sequential\\response.json",
+      "sha256": "685981da8b60517e9151c56fc19a020508fcd684d6adbd793ab44ed7e0e9cf64",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\i02-20261010-small\\runs\\small-22\\coupled\\response.json",
+      "sha256": "1daed7bd7c84b2bf908bce9e753978d2596521260b6b3918080dc2409a560326",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\i02-20261010-small\\runs\\small-22\\greedy\\response.json",
+      "sha256": "9dbd191165fa6fb506b7ae3b4a2f99f69a8aa9d7f595e4e616f389d4dd27d47a",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\i02-20261010-small\\runs\\small-22\\sequential\\response.json",
+      "sha256": "8bb7594d8a0df47cc422c8141dcd293871e65421d35950786dc4145e4821c7ce",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\i02-20261010-small\\runs\\small-33\\coupled\\response.json",
+      "sha256": "d6696aa2e4b7dce9c6f6e570c943c6606b783f76e7672d75962518927e36bcd0",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\i02-20261010-small\\runs\\small-33\\greedy\\response.json",
+      "sha256": "d574388e56fa4900f496a8856bf34d7bf788b28e3a27d592b11c84345403b0d8",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\i02-20261010-small\\runs\\small-33\\sequential\\response.json",
+      "sha256": "5a8176a18782cb9be278fe7d1fbda460dc53e4ec1af923783ecaf9d09be9ed2b",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\i02-20261010-standard\\runs\\standard-11\\coupled\\response.json",
+      "sha256": "62415cf54778b750a442606fbbc27564aed601beeed309e902bd2c7336899137",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\i02-20261010-standard\\runs\\standard-11\\greedy\\response.json",
+      "sha256": "1f390ed09ffd7642e84b252e8ddfab2c1e248a81655b53062b6d0c67d7173c51",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\i02-20261010-standard\\runs\\standard-11\\sequential\\response.json",
+      "sha256": "197afb37b1fa165e912bf5c88e5f8855eb848bbef9ae0ca9ab1d84a564291203",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\i02-20261010-standard\\runs\\standard-22\\coupled\\response.json",
+      "sha256": "edcc95167a05b7ea512ef102ed866e5b5ca21a3784436a2bfbf0f8f2cca9e6d8",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\i02-20261010-standard\\runs\\standard-22\\greedy\\response.json",
+      "sha256": "31c1aa21fde3f8971034dbfc2cf4dd4cc4c491f80f787e44777252c83df4ebb4",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\i02-20261010-standard\\runs\\standard-22\\sequential\\response.json",
+      "sha256": "2cb3be71a2bf91a4176d776f2b988dd17e8f82e6cb23d01381c53c5fc9dc0f5e",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\i02-20261010-standard\\runs\\standard-33\\coupled\\response.json",
+      "sha256": "7fd8fbc73ffecfaba23f4174ed6c33b2829b38d64119dedfc6dc2f5ff1560646",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\i02-20261010-standard\\runs\\standard-33\\greedy\\response.json",
+      "sha256": "4b1e1deae02e470dd4224bf95759d3ad8606bedd00fe2b47cc833552cdf358a1",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\i02-20261010-standard\\runs\\standard-33\\sequential\\response.json",
+      "sha256": "8c31a2b2f44dae7bea273d8343d5c8e015c1cde45109cceaeaa3fa1f50952092",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\i02-20261010-stress\\runs\\stress-44\\coupled\\response.json",
+      "sha256": "fb2ce2c211ed99ca9f7efeb40bdb5ba5fa89ad19ea16e890c66585cff0fc95f8",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\i02-20261010-stress\\runs\\stress-44\\greedy\\response.json",
+      "sha256": "3d53d884e33b6a7b2963ea30f3190dbd6b2c614eb3ecf95eeafb99bd2b36d928",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\i02-20261010-stress\\runs\\stress-44\\sequential\\response.json",
+      "sha256": "5cdcc7473dc3e986bf9dfcaa4f4806d4ce76cfea7504673d16c4c7502f3084a0",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\geometry-22\\coupled\\response.json",
+      "sha256": "e1d8e22f0d28b19f2985aabfa3bad9ec2d07d0115777a943e951b529810ddadd",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\geometry-22\\greedy\\response.json",
+      "sha256": "7d2a450313eb438994975ed241f31520100a14608292334d5daab10349ef4083",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\geometry-22\\sequential\\response.json",
+      "sha256": "7d2a450313eb438994975ed241f31520100a14608292334d5daab10349ef4083",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\geometry-22\\sequential_reinsert\\response.json",
+      "sha256": "706f65c974ee2c669352bf61e2e0cf929ba7e7d783d23524f217ad1d6b9582c9",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\geometry-33\\coupled\\response.json",
+      "sha256": "b0de2b33db28bc3b25c280cbb45b44fbd7e052ceb844b37f236c8025453a908c",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\geometry-33\\greedy\\response.json",
+      "sha256": "7d2a450313eb438994975ed241f31520100a14608292334d5daab10349ef4083",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\geometry-33\\sequential\\response.json",
+      "sha256": "7d2a450313eb438994975ed241f31520100a14608292334d5daab10349ef4083",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\geometry-33\\sequential_reinsert\\response.json",
+      "sha256": "44f02c44aaa61fa3c4fa96fc1cea56deab1aeff3a4a94ae4bee6fbc85ca029bc",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\geometry-44\\coupled\\response.json",
+      "sha256": "372a7b8641dd8887b4d2c889c4b3f39c52421d4c755d20d0891413b284e9e026",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\geometry-44\\greedy\\response.json",
+      "sha256": "7d2a450313eb438994975ed241f31520100a14608292334d5daab10349ef4083",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\geometry-44\\sequential\\response.json",
+      "sha256": "7d2a450313eb438994975ed241f31520100a14608292334d5daab10349ef4083",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\geometry-44\\sequential_reinsert\\response.json",
+      "sha256": "ec97f65fa832f1714718628e322b47c94b5f9161043fd1bf866efc9d493bb1d8",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\geometry-55\\coupled\\response.json",
+      "sha256": "0dda7fedd943b3813bb1e07b7784056c4dd360cd30c5e0056f25664f858f4b27",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\geometry-55\\greedy\\response.json",
+      "sha256": "7d2a450313eb438994975ed241f31520100a14608292334d5daab10349ef4083",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\geometry-55\\sequential\\response.json",
+      "sha256": "7d2a450313eb438994975ed241f31520100a14608292334d5daab10349ef4083",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\geometry-55\\sequential_reinsert\\response.json",
+      "sha256": "4f2b5a27a392f2640e346c70146c9f85be86cde9667881258ce7f30ea472e8c3",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\geometry-66\\coupled\\response.json",
+      "sha256": "5da109e1295bceb4d4416e5823a4dabceadc460340b2a2fced938d81ed49152d",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\geometry-66\\greedy\\response.json",
+      "sha256": "7d2a450313eb438994975ed241f31520100a14608292334d5daab10349ef4083",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\geometry-66\\sequential\\response.json",
+      "sha256": "7d2a450313eb438994975ed241f31520100a14608292334d5daab10349ef4083",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\geometry-66\\sequential_reinsert\\response.json",
+      "sha256": "3ee5c0b3ba9593054d9c1e46fcc77d0079643e5a767e8757136f7ee06b2ab1c0",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\impossible-size-77\\coupled\\response.json",
+      "sha256": "7ab42e40ffdfc2eeede21cd44697199cb2adbfc8112793b86f42891e58b94f23",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\impossible-size-77\\greedy\\response.json",
+      "sha256": "28d45045d5156bd0c5f757960cc759316f962a5e0ae441ebe683bdcea3c9d02f",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\impossible-size-77\\sequential\\response.json",
+      "sha256": "28d45045d5156bd0c5f757960cc759316f962a5e0ae441ebe683bdcea3c9d02f",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\impossible-size-77\\sequential_reinsert\\response.json",
+      "sha256": "28d45045d5156bd0c5f757960cc759316f962a5e0ae441ebe683bdcea3c9d02f",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\impossible-size-88\\coupled\\response.json",
+      "sha256": "7ab42e40ffdfc2eeede21cd44697199cb2adbfc8112793b86f42891e58b94f23",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\impossible-size-88\\greedy\\response.json",
+      "sha256": "28d45045d5156bd0c5f757960cc759316f962a5e0ae441ebe683bdcea3c9d02f",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\impossible-size-88\\sequential\\response.json",
+      "sha256": "28d45045d5156bd0c5f757960cc759316f962a5e0ae441ebe683bdcea3c9d02f",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\impossible-size-88\\sequential_reinsert\\response.json",
+      "sha256": "28d45045d5156bd0c5f757960cc759316f962a5e0ae441ebe683bdcea3c9d02f",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\small-11\\coupled\\response.json",
+      "sha256": "09ce1acc24cd76a09c5fb06436c8cfd1cdff7522c60416d9820d652f336ac825",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\small-11\\greedy\\response.json",
+      "sha256": "ba08b090f6ac7da8f2ff120bfa7851955f14828dd61c6afbfc1a7b4437c0289f",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\small-11\\sequential\\response.json",
+      "sha256": "0c2de595a3640a0a25f655cbd6fc450af8f97bb12c77cdd4ea5d0f14b73a8751",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\small-11\\sequential_reinsert\\response.json",
+      "sha256": "0c2de595a3640a0a25f655cbd6fc450af8f97bb12c77cdd4ea5d0f14b73a8751",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\standard-11\\coupled\\response.json",
+      "sha256": "d442bea4b5555a383d50f6dfe20f23bf1a05aa89e03a4112eea21bd0e77da7b5",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\standard-11\\greedy\\response.json",
+      "sha256": "8fc54eaf74647c3596e468eb6c7c0895609c441862b060dc8785bc2e3f50a5a3",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\standard-11\\sequential\\response.json",
+      "sha256": "a8d274d99c130f330277d0d65e8cc06f657618f09ecb9e53c1e949b02e80f565",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\standard-11\\sequential_reinsert\\response.json",
+      "sha256": "a8d274d99c130f330277d0d65e8cc06f657618f09ecb9e53c1e949b02e80f565",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\time-geometry-22\\coupled\\response.json",
+      "sha256": "d2b9807789cf030092f193b46cfc121c0e2169e14da9052c592225b924973526",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\time-geometry-22\\greedy\\response.json",
+      "sha256": "d105d05d904c4676b3bcf3e9fb9607f79720316ba419e88485c4cff1ffa25c5a",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\time-geometry-22\\sequential\\response.json",
+      "sha256": "d105d05d904c4676b3bcf3e9fb9607f79720316ba419e88485c4cff1ffa25c5a",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\time-geometry-22\\sequential_reinsert\\response.json",
+      "sha256": "ab7a84a28e33d4af342addd84e9abe9639df0e9705095ef14ecf212c8f0424d3",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\time-geometry-33\\coupled\\response.json",
+      "sha256": "f4005ffd6dbe0293578b1845bb1ae484c705dd1fe3a08b873c1ab27be6593f17",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\time-geometry-33\\greedy\\response.json",
+      "sha256": "e84427054e2dbdf50674f1039f226ca7f1c5aaf0eedf9912f517e7f3941c7bd8",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\time-geometry-33\\sequential\\response.json",
+      "sha256": "e84427054e2dbdf50674f1039f226ca7f1c5aaf0eedf9912f517e7f3941c7bd8",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\time-geometry-33\\sequential_reinsert\\response.json",
+      "sha256": "3d537d7b26e99540ba746cb859ff710d07f3f0818c918278669538d0a7f1eeaa",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\time-geometry-44\\coupled\\response.json",
+      "sha256": "f3de24f2648a7dd72e9ac916c6b32328f1443eaaab4331772a7e76a30bae8e84",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\time-geometry-44\\greedy\\response.json",
+      "sha256": "dcc07278905b0982582642dc6bc67fbc49ce5c93ac4646a93ebcaf6c91f019a3",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\time-geometry-44\\sequential\\response.json",
+      "sha256": "dcc07278905b0982582642dc6bc67fbc49ce5c93ac4646a93ebcaf6c91f019a3",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\time-geometry-44\\sequential_reinsert\\response.json",
+      "sha256": "c66cc85b4646a838fdd77a4a75b6328bbba99ac297ec6c1c7c7a4384a7cf8cce",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\time-geometry-55\\coupled\\response.json",
+      "sha256": "9e061c97d8e17fffb7987fb05120bc99f348cb8b315420d604b52bddaeb5172d",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\time-geometry-55\\greedy\\response.json",
+      "sha256": "d105d05d904c4676b3bcf3e9fb9607f79720316ba419e88485c4cff1ffa25c5a",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\time-geometry-55\\sequential\\response.json",
+      "sha256": "d105d05d904c4676b3bcf3e9fb9607f79720316ba419e88485c4cff1ffa25c5a",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\time-geometry-55\\sequential_reinsert\\response.json",
+      "sha256": "89920fc356a54445527790908c51c9ed99d4dda03d611f501bcef82eec41ecec",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\time-geometry-66\\coupled\\response.json",
+      "sha256": "8064a540e26df0bfcae2fef8384e8c939c91da3e40ecc10382751dc810f34d90",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\time-geometry-66\\greedy\\response.json",
+      "sha256": "e84427054e2dbdf50674f1039f226ca7f1c5aaf0eedf9912f517e7f3941c7bd8",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\time-geometry-66\\sequential\\response.json",
+      "sha256": "e84427054e2dbdf50674f1039f226ca7f1c5aaf0eedf9912f517e7f3941c7bd8",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\time-geometry-66\\sequential_reinsert\\response.json",
+      "sha256": "0b85d19cdb713da82c5b406b04cd4aed96bc09ba7866b2fd8d8e35ebe0ac7b64",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\unload-mechanism-22\\coupled\\response.json",
+      "sha256": "0744eb9e32944fb84de0e786321edd73c54962ee71f4d1181182992044affc1e",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\unload-mechanism-22\\greedy\\response.json",
+      "sha256": "64d9d6ec725bd1332e044c614997706688c710f602634ede0c6211ea380ff8e4",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\unload-mechanism-22\\sequential\\response.json",
+      "sha256": "af3f952b0cac952299bfec2d5ad505d8f077ae8c2b2123919d44295bd6914a03",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\unload-mechanism-22\\sequential_reinsert\\response.json",
+      "sha256": "af3f952b0cac952299bfec2d5ad505d8f077ae8c2b2123919d44295bd6914a03",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\unload-mechanism-33\\coupled\\response.json",
+      "sha256": "ffa64721d47e4721b3eecda2c6a4c3d3b565340ddd15b327a5033e9dee9706f1",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\unload-mechanism-33\\greedy\\response.json",
+      "sha256": "eb05eddec8fabae9fc0e00ef7163d14b8dc460aed5bd373f7180337b263c9dc8",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\unload-mechanism-33\\sequential\\response.json",
+      "sha256": "5f0b0fda5ca16595aded7cbd22ef9dd42fe4720701bafeb1d8ebf002fb4d94f5",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\unload-mechanism-33\\sequential_reinsert\\response.json",
+      "sha256": "5f0b0fda5ca16595aded7cbd22ef9dd42fe4720701bafeb1d8ebf002fb4d94f5",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\unload-mechanism-44\\coupled\\response.json",
+      "sha256": "e7bfe8650157048c944e6ae684815daeea6bc392361e6a59dc2b0416e28b55c4",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\unload-mechanism-44\\greedy\\response.json",
+      "sha256": "1190dac1fb289bbccc7fbc026d0552825f6a7e64b7ae9207b2867baa5c2702ba",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\unload-mechanism-44\\sequential\\response.json",
+      "sha256": "1a7da3fc3829d63dacbef9678fe536f966597111ae4419f2cb9e4de5b316fd38",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\unload-mechanism-44\\sequential_reinsert\\response.json",
+      "sha256": "1a7da3fc3829d63dacbef9678fe536f966597111ae4419f2cb9e4de5b316fd38",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\unload-mechanism-55\\coupled\\response.json",
+      "sha256": "0744eb9e32944fb84de0e786321edd73c54962ee71f4d1181182992044affc1e",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\unload-mechanism-55\\greedy\\response.json",
+      "sha256": "64d9d6ec725bd1332e044c614997706688c710f602634ede0c6211ea380ff8e4",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\unload-mechanism-55\\sequential\\response.json",
+      "sha256": "af3f952b0cac952299bfec2d5ad505d8f077ae8c2b2123919d44295bd6914a03",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\unload-mechanism-55\\sequential_reinsert\\response.json",
+      "sha256": "af3f952b0cac952299bfec2d5ad505d8f077ae8c2b2123919d44295bd6914a03",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\unload-mechanism-66\\coupled\\response.json",
+      "sha256": "ffa64721d47e4721b3eecda2c6a4c3d3b565340ddd15b327a5033e9dee9706f1",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\unload-mechanism-66\\greedy\\response.json",
+      "sha256": "eb05eddec8fabae9fc0e00ef7163d14b8dc460aed5bd373f7180337b263c9dc8",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\unload-mechanism-66\\sequential\\response.json",
+      "sha256": "5f0b0fda5ca16595aded7cbd22ef9dd42fe4720701bafeb1d8ebf002fb4d94f5",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o02-conflict-20261010\\runs\\unload-mechanism-66\\sequential_reinsert\\response.json",
+      "sha256": "5f0b0fda5ca16595aded7cbd22ef9dd42fe4720701bafeb1d8ebf002fb4d94f5",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\geometry-22\\best\\response.json",
+      "sha256": "758171464e2964cbaeefd141d66c00410bd82e83358b5dd68ef9aa56edc9d823",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\geometry-22\\first\\response.json",
+      "sha256": "e1d8e22f0d28b19f2985aabfa3bad9ec2d07d0115777a943e951b529810ddadd",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\geometry-22\\sequential_reinsert\\response.json",
+      "sha256": "706f65c974ee2c669352bf61e2e0cf929ba7e7d783d23524f217ad1d6b9582c9",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\geometry-33\\best\\response.json",
+      "sha256": "73a3995f08a1cb77c74944107bea3ad4059b534ba64848e2ee7037a929918aef",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\geometry-33\\first\\response.json",
+      "sha256": "b0de2b33db28bc3b25c280cbb45b44fbd7e052ceb844b37f236c8025453a908c",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\geometry-33\\sequential_reinsert\\response.json",
+      "sha256": "44f02c44aaa61fa3c4fa96fc1cea56deab1aeff3a4a94ae4bee6fbc85ca029bc",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\geometry-44\\best\\response.json",
+      "sha256": "7a4f183df9fd3b914f648741a2c01792e029a419e98221b61e4e60df16839fa3",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\geometry-44\\first\\response.json",
+      "sha256": "372a7b8641dd8887b4d2c889c4b3f39c52421d4c755d20d0891413b284e9e026",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\geometry-44\\sequential_reinsert\\response.json",
+      "sha256": "ec97f65fa832f1714718628e322b47c94b5f9161043fd1bf866efc9d493bb1d8",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\geometry-55\\best\\response.json",
+      "sha256": "b0b49b50573bb046bf765e66377252a869e567b374139e05ceb9666a13b0dd8c",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\geometry-55\\first\\response.json",
+      "sha256": "0dda7fedd943b3813bb1e07b7784056c4dd360cd30c5e0056f25664f858f4b27",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\geometry-55\\sequential_reinsert\\response.json",
+      "sha256": "4f2b5a27a392f2640e346c70146c9f85be86cde9667881258ce7f30ea472e8c3",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\geometry-66\\best\\response.json",
+      "sha256": "49e505b57327bd09795ecd21bcc7afce0c0703c590589e5768ee7631c5e99a7d",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\geometry-66\\first\\response.json",
+      "sha256": "5da109e1295bceb4d4416e5823a4dabceadc460340b2a2fced938d81ed49152d",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\geometry-66\\sequential_reinsert\\response.json",
+      "sha256": "3ee5c0b3ba9593054d9c1e46fcc77d0079643e5a767e8757136f7ee06b2ab1c0",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\impossible-size-77\\best\\response.json",
+      "sha256": "b3bcebec7ccee8ba89eacd2974e2268127e042abb6d6fd3aefbab84e5872a604",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\impossible-size-77\\first\\response.json",
+      "sha256": "7ab42e40ffdfc2eeede21cd44697199cb2adbfc8112793b86f42891e58b94f23",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\impossible-size-77\\sequential_reinsert\\response.json",
+      "sha256": "28d45045d5156bd0c5f757960cc759316f962a5e0ae441ebe683bdcea3c9d02f",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\impossible-size-88\\best\\response.json",
+      "sha256": "b3bcebec7ccee8ba89eacd2974e2268127e042abb6d6fd3aefbab84e5872a604",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\impossible-size-88\\first\\response.json",
+      "sha256": "7ab42e40ffdfc2eeede21cd44697199cb2adbfc8112793b86f42891e58b94f23",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\impossible-size-88\\sequential_reinsert\\response.json",
+      "sha256": "28d45045d5156bd0c5f757960cc759316f962a5e0ae441ebe683bdcea3c9d02f",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\ranked-geometry-22\\best\\response.json",
+      "sha256": "c9aabf00c062f3234c68a69f3144c46c864d5a743eea0d0915168305c5e3210f",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\ranked-geometry-22\\first\\response.json",
+      "sha256": "e1d8e22f0d28b19f2985aabfa3bad9ec2d07d0115777a943e951b529810ddadd",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\ranked-geometry-22\\sequential_reinsert\\response.json",
+      "sha256": "f8489b2190d0eb4f8a8c0866396a12ada7a894b1ae5e08052da114d7c455f4d7",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\small-11\\best\\response.json",
+      "sha256": "09ce1acc24cd76a09c5fb06436c8cfd1cdff7522c60416d9820d652f336ac825",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\small-11\\first\\response.json",
+      "sha256": "09ce1acc24cd76a09c5fb06436c8cfd1cdff7522c60416d9820d652f336ac825",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\small-11\\sequential_reinsert\\response.json",
+      "sha256": "0c2de595a3640a0a25f655cbd6fc450af8f97bb12c77cdd4ea5d0f14b73a8751",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\standard-11\\best\\response.json",
+      "sha256": "d442bea4b5555a383d50f6dfe20f23bf1a05aa89e03a4112eea21bd0e77da7b5",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\standard-11\\first\\response.json",
+      "sha256": "d442bea4b5555a383d50f6dfe20f23bf1a05aa89e03a4112eea21bd0e77da7b5",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\standard-11\\sequential_reinsert\\response.json",
+      "sha256": "a8d274d99c130f330277d0d65e8cc06f657618f09ecb9e53c1e949b02e80f565",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\time-geometry-22\\best\\response.json",
+      "sha256": "d9b283265b064e1c4263cb1184750a3c1b9c3e9f476d312834c41749790740bb",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\time-geometry-22\\first\\response.json",
+      "sha256": "d2b9807789cf030092f193b46cfc121c0e2169e14da9052c592225b924973526",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\time-geometry-22\\sequential_reinsert\\response.json",
+      "sha256": "ab7a84a28e33d4af342addd84e9abe9639df0e9705095ef14ecf212c8f0424d3",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\time-geometry-33\\best\\response.json",
+      "sha256": "3504d345968434c0bca166e3decd02ba20cdd1f090dd95f54019e0805bd57b8f",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\time-geometry-33\\first\\response.json",
+      "sha256": "f4005ffd6dbe0293578b1845bb1ae484c705dd1fe3a08b873c1ab27be6593f17",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\time-geometry-33\\sequential_reinsert\\response.json",
+      "sha256": "3d537d7b26e99540ba746cb859ff710d07f3f0818c918278669538d0a7f1eeaa",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\time-geometry-44\\best\\response.json",
+      "sha256": "73c0d16713862219b01445a9fa14a2e895feb6d12ad1bed0f17b1aba3f6f4d4c",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\time-geometry-44\\first\\response.json",
+      "sha256": "f3de24f2648a7dd72e9ac916c6b32328f1443eaaab4331772a7e76a30bae8e84",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\time-geometry-44\\sequential_reinsert\\response.json",
+      "sha256": "c66cc85b4646a838fdd77a4a75b6328bbba99ac297ec6c1c7c7a4384a7cf8cce",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\time-geometry-55\\best\\response.json",
+      "sha256": "3f5cbce91a089bde24540bb015835c5f1bad7b21f9fbe817cce80f262267b7ce",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\time-geometry-55\\first\\response.json",
+      "sha256": "9e061c97d8e17fffb7987fb05120bc99f348cb8b315420d604b52bddaeb5172d",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\time-geometry-55\\sequential_reinsert\\response.json",
+      "sha256": "89920fc356a54445527790908c51c9ed99d4dda03d611f501bcef82eec41ecec",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\time-geometry-66\\best\\response.json",
+      "sha256": "c00284894e8ee310c0cc97526d0a768662fb2fed4542d0274d0ffd5ddd9865a2",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\time-geometry-66\\first\\response.json",
+      "sha256": "8064a540e26df0bfcae2fef8384e8c939c91da3e40ecc10382751dc810f34d90",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\time-geometry-66\\sequential_reinsert\\response.json",
+      "sha256": "0b85d19cdb713da82c5b406b04cd4aed96bc09ba7866b2fd8d8e35ebe0ac7b64",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\unload-mechanism-22\\best\\response.json",
+      "sha256": "0744eb9e32944fb84de0e786321edd73c54962ee71f4d1181182992044affc1e",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\unload-mechanism-22\\first\\response.json",
+      "sha256": "0744eb9e32944fb84de0e786321edd73c54962ee71f4d1181182992044affc1e",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\unload-mechanism-22\\sequential_reinsert\\response.json",
+      "sha256": "af3f952b0cac952299bfec2d5ad505d8f077ae8c2b2123919d44295bd6914a03",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\unload-mechanism-33\\best\\response.json",
+      "sha256": "ffa64721d47e4721b3eecda2c6a4c3d3b565340ddd15b327a5033e9dee9706f1",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\unload-mechanism-33\\first\\response.json",
+      "sha256": "ffa64721d47e4721b3eecda2c6a4c3d3b565340ddd15b327a5033e9dee9706f1",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\unload-mechanism-33\\sequential_reinsert\\response.json",
+      "sha256": "5f0b0fda5ca16595aded7cbd22ef9dd42fe4720701bafeb1d8ebf002fb4d94f5",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\unload-mechanism-44\\best\\response.json",
+      "sha256": "e7bfe8650157048c944e6ae684815daeea6bc392361e6a59dc2b0416e28b55c4",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\unload-mechanism-44\\first\\response.json",
+      "sha256": "e7bfe8650157048c944e6ae684815daeea6bc392361e6a59dc2b0416e28b55c4",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\unload-mechanism-44\\sequential_reinsert\\response.json",
+      "sha256": "1a7da3fc3829d63dacbef9678fe536f966597111ae4419f2cb9e4de5b316fd38",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\unload-mechanism-55\\best\\response.json",
+      "sha256": "0744eb9e32944fb84de0e786321edd73c54962ee71f4d1181182992044affc1e",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\unload-mechanism-55\\first\\response.json",
+      "sha256": "0744eb9e32944fb84de0e786321edd73c54962ee71f4d1181182992044affc1e",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\unload-mechanism-55\\sequential_reinsert\\response.json",
+      "sha256": "af3f952b0cac952299bfec2d5ad505d8f077ae8c2b2123919d44295bd6914a03",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\unload-mechanism-66\\best\\response.json",
+      "sha256": "ffa64721d47e4721b3eecda2c6a4c3d3b565340ddd15b327a5033e9dee9706f1",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\unload-mechanism-66\\first\\response.json",
+      "sha256": "ffa64721d47e4721b3eecda2c6a4c3d3b565340ddd15b327a5033e9dee9706f1",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\o03-ranked-20261010\\runs\\unload-mechanism-66\\sequential_reinsert\\response.json",
+      "sha256": "5f0b0fda5ca16595aded7cbd22ef9dd42fe4720701bafeb1d8ebf002fb4d94f5",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\hetero-mixed-after-20261010\\runs\\small-11-mixed-1\\coupled\\response.json",
+      "sha256": "294712b2598ade6fb309765825edb644d0cfa4a0f6dce6ea1ac22b724c5b0f4b",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\hetero-mixed-after-20261010\\runs\\small-11-mixed-1\\greedy\\response.json",
+      "sha256": "a6d8c1e719aeb84af5e80f5c79e1744345d027cd4840f7023dec11600b97ae6a",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\hetero-mixed-after-20261010\\runs\\small-11-mixed-1\\sequential\\response.json",
+      "sha256": "026cf7d6527eafaec840e481465e506bf847b34351aa16db262d5d3ddfabc9a2",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\hetero-mixed-after-20261010\\runs\\small-11-mixed-1\\sequential_reinsert\\response.json",
+      "sha256": "5edf63365de0e362f73696c9b12f2d252fc1536182711a4fbfda635e849051be",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\hetero-mixed-after-20261010\\runs\\small-11-mixed-2\\coupled\\response.json",
+      "sha256": "d0843bf7635c8c616fc95c91c74912dad9dc8de447063cdc823ada9bed176c3e",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\hetero-mixed-after-20261010\\runs\\small-11-mixed-2\\greedy\\response.json",
+      "sha256": "5ce08427e00815dfae1b49e639edba2330b16ef47abfd7448cf67506bd36071f",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\hetero-mixed-after-20261010\\runs\\small-11-mixed-2\\sequential\\response.json",
+      "sha256": "b7bb3ab85f2000cf4a18a41095a29a6fb97aecf33588d24cdba3ea493db7f45f",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\hetero-mixed-after-20261010\\runs\\small-11-mixed-2\\sequential_reinsert\\response.json",
+      "sha256": "552c5a36397061992bc05adb7d063e669d748196c5f5969b18a996c5d1b8445a",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\hetero-mixed-after-20261010\\runs\\standard-11-mixed-1\\coupled\\response.json",
+      "sha256": "03001acb8e8bfaad0fc2f9f0665313e6ff816ebef2a27883cd9b3fd774f59017",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\hetero-mixed-after-20261010\\runs\\standard-11-mixed-1\\greedy\\response.json",
+      "sha256": "69339f14f8cfd0768cbfd311c323418555e266fc56ff94f0037451255b98bad0",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\hetero-mixed-after-20261010\\runs\\standard-11-mixed-1\\sequential\\response.json",
+      "sha256": "7946b5bbe344864e9d3711a766c593317a71da910d06586778a25a8027280f44",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\hetero-mixed-after-20261010\\runs\\standard-11-mixed-1\\sequential_reinsert\\response.json",
+      "sha256": "065fa01c508e8c54965ba82bf54610a83a372b63b1dc791f2458fe4c4a268730",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\hetero-mixed-after-20261010\\runs\\standard-11-mixed-2\\coupled\\response.json",
+      "sha256": "90f0305657a1ca86f03d20509053e96e80310aacc929dead037694769446cdf0",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\hetero-mixed-after-20261010\\runs\\standard-11-mixed-2\\greedy\\response.json",
+      "sha256": "43185e7aa011ba63c3f9dac38841e2d82f6c3e198ce310d9c898ca4ba797b8a7",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\hetero-mixed-after-20261010\\runs\\standard-11-mixed-2\\sequential\\response.json",
+      "sha256": "b17b8861cf701b646ea776e59539b39cca7db6e0d2ca8ad1ee4e7767beba81cd",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\hetero-mixed-after-20261010\\runs\\standard-11-mixed-2\\sequential_reinsert\\response.json",
+      "sha256": "447a0b2a0b3c87aacad7c61b20de17dfa32f2963da3f82ee1d3b88b3dddc4e13",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\hetero-mixed-after-20261010\\runs\\stress-44-mixed-1\\coupled\\response.json",
+      "sha256": "478841447bc4c83432351c04533de2e206f25eaa88db0218df5335463939f332",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\hetero-mixed-after-20261010\\runs\\stress-44-mixed-1\\greedy\\response.json",
+      "sha256": "d4979c81e127fd26e269560f7ab759a6fe2653bb248aec2869821b1e5145998e",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\hetero-mixed-after-20261010\\runs\\stress-44-mixed-1\\sequential\\response.json",
+      "sha256": "dc0f6783be99ddeaa557d5d71b490fce7a1ce9eb988a586b7bd075ab9ddd25a6",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\hetero-mixed-after-20261010\\runs\\stress-44-mixed-1\\sequential_reinsert\\response.json",
+      "sha256": "01aaeac6d750663042069cc819d024588bebacf6325136a352af513604eb9e19",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\hetero-mixed-after-20261010\\runs\\stress-44-mixed-2\\coupled\\response.json",
+      "sha256": "e99985a20becc9081625bf5d723fd1e311135de95007c998e5c5e39be90a8f64",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\hetero-mixed-after-20261010\\runs\\stress-44-mixed-2\\greedy\\response.json",
+      "sha256": "de9244dc70a720bb4636b7e789b856079308d3fa63f0769e656843286742e1da",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\hetero-mixed-after-20261010\\runs\\stress-44-mixed-2\\sequential\\response.json",
+      "sha256": "a5fa77f1ea35e0b945bbb33c1a2f2765bdcde790db4329ddd295db9b45c32956",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\hetero-mixed-after-20261010\\runs\\stress-44-mixed-2\\sequential_reinsert\\response.json",
+      "sha256": "afd8d22feb81c83a101a7a40f593533db254347c27a6207a5e11f82e5ea5cb41",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\hetero-holdout-20261010\\runs\\small-22-mixed-11\\coupled\\response.json",
+      "sha256": "eb3ea37ed9eeb8d92a8e12da191e1aa64406575806091cb7dcd35d012a7e6ee6",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\hetero-holdout-20261010\\runs\\small-22-mixed-11\\greedy\\response.json",
+      "sha256": "65ab5567abdbffe12ed0bde6d5bab1a032dc04b9a914ed7724ff9c427268c3a0",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\hetero-holdout-20261010\\runs\\small-22-mixed-11\\sequential\\response.json",
+      "sha256": "079e1ce9a2ca61dcb206bc7fe69b567bfe1314f0dc317f1e82ac9267cbd1e674",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\hetero-holdout-20261010\\runs\\small-22-mixed-11\\sequential_reinsert\\response.json",
+      "sha256": "a2a05cb1977c5accd5be346e155913f6f607f4d68927ea9deaff6fd0cad3b3b6",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\hetero-holdout-20261010\\runs\\small-22-mixed-22\\coupled\\response.json",
+      "sha256": "5eaa69e2946514bf1bf4ce175d3e57ace4b89a04dfe4ffc05bd4823971813c81",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\hetero-holdout-20261010\\runs\\small-22-mixed-22\\greedy\\response.json",
+      "sha256": "089cb532d4d3a7d961bb86d45de466c74180ad03572e829966c717caa6b3ff34",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\hetero-holdout-20261010\\runs\\small-22-mixed-22\\sequential\\response.json",
+      "sha256": "cb4d72db79d94129b78bf843a8a3fe635e42cfa579780f3b56156032cbbc0d5e",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\hetero-holdout-20261010\\runs\\small-22-mixed-22\\sequential_reinsert\\response.json",
+      "sha256": "75faffb80701b360cbdf37ed7401a2a87760d06bf4fe599d8d0948302e602934",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\hetero-holdout-20261010\\runs\\standard-22-mixed-11\\coupled\\response.json",
+      "sha256": "26b5ed58d493f257cebdb7328dddea1195c6c122999d49b49b7845557115724f",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\hetero-holdout-20261010\\runs\\standard-22-mixed-11\\greedy\\response.json",
+      "sha256": "51cce0ca4c06b03b730fececcebef393de03feedad87237d5f646ee327aa3278",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\hetero-holdout-20261010\\runs\\standard-22-mixed-11\\sequential\\response.json",
+      "sha256": "499a07165a9acc23d2200b9040b7e866932bcf8c526d935e839d029340e43dfa",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\hetero-holdout-20261010\\runs\\standard-22-mixed-11\\sequential_reinsert\\response.json",
+      "sha256": "05c019209a87d51dae873ea56665bac0854137c1a964b252edc12220446f0c66",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\hetero-holdout-20261010\\runs\\standard-22-mixed-22\\coupled\\response.json",
+      "sha256": "2e141d257ad7c7892a4920e24fafc33deb0786f453e0fce3201a5ae50e798dee",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\hetero-holdout-20261010\\runs\\standard-22-mixed-22\\greedy\\response.json",
+      "sha256": "1172d1456473b251169cff27703aa4456ea44aef8ab444561e7ae750c4403d67",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\hetero-holdout-20261010\\runs\\standard-22-mixed-22\\sequential\\response.json",
+      "sha256": "f0586c8ed430ffce8abec814f9f0a01e83ce12eba643d7f6480973a8681fc879",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\hetero-holdout-20261010\\runs\\standard-22-mixed-22\\sequential_reinsert\\response.json",
+      "sha256": "eb692d7992ecd6a10b9bba1f923c0c9ad742ba2c120af4f09453b44e352196ea",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\hetero-holdout-20261010\\runs\\stress-44-mixed-11\\coupled\\response.json",
+      "sha256": "ab2e270e78936cfa7f19410b6280635f490ed0a04483c8c4892c49ded94af6f3",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\hetero-holdout-20261010\\runs\\stress-44-mixed-11\\greedy\\response.json",
+      "sha256": "7eb9e1bcd80b5f69bb825eb9ce38cc98d30262b85272af06b02849aceb64e8cb",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\hetero-holdout-20261010\\runs\\stress-44-mixed-11\\sequential\\response.json",
+      "sha256": "bfb519cbaecbe98b72c36e4dfbf34c345d0899e8a5fb9730afa9afa8b4bf7202",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\hetero-holdout-20261010\\runs\\stress-44-mixed-11\\sequential_reinsert\\response.json",
+      "sha256": "bff90865fb0c4ea254282e9883aebc3fbc5321a05eec6d657f48ac8bc93ace86",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\hetero-holdout-20261010\\runs\\stress-44-mixed-22\\coupled\\response.json",
+      "sha256": "fd340bae3a4159a3f32368528f1d86e2b7b4b89ff399d8157c768a3033b49c90",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\hetero-holdout-20261010\\runs\\stress-44-mixed-22\\greedy\\response.json",
+      "sha256": "cf88ee5aeae516f03f697cfdf8ecb7243d35a589a98f829c69c25cb267edf4b5",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\hetero-holdout-20261010\\runs\\stress-44-mixed-22\\sequential\\response.json",
+      "sha256": "81cbb15b88bc057c0f3e712f2a1db1517bd02b2466bbc97d4d4771cbebd9d52c",
+      "valid": true,
+      "violations": []
+    },
+    {
+      "path": "artifacts\\benchmarks\\hetero-holdout-20261010\\runs\\stress-44-mixed-22\\sequential_reinsert\\response.json",
+      "sha256": "f74c71b2685ea4a0531cc3ee27039b348b22fb00af3463012d08eeaf257d8420",
+      "valid": true,
+      "violations": []
+    }
+  ]
+}

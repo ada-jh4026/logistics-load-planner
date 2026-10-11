@@ -11,11 +11,12 @@
 ## 冻结后（只修阻断）
 - [x] 干净目录复现（2026-10-11 02:20，本方）：`git clone` 1c5adc6 → `pip install -r requirements-dev.txt -r agent/requirements.txt` → `pytest tests agent/tests` 248 passed → `npm ci && npm run build` 通过。三服务与浏览器流程在工作目录已验（F05/F07/O04/UI-polish 证据）。
 - [x] GPT 只读审查（2026-10-10 晚，基准 d9b7ebc）：阻断 B3、重要 I1–I7、I9、建议 S1–S5 由本方修复（`artifacts/evidence/review-fixes.md`）；**B1/B2（独立校验器漏检）归主线，探针在 `artifacts/probes/validator_tamper_probe.py`，待主线修复后重跑 `pytest tests` 并在此勾选**。
-- [ ] 主线修复 B1/B2 后：`.venv/Scripts/python.exe -X utf8 artifacts/probes/validator_tamper_probe.py` 8/8 CAUGHT；README「独立校验器重算全部约束和指标」的说法届时成立。
+- [x] 2026-10-11 主线修复 B1/B2：8/8 有效篡改 CAUGHT；修正原单站换序探针无实际变动的问题。275 项测试、前端构建通过；205 份历史实验输出重新校验通过。见 `artifacts/evidence/H02.md`，本次修复尚未提交/push。
 - [x] 仓库内无凭据（2026-10-11 复核）：`git grep` 无匹配；`agent/.env` 未被跟踪。
 - [x] 模拟数据、手工样例、人工环节在 README「数据来源」一节标注。
 - [x] 第三方组件与许可在 README「外部依赖」一节列出。
-- [ ] `docs/playbook/board.json` 状态与实际一致，不把未完成标 done。
+- [x] `docs/playbook/board.json` 补齐 H01、O04、H02，I04 保持 in_progress；正式冻结/提交未冒充完成。
+- [ ] 最终提交候选版本再做一次干净环境复现和浏览器演示；已有干净克隆证据针对 1c5adc6，不等于当前未提交修复的验收。
 
 ## 提交（用户执行）
 - [ ] GitHub 私有仓库 `ada-c38f0bb79f/logistics-load-planner` 邀请官方账号 **DsChHack** 为 Collaborator（仓主 ada-c38f0bb79f 操作：Settings → Collaborators → Add people）。

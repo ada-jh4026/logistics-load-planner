@@ -112,3 +112,11 @@ CONTRACT.md 的 SolveRequest / JobResponse / Result / 错误码；ALGORITHMS.md 
 
 不变：求解器协议、`backend/`、主线实验记录。
 
+
+## 2026-10-11 H02 校验器阻断修复与收尾
+
+主线按用户要求同步b8ed551并修复B1/B2。ALGORITHMS A1明确完整箱单与路线派生字段复核；协议字段、求解策略和业务约束不变。跨目录仅更新共享的提交清单与Claude交接探针（原B2d单站换序无实际改动，改用多站并强制断言）。未改frontend、agent或README。补齐H01/O04/H02任务卡与board，I04保持进行中。实际结果见artifacts/evidence/H02.md：8/8有效篡改被拒、275测试通过、前端构建通过、205历史输出重新校验通过。
+
+## 2026-10-11 I04 交付整理及成员简介
+
+用户授权完成剩余收尾、从简历摘录成员介绍，并确认Imperial MSc EDSML在读；跨目录更新README仅限本人信息、测试数量和交付状态，队友栏保留本人填写。完整简历不入库，agent新增经历等待本人材料。官方要求复核见docs/submission-requirements-verified.md。

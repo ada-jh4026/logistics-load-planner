@@ -21,8 +21,8 @@ from backend.solver import solve  # noqa: E402
 from backend.validation import validate_solution  # noqa: E402
 
 
-def _base() -> tuple[SolveRequest, dict]:
-    req = SolveRequest(**json.loads((ROOT / "data/cases/c01.json").read_text(encoding="utf-8")))
+def _base(case_id="c01") -> tuple[SolveRequest, dict]:
+    req = SolveRequest(**json.loads((ROOT / "data/cases" / f"{case_id}.json").read_text(encoding="utf-8")))
     res = solve(req)
     result = res.result if hasattr(res, "result") else res
     d = result.model_dump() if hasattr(result, "model_dump") else result
@@ -81,9 +81,9 @@ def t_zero_timestamps(d):
 
 
 def t_shuffle_stop_order_fields(d):
-    r = d["routes"][0]
-    if len(r["stops"]) >= 2:
-        r["stops"][0], r["stops"][1] = r["stops"][1], r["stops"][0]
+    # c01 has only one stop: swapping it was previously a no-op, not a leak.
+    r = next(r for r in d["routes"] if len(r["stops"]) >= 2)
+    r["stops"][0], r["stops"][1] = r["stops"][1], r["stops"][0]
     return "B2d stops 顺序与 store_ids 顺序不一致"
 
 
@@ -95,8 +95,10 @@ def main() -> int:
     req, base = _base()
     leaks = 0
     for fn in TAMPERS:
+        req, base = _base("small-11" if fn is t_shuffle_stop_order_fields else "c01")
         d = copy.deepcopy(base)
         label = fn(d)
+        assert d != base, f"Probe did not modify the result: {fn.__name__}"
         try:
             result = Result(**d)
         except Exception as e:  # 协议层就拒绝也算 CAUGHT

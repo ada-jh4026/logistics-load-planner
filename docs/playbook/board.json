@@ -404,7 +404,10 @@
       "estimate_minutes": 45,
       "status": "done",
       "owner": "主线（Codex）",
-      "evidence": ["artifacts/evidence/I02.md", "docs/results.md"],
+      "evidence": [
+        "artifacts/evidence/I02.md",
+        "docs/results.md"
+      ],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/I02.md"
     },
@@ -437,9 +440,11 @@
         "I03"
       ],
       "estimate_minutes": 60,
-      "status": "pending",
-      "owner": null,
-      "evidence": [],
+      "status": "in_progress",
+      "owner": "主线（Codex）",
+      "evidence": [
+        "artifacts/evidence/I04.md"
+      ],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/I04.md"
     },
@@ -532,11 +537,15 @@
       "id": "O01",
       "title": "记录真实协同修复过程并发布消费协议",
       "lane": "backend",
-      "depends_on": ["I02"],
+      "depends_on": [
+        "I02"
+      ],
       "estimate_minutes": 90,
       "status": "done",
       "owner": "主线（Codex）",
-      "evidence": ["artifacts/evidence/O01.md"],
+      "evidence": [
+        "artifacts/evidence/O01.md"
+      ],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/O01.md"
     },
@@ -544,11 +553,16 @@
       "id": "O02",
       "title": "构建冲突案例和公平对照实验",
       "lane": "backend",
-      "depends_on": ["O01"],
+      "depends_on": [
+        "O01"
+      ],
       "estimate_minutes": 120,
       "status": "done",
       "owner": "主线（Codex）",
-      "evidence": ["artifacts/evidence/O02.md", "docs/conflict-results.md"],
+      "evidence": [
+        "artifacts/evidence/O02.md",
+        "docs/conflict-results.md"
+      ],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/O02.md"
     },
@@ -556,13 +570,65 @@
       "id": "O03",
       "title": "预算内择优搬移与消融验证",
       "lane": "backend",
-      "depends_on": ["O02"],
+      "depends_on": [
+        "O02"
+      ],
       "estimate_minutes": 90,
       "status": "done",
       "owner": "主线（Codex）",
-      "evidence": ["artifacts/evidence/O03.md"],
+      "evidence": [
+        "artifacts/evidence/O03.md"
+      ],
       "blocked_reason": null,
       "card": "docs/playbook/tasks/O03.md"
+    },
+    {
+      "id": "H01",
+      "title": "异构箱件配载与失败路线恢复",
+      "lane": "backend",
+      "depends_on": [
+        "O03"
+      ],
+      "estimate_minutes": 60,
+      "status": "done",
+      "owner": "主线",
+      "evidence": [
+        "artifacts/evidence/H01.md"
+      ],
+      "blocked_reason": null,
+      "card": "docs/playbook/tasks/H01.md"
+    },
+    {
+      "id": "O04",
+      "title": "协同修复面板与消费端联调",
+      "lane": "frontend",
+      "depends_on": [
+        "O01"
+      ],
+      "estimate_minutes": 60,
+      "status": "done",
+      "owner": "Claude",
+      "evidence": [
+        "artifacts/evidence/O04.md"
+      ],
+      "blocked_reason": null,
+      "card": "docs/playbook/tasks/O04.md"
+    },
+    {
+      "id": "H02",
+      "title": "独立校验器 B1/B2 修复",
+      "lane": "backend",
+      "depends_on": [
+        "H01"
+      ],
+      "estimate_minutes": 60,
+      "status": "done",
+      "owner": "主线",
+      "evidence": [
+        "artifacts/evidence/H02.md"
+      ],
+      "blocked_reason": null,
+      "card": "docs/playbook/tasks/H02.md"
     }
   ],
   "lanes": {

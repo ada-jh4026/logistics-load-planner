@@ -10,6 +10,9 @@
 
 from __future__ import annotations
 
+from collections import Counter
+from math import isclose
+
 from backend.geometry import validate_layout
 from backend.metrics import compute_metrics
 from backend.models import Metrics, Placement, Result, SolveRequest, UnloadStep, Violation
@@ -40,7 +43,7 @@ def _metrics_match(a: Metrics, b: Metrics) -> bool:
             continue
         if av is None or bv is None:
             return False
-        if abs(av - bv) > EPS:
+        if not isclose(av, bv, rel_tol=0, abs_tol=EPS):
             return False
     return True
 
@@ -54,9 +57,19 @@ def validate_vehicle_candidate(request: SolveRequest, vehicle_id: str,
 
     供 packer（B09）与 repair（B12）复用，不依赖求解器。
     """
-    vehicle = _vehicle(request, vehicle_id)
     boxes = {b.id: b for b in request.boxes}
     violations: list[Violation] = []
+    if vehicle_id not in {v.id for v in request.vehicles}:
+        return [Violation(code="VEHICLE_REUSED", vehicle_id=vehicle_id,
+                          message="候选引用不存在的车辆")]
+    vehicle = _vehicle(request, vehicle_id)
+    expected = Counter(b.id for b in request.boxes if b.store_id in store_ids)
+    actual = Counter(p.box_id for p in placements)
+    if actual != expected:
+        violations.append(Violation(code="STEP_MISMATCH", vehicle_id=vehicle_id,
+                                    message="布局箱件与路线门店的完整箱件清单不一致"))
+    if any(bid not in boxes for bid in actual):
+        return violations
 
     # 几何：边界、碰撞、承托、易碎、旋转
     violations.extend(validate_layout(boxes, placements, vehicle))
@@ -94,6 +107,32 @@ def validate_solution(request: SolveRequest, result: Result) -> list[Violation]:
     all_box_ids = set(box_store.keys())
     vehicle_ids = {v.id for v in request.vehicles}
     boxes = {b.id: b for b in request.boxes}
+
+    # Reject unknown references before calling geometry/scheduling/metrics.
+    store_ids = {s.id for s in request.stores}
+    for route in result.routes:
+        if (route.vehicle_id not in vehicle_ids
+                or any(s not in store_ids for s in route.store_ids)
+                or any(s.store_id not in store_ids for s in route.stops)
+                or any(b not in boxes for b in route.box_ids)
+                or any(p.box_id not in boxes for p in route.placements)
+                or any(s.box_id not in boxes or s.store_id not in store_ids
+                       for s in route.unload_steps)):
+            violations.append(Violation(code="STORE_SPLIT", vehicle_id=route.vehicle_id,
+                                        message="路线含未知车辆、门店或箱件引用"))
+    for un in result.unassigned:
+        if un.store_id not in store_ids or any(b not in boxes for b in un.box_ids):
+            violations.append(Violation(code="STORE_SPLIT", message="未分配清单含未知引用"))
+    if violations:
+        return violations
+
+    represented_stores = [s for r in result.routes for s in r.store_ids] + [u.store_id for u in result.unassigned]
+    if Counter(represented_stores) != Counter(store_ids):
+        violations.append(Violation(code="STORE_SPLIT", message="每个门店必须恰好出现于一条路线或未分配清单"))
+    for un in result.unassigned:
+        if Counter(un.box_ids) != Counter(b.id for b in request.boxes if b.store_id == un.store_id):
+            violations.append(Violation(code="STORE_SPLIT", store_id=un.store_id,
+                                        message="未分配门店与完整箱件清单不一致"))
 
     # 1. 分配完整性：每个箱恰在一个路线或 unassigned
     seen: dict[str, str] = {}  # box_id -> 归属
@@ -147,6 +186,12 @@ def validate_solution(request: SolveRequest, result: Result) -> list[Violation]:
             code="VEHICLE_REUSED",
             message=f"车辆重复使用：{sorted(used)}"))
     for r in result.routes:
+        expected = Counter(b.id for b in request.boxes if b.store_id in r.store_ids)
+        if (Counter(r.box_ids) != expected
+                or Counter(p.box_id for p in r.placements) != expected
+                or Counter(s.box_id for s in r.unload_steps) != expected):
+            violations.append(Violation(code="STEP_MISMATCH", vehicle_id=r.vehicle_id,
+                                        message="路线、布局、卸货箱件必须与门店完整清单逐件一致且无重复"))
         if not r.store_ids or not r.box_ids:
             violations.append(Violation(
                 code="STEP_MISMATCH", vehicle_id=r.vehicle_id,
@@ -158,14 +203,34 @@ def validate_solution(request: SolveRequest, result: Result) -> list[Violation]:
                 message=f"车辆 {r.vehicle_id} 路线门店与箱件门店不一致"))
 
     # 3-5. 每条路线：时间/载重/布局/卸货
+    canonical_routes = []
     for r in result.routes:
         vehicle = _vehicle(request, r.vehicle_id)
         cand_violations = validate_vehicle_candidate(
             request, r.vehicle_id, r.store_ids, r.placements, r.unload_steps)
         violations.extend(cand_violations)
 
+        schedule = schedule_route(request, r.vehicle_id, r.store_ids)
+        cost = vehicle.fixed_cost + vehicle.cost_per_km * schedule.distance_km
+        pairs = [(r.distance_km, schedule.distance_km), (r.cost, cost),
+                 (r.return_min, schedule.return_min)]
+        stops_match = len(r.stops) == len(schedule.stops)
+        for actual, expected in zip(r.stops, schedule.stops):
+            stops_match = stops_match and actual.store_id == expected.store_id
+            pairs.extend((getattr(actual, field), getattr(expected, field)) for field in
+                         ("arrival_min", "service_start_min", "departure_min"))
+        if not stops_match or any(not isclose(a, b, rel_tol=0, abs_tol=EPS) for a, b in pairs):
+            violations.append(Violation(code="METRIC_MISMATCH", vehicle_id=r.vehicle_id,
+                                        message="路线里程、费用、到站顺序或时刻表与原始输入重算不符"))
+        canonical_routes.append(r.model_copy(update={
+            "distance_km": schedule.distance_km, "cost": cost,
+            "return_min": schedule.return_min, "stops": schedule.stops}))
+
     # 6. 指标：独立重算并比较
-    recomputed = compute_metrics(request, result.routes, result.unassigned)
+    # Structural errors can make derived Metrics invalid (e.g. duplicate stores).
+    if violations:
+        return violations
+    recomputed = compute_metrics(request, canonical_routes, result.unassigned)
     if not _metrics_match(recomputed, result.metrics):
         violations.append(Violation(
             code="METRIC_MISMATCH",

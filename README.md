@@ -8,8 +8,10 @@
 
 | 角色 | 姓名 | 介绍 |
 |---|---|---|
-| 前端、智能体、文档与提交 | （待补） | （待补） |
-| 求解器后端、数据与实验 | （待补） | （待补） |
+| 前端、智能体、文档与提交 | （由该成员本人填写） | （由该成员本人填写） |
+| 求解器后端、数据与实验 | 胡嘉乐 | 帝国理工学院 MSc Environmental Data Science and Machine Learning 在读；软件工程本科背景，具备 Python/PyTorch、机器学习实验与后端开发经验，曾参与医学图像分割、中文健康文本分类及工业视觉项目。获美国大学生数学建模竞赛 Meritorious Winner、全国大学生数学建模竞赛广东省一等奖。 |
+
+胡嘉乐：[GitHub](https://github.com/CarlossQAQ) · [个人博客](https://carlossqaq.github.io)。成员介绍侧重与本作品相关的经历，完整个人简历不作为运行或评审的必要附件。队友姓名与介绍由其本人补充。
 
 开发过程中两名成员各自使用 AI 编程助手（Claude Code、GPT 系列），按 `docs/playbook/` 的任务卡逐张实现并留下验收证据（`artifacts/evidence/`）。
 
@@ -70,7 +72,7 @@ cd frontend && npm ci && npm run dev      # http://127.0.0.1:5173
 
 测试（Windows 把 `.venv/bin/python` 换成 `.venv\Scripts\python.exe`）：
 ```bash
-.venv/bin/python -m pytest -q tests            # 后端 185 项（其中 1 项会写入 artifacts/benchmarks/test_tmp）
+.venv/bin/python -m pytest -q tests            # 后端 203 项（其中 1 项会写入 artifacts/benchmarks/test_tmp）
 .venv/bin/python -m pytest -q agent/tests      # 智能体 72 项，不依赖网络
 cd frontend && npm run build                   # 类型检查 + 构建
 ```

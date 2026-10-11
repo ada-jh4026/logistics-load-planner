@@ -2,6 +2,7 @@
 
 import copy
 import json
+import pytest
 from pathlib import Path
 
 from backend.models import Result, SolveRequest, Unassigned
@@ -102,3 +103,52 @@ def test_fake_volume_utilization_detected():
     res = _success_result()
     res.metrics.volume_utilization = 0.9  # 伪造利用率
     assert "METRIC_MISMATCH" in _codes(validate_solution(req, res))
+
+
+from artifacts.probes.validator_tamper_probe import TAMPERS, _base
+
+
+@pytest.mark.parametrize("tamper", TAMPERS, ids=lambda fn: fn.__name__)
+def test_review_tampering_is_rejected(tamper):
+    request, data = _base("small-11" if tamper.__name__ == "t_shuffle_stop_order_fields" else "c01")
+    original = copy.deepcopy(data)
+    tamper(data)
+    assert data != original, "Probe must actually modify this case"
+    assert validate_solution(request, Result.model_validate(data))
+
+
+@pytest.mark.parametrize("field", ["arrival_min", "service_start_min", "departure_min"])
+def test_each_stop_timestamp_is_recomputed(field):
+    req, data = _base()
+    data["routes"][0]["stops"][0][field] += 1
+    assert "METRIC_MISMATCH" in _codes(validate_solution(req, Result.model_validate(data)))
+
+
+@pytest.mark.parametrize("location", ["vehicle", "store", "box", "placement", "unload", "stop"])
+def test_unknown_references_return_violations_instead_of_crashing(location):
+    req, data = _base()
+    route = data["routes"][0]
+    if location == "vehicle":
+        route["vehicle_id"] = "UNKNOWN"
+    elif location == "store":
+        route["store_ids"][0] = "UNKNOWN"
+    elif location == "box":
+        route["box_ids"][0] = "UNKNOWN"
+    elif location == "placement":
+        route["placements"][0]["box_id"] = "UNKNOWN"
+    elif location == "unload":
+        route["unload_steps"][0]["box_id"] = "UNKNOWN"
+    else:
+        route["stops"][0]["store_id"] = "UNKNOWN"
+    assert validate_solution(req, Result.model_validate(data))
+
+
+def test_missing_stop_and_duplicate_unload_are_rejected():
+    req, data = _base()
+    missing = copy.deepcopy(data)
+    missing["routes"][0]["stops"].pop()
+    assert validate_solution(req, Result.model_validate(missing))
+    duplicate = copy.deepcopy(data)
+    route = duplicate["routes"][0]
+    route["unload_steps"][1]["box_id"] = route["unload_steps"][0]["box_id"]
+    assert validate_solution(req, Result.model_validate(duplicate))

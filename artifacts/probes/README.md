@@ -101,7 +101,7 @@ git apply artifacts/probes/routing_marginal_cost.patch
 
 # 探针 3：独立校验器对篡改型结果的漏检（2026-10-10 晚，前端/智能体线转交，来源：GPT 只读审查 B1/B2）
 
-> **状态：待主线修复。** 归属 `backend/validation.py`、`backend/metrics.py`、`tests/`。本方不改 backend，只交付可复现脚本。
+> **状态：2026-10-11 已修复（本地待提交），8/8有效篡改 CAUGHT。** 原B2d在c01单站上没有实际交换，现改为small-11多站并增加修改断言。详见 `artifacts/evidence/H02.md`。下表保留历史记录。 归属 `backend/validation.py`、`backend/metrics.py`、`tests/`。本方不改 backend，只交付可复现脚本。
 
 ## 复现
 ```

@@ -1,5 +1,5 @@
 # 从这里继续：两天物流赛题执行路线
-本仓库已有可运行系统及实验/联调证据。O01–O03 已实施并验收；Claude 消费端联调和 I04 最终验收待办。方案见 `docs/optimization-plan.md`，实际结果见 `docs/conflict-results.md`、`artifacts/evidence/O03.md` 与 board。不要把尚未执行的后续建议或接口样例当作已完成能力。
+本仓库已有可运行系统及实验/联调证据。O01–O04、H01 异构配载、H02 校验器 B1/B2 修复已完成。2026-10-11 本地复核：275 项测试通过、前端构建通过、205 份历史实验输出通过新校验器复审。收尾见 `artifacts/evidence/H02.md`、`artifacts/evidence/I04.md` 和 `docs/submission-checklist.md`。I04 尚在收尾，未正式冻结或提交；团队信息、评审访问和提交渠道待确认。
 
 ## 新模型首次进入
 1. 读 AGENTS.md。

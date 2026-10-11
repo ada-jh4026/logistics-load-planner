@@ -6,7 +6,8 @@
 - [x] 主线已采纳增量费用修正，重跑三套基准并更新 README 实验表（见 `docs/results.md`）。
 - [x] 主线 I02：21 条实验记录齐全，`docs/results.md` 有表格与原始文件对应。
 - [x] F06：3 分钟演示脚本 `docs/demo-script.md` 已按新功能更新；关键截图在 `artifacts/demo/`（含 repair/、ui/）。录屏未制作。
-- [ ] README团队信息、队名补齐（胡嘉乐简介已补；队友栏由本人填写，队名待确认；简历可选）。
+- [x] README 团队信息：两名成员简介已补（2026-10-11）。
+- [ ] 队名待确认（登记问卷「团队名字」一项需要）。
 
 ## 冻结后（只修阻断）
 - [x] 干净目录复现（2026-10-11 02:20，本方）：`git clone` 1c5adc6 → `pip install -r requirements-dev.txt -r agent/requirements.txt` → `pytest tests agent/tests` 248 passed → `npm ci && npm run build` 通过。三服务与浏览器流程在工作目录已验（F05/F07/O04/UI-polish 证据）。

@@ -8,10 +8,10 @@
 
 | 角色 | 姓名 | 介绍 |
 |---|---|---|
-| 前端、智能体、文档与提交 | （由该成员本人填写） | （由该成员本人填写） |
+| 前端、智能体、文档与提交 | Qian Yuqiao | 伦敦大学学院（UCL）计算机科学系 MSc Emerging Digital Technologies 在读；广东东软学院与西英格兰大学软件工程联合学士，一等荣誉、年级第 2。中国体育科学研究所女篮决策支持项目的独立开发者，交付并运维一套生产中的赛事视频分析平台（FastAPI + PostgreSQL + Vue 3，阿里云部署），合著 ICCBR 2026 论文（Springer LNAI）；毕业设计为轻量级 YOLOv8 铝棒检测计数系统，含对照实验与如实报告的消融负结果。全国大学生数学建模竞赛省一等奖（遗传算法作物种植规划）、粤港澳大湾区数学建模竞赛一等奖、美国大学生数学建模竞赛 S 奖。Python / TypeScript 全栈，习惯用 AI 编程助手配合书面交接与变更记录推进工程。 |
 | 求解器后端、数据与实验 | 胡嘉乐 | 帝国理工学院 MSc Environmental Data Science and Machine Learning 在读；软件工程本科背景，具备 Python/PyTorch、机器学习实验与后端开发经验，曾在广东省医学影像重点实验室参与医学图像分割、中文健康文本分类及工业视觉项目。数次获美国大学生数学建模竞赛 Meritorious Winner、全国大学生数学建模竞赛广东省一等奖，粤港澳大湾区金融数学建模金奖。 |
 
-胡嘉乐：[GitHub](https://github.com/ada-c38f0bb79f) · [个人博客](https://ada-c38f0bb79f.github.io/)。
+Qian Yuqiao：[GitHub](https://github.com/cattreeII)。胡嘉乐：[GitHub](https://github.com/ada-c38f0bb79f) · [个人博客](https://ada-c38f0bb79f.github.io/)。
 
 相关研究经历：**LLM Agent 规划策略与可靠性评测研究（进行中）**。调研 ReAct、ADaPT、Reflexion 与 Plan-and-Solve，设计固定模型、工具及推理预算下的策略对照方案，研究任务依赖深度对终态成功率和资源开销的影响；已梳理执行轨迹、独立结果验证与预算核算需求。目前为调研与评测设计阶段，尚不主张完成完整 Agent 框架或取得实测成功率提升。
 

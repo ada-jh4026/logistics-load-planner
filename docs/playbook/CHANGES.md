@@ -120,3 +120,7 @@ CONTRACT.md 的 SolveRequest / JobResponse / Result / 错误码；ALGORITHMS.md 
 ## 2026-10-11 I04 交付整理及成员简介
 
 用户授权完成剩余收尾、从简历摘录成员介绍，并确认Imperial MSc EDSML在读；跨目录更新README仅限本人信息、测试数量和交付状态，队友栏保留本人填写。完整简历不入库，agent新增经历等待本人材料。官方要求复核见docs/submission-requirements-verified.md。
+
+## 2026-10-11 I04技术验收完成
+
+独立克隆d95c251、新环境275测试、8/8探针、前端构建及浏览器流程通过；同步任务板done与证据。附加变更仅README成员信息/运行说明、状态、验收材料；未修改已验收应用代码。用户要求只推送GitHub、不发问卷；队友资料本人补，访问邀请仓主核对。

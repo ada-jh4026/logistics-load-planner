@@ -13,6 +13,8 @@
 
 胡嘉乐：[GitHub](https://github.com/CarlossQAQ) · [个人博客](https://carlossqaq.github.io)。成员介绍侧重与本作品相关的经历，完整个人简历不作为运行或评审的必要附件。队友姓名与介绍由其本人补充。
 
+相关研究经历：**LLM Agent 规划策略与可靠性评测研究（进行中）**。调研 ReAct、ADaPT、Reflexion 与 Plan-and-Solve，设计固定模型、工具及推理预算下的策略对照方案，研究任务依赖深度对终态成功率和资源开销的影响；已梳理执行轨迹、独立结果验证与预算核算需求。目前为调研与评测设计阶段，尚不主张完成完整 Agent 框架或取得实测成功率提升。
+
 开发过程中两名成员各自使用 AI 编程助手（Claude Code、GPT 系列），按 `docs/playbook/` 的任务卡逐张实现并留下验收证据（`artifacts/evidence/`）。
 
 ## 1. 业务场景与痛点
@@ -41,14 +43,14 @@
 
 ## 3. 运行方式
 
-环境：Python 3.12（3.13 亦可；实测 3.12.14）、Node 20.19+ 或 22.12+（Vite 8 的要求；实测 22.14）。三个服务都在仓库根目录启动，前端在 `frontend/` 目录。依赖版本钉在 `requirements*.txt`、`agent/requirements.txt` 与 `frontend/package-lock.json`；2026-10-11 02:20 干净克隆按下列命令复现通过（当时 248 项测试；审查修复后为 257 项），`npm ci && npm run build` 通过。
+环境：Python3.12（本轮实测3.12.15）、Node20.19+或22.12+（本轮实测24.21.0）。三个服务都在仓库根目录启动，前端在 `frontend/` 目录。依赖版本钉在 `requirements*.txt`、`agent/requirements.txt` 与 `frontend/package-lock.json`；2026-10-11独立克隆d95c251、新建Python环境并用uv按相同依赖清单安装，275项测试通过；前端npm ci与构建成功，关键浏览器流程通过。实际命令和过程见 [I04验收](artifacts/evidence/I04.md)。
 
 **Windows（PowerShell 或 cmd）**
 ```powershell
 git clone https://github.com/ada-c38f0bb79f/logistics-load-planner.git
 cd logistics-load-planner
 python -m venv .venv
-.venv\Scripts\python.exe -m pip install -r requirements-dev.txt -r agent/requirements.txt
+.venv\Scripts\python.exe -X utf8 -m pip install -r requirements-dev.txt -r agent/requirements.txt
 copy agent\.env.example agent\.env      # 可选：填入 DEEPSEEK_API_KEY；不填则智能体为模板模式
 # 以下三条各开一个终端，前两条在仓库根目录
 .venv\Scripts\python.exe -m uvicorn backend.app:app --host 127.0.0.1 --port 8000

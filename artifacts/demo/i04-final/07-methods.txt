@@ -1,0 +1,375 @@
+- banner:
+  - heading "配载工作台" [level=1]
+  - generic: 案例
+  - combobox "案例":
+    - option "服务案例 c01：1 店 2 箱，正常配送"
+    - option "服务案例 c02：单件尺寸超过车厢"
+    - option "服务案例 c03：时间窗无法到达"
+    - option "服务案例 c07：车辆不足，门店原子分配"
+    - option "服务案例 geometry-22"
+    - option "服务案例 small-11：10 店，种子 11" [selected]
+    - option "服务案例 small-22：10 店，种子 22"
+    - option "服务案例 small-33：10 店，种子 33"
+    - option "服务案例 standard-11：30 店，种子 11"
+    - option "服务案例 standard-22：30 店，种子 22"
+    - option "服务案例 standard-33：30 店，种子 33"
+    - option "服务案例 stress-44：60 店，种子 44"
+    - option "服务案例 time-geometry-22"
+    - option "历史记录：修复成功（small-11 混合箱件，H01 后）"
+    - option "历史记录：部分修复 + 日志截断（small-11，H01 前）"
+    - option "历史记录：预算退出（standard-11，H01 前）"
+    - option "历史记录：未解决（hetero-dev-6，H01 前）"
+    - option "历史记录：无需修复（hetero-long-2）"
+    - option "样例：全部配送"
+    - option "样例：部分配送"
+    - option "样例：求解失败"
+  - text: 导入 JSON
+  - button "导入 JSON"
+  - button "运行求解"
+  - button "对比三种方法"
+  - generic: 求解服务已连接
+  - generic "由求解服务实际计算得到": 真实求解
+  - generic "输入为模拟业务数据，非企业真实数据": 模拟数据
+  - generic "86409fc22e7b49079e2f8fe02256ea24": 运行 86409fc2
+- complementary "车辆与门店":
+  - heading "车辆2 / 4 辆启用" [level=2]:
+    - text: 车辆
+    - generic: 2 / 4 辆启用
+  - listbox "车辆列表":
+    - option "V01 未启用 3 × 1.5 × 1.5 m，载重 1,000 kg":
+      - generic: V01
+      - generic: 未启用
+      - generic: 3 × 1.5 × 1.5 m，载重 1,000 kg
+    - option "V02 5 站，17 箱，360.9 元 08:00 出发，12:46 回仓，130.4 km，载重 170 / 500 kg 1. S06 2. S04 3. S01 4. S03 5. S07" [selected]:
+      - generic: V02
+      - generic: 5 站，17 箱，360.9 元
+      - generic: 08:00 出发，12:46 回仓，130.4 km，载重 170 / 500 kg
+      - generic: 1. S06
+      - generic: 2. S04
+      - generic: 3. S01
+      - generic: 4. S03
+      - generic: 5. S07
+    - option "V03 未启用 3 × 1.5 × 1.5 m，载重 1,000 kg":
+      - generic: V03
+      - generic: 未启用
+      - generic: 3 × 1.5 × 1.5 m，载重 1,000 kg
+    - option "V04 5 站，19 箱，508.3 元 08:00 出发，15:13 回仓，204.2 km，载重 190 / 500 kg 1. S08 2. S02 3. S10 4. S05 5. S09":
+      - generic: V04
+      - generic: 5 站，19 箱，508.3 元
+      - generic: 08:00 出发，15:13 回仓，204.2 km，载重 190 / 500 kg
+      - generic: 1. S08
+      - generic: 2. S02
+      - generic: 3. S10
+      - generic: 4. S05
+      - generic: 5. S09
+  - heading "未配送门店0 / 10" [level=2]:
+    - text: 未配送门店
+    - generic: 0 / 10
+  - paragraph: 所有门店都已安排配送。
+  - heading "案例small-11" [level=2]
+  - table:
+    - rowgroup:
+      - row "门店 10":
+        - rowheader "门店"
+        - cell "10"
+      - row "箱件 36":
+        - rowheader "箱件"
+        - cell "36"
+      - row "仓库出发 08:00":
+        - rowheader "仓库出发"
+        - cell "08:00"
+      - row "车速假设 30km/h":
+        - rowheader "车速假设"
+        - cell "30km/h"
+- main:
+  - group "方案头条指标":
+    - generic: 配送门店
+    - text: "10"
+    - generic: / 10
+    - generic: 100%，36 / 36 箱
+    - generic: 启用车辆
+    - generic: 2辆
+    - generic: 体积利用率 56%，载重 36%
+    - generic: 总费用
+    - generic: 869.2元
+    - generic: 总里程 334.6 km
+    - generic: 准时率
+    - generic: 100%
+    - generic: 卸货阻挡 0 处
+    - generic: 独立校验
+    - generic: 通过
+    - generic: 边界、碰撞、承托、时间窗、卸货均重算
+  - tablist "视图":
+    - tab "车厢装载" [selected]
+    - tab "路线示意"
+  - button "重置视角"
+  - generic "图例":
+    - generic: 后门（x=0），卸货方向
+    - generic: 易碎箱
+    - generic: 颜色 = 到站顺序
+  - generic: 拖动旋转 · 滚轮缩放 · 点击箱件查看
+  - generic "卸货步骤":
+    - generic: 0 / 17已卸
+    - button "重置" [disabled]
+    - button "上一步" [disabled]
+    - button "下一步"
+    - generic: 装货按卸货逆序进行
+    - button "打印作业单"
+    - list:
+      - listitem "500×500×500 mm，10 kg":
+        - generic: "1"
+        - generic: 卸 B022
+        - generic: 第 1 站 S06
+      - listitem "500×500×500 mm，10 kg":
+        - generic: "2"
+        - generic: 卸 B020
+        - generic: 第 1 站 S06
+      - listitem "500×500×500 mm，10 kg":
+        - generic: "3"
+        - generic: 卸 B021
+        - generic: 第 1 站 S06
+      - listitem "500×500×500 mm，10 kg":
+        - generic: "4"
+        - generic: 卸 B015
+        - generic: 第 2 站 S04
+      - listitem "500×500×500 mm，10 kg":
+        - generic: "5"
+        - generic: 卸 B016
+        - generic: 第 2 站 S04
+      - listitem "500×500×500 mm，10 kg":
+        - generic: "6"
+        - generic: 卸 B013
+        - generic: 第 2 站 S04
+      - listitem "500×500×500 mm，10 kg":
+        - generic: "7"
+        - generic: 卸 B014
+        - generic: 第 2 站 S04
+      - listitem "500×500×500 mm，10 kg":
+        - generic: "8"
+        - generic: 卸 B012
+        - generic: 第 2 站 S04
+      - listitem "500×500×500 mm，10 kg":
+        - generic: "9"
+        - generic: 卸 B003
+        - generic: 第 3 站 S01
+      - listitem "500×500×500 mm，10 kg":
+        - generic: "10"
+        - generic: 卸 B001
+        - generic: 第 3 站 S01
+      - listitem "500×500×500 mm，10 kg":
+        - generic: "11"
+        - generic: 卸 B002
+        - generic: 第 3 站 S01
+      - listitem "500×500×500 mm，10 kg":
+        - generic: "12"
+        - generic: 卸 B005
+        - generic: 第 4 站 S03
+      - listitem "500×500×500 mm，10 kg":
+        - generic: "13"
+        - generic: 卸 B006
+        - generic: 第 4 站 S03
+      - listitem "500×500×500 mm，10 kg":
+        - generic: "14"
+        - generic: 卸 B004
+        - generic: 第 4 站 S03
+      - listitem "500×500×500 mm，10 kg":
+        - generic: "15"
+        - generic: 卸 B028
+        - generic: 第 5 站 S07
+      - listitem "500×500×500 mm，10 kg":
+        - generic: "16"
+        - generic: 卸 B026
+        - generic: 第 5 站 S07
+      - listitem "500×500×500 mm，10 kg":
+        - generic: "17"
+        - generic: 卸 B027
+        - generic: 第 5 站 S07
+- complementary "方案详情":
+  - generic: 全部配送
+  - generic: 配载与路线协同，搜索完成，32 ms
+  - heading "方案指标" [level=2]
+  - table:
+    - rowgroup:
+      - row "配送门店 10 / 10100%":
+        - rowheader "配送门店"
+        - cell "10 / 10100%"
+      - row "配送箱件 36 / 36":
+        - rowheader "配送箱件"
+        - cell "36 / 36"
+      - row "启用车辆 2辆":
+        - rowheader "启用车辆"
+        - cell "2辆"
+      - row "总里程 334.6km":
+        - rowheader "总里程"
+        - cell "334.6km"
+      - row "总费用 869.2元":
+        - rowheader "总费用"
+        - cell "869.2元"
+      - row "准时率 100%":
+        - rowheader "准时率"
+        - cell "100%"
+      - row "体积利用率 56%":
+        - rowheader "体积利用率"
+        - cell "56%"
+      - row "载重利用率 36%":
+        - rowheader "载重利用率"
+        - cell "36%"
+      - row "卸货阻挡 0处":
+        - rowheader "卸货阻挡"
+        - cell "0处"
+  - paragraph: 里程按平面直线距离与固定车速换算，不是真实道路测算。
+  - heading "独立校验" [level=2]
+  - generic: 方案通过独立约束校验
+  - heading "三种方法对比" [level=2]
+  - table:
+    - rowgroup:
+      - row "贪心 顺序 协同":
+        - rowheader
+        - cell "贪心":
+          - generic: 贪心
+        - cell "顺序":
+          - generic: 顺序
+        - cell "协同":
+          - generic: 协同
+    - rowgroup:
+      - row "配送门店 10 / 10 10 / 10 10 / 10":
+        - rowheader "配送门店"
+        - cell "10 / 10"
+        - cell "10 / 10"
+        - cell "10 / 10"
+      - row "启用车辆 2 2 2":
+        - rowheader "启用车辆"
+        - cell "2"
+        - cell "2"
+        - cell "2"
+      - row "总费用（元） 912.3 869.2 869.2":
+        - rowheader "总费用（元）"
+        - cell "912.3"
+        - cell "869.2"
+        - cell "869.2"
+      - row "总里程（km） 356.2 334.6 334.6":
+        - rowheader "总里程（km）"
+        - cell "356.2"
+        - cell "334.6"
+        - cell "334.6"
+      - row "体积利用率 56% 56% 56%":
+        - rowheader "体积利用率"
+        - cell "56%"
+        - cell "56%"
+        - cell "56%"
+      - row "独立校验 通过 通过 通过":
+        - rowheader "独立校验"
+        - cell "通过"
+        - cell "通过"
+        - cell "通过"
+      - row "协同修复 — — 未触发":
+        - rowheader "协同修复"
+        - cell "—"
+        - cell "—"
+        - cell "未触发"
+      - row "耗时（ms） 16 16 32":
+        - rowheader "耗时（ms）"
+        - cell "16"
+        - cell "16"
+        - cell "32"
+      - row "查看 查看 查看 正在看":
+        - rowheader "查看"
+        - cell "查看":
+          - button "查看"
+        - cell "查看":
+          - button "查看"
+        - cell "正在看":
+          - button "正在看"
+  - list:
+    - text: 协同相对贪心（简单贪心基线）：
+    - strong: "-4.7%"
+    - text: 协同相对顺序（先路线后装载（不反馈））：
+    - strong: 0.0%
+    - listitem: 费用只在服务门店集合相同且均通过独立校验时比较；所有方法共用同一数据、校验器与时间预算。
+  - button "关闭对比"
+  - heading "协同修复 无需修复" [level=2]:
+    - text: 协同修复
+    - generic: 无需修复
+  - table:
+    - rowgroup:
+      - row "可执行门店 10 / 10 → 10 / 10":
+        - rowheader "可执行门店"
+        - cell "10 / 10 → 10 / 10":
+          - text: 10 / 10 →
+          - strong: 10 / 10
+      - row "尝试 / 采用 0 / 0":
+        - rowheader "尝试 / 采用"
+        - cell "0 / 0"
+      - row "费用 869.2 → 869.2元":
+        - rowheader "费用"
+        - cell "869.2 → 869.2元"
+  - paragraph: 初始方案已全部可执行，协同修复未触发。
+  - heading "V02 行程2 × 1 × 2 m" [level=2]:
+    - text: V02 行程
+    - generic: 2 × 1 × 2 m
+  - table:
+    - rowgroup:
+      - row "门店 到达 开始 时间窗":
+        - rowheader "门店"
+        - cell "到达"
+        - cell "开始"
+        - cell "时间窗"
+    - rowgroup:
+      - row "1. S06 08:42 08:42 07:42–10:42":
+        - rowheader "1. S06"
+        - cell "08:42"
+        - cell "08:42"
+        - cell "07:42–10:42"
+      - row "2. S04 09:13 09:13 08:08–11:08":
+        - rowheader "2. S04"
+        - cell "09:13"
+        - cell "09:13"
+        - cell "08:08–11:08"
+      - row "3. S01 09:50 09:50 08:29–11:29":
+        - rowheader "3. S01"
+        - cell "09:50"
+        - cell "09:50"
+        - cell "08:29–11:29"
+      - row "4. S03 10:02 10:02 08:41–11:41":
+        - rowheader "4. S03"
+        - cell "10:02"
+        - cell "10:02"
+        - cell "08:41–11:41"
+      - row "5. S07 11:02 11:02 11:01–14:01":
+        - rowheader "5. S07"
+        - cell "11:02"
+        - cell "11:02"
+        - cell "11:01–14:01"
+      - row "回仓 12:46":
+        - rowheader "回仓"
+        - cell "12:46"
+  - table:
+    - rowgroup:
+      - row "里程 130.4km":
+        - rowheader "里程"
+        - cell "130.4km"
+      - row "费用 100 + 2 × 130.4 = 360.9元":
+        - rowheader "费用"
+        - cell "100 + 2 × 130.4 = 360.9元"
+      - row "载重 170 / 500kg":
+        - rowheader "载重"
+        - cell "170 / 500kg"
+      - row "体积 53%":
+        - rowheader "体积"
+        - cell "53%"
+  - heading "调度助手 模板模式" [level=2]:
+    - text: 调度助手
+    - generic: 模板模式
+  - generic: 解释当前方案
+  - button "总览"
+  - button "未配送"
+  - button "本车"
+  - button "装卸作业单"
+  - textbox "可选：想问的问题，例如「为什么 S02 没送」"
+  - generic: 用一句话调整约束
+  - textbox "例如：S07 下午两点以后才能收货，V02 不出车": V02 和 V04 今天都不出车
+  - button "解析"
+  - button "S01 最早 9 点半收货"
+  - button "时间预算 20 秒"
+  - button "V02 今天不出车"
+  - button "再加一辆和 V01 一样的车"

@@ -1,6 +1,6 @@
 # 当前事实与接力状态
 更新时间：2026-10-11（收尾复核）
-阶段：已快进同步远端 b8ed551；O01–O04、H01 已有提交和证据。H02 校验器 B1/B2 已本地修复并验收，尚未提交/push。I04 收尾进行中，未正式冻结或提交。见 `artifacts/evidence/H02.md`、`artifacts/evidence/I04.md`。
+阶段：已快进同步远端 b8ed551；O01–O04、H01 已有提交和证据。H02已提交d95c251，I04独立环境与浏览器验收完成。本轮授权推送GitHub；正式问卷未提交，队友资料与评审访问待团队处理。见 `artifacts/evidence/H02.md`、`artifacts/evidence/I04.md`。
 
 ## 已确定的事实
 - 比赛窗口：英国时间 2026-10-10 11:00 开始，**2026-10-12 11:00 截止**（北京时间 10-12 18:00）。内部冻结 10-12 07:30，提交 09:30。提交渠道以赛事通知为准。
@@ -16,13 +16,13 @@
 - 历史规划材料本身不是运行证据；现有实现、实验与联调以 board 和下方接力记录中的证据为准。尚未据此完成官方提交。
 
 ## 下一步
-- 主线：B1/B2 已修复；8/8 有效篡改 CAUGHT，275 项后端/智能体测试通过，前端构建成功，205 份历史输出重新通过校验。后续只修阻断，不继续扩大算法或界面功能；待用户安排提交本地改动及最终冻结。
-- 前端/智能体线：O04、易用性四项、审查修复已有提交及证据，本轮测试/构建复跑通过。最终浏览器演示及团队信息仍需收尾。
+- 主线：B1/B2 已修复；8/8 有效篡改 CAUGHT，275 项后端/智能体测试通过，前端构建成功，205 份历史输出重新通过校验。后续只修阻断，不继续扩大算法或界面功能；I04运行代码候选d95c251已通过独立环境复现，本轮交付GitHub。
+- 前端/智能体线：O04、易用性四项、审查修复已有提交及证据，本轮测试/构建复跑通过。最终浏览器演示已通过；胡嘉乐简介已补，队友信息由其本人填写。
 - 任何一方改 docs/playbook 规格先写 CHANGES.md。
 
 ## 尚待用户提供
 - 队名、成员介绍（README「团队」表占位）。
-- 赛事通知原文（提交渠道）。
+- 提交渠道已核实：https://v.wjx.cn/vm/rmEuv50.aspx，用户要求本轮暂不提交。
 - 真实模型调用此前已有验收；换机器时需另行配置本机 `agent/.env`（不入库），模板模式不依赖密钥。
 
 ## 接力记录（完成任务后追加）
@@ -60,3 +60,5 @@
 - 2026-10-11 / 前端易用性四项 / 本方 / KpiRow、CargoView 动画、useMethodCompare+MethodCompare、worksheet.ts（提交 f17aeda、3525c48、3e9cf8c、7951368）/ tsc+build 每项通过；浏览器自动化：对比表 small-11 三法数值、动画、作业单 17 行 + 截图 / artifacts/evidence/UI-polish.md、artifacts/demo/ui/ / 下一步 README/演示脚本同步新功能，等主线 I04 / 无阻塞。
 - 2026-10-11 / 材料同步 / 本方 / README（核心方案含分区配载与逐店恢复、5.2 冲突实验、5.3 混合箱件实验、5.4 智能体含修复事实、5.5 端到端含面板/对比/作业单、限制）、docs/limitations.md、demo-script.md（第 3 段改为 geometry-22 修复演示、第 4 段加三法对比）、architecture.md / 全量 248 测试通过、check_playbook 通过、引用路径逐一存在 / — / 下一步 等主线 I04；用户补团队信息 / 无阻塞。
 - 2026-10-10 晚 / 只读审查修复（GPT 审查基准 d9b7ebc） / 本方 / agent/grounding.py rules.py interpret.py templates.py timeparse.py + 9 条回归测试；frontend App.tsx KpiRow SidePanel VehicleRail RouteMap derive.ts format.ts worksheet.ts styles.css；README、architecture、limitations、demo-script、submission-checklist、AGENT_CONTRACT；artifacts/probes/validator_tamper_probe.py、artifacts/evidence/review-fixes.md、artifacts/demo/flow-standard-11/ / `pytest -q tests agent/tests` 257 passed；`npm run build` 通过（主包 394 kB + 3D 分包 950 kB）；真实 DeepSeek 在 standard-11 / geometry-22 上解释与指令复测通过；浏览器自动化：快照回放同源、1366×768、三法对比、作业单、五种修复状态回归无误 / artifacts/evidence/review-fixes.md / 下一步：**主线修 B1/B2**（独立校验器对篡改型结果漏检，探针 `artifacts/probes/validator_tamper_probe.py` 当前 5/8 LEAK，修法见 probes/README 探针 3），修后在提交清单勾选；用户补 README 团队表；I04 冻结验收 / 阻塞：B1/B2 归主线。
+
+- 2026-10-11 / H02、I04技术交付 / 主线 / d95c251校验器、本轮材料 / 独立环境275测试、8/8篡改探针、npm ci/build成功；浏览器求解、人工确认、费用比较、修复回放、不可配送及三法比较通过，error日志为空 / artifacts/evidence/I04.md、artifacts/demo/i04-final/ / 下一步队友补资料、仓主核对访问；正式问卷本轮不提交。

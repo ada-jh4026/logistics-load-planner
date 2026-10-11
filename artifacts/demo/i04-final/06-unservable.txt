@@ -1,0 +1,169 @@
+- banner:
+  - heading "配载工作台" [level=1]
+  - generic: 案例
+  - combobox "案例":
+    - option "服务案例 c01：1 店 2 箱，正常配送"
+    - option "服务案例 c02：单件尺寸超过车厢" [selected]
+    - option "服务案例 c03：时间窗无法到达"
+    - option "服务案例 c07：车辆不足，门店原子分配"
+    - option "服务案例 geometry-22"
+    - option "服务案例 small-11：10 店，种子 11"
+    - option "服务案例 small-22：10 店，种子 22"
+    - option "服务案例 small-33：10 店，种子 33"
+    - option "服务案例 standard-11：30 店，种子 11"
+    - option "服务案例 standard-22：30 店，种子 22"
+    - option "服务案例 standard-33：30 店，种子 33"
+    - option "服务案例 stress-44：60 店，种子 44"
+    - option "服务案例 time-geometry-22"
+    - option "历史记录：修复成功（small-11 混合箱件，H01 后）"
+    - option "历史记录：部分修复 + 日志截断（small-11，H01 前）"
+    - option "历史记录：预算退出（standard-11，H01 前）"
+    - option "历史记录：未解决（hetero-dev-6，H01 前）"
+    - option "历史记录：无需修复（hetero-long-2）"
+    - option "样例：全部配送"
+    - option "样例：部分配送"
+    - option "样例：求解失败"
+  - text: 导入 JSON
+  - button "导入 JSON"
+  - button "运行求解"
+  - button "对比三种方法"
+  - generic: 求解服务已连接
+  - generic "由求解服务实际计算得到": 真实求解
+  - generic "输入为模拟业务数据，非企业真实数据": 模拟数据
+  - generic "0c9dcc2f6a38434e80a20878078e7028": 运行 0c9dcc2f
+- complementary "车辆与门店":
+  - heading "车辆0 / 1 辆启用" [level=2]:
+    - text: 车辆
+    - generic: 0 / 1 辆启用
+  - listbox "车辆列表":
+    - option "V01 未启用 2 × 1 × 2 m，载重 500 kg" [selected]:
+      - generic: V01
+      - generic: 未启用
+      - generic: 2 × 1 × 2 m，载重 500 kg
+  - heading "未配送门店1 / 1" [level=2]:
+    - text: 未配送门店
+    - generic: 1 / 1
+  - strong: S01
+  - text: ，1 箱：箱件尺寸超过所有车厢
+  - paragraph: 协同修复后仍未找到可行分配
+  - heading "案例c02" [level=2]
+  - table:
+    - rowgroup:
+      - row "门店 1":
+        - rowheader "门店"
+        - cell "1"
+      - row "箱件 1":
+        - rowheader "箱件"
+        - cell "1"
+      - row "仓库出发 08:00":
+        - rowheader "仓库出发"
+        - cell "08:00"
+      - row "车速假设 30km/h":
+        - rowheader "车速假设"
+        - cell "30km/h"
+- main:
+  - group "方案头条指标":
+    - generic: 配送门店
+    - text: "0"
+    - generic: / 1
+    - generic: 0%，0 / 1 箱
+    - generic: 启用车辆
+    - generic: 0辆
+    - generic: 体积利用率 —，载重 —
+    - generic: 总费用
+    - generic: 0元
+    - generic: 总里程 0 km
+    - generic: 准时率
+    - generic: —
+    - generic: 卸货阻挡 0 处
+    - generic: 独立校验
+    - generic: 通过
+    - generic: 边界、碰撞、承托、时间窗、卸货均重算
+  - tablist "视图":
+    - tab "车厢装载" [selected]
+    - tab "路线示意"
+  - button "重置视角"
+  - generic "图例":
+    - generic: 后门（x=0），卸货方向
+    - generic: 易碎箱
+    - generic: 颜色 = 到站顺序
+    - generic: 该车未启用，车厢为空
+  - generic: 拖动旋转 · 滚轮缩放 · 点击箱件查看
+  - generic: —
+  - paragraph: 选择一辆已启用的车辆查看卸货步骤。
+- complementary "方案详情":
+  - generic: 部分配送
+  - generic: 配载与路线协同，搜索完成
+  - heading "方案指标" [level=2]
+  - table:
+    - rowgroup:
+      - row "配送门店 0 / 10%":
+        - rowheader "配送门店"
+        - cell "0 / 10%"
+      - row "配送箱件 0 / 1":
+        - rowheader "配送箱件"
+        - cell "0 / 1"
+      - row "启用车辆 0辆":
+        - rowheader "启用车辆"
+        - cell "0辆"
+      - row "总里程 0km":
+        - rowheader "总里程"
+        - cell "0km"
+      - row "总费用 0元":
+        - rowheader "总费用"
+        - cell "0元"
+      - row "准时率 —":
+        - rowheader "准时率"
+        - cell "—"
+      - row "体积利用率 —":
+        - rowheader "体积利用率"
+        - cell "—"
+      - row "载重利用率 —":
+        - rowheader "载重利用率"
+        - cell "—"
+      - row "卸货阻挡 0处":
+        - rowheader "卸货阻挡"
+        - cell "0处"
+  - paragraph: 里程按平面直线距离与固定车速换算，不是真实道路测算。
+  - heading "独立校验" [level=2]
+  - generic: 方案通过独立约束校验
+  - heading "协同修复 未解决" [level=2]:
+    - text: 协同修复
+    - generic: 未解决
+  - table:
+    - rowgroup:
+      - row "可执行门店 0 / 1 → 0 / 1":
+        - rowheader "可执行门店"
+        - cell "0 / 1 → 0 / 1":
+          - text: 0 / 1 →
+          - strong: 0 / 1
+      - row "尝试 / 采用 1 / 0":
+        - rowheader "尝试 / 采用"
+        - cell "1 / 0"
+      - row "费用 0 → 0元":
+        - rowheader "费用"
+        - cell "0 → 0元"
+  - paragraph: 检查了 1 个候选，没有一个通过完整校验并改善方案；方案保持初始状态。
+  - generic: 过程
+  - button "显示 1 条被拒尝试"
+  - list:
+    - button "发现冲突 · 装载失败 车辆 V01 装载失败：S01 单件超过车厢":
+      - generic: 发现冲突 · 装载失败
+      - generic: 车辆 V01 装载失败：S01
+      - generic: 单件超过车厢
+  - heading "调度助手 模板模式" [level=2]:
+    - text: 调度助手
+    - generic: 模板模式
+  - generic: 解释当前方案
+  - button "总览"
+  - button "未配送"
+  - button "本车"
+  - button "装卸作业单"
+  - textbox "可选：想问的问题，例如「为什么 S02 没送」"
+  - generic: 用一句话调整约束
+  - textbox "例如：S07 下午两点以后才能收货，V02 不出车": V02 和 V04 今天都不出车
+  - button "解析"
+  - button "S01 最早 9 点半收货"
+  - button "时间预算 20 秒"
+  - button "V02 今天不出车"
+  - button "再加一辆和 V01 一样的车"

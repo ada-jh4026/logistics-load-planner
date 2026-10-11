@@ -440,7 +440,7 @@
         "I03"
       ],
       "estimate_minutes": 60,
-      "status": "in_progress",
+      "status": "done",
       "owner": "主线（Codex）",
       "evidence": [
         "artifacts/evidence/I04.md"

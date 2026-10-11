@@ -6,7 +6,7 @@
 
 | 编号 | 审查结论 | 复现 | 处理 | 提交 |
 |---|---|---|---|---|
-| B1 / B2 | 独立校验器：placements + unload_steps 同时清空、里程 / 费用改写、时刻清零、stops 顺序错位均不报违规 | 复现：`artifacts/probes/validator_tamper_probe.py` 8 条篡改 5 条 LEAK | **归主线**。探针 + 修法建议写在 `artifacts/probes/README.md` 探针 3 | 2ad0589 |
+| B1 / B2 | 独立校验器：placements + unload_steps 同时清空、里程 / 费用改写、时刻清零、stops 顺序错位均不报违规 | 复现：`artifacts/probes/validator_tamper_probe.py` 8 条篡改 5 条 LEAK（其中 B2d 在单站 c01 上并未真正换序，主线改为 small-11 多站） | 归主线：探针 + 修法建议写在 `artifacts/probes/README.md` 探针 3；**主线已于 d95c251 修复**（`artifacts/evidence/H02.md`），本方 2026-10-11 在干净克隆复跑探针 8/8 CAUGHT、205 份历史结果复审通过 | 2ad0589 → d95c251 |
 | B3 | 数字核对可被绕过：紧邻中文的数字、中文数字、万 / 亿倍率、推算合计、借用全局总费用描述单车 | 复现：FakeLLM 注入五句均 `passed=true` | `agent/grounding.py` 重写提取与匹配范围（见下）；README / limitations / architecture / AGENT_CONTRACT / 页面提示改口径 | b6978a0 |
 | I1 | 快照回放混用：KPI / 指标 / 校验 / 未配送是最终方案，车辆栏和 3D 是快照，路线图非选中车是最终路线 | 复现：geometry-22 修复前快照 KPI 仍 2 店 146 元、车辆栏 0 辆 | 整个工作台改读事件的 routes + metrics；未配送按快照路线推导；校验格改说明；横幅加关闭 | 5eb1002 |
 | I2 | 演示脚本点 V01（未启用）；旁白数字来自 small-11；引用仓库外脚本 | 复现：standard-11 移除 V02 为 0.0% | 脚本按今晚 standard-11 真实运行重写：V02；「V02 和 V04 今天都不出车」+2.5% | c1a277a |
@@ -56,8 +56,12 @@ geometry-22 真实求解 → 采用事件 → 「查看修复前布局」：
 
 截图：`artifacts/demo/repair/10-snapshot-before-unified.png`、`11-snapshot-before-map.png`。历史记录五种状态与三法对比、作业单回归脚本均通过，控制台无错误。
 
+## 收尾复核（2026-10-11 18:00 英国时间，合并主线 1c11e1c 后）
+
+- 干净克隆 `1c11e1c`：新建 venv → `pip install` → `pip check` 无冲突 → `pytest tests agent/tests` 275 passed → 探针 8/8 CAUGHT → `npm ci && npm run build` 通过。
+- 本地三服务重启到合并后代码：small-11 / standard-11 / stress-44 / geometry-22 / time-geometry-22 / c02 / c07 求解全部通过新校验器；浏览器流程（standard-11 指令确认重算、geometry-22 快照回放）复跑通过。
+
 ## 未做
 
-- B1/B2 的修复本身（主线）。
-- 团队信息（用户）。
+- 团队信息中本方成员一栏（用户本人填写）与队名。
 - 录屏。

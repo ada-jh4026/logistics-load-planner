@@ -11,7 +11,7 @@
 | 前端、智能体、文档与提交 | （由该成员本人填写） | （由该成员本人填写） |
 | 求解器后端、数据与实验 | 胡嘉乐 | 帝国理工学院 MSc Environmental Data Science and Machine Learning 在读；软件工程本科背景，具备 Python/PyTorch、机器学习实验与后端开发经验，曾在广东省医学影像重点实验室参与医学图像分割、中文健康文本分类及工业视觉项目。数次获美国大学生数学建模竞赛 Meritorious Winner、全国大学生数学建模竞赛广东省一等奖，粤港澳大湾区金融数学建模金奖。 |
 
-胡嘉乐：[GitHub](https://github.com/ada-c38f0bb79f) · [个人博客](https://carlossqaq.github.io)。成员介绍侧重与本作品相关的经历，完整个人简历不作为运行或评审的必要附件。队友姓名与介绍由其本人补充。
+胡嘉乐：[GitHub](https://github.com/ada-c38f0bb79f) · [个人博客](https://ada-c38f0bb79f.github.io/)。
 
 相关研究经历：**LLM Agent 规划策略与可靠性评测研究（进行中）**。调研 ReAct、ADaPT、Reflexion 与 Plan-and-Solve，设计固定模型、工具及推理预算下的策略对照方案，研究任务依赖深度对终态成功率和资源开销的影响；已梳理执行轨迹、独立结果验证与预算核算需求。目前为调研与评测设计阶段，尚不主张完成完整 Agent 框架或取得实测成功率提升。
 
